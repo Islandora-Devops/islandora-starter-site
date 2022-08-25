@@ -1,0 +1,11 @@
+_core:
+  default_config_hash: XgeYJpPmZIOwE_nA73tYvFw-Rcj-HtlbNwfktqSVsaQ
+broker_url: 'tcp://127.0.0.1:61613'
+jwt_expiry: '+2 hour'
+gemini_url: ''
+gemini_pseudo_bundles:
+  - 'islandora_object:node'
+  - 'image:media'
+  - 'file:media'
+  - 'audio:media'
+  - 'video:media'

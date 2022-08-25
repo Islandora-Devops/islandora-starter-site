@@ -1,0 +1,49 @@
+uuid: a936e30e-a520-47c8-a872-ee479fda3493
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.members
+  module:
+    - islandora
+    - views
+  enforced:
+    module:
+      - islandora_defaults
+_core:
+  default_config_hash: vH6Z5udf5Ab9cLW3Zl2-6VCbT0hagmZfalNjb654KVs
+name: collection
+label: Collection
+group: Display
+description: 'Display block of children'
+requireAllConditions: false
+disabled: false
+conditions:
+  node_has_term:
+    id: node_has_term
+    negate: 0
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection'
+    logic: and
+reactions:
+  blocks:
+    blocks:
+      41f1d520-14ae-479e-90d2-34aa6f4a750e:
+        id: 'views_block:members-block_1'
+        label: ''
+        label_display: visible
+        provider: views
+        views_label: ''
+        items_per_page: none
+        region: content_suffix
+        weight: '0'
+        context_mapping: {  }
+        theme: bartik
+        css_class: ''
+        unique: 0
+        context_id: collection
+    id: blocks
+    saved: false
+    include_default_blocks: 1
+weight: 1
