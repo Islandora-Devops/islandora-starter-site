@@ -14,7 +14,7 @@ migration_group: islandora
 label: 'Tags migration for islandora_defaults feature'
 source:
   plugin: csv
-  path: ../migrate/tags.csv
+  path: ../assets/migrate/tags.csv
   header_row_count: 1
   ids:
     - external_uri
