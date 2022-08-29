@@ -59,25 +59,25 @@ bundle: islandora_object
 mode: teaser
 content:
   display_media_thumbnail:
+    settings: {  }
+    third_party_settings: {  }
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
   field_gemini_uri:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
   islandora_fits_checksum:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
   links:
-    weight: 1
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   display_media_entity_view_1: true
   display_media_entity_view_2: true

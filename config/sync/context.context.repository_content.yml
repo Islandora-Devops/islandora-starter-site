@@ -7,8 +7,8 @@ dependencies:
     - node
 _core:
   default_config_hash: o5KHcnyibXt-7SXqNpNyHTd8qYFOrDh1bk5I4aQo91Y
-name: repository_content
 label: Content
+name: repository_content
 group: Indexing
 description: 'All repository content'
 requireAllConditions: false
@@ -16,11 +16,11 @@ disabled: false
 conditions:
   node_type:
     id: node_type
-    bundles:
-      islandora_object: islandora_object
-    negate: 0
+    negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      islandora_object: islandora_object
 reactions:
   index:
     id: index
