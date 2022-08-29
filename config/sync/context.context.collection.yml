@@ -7,9 +7,6 @@ dependencies:
   module:
     - islandora
     - views
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: vH6Z5udf5Ab9cLW3Zl2-6VCbT0hagmZfalNjb654KVs
 name: collection

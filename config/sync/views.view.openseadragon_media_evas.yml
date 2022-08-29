@@ -9,9 +9,6 @@ dependencies:
     - media
     - taxonomy
     - user
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: 6dcIYp8_I6h0fnEv2fCxmtimKI8NFbqhXwHXu79sPq4
 id: openseadragon_media_evas

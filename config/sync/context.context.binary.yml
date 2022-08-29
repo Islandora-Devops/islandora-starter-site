@@ -4,9 +4,6 @@ status: true
 dependencies:
   module:
     - islandora
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: oGkVaBYKYomHuP2Z9rfQhrLtOz__N6ss2_GoosejYLk
 name: binary

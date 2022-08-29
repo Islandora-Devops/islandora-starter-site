@@ -6,9 +6,6 @@ dependencies:
     - node.type.islandora_object
   module:
     - node
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: n81NhKrT4b0VmaCadxopeFtLeGA_lb-Nu4cWADb4zV4
 id: node.islandora_object

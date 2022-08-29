@@ -54,9 +54,6 @@ dependencies:
     - geolocation
     - path
     - text
-  enforced:
-    module:
-      - islandora_defaults
 third_party_settings:
   field_group:
     group_structure:

@@ -6,9 +6,6 @@ dependencies:
     - field.storage.node.field_model
     - node.type.islandora_object
     - taxonomy.vocabulary.islandora_models
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: Tqe4AiBzEnYEq7MLccObJrLZvb8AVjv0GLZlM1pcxpo
 id: node.islandora_object.field_model

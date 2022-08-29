@@ -9,9 +9,6 @@ dependencies:
     - media
     - taxonomy
     - user
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: wBeEoQFRFbqZtU07QYIr5OC5beMvPIe9GBuW9vjb_9s
 id: pdfjs_media_evas

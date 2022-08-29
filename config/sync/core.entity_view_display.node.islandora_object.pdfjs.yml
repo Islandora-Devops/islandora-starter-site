@@ -54,9 +54,6 @@ dependencies:
     - geolocation
     - text
     - user
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: '-Vv4WbpVPAiJnQKMrjkVm2ZOUkPsp6kZJUfH_mPD6RQ'
 id: node.islandora_object.pdfjs

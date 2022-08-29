@@ -5,9 +5,6 @@ dependencies:
   module:
     - islandora
     - node
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: o5KHcnyibXt-7SXqNpNyHTd8qYFOrDh1bk5I4aQo91Y
 name: repository_content

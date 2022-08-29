@@ -5,9 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_member_of
     - node.type.islandora_object
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: pZJl3qsYONb8CqMy4xwlCFhZxlo6FGXrNZfaEGI8vj8
 id: node.islandora_object.field_member_of

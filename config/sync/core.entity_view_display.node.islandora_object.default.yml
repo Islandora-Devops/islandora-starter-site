@@ -53,9 +53,6 @@ dependencies:
     - geolocation
     - text
     - user
-  enforced:
-    module:
-      - islandora_defaults
 _core:
   default_config_hash: 7nAsgKpklfcldz5UjF5QnwGQqa2f2zypALWMvnJ8PeI
 id: node.islandora_object.default
