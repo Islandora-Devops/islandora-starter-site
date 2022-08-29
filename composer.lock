@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c52e751fde9668fd3df80e66b89b2852",
+    "content-hash": "a1b6d4f69306786999eb069b9e8dc94a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5107,45 +5107,6 @@
                 "source": "https://github.com/Islandora/islandora/tree/2.4.1"
             },
             "time": "2022-07-21T15:09:03+00:00"
-        },
-        {
-            "name": "islandora/islandora_defaults",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Islandora/islandora_defaults.git",
-                "reference": "641e5b88dcb1ad92dd2feda82bad8a661cb46a42"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/islandora_defaults/zipball/641e5b88dcb1ad92dd2feda82bad8a661cb46a42",
-                "reference": "641e5b88dcb1ad92dd2feda82bad8a661cb46a42",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/field_group": "^3.0",
-                "drupal/field_permissions": "^1.0",
-                "drupal/pdf": "^1.1",
-                "islandora/controlled_access_terms": "^2",
-                "islandora/islandora": "^2",
-                "islandora/openseadragon": "^2"
-            },
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "Islandora Defaults",
-            "homepage": "https://github.com/Islandora/islandora_defaults",
-            "keywords": [
-                "Islandora",
-                "drupal"
-            ],
-            "support": {
-                "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/islandora_defaults/tree/2.1.1"
-            },
-            "time": "2022-06-15T13:00:19+00:00"
         },
         {
             "name": "islandora/jsonld",

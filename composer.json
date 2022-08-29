@@ -21,6 +21,8 @@
         "drupal/core-recommended": "^9.4",
         "drupal/devel": "^4.0",
         "drupal/facets": "^2",
+        "drupal/field_group": "^3",
+        "drupal/field_permissions": "^1",
         "drupal/flysystem": "^2.0@alpha",
         "drupal/matomo": "^1.19",
         "drupal/pdf": "^1.1",
@@ -30,8 +32,8 @@
         "drupal/transliterate_filenames": "^2.0",
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x",
+        "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2.4",
-        "islandora/islandora_defaults": "^2.1",
         "islandora/openseadragon": "^2"
     },
     "conflict": {
