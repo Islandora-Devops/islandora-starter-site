@@ -53,6 +53,13 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/settings.php": {
+                    "mode": "replace",
+                    "path": "[web-root]/core/assets/scaffold/default.settings.php",
+                    "overwrite": false
+                }
             }
         },
         "installer-paths": {
@@ -84,5 +91,10 @@
                 "type:drupal-custom-theme"
             ]
         }
+    },
+    "scripts": {
+        "post-drupal-scaffold-cmd": [
+            "cd web && patch -p1 < ../assets/patches/default_settings.php"
+        ]
     }
 }
