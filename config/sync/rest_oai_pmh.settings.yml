@@ -11,6 +11,16 @@ repository_name: 'Islandora 8'
 repository_email: admin@example.com
 expiration: '3600'
 metadata_map_plugins:
-  oai_raw: ''
-  oai_dc: dublin_core_rdf
+  -
+    label: oai_dc
+    value: dublin_core_rdf
+  -
+    label: mods
+    value: ''
+  -
+    label: oai_raw
+    value: ''
 cache_technique: liberal_cache
+mods_view:
+  view_machine_name: ''
+  view_display_name: ''
