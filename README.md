@@ -41,8 +41,20 @@ Base configuration and module suite for a starter site.
     composer exec -- drush site:install --existing-config
     ```
 
-4. Run the migrations in the `islandora` migration group to populate the base
-    taxonomies.
+4. Add (or otherwise create) a user to the `fedoraadmin` role; for example,
+giving the default `admin` user the role:
+
+    ```bash
+    composer exec -- drush user:role:add fedoraadmin admin
+    ```
+
+5. Run the migrations in the `islandora` migration group to populate the base
+taxonomies, specifying the `--userid` targeting the user with the `fedoraadmin`
+role:
+
+    ```bash
+    composer exec -- drush migrate:import --userid=1 islandora_tags,islandora_defaults_tags
+    ```
 
 This should get you a starter Islandora site with:
 
