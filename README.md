@@ -2,6 +2,8 @@
 
 Base configuration and module suite for a starter site.
 
+Your mileage may vary. Depending on your particular use case some of the Islandora prerequisites may not be needed. If you do not need Fedora, Cantaloupe or otherwise you can skip their installation and configuration. Note that this may leave behind additional configuration that should be removed. This is left as an exercise for the site admin as documenting such advanced usage is beyond the scope of this document.
+
 ## Pre-requisites
 
 1. Database installation/configuration for Drupal to use
