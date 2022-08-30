@@ -56,9 +56,9 @@
             },
             "file-mapping": {
                 "[web-root]/sites/default/settings.php": {
-                    "mode": "replace",
-                    "path": "web/core/assets/scaffold/files/default.settings.php",
-                    "overwrite": false
+                    "mode": "append",
+                    "default": "web/core/assets/scaffold/files/default.settings.php",
+                    "append": "assets/patches/default_settings.txt"
                 }
             }
         },
@@ -91,10 +91,5 @@
                 "type:drupal-custom-theme"
             ]
         }
-    },
-    "scripts": {
-        "post-drupal-scaffold-cmd": [
-            "patch -p1 < assets/patches/default_settings.patch"
-        ]
     }
 }
