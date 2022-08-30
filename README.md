@@ -19,6 +19,9 @@ beyond the scope of this document.
 
 1. PHP and [Composer](https://getcomposer.org/) installed
 2. Database installation/configuration [for Drupal](https://www.drupal.org/docs/system-requirements/database-server-requirements)
+   * Drivers for MySQL/MariaDB/Percona (`mysql`), PostgreSQL (`pgsql`), and
+SQLite (`sqlite`) are installed. Using other (contrib) drivers would require
+additional installation/configuration steps outside the scope of this document.
 3. [Fedora Commons (FCRepo)](https://github.com/fcrepo/fcrepo) installation
    1. [Syn](https://github.com/Islandora/Syn/) installed and configured with a
 key.
