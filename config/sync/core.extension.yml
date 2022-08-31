@@ -42,7 +42,6 @@ module:
   image: 0
   islandora: 0
   islandora_audio: 0
-  islandora_breadcrumbs: 0
   islandora_core_feature: 0
   islandora_iiif: 0
   islandora_image: 0
@@ -54,7 +53,6 @@ module:
   key: 0
   language: 0
   link: 0
-  matomo: 0
   media: 0
   menu_link_content: 0
   menu_ui: 0
@@ -72,16 +70,13 @@ module:
   pgsql: 0
   prepopulate: 0
   rdf: 0
-  responsive_image: 0
   rest: 0
   rest_oai_pmh: 0
-  restui: 0
   search_api: 0
   search_api_solr: 0
   serialization: 0
   shortcut: 0
   sqlite: 0
-  syslog: 0
   system: 0
   taxonomy: 0
   text: 0

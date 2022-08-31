@@ -8,7 +8,6 @@ dependencies:
     - comment
     - contact
     - filter
-    - matomo
     - media
     - shortcut
     - system
@@ -23,7 +22,6 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'skip comment approval'
   - 'use text format basic_html'
