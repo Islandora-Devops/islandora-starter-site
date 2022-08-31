@@ -29,7 +29,7 @@ key.
 5. Cantaloupe installation
    1. `http://127.0.0.1:8080/cantaloupe/iiif/2` is expected to be resolvable,
 and to accept full URLs as resource IDs.
-6. ActiveMQ/Alpaca/Crayfish/Crayfits installation
+6. ActiveMQ/Alpaca/Crayfish installation
    1. ActiveMQ expected to be listening for STOMP messages at `tcp://127.0.0.1:61613`
    2. Queues (and underlying (micro)services) configured appropriately:
 
@@ -39,7 +39,6 @@ and to accept full URLs as resource IDs.
         | `islandora-indexing-fcrepo-delete`        | FCRepo indexer                                             |
         | `islandora-indexing-triplestore-delete`   | Triplestore indexer                                        |
         | `islandora-connector-houdini`             | Houdini (Crayfish imagemagick transformation microservice) |
-        | `islandora-connector-fits`                | Crayfits                                                   |
         | `islandora-connector-ocr`                 | Hypercube (Crayfish OCR microservice)                      |
         | `islandora-indexing-fcrepo-file-external` | FCRepo indexer                                             |
         | `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
