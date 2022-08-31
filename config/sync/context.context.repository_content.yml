@@ -14,9 +14,10 @@ description: 'All repository content'
 requireAllConditions: false
 disabled: false
 conditions:
-  node_type:
-    id: node_type
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 7af35e72-8ab3-4b72-bc27-c0296fa25ff3
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
