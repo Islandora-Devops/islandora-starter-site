@@ -37,7 +37,8 @@
         "islandora/openseadragon": "^2"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "drupal/core": "<=8"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
