@@ -10,40 +10,40 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.allowed_failure }}
+    continue-on-error: ${{ matrix.allowed_failures }}
     strategy:
       fail-fast: false
       matrix:
         php-versions: [ 7.4, 8.0, 8.1 ]
         allowed_failures: [ false ]
 
-  name: PHP ${{ matrix.php-versions }}
+    name: PHP ${{ matrix.php-versions }}
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-versions }}
-        tools: composer:v2
-    # From https://github.com/shivammathur/setup-php#cache-composer-dependencies
-    - name: Get composer cache directory
-      id: composer-cache
-      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: ${{ steps.composer-cache.outputs.dir }}
-        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-        restore-keys: ${{ runner.os }}-composer-
-    - name: Install dependencies
-      run: composer install
-    - name: Test site installation
-      run: composer exec -- drush site:install --existing-config --db-url=sqlite:test_db
-    - name: Inspect configuration
-      # Just warnings, for now...
-      continue-on-error: true
-      run: |
-        composer exec -- drush en config_inspector
-        composer exec -- drush config:inspect --only-errors --detail
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          tools: composer:v2
+      # From https://github.com/shivammathur/setup-php#cache-composer-dependencies
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install dependencies
+        run: composer install
+      - name: Test site installation
+        run: composer exec -- drush site:install --existing-config --db-url=sqlite:test_db
+      - name: Inspect configuration
+        # Just warnings, for now...
+        continue-on-error: true
+        run: |
+          composer exec -- drush en config_inspector
+          composer exec -- drush config:inspect --only-errors --detail
