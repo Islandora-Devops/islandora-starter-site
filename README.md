@@ -19,31 +19,32 @@ beyond the scope of this document.
 
 1. PHP and [Composer](https://getcomposer.org/) installed
 2. Database installation/configuration [for Drupal](https://www.drupal.org/docs/system-requirements/database-server-requirements)
-   * Drivers for MySQL/MariaDB/Percona (`mysql`), PostgreSQL (`pgsql`), and
+    * Drivers for MySQL/MariaDB/Percona (`mysql`), PostgreSQL (`pgsql`), and
 SQLite (`sqlite`) are installed. Using other (contrib) drivers would require
 additional installation/configuration steps outside the scope of this document.
 3. [Fedora Commons (FCRepo)](https://github.com/fcrepo/fcrepo) installation
-   1. [Syn](https://github.com/Islandora/Syn/) installed and configured with a
+    1. [Syn](https://github.com/Islandora/Syn/) installed and configured with a
 key.
 4. Triplestore installation
 5. Cantaloupe installation
-   1. `http://127.0.0.1:8080/cantaloupe/iiif/2` is expected to be resolvable,
+    1. `http://127.0.0.1:8080/cantaloupe/iiif/2` is expected to be resolvable,
 and to accept full URLs as resource IDs.
 6. ActiveMQ/Alpaca/Crayfish installation
-   1. ActiveMQ expected to be listening for STOMP messages at `tcp://127.0.0.1:61613`
-   2. Queues (and underlying (micro)services) configured appropriately:
+    1. ActiveMQ expected to be listening for STOMP messages at `tcp://127.0.0.1:61613`
+    2. Queues (and underlying (micro)services) configured appropriately:
 
-        | Queue Name                                | Destination                                                |
-        |-------------------------------------------|------------------------------------------------------------|
-        | `islandora-connector-homarus`             | Homarus (Crayfish ffmpeg transcoding microservice)         |
-        | `islandora-indexing-fcrepo-delete`        | FCRepo indexer                                             |
-        | `islandora-indexing-triplestore-delete`   | Triplestore indexer                                        |
-        | `islandora-connector-houdini`             | Houdini (Crayfish imagemagick transformation microservice) |
-        | `islandora-connector-ocr`                 | Hypercube (Crayfish OCR microservice)                      |
-        | `islandora-indexing-fcrepo-file-external` | FCRepo indexer                                             |
-        | `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
-        | `islandora-indexing-triplestore-index`    | Triplestore indexer                                        |
-        | `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
+| Queue Name                                | Destination                                                |
+|-------------------------------------------|------------------------------------------------------------|
+| `islandora-connector-homarus`             | Homarus (Crayfish ffmpeg transcoding microservice)         |
+| `islandora-indexing-fcrepo-delete`        | FCRepo indexer                                             |
+| `islandora-indexing-triplestore-delete`   | Triplestore indexer                                        |
+ | `islandora-connector-houdini`             | Houdini (Crayfish imagemagick transformation microservice) |
+ | `islandora-connector-ocr`                 | Hypercube (Crayfish OCR microservice)                      |
+ | `islandora-indexing-fcrepo-file-external` | FCRepo indexer                                             |
+ | `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
+ | `islandora-indexing-triplestore-index`    | Triplestore indexer                                        |
+ | `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
+
 7. A [Drupal-compatible web server](https://www.drupal.org/docs/system-requirements/web-server-requirements)
 
 ## Usage
@@ -55,8 +56,8 @@ and to accept full URLs as resource IDs.
     ```
 
     This should:
-   1. Grab the code and all PHP dependencies,
-   2. Scaffold the site, and have the `default` site's `settings.php` point at
+    1. Grab the code and all PHP dependencies,
+    2. Scaffold the site, and have the `default` site's `settings.php` point at
       our included configuration for the next step.
 
 2. Configure Flysystem's `fedora` scheme in the site's `settings.php`:
@@ -91,8 +92,8 @@ giving the default `admin` user the role:
     ```
 
 5. Make the Syn/JWT keys available to our configuration either by (or by some combination of):
-   1. Symlinking the private key to `/opt/islandora/auth/private.key`; or,
-   2. Configuring the location to the private key on the site at
+    1. Symlinking the private key to `/opt/islandora/auth/private.key`; or,
+    2. Configuring the location to the private key on the site at
 `http://<your-web-server>/admin/config/system/keys/manage/islandora_rsa_key`
 (where `<your-web-server>` accesses your web server which is configured to serve
 from the starter site's `web/` directory).
@@ -118,9 +119,9 @@ Fedora, Triplestore indexing and client requests.
 you are using `mysql` to use a MySQL-compatible database, you should be clear to
 uninstall the `pgsql` (PostgreSQL) and `sqlite` (SQLite) modules:
 
-     ```bash
-     composer exec -- drush pm:uninstall pgsql sqlite
-     ```
+    ```bash
+    composer exec -- drush pm:uninstall pgsql sqlite
+    ```
 
 ## Documentation
 
@@ -140,6 +141,39 @@ If you would like to contribute, please get involved by attending our weekly [Te
 If you would like to contribute code to the project, you need to be covered by an Islandora Foundation [Contributor License Agreement](https://github.com/Islandora/islandora-community/wiki/Onboarding-Checklist#contributor-license-agreements) or [Corporate Contributor License Agreement](https://github.com/Islandora/islandora-community/wiki/Onboarding-Checklist#contributor-license-agreements). Please see the [Contributor License Agreements](https://github.com/Islandora/islandora-community/wiki/Contributor-License-Agreements) page on the islandora-community wiki for more information.
 
 We recommend using the [islandora-playbook](https://github.com/Islandora-Devops/islandora-playbook) to get started.
+
+### General starter site development process
+
+For development of this starter site proper, we anticipate something of a
+particular flow being employed, to avoid having other features and modules creep
+into the base configurations. The expected flow should go something like:
+
+1. Provisioning an environment making use of the starter site
+2. Importing the config of the starter site
+    1. This should overwrite any configuration made by the provisioning process,
+including disabling any modules that should not be generally enabled, and
+installing those that _should_ be.
+    2. This might be done with a command in the starter site directory such as:
+
+    ```bash
+    composer exec -- drush config:import sync
+    ```
+
+3. Perform the desired changes, such as:
+    * Using `composer` to manage dependencies
+        * If updating any Drupal extensions, this should be followed by running
+Drupal's update process, in case there are update hooks to run which might
+update configuration.
+    * Performing configuration on the site
+4. Export the site's config, to capture any changed configuration:
+
+    ```bash
+    composer exec -- drush config:export sync
+    ```
+
+5. Copying the `config/sync` directory (with its contents) and `composer.json`
+and `compooser.lock` files into a clone of the starter site git repository,
+committing them, pushing to a fork and making a pull request.
 
 ## License
 
