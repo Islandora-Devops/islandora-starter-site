@@ -1,8 +1,7 @@
 ---
 name: CI
 on:
-  push:
-    branches: [ main ]
+  push: {}
   pull_request:
     branches: [ main ]
   workflow_dispatch: {}
@@ -10,12 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.allowed_failures }}
     strategy:
       fail-fast: false
       matrix:
         php-versions: [ 7.4, 8.0, 8.1 ]
-        allowed_failures: [ false ]
 
     name: PHP ${{ matrix.php-versions }}
 
