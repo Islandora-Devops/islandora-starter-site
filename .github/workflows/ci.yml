@@ -43,4 +43,4 @@ jobs:
         continue-on-error: true
         run: |
           composer exec -- drush en config_inspector
-          composer exec -- drush config:inspect --only-errors --detail
+          composer exec -- drush config:inspect --only-error --detail
