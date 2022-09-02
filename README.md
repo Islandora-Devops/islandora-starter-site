@@ -123,6 +123,64 @@ uninstall the `pgsql` (PostgreSQL) and `sqlite` (SQLite) modules:
     composer exec -- drush pm:uninstall pgsql sqlite
     ```
 
+### Known issues
+
+#### Warnings/errors during installation
+
+Some modules presently have some bad expectations as to the system state when
+`hook_install()` is invoked and as such, some messages are emitted:
+
+```
+$ composer exec -- drush site:install --existing-config
+--db-url=mysql://user:***@localhost/db
+
+ You are about to:
+ * DROP all tables in your 'db' database.
+
+ Do you want to continue? (yes/no) [yes]:
+ >
+
+ [notice] Starting Drupal installation. This takes a while.
+ [notice] Performed install task: install_select_language
+ [notice] Performed install task: install_select_profile
+ [notice] Performed install task: install_load_profile
+ [notice] Performed install task: install_verify_requirements
+ [notice] Performed install task: install_settings_form
+ [notice] Performed install task: install_verify_database_ready
+ [notice] Performed install task: install_base_system
+ [notice] Performed install task: install_bootstrap_full
+ [error]  The Flysystem driver is missing.
+ [warning] Could not find required jsonld.settings to add default RDF namespaces.
+ [notice] Performed install task: install_config_import_batch
+ [notice] Performed install task: install_config_download_translations
+ [notice] Performed install task: install_config_revert_install_changes
+ [notice] Performed install task: install_configure_form
+ [notice] Performed install task: install_finished
+ [success] Installation complete.  User name: admin  User password: ***
+$
+```
+
+There is two "unexpected" messages there:
+
+* `[error]  The Flysystem driver is missing.`
+  * Appears to be from [the `flysystem` module's `hook_install()` implementation](https://git.drupalcode.org/project/flysystem/-/blob/cf46f90fa6cda0e794318d04e5e8e6e148818c9a/flysystem.install#L27-32)
+    where it tries to ensure that all schemes defined are in a state ready
+    to be used; however, all the modules are not yet enabled (in the
+    particular case, `islandora` is not actually enabled, so the `fedora` driver is unknown),
+    and so leading to this message being emitted. The `islandora` module
+    _is_ enabled by the time the command exits, so this message should be
+    ignorable.
+* `[warning] Could not find required jsonld.settings to add default RDF namespaces.`
+  * Appears to be from [the `islandora` module's `hook_install()` implementation](https://github.com/Islandora/islandora/blob/725b5592803564c9727e920b780247e45ecbc9a4/islandora.install#L8-L13)
+    where it tries to alter the `jsonld` module's `jsonld.settings` config
+    object to add some namespaces; however, because the configs are not yet
+    installed when installing the modules with `--existing-config`, it fails
+    to find the target configuration to alter it. As exported, the
+    `jsonld.settings` already contains the alterations (at time of writing),
+    so this warning should eb ignorable.
+
+In summary: These two warnings seem to be ignorable.
+
 ## Documentation
 
 Further documentation for this ecosystem is available on the [Islandora documentation site](https://islandora.github.io/documentation/).
