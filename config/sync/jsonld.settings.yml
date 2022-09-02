@@ -53,3 +53,6 @@ rdf_namespaces:
   -
     prefix: co
     namespace: 'http://purl.org/co/'
+  -
+    prefix: relators
+    namespace: 'http://id.loc.gov/vocabulary/relators/'
