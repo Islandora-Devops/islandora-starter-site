@@ -131,8 +131,7 @@ Some modules presently have some bad expectations as to the system state when
 `hook_install()` is invoked and as such, some messages are emitted:
 
 ```
-$ composer exec -- drush site:install --existing-config
---db-url=mysql://user:***@localhost/db
+$ composer exec -- drush site:install --existing-config --db-url=mysql://user:***@localhost/db
 
  You are about to:
  * DROP all tables in your 'db' database.
@@ -179,7 +178,7 @@ There is two "unexpected" messages there:
     `jsonld.settings` already contains the alterations (at time of writing),
     so this warning should eb ignorable.
 
-In summary: These two warnings seem to be ignorable.
+In summary: These two messages seem to be ignorable.
 
 ## Documentation
 
