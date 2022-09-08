@@ -180,13 +180,37 @@ There is two "unexpected" messages there:
 
 In summary: These two messages seem to be ignorable.
 
+### Ongoing Project Maintenance
+
+It is anticipated that [Composer](https://getcomposer.org/) will be used to manage Drupal and its extensions,
+including Islandora's suite of modules. The Drupal project has already documented many of the interactions in this
+space, so we will just list and summarize them here:
+
+[Using Composer to Install Drupal and Manage Dependencies](https://www.drupal.org/docs/develop/using-composer/manage-dependencies)
+* The "install" describing:
+  * Composer's `create-project` command, which we describe above being used to install
+    using this "starter site" project; and,
+  * The `drush site:install`/`drush si` command, described above being used to install Drupal via the command line.
+* "manage[ment]", describing:
+  * Composer's `require` command, used to add additional dependencies to your project
+  * Updating, linking out to additional documentation for Drupal's core and modules:
+    * [Updating Drupal core via Composer](https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer)
+    * [Updating Modules and Themes using Composer](https://www.drupal.org/docs/updating-drupal/updating-modules-and-themes-using-composer)
+
+    Generally, gets into using Composer's `update` command to update extensions according to the specifications in
+    the `composer.json`, and Composer's `require` command to _change_ those specifications when necessary to cross
+    major version boundaries.
+
+It is also recommended to monitor and/or subscribe to Drupal's security advisories to know when it might be
+necessary to update.
+
 ## Documentation
 
 Further documentation for this ecosystem is available on the [Islandora documentation site](https://islandora.github.io/documentation/).
 
 ## Troubleshooting/Issues
 
-Having problems or solved a problem? Check out the Islandora google groups for a solution.
+Having problems or solved a problem? Check out the Islandora Google Groups for a solution.
 
 * [Islandora Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/islandora)
 * [Islandora Dev Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/islandora-dev)
@@ -206,6 +230,8 @@ particular flow being employed, to avoid having other features and modules creep
 into the base configurations. The expected flow should go something like:
 
 1. Provisioning an environment making use of the starter site
+    * It _may_ be desirable to replace the environment's starter site installation with a repository clone of the
+       starter site at this point to avoid otherwise manually copying changes out to a clone.
 2. Importing the config of the starter site
     1. This should overwrite any configuration made by the provisioning process,
 including disabling any modules that should not be generally enabled, and
@@ -231,6 +257,8 @@ update configuration.
 5. Copying the `config/sync` directory (with its contents) and `composer.json`
 and `compooser.lock` files into a clone of the starter site git repository,
 committing them, pushing to a fork and making a pull request.
+   * If the environment's starter site installation was replaced with a repository clone, you should be able to skip
+     the copying, and just commit your changes, push to a fork and make a pull request to the upstream repository.
 
 ## License
 
