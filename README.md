@@ -260,6 +260,11 @@ committing them, pushing to a fork and making a pull request.
    * If the environment's starter site installation was replaced with a repository clone, you should be able to skip
      the copying, and just commit your changes, push to a fork and make a pull request to the upstream repository.
 
+Periodically, it is expected that releases will be published/minted/tagged on the original repository; however, it is
+important to note that automated updates across releases of this starter site is not planned to be supported. That
+said, we plan to include changelogs with instructions of how the changes introduced since the last release might be
+effected in derived site for those who wish to adopt altered/introduced functionality into their own site.
+
 ## License
 
 [GPLv2](http://www.gnu.org/licenses/gpl-2.0.txt)
