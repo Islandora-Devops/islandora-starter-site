@@ -176,7 +176,7 @@ There is two "unexpected" messages there:
     installed when installing the modules with `--existing-config`, it fails
     to find the target configuration to alter it. As exported, the
     `jsonld.settings` already contains the alterations (at time of writing),
-    so this warning should eb ignorable.
+    so this warning should be ignorable.
 
 In summary: These two messages seem to be ignorable.
 
