@@ -159,7 +159,7 @@ $ composer exec -- drush site:install --existing-config --db-url=mysql://user:**
 $
 ```
 
-There is two "unexpected" messages there:
+There are two "unexpected" messages there:
 
 * `[error]  The Flysystem driver is missing.`
   * Appears to be from [the `flysystem` module's `hook_install()` implementation](https://git.drupalcode.org/project/flysystem/-/blob/cf46f90fa6cda0e794318d04e5e8e6e148818c9a/flysystem.install#L27-32)
