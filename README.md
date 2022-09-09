@@ -180,6 +180,30 @@ There are two "unexpected" messages there:
 
 In summary: These two messages seem to be ignorable.
 
+### Ongoing Project Maintenance
+
+It is anticipated that [Composer](https://getcomposer.org/) will be used to manage Drupal and its extensions,
+including Islandora's suite of modules. The Drupal project has already documented many of the interactions in this
+space, so we will just list and summarize them here:
+
+[Using Composer to Install Drupal and Manage Dependencies](https://www.drupal.org/docs/develop/using-composer/manage-dependencies)
+* The "install" describing:
+  * Composer's `create-project` command, which we describe above being used to install
+    using this "starter site" project; and,
+  * The `drush site:install`/`drush si` command, described above being used to install Drupal via the command line.
+* "manage[ment]", describing:
+  * Composer's `require` command, used to add additional dependencies to your project
+  * Updating, linking out to additional documentation for Drupal's core and modules:
+    * [Updating Drupal core via Composer](https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer)
+    * [Updating Modules and Themes using Composer](https://www.drupal.org/docs/updating-drupal/updating-modules-and-themes-using-composer)
+
+    Generally, gets into using Composer's `update` command to update extensions according to the specifications in
+    the `composer.json`, and Composer's `require` command to _change_ those specifications when necessary to cross
+    major version boundaries.
+
+It is also recommended to monitor and/or subscribe to Drupal's security advisories to know when it might be
+necessary to update.
+
 ## Documentation
 
 Further documentation for this ecosystem is available on the [Islandora documentation site](https://islandora.github.io/documentation/).
