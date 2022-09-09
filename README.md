@@ -199,6 +199,48 @@ If you would like to contribute code to the project, you need to be covered by a
 
 We recommend using the [islandora-playbook](https://github.com/Islandora-Devops/islandora-playbook) to get started.
 
+### General starter site development process
+
+For development of this starter site proper, we anticipate something of a
+particular flow being employed, to avoid having other features and modules creep
+into the base configurations. The expected flow should go something like:
+
+1. Provisioning an environment making use of the starter site
+  * It _may_ be desirable to replace the environment's starter site installation with a repository clone of the
+    starter site at this point to avoid otherwise manually copying changes out to a clone.
+2. Importing the config of the starter site
+  1. This should overwrite any configuration made by the provisioning process,
+     including disabling any modules that should not be generally enabled, and
+     installing those that _should_ be.
+  2. This might be done with a command in the starter site directory such as:
+
+    ```bash
+    composer exec -- drush config:import sync
+    ```
+
+3. Perform the desired changes, such as:
+  * Using `composer` to manage dependencies
+    * If updating any Drupal extensions, this should be followed by running
+      Drupal's update process, in case there are update hooks to run which might
+      update configuration.
+  * Performing configuration on the site
+4. Export the site's config, to capture any changed configuration:
+
+    ```bash
+    composer exec -- drush config:export sync
+    ```
+
+5. Copying the `config/sync` directory (with its contents) and `composer.json`
+   and `compooser.lock` files into a clone of the starter site git repository,
+   committing them, pushing to a fork and making a pull request.
+  * If the environment's starter site installation was replaced with a repository clone, you should be able to skip
+    the copying, and just commit your changes, push to a fork and make a pull request to the upstream repository.
+
+Periodically, it is expected that releases will be published/minted/tagged on the original repository; however, it is
+important to note that automated updates across releases of this starter site is not planned to be supported. That
+said, we plan to include changelogs with instructions of how the changes introduced since the last release might be
+effected in derived site for those who wish to adopt altered/introduced functionality into their own site.
+
 ## License
 
 [GPLv2](http://www.gnu.org/licenses/gpl-2.0.txt)
