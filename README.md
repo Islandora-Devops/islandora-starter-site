@@ -270,6 +270,19 @@ important to note that automated updates across releases of this starter site is
 said, we plan to include changelogs with instructions of how the changes introduced since the last release might be
 effected in derived site for those who wish to adopt altered/introduced functionality into their own site.
 
+#### Development modules
+
+A few modules are included in our `require-dev` section but left uninstalled from the Drupal site, as they may be of
+general utility but especially development. Included are:
+* [`config_inspector`](https://www.drupal.org/project/config_inspector/): Helps identify potential issues between
+  the schemas defined and active configuration.
+* [`devel`](https://www.drupal.org/project/devel): Blocks and tabs for miscellaneous tasks during development
+* [`restui`](https://www.drupal.org/project/restui): Helper for configuration of the [core `rest` module](https://www.drupal.org/docs/8/core/modules/rest)
+
+These modules might be
+[enabled via the GUI or CLI](https://www.drupal.org/docs/extending-drupal/installing-modules#s-step-2-enable-the-module); however, they should be disabled before performing any kind of
+config export, to avoid having their enabled state leak into configuration.
+
 ## License
 
 [GPLv2](http://www.gnu.org/licenses/gpl-2.0.txt)
