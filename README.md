@@ -46,6 +46,11 @@ and to accept full URLs as resource IDs.
  | `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
 
 7. A [Drupal-compatible web server](https://www.drupal.org/docs/system-requirements/web-server-requirements)
+8. A [Matomo installation](https://matomo.org/)
+    * Further details in the [`matomo` module's](https://www.drupal.org/project/matomo) documentation
+9. [FITS Web Service](https://projects.iq.harvard.edu/fits/downloads#fits-servlet) and
+[CrayFits](https://github.com/roblib/CrayFits) installations
+    * Further details in the [`islandora_fits` module's](https://github.com/roblib/islandora_fits) README/documentation
 
 ## Usage
 
