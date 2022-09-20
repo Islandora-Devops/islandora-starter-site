@@ -1,0 +1,220 @@
+diff --git a/README.md b/README.md
+index de6f9d5..ca85bfa 100644
+--- a/README.md
++++ b/README.md
+@@ -1,56 +1,60 @@
+ # Islandora FITS
+ Config module to make Islandora aware of FITS microservice
+ 
+-
+-
+ ## Installation
+ #### Install this module
+-Install and enable this module in the usual way.  On installation the module will 
+-add a context causing the creation of A FITs media when an Original File media is ingested.
+-
++Install and enable this module in the usual way.  On installation the module will
++add a context causing the creation of A FITS media when an Original File media is ingested; however, this process is
++predicated on the existence of an `islandora_media_use` term with an external URI of `https://projects.iq.harvard.
++edu/fits`--the `islandora_fits_tags` migration might be executed to create such a term.
+ 
+ #### Install FITS Webservice
+-FITS xmls are generated from an easily installed web service.  
++FITS XMLs are generated from an easily installed web service.
+ Get the latest fits.zip and fits.war from https://projects.iq.harvard.edu/fits/downloads
+-(on my box I had to install a missing zip library with 
++(on my box I had to install a missing zip library with
+ ‘sudo apt-get install php7.1-zip’)
+ 
+ Install following their instructions.
+-Copy the .war file to your webapps directory  and test.
+-Edit the catalina.properties file on the Drupal server by adding the 
+-following two lines to the bottom of the file-
++Copy the `.war` file to your webapps directory and test.
++Edit the `catalina.properties` file on the Drupal server by adding the
++following two lines to the bottom of the file:
+ 
++```properties
+ fits.home=/\<path-to-fits>/fits
+-
+ shared.loader=/\<path-to-fits>/fits/lib/*.jar
++```
+ 
+-Restart Tomcat and test with 
+-
+-`curl -k -F datafile="@/path/to/myfile.jpg" http://example.com:8080/fits/examine`
++Restart Tomcat and test with:
++```bash
++curl -k -F datafile="@/path/to/myfile.jpg" http://example.com:8080/fits/examine
++```
+ (note: the ‘@’ is required.)
+ 
+-#### Installing Microservice 
+-Get code from https://github.com/roblib/CrayFits and install.  This code can live anywhere, including an external server, 
+-but most installations will have it at /var/www/html.
+-
+-The App runs by entering php bin/console server:start *:8050 in the App 
+-root folder.
+-The server is stopped with php bin/console server:stop.  
+-On a production machine you'd probably want to configure an additional 
++#### Installing Microservice
++Get code from https://github.com/roblib/CrayFits and install.  This code can live anywhere, including an external server,
++but most installations will have it at `/var/www/html`.
++
++The App runs by entering:
++```bash
++php bin/console server:start *:8050
++```
++in the App root folder.
++The server is stopped with:
++```bash
++php bin/console server:stop
++```
++On a production machine you'd probably want to configure an additional
+ port in Apache.
+ 
+-
+-Note: The location of the fits webserver is stored in the .env file in the 
+-root dir of the Symfony app.  This will have to be reconfigured if the Fits 
+-server is anywhere other than localhost:8080/fits
+-
++Note: The location of the FITS webserver is stored in the `.env` file in the
++root dir of the Symfony app.  This will have to be reconfigured if the FITS
++server is anywhere other than `localhost:8080/fits`
+ 
+ #### Adding FITs requests to the queue
+-Copy the file `assets/ca.islandora.alpaca.connector.ocr.blueprint.xml` 
++Copy the file `assets/ca.islandora.alpaca.connector.ocr.blueprint.xml`
+ to `/opt/karak/deploy` on your server.  There is no need to restart.
+ 
+-
+ #### Adding Checksum to Display
+-A pseudo field with the computed checksum can be added to Repository Item 
+-display.  Navigate to `admin/structure/types/manage/islandora_object/display` 
+-to enable or disable display of `File Checksum`.  
++A pseudo field with the computed checksum can be added to Repository Item
++display.  Navigate to `admin/structure/types/manage/islandora_object/display`
++to enable or disable display of `File Checksum`.
+diff --git a/islandora_fits.install b/islandora_fits.install
+index 7034b28..a9473ce 100644
+--- a/islandora_fits.install
++++ b/islandora_fits.install
+@@ -6,34 +6,64 @@
+  */
+ 
+ 
+-
+-use Drupal\taxonomy\Entity\Term;
+ use Drupal\field\Entity\FieldConfig;
+ 
+ /**
+  * Implements hook_install().
+  */
+-function islandora_fits_install() {
+-  $term_name = 'FITS File';
+-  $test_terms = taxonomy_term_load_multiple_by_name($term_name);
+-  if (!$test_terms) {
+-    $term = Term::create([
+-      'parent' => [],
+-      'name' => $term_name,
+-      'vid' => 'islandora_media_use',
+-      'description' => 'Technical Metadata associated with an original media file',
+-      'field_external_uri' => ['uri' => 'https://projects.iq.harvard.edu/fits'],
+-    ])->save();
++function islandora_fits_install($is_syncing) {
++
++  if (!_islandora_fits_term_exists()) {
++    $callable = $is_syncing ? [\Drupal::messenger(), 'addStatus'] : [\Drupal::messenger(), 'addWarning'];
++    $callable(t('A term in the taxonomy @vid with the URI @uri does not appear to exist. The @migration_id migration can be executed to create it.', [
++      '@vid' => 'islandora_media_use',
++      '@uri' => 'https://projects.iq.harvard.edu/fits',
++      '@migration_id' => 'islandora_fits_tags',
++    ]));
+   }
+-  // Add xml extension if it doesn't already exist.
+-  $field = FieldConfig::load("media.file.field_media_file");
+-  if ($field) {
+-    $fieldSettings = $field->getSettings();
+-    $extensions = $fieldSettings['file_extensions'];
+-    if (!strpos($extensions, 'xml')) {
+-      $fieldSettings['file_extensions'] .= ' xml';
+-      $field->set('settings', $fieldSettings);
+-      $field->save();
+-    }
++
++}
++
++/**
++ * Implements hook_requirements().
++ */
++function islandora_fits_requirements($phase) : array {
++  $requirements = [];
++
++  if ($phase == 'runtime') {
++    $term_exists = _islandora_fits_term_exists();
++    $requirements['islandora_fits_term_exists'] = [
++      'title' => t('FITS Term Exists'),
++      'value' => $term_exists ? t('Exists') : t('Does not exist'),
++      'description' => t('Whether or not a term with the URI targeted by default FITS derivative configuration exists. If derivative configurations were made to target another URI, this can probably be ignored.'),
++      'severity' => $term_exists ? REQUIREMENT_OK : REQUIREMENT_WARNING
++    ];
+   }
++
++  return $requirements;
++}
++
++/**
++ * Helper; determine if a term with the target URI exists.
++ *
++ * @return bool
++ *   TRUE if a term (at least one) with the target URI exists; otherwise, FALSE.
++ *
++ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
++ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
++ */
++function _islandora_fits_term_exists() {
++  $table_exists = \Drupal::database()->schema()->tableExists('taxonomy_term__field_external_uri');
++  if (!$table_exists) {
++    // XXX: If the table does not exist, then avoid attempting to make a query
++    // making use of the non-existent table.
++    return FALSE;
++  }
++
++  $query = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()
++    ->condition('vid', 'islandora_media_use')
++    ->condition('field_external_uri.uri', 'https://projects.iq.harvard.edu/fits')
++    ->count();
++  $count = $query->execute();
++  return $count > 0;
+ }
+diff --git a/migrations/islandora_fits_tags.yml b/migrations/islandora_fits_tags.yml
+new file mode 100644
+index 0000000..2ab2c5f
+--- /dev/null
++++ b/migrations/islandora_fits_tags.yml
+@@ -0,0 +1,25 @@
++---
++id: islandora_fits_tags
++migration_tags:
++  - islandora
++migration_group: islandora
++label: "FITS Term(s)"
++source:
++  plugin: embedded_data
++  data_rows:
++    - vid: islandora_media_use
++      name: FITS File
++      description: Technical Metadata associated with an original media file
++      uri: https://projects.iq.harvard.edu/fits
++  ids:
++    uri:
++      type: string
++process:
++  vid: vid
++  name: name
++  description: description
++  field_external_uri/uri: uri
++destination:
++  plugin: entity:taxonomy_term
++migration_dependencies:
++  required: { }

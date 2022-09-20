@@ -44,8 +44,14 @@ and to accept full URLs as resource IDs.
  | `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
  | `islandora-indexing-triplestore-index`    | Triplestore indexer                                        |
  | `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
+ | `islandora-connector-fits`                | CrayFits derivative processor                              |
 
 7. A [Drupal-compatible web server](https://www.drupal.org/docs/system-requirements/web-server-requirements)
+8. A [Matomo installation](https://matomo.org/)
+    * Further details in the [`matomo` module's](https://www.drupal.org/project/matomo) documentation
+9. [FITS Web Service](https://projects.iq.harvard.edu/fits/downloads#fits-servlet) and
+[CrayFits](https://github.com/roblib/CrayFits) installations
+    * Further details in the [`islandora_fits` module's](https://github.com/roblib/islandora_fits) README/documentation
 
 ## Usage
 
@@ -162,23 +168,38 @@ $
 There are two "unexpected" messages there:
 
 * `[error]  The Flysystem driver is missing.`
-  * Appears to be from [the `flysystem` module's `hook_install()` implementation](https://git.drupalcode.org/project/flysystem/-/blob/cf46f90fa6cda0e794318d04e5e8e6e148818c9a/flysystem.install#L27-32)
-    where it tries to ensure that all schemes defined are in a state ready
-    to be used; however, all the modules are not yet enabled (in the
-    particular case, `islandora` is not actually enabled, so the `fedora` driver is unknown),
-    and so leading to this message being emitted. The `islandora` module
-    _is_ enabled by the time the command exits, so this message should be
-    ignorable.
+    * Appears to be from [the `flysystem` module's `hook_install()` implementation](https://git.drupalcode.org/project/flysystem/-/blob/cf46f90fa6cda0e794318d04e5e8e6e148818c9a/flysystem.install#L27-32)
+      where it tries to ensure that all schemes defined are in a state ready
+      to be used; however, all the modules are not yet enabled (in the
+      particular case, `islandora` is not actually enabled, so the `fedora` driver is unknown),
+      and so leading to this message being emitted. The `islandora` module
+      _is_ enabled by the time the command exits, so this message should be
+      ignorable.
 * `[warning] Could not find required jsonld.settings to add default RDF namespaces.`
-  * Appears to be from [the `islandora` module's `hook_install()` implementation](https://github.com/Islandora/islandora/blob/725b5592803564c9727e920b780247e45ecbc9a4/islandora.install#L8-L13)
-    where it tries to alter the `jsonld` module's `jsonld.settings` config
-    object to add some namespaces; however, because the configs are not yet
-    installed when installing the modules with `--existing-config`, it fails
-    to find the target configuration to alter it. As exported, the
-    `jsonld.settings` already contains the alterations (at time of writing),
-    so this warning should be ignorable.
+    * Appears to be from [the `islandora` module's `hook_install()` implementation](https://github.com/Islandora/islandora/blob/725b5592803564c9727e920b780247e45ecbc9a4/islandora.install#L8-L13)
+      where it tries to alter the `jsonld` module's `jsonld.settings` config
+      object to add some namespaces; however, because the configs are not yet
+      installed when installing the modules with `--existing-config`, it fails
+      to find the target configuration to alter it. As exported, the
+      `jsonld.settings` already contains the alterations (at time of writing),
+      so this warning should be ignorable.
 
 In summary: These two messages seem to be ignorable.
+
+#### Patches
+
+##### [`assets/patches/islandora_fits/migrate_term_and_squash_config.diff`](assets/patches/islandora_fits/migrate_term_and_squash_config.diff)
+
+This patch deals with rolling out the effects of two active pull requests, namely:
+* https://github.com/roblib/islandora_fits/pull/14 and
+* https://github.com/roblib/islandora_fits/pull/15
+
+For details as to what these pull requests address, see:
+* https://github.com/roblib/islandora_fits/issues/12 and
+* https://github.com/roblib/islandora_fits/issues/13
+
+After these issues are resolved (and our `composer.lock` has been updated to encompass the fixes), then the patch
+should be able to be dropped.
 
 ### Ongoing Project Maintenance
 
@@ -188,14 +209,14 @@ space, so we will just list and summarize them here:
 
 [Using Composer to Install Drupal and Manage Dependencies](https://www.drupal.org/docs/develop/using-composer/manage-dependencies)
 * The "install" describing:
-  * Composer's `create-project` command, which we describe above being used to install
-    using this "starter site" project; and,
-  * The `drush site:install`/`drush si` command, described above being used to install Drupal via the command line.
+    * Composer's `create-project` command, which we describe above being used to install
+      using this "starter site" project; and,
+    * The `drush site:install`/`drush si` command, described above being used to install Drupal via the command line.
 * "manage[ment]", describing:
-  * Composer's `require` command, used to add additional dependencies to your project
-  * Updating, linking out to additional documentation for Drupal's core and modules:
-    * [Updating Drupal core via Composer](https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer)
-    * [Updating Modules and Themes using Composer](https://www.drupal.org/docs/updating-drupal/updating-modules-and-themes-using-composer)
+    * Composer's `require` command, used to add additional dependencies to your project
+    * Updating, linking out to additional documentation for Drupal's core and modules:
+        * [Updating Drupal core via Composer](https://www.drupal.org/docs/updating-drupal/updating-drupal-core-via-composer)
+        * [Updating Modules and Themes using Composer](https://www.drupal.org/docs/updating-drupal/updating-modules-and-themes-using-composer)
 
     Generally, gets into using Composer's `update` command to update extensions according to the specifications in
     the `composer.json`, and Composer's `require` command to _change_ those specifications when necessary to cross
@@ -230,24 +251,24 @@ particular flow being employed, to avoid having other features and modules creep
 into the base configurations. The expected flow should go something like:
 
 1. Provisioning an environment making use of the starter site
-  * It _may_ be desirable to replace the environment's starter site installation with a repository clone of the
-    starter site at this point to avoid otherwise manually copying changes out to a clone.
+    * It _may_ be desirable to replace the environment's starter site installation with a repository clone of the
+      starter site at this point to avoid otherwise manually copying changes out to a clone.
 2. Importing the config of the starter site
-  1. This should overwrite any configuration made by the provisioning process,
-     including disabling any modules that should not be generally enabled, and
-     installing those that _should_ be.
-  2. This might be done with a command in the starter site directory such as:
+    1. This should overwrite any configuration made by the provisioning process,
+       including disabling any modules that should not be generally enabled, and
+       installing those that _should_ be.
+    2. This might be done with a command in the starter site directory such as:
 
-    ```bash
-    composer exec -- drush config:import sync
-    ```
+        ```bash
+        composer exec -- drush config:import sync
+        ```
 
 3. Perform the desired changes, such as:
-  * Using `composer` to manage dependencies
-    * If updating any Drupal extensions, this should be followed by running
-      Drupal's update process, in case there are update hooks to run which might
-      update configuration.
-  * Performing configuration on the site
+    * Using `composer` to manage dependencies:
+        * If updating any Drupal extensions, this should be followed by running
+          Drupal's update process, in case there are update hooks to run which might
+          update configuration.
+    * Performing configuration on the site
 4. Export the site's config, to capture any changed configuration:
 
     ```bash
@@ -257,13 +278,26 @@ into the base configurations. The expected flow should go something like:
 5. Copying the `config/sync` directory (with its contents) and `composer.json`
    and `compooser.lock` files into a clone of the starter site git repository,
    committing them, pushing to a fork and making a pull request.
-  * If the environment's starter site installation was replaced with a repository clone, you should be able to skip
-    the copying, and just commit your changes, push to a fork and make a pull request to the upstream repository.
+    * If the environment's starter site installation was replaced with a repository clone, you should be able to skip
+      the copying, and just commit your changes, push to a fork and make a pull request to the upstream repository.
 
 Periodically, it is expected that releases will be published/minted/tagged on the original repository; however, it is
 important to note that automated updates across releases of this starter site is not planned to be supported. That
 said, we plan to include changelogs with instructions of how the changes introduced since the last release might be
 effected in derived site for those who wish to adopt altered/introduced functionality into their own site.
+
+#### Development modules
+
+A few modules are included in our `require-dev` section but left uninstalled from the Drupal site, as they may be of
+general utility but especially development. Included are:
+* [`config_inspector`](https://www.drupal.org/project/config_inspector/): Helps identify potential issues between
+  the schemas defined and active configuration.
+* [`devel`](https://www.drupal.org/project/devel): Blocks and tabs for miscellaneous tasks during development
+* [`restui`](https://www.drupal.org/project/restui): Helper for configuration of the [core `rest` module](https://www.drupal.org/docs/8/core/modules/rest)
+
+These modules might be
+[enabled via the GUI or CLI](https://www.drupal.org/docs/extending-drupal/installing-modules#s-step-2-enable-the-module); however, they should be disabled before performing any kind of
+config export, to avoid having their enabled state leak into configuration.
 
 ## License
 
