@@ -180,3 +180,34 @@ index 7034b28..0d7ded9 100644
 +  $count = $query->execute();
 +  return $count > 0;
  }
+diff --git a/migrations/islandora_fits_tags.yml b/migrations/islandora_fits_tags.yml
+new file mode 100644
+index 0000000..2ab2c5f
+--- /dev/null
++++ b/migrations/islandora_fits_tags.yml
+@@ -0,0 +1,25 @@
++---
++id: islandora_fits_tags
++migration_tags:
++  - islandora
++migration_group: islandora
++label: "FITS Term(s)"
++source:
++  plugin: embedded_data
++  data_rows:
++    - vid: islandora_media_use
++      name: FITS File
++      description: Technical Metadata associated with an original media file
++      uri: https://projects.iq.harvard.edu/fits
++  ids:
++    uri:
++      type: string
++process:
++  vid: vid
++  name: name
++  description: description
++  field_external_uri/uri: uri
++destination:
++  plugin: entity:taxonomy_term
++migration_dependencies:
++  required: { }
