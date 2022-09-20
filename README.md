@@ -186,6 +186,21 @@ There are two "unexpected" messages there:
 
 In summary: These two messages seem to be ignorable.
 
+#### Patches
+
+##### [`assets/patches/islandora_fits/migrate_term_and_squash_config.diff`](assets/patches/islandora_fits/migrate_term_and_squash_config.diff)
+
+This patch deals with rolling out the effects of two active pull requests, namely:
+* https://github.com/roblib/islandora_fits/pull/14 and
+* https://github.com/roblib/islandora_fits/pull/15
+
+For details as to what these pull requests address, see:
+* https://github.com/roblib/islandora_fits/issues/12 and
+* https://github.com/roblib/islandora_fits/issues/13
+
+After these issues are resolved (and our `composer.lock` has been updated to encompass the fixes), then the patch
+should be able to be dropped.
+
 ### Ongoing Project Maintenance
 
 It is anticipated that [Composer](https://getcomposer.org/) will be used to manage Drupal and its extensions,
