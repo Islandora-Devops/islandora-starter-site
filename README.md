@@ -44,6 +44,7 @@ and to accept full URLs as resource IDs.
  | `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
  | `islandora-indexing-triplestore-index`    | Triplestore indexer                                        |
  | `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
+ | `islandora-connector-fits`                | CrayFits derivative processor                              |
 
 7. A [Drupal-compatible web server](https://www.drupal.org/docs/system-requirements/web-server-requirements)
 8. A [Matomo installation](https://matomo.org/)
