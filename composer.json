@@ -17,6 +17,7 @@
     "require": {
         "php": "^7.4 || ^8",
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.1",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-recommended": "^9.4",
@@ -42,8 +43,10 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
+        "discard-changes": "stash",
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
@@ -90,6 +93,11 @@
             "web/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ]
+        },
+        "patches": {
+          "islandora-rdm/islandora_fits": {
+            "Combined term migration introduction and config avoidance": "./assets/patches/islandora_fits/migrate_term_and_squash_config.diff"
+          }
         }
     },
     "require-dev": {
