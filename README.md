@@ -276,7 +276,7 @@ into the base configurations. The expected flow should go something like:
     ```
 
 5. Copying the `config/sync` directory (with its contents) and `composer.json`
-   and `compooser.lock` files into a clone of the starter site git repository,
+   and `composer.lock` files into a clone of the starter site git repository,
    committing them, pushing to a fork and making a pull request.
     * If the environment's starter site installation was replaced with a repository clone, you should be able to skip
       the copying, and just commit your changes, push to a fork and make a pull request to the upstream repository.
