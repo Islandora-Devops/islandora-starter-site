@@ -9,8 +9,8 @@ dependencies:
       - islandora_fits
 _core:
   default_config_hash: XtBYoGhM0h6E6KN_OfmCVMN8ey6inC6fdogp7FuSQPE
-name: technical_metadata_on_ingest
 label: 'Technical Metadata on Ingest'
+name: technical_metadata_on_ingest
 group: Islandora
 description: 'Defines FITS harvesting behavior'
 requireAllConditions: false
@@ -18,11 +18,11 @@ disabled: false
 conditions:
   media_has_term:
     id: media_has_term
-    negate: 0
+    negate: false
     uuid: b270cb14-b960-4494-9ccf-1c9433092837
-    uri: 'http://pcdm.org/use#OriginalFile'
     context_mapping:
       media: '@islandora.media_route_context_provider:media'
+    uri: 'http://pcdm.org/use#OriginalFile'
     logic: and
 reactions:
   derivative:

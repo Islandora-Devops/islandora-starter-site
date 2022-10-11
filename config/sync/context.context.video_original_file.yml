@@ -6,8 +6,8 @@ dependencies:
     - islandora
 _core:
   default_config_hash: 1hWjMsl225Q8XunEOdRDfkkuswJrsGmg2qhYd1i36XQ
-name: video_original_file
 label: 'Video Derivatives'
+name: video_original_file
 group: Derivatives
 description: 'Derivatives for Video'
 requireAllConditions: true
@@ -15,17 +15,17 @@ disabled: false
 conditions:
   media_has_term:
     id: media_has_term
-    negate: 0
-    uri: 'http://pcdm.org/use#OriginalFile'
+    negate: false
     context_mapping:
       media: '@islandora.media_route_context_provider:media'
+    uri: 'http://pcdm.org/use#OriginalFile'
     logic: and
   parent_node_has_term:
     id: parent_node_has_term
-    negate: 0
-    uri: 'http://purl.org/coar/resource_type/c_12ce'
+    negate: false
     context_mapping:
       media: '@islandora.media_route_context_provider:media'
+    uri: 'http://purl.org/coar/resource_type/c_12ce'
     logic: and
 reactions:
   derivative:
