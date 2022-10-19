@@ -109,7 +109,7 @@ taxonomies, specifying the `--userid` targeting the user with the `fedoraadmin`
 role:
 
     ```bash
-    composer exec -- drush migrate:import --userid=1 islandora_tags,islandora_defaults_tags
+    composer exec -- drush migrate:import --userid=1 islandora_tags,islandora_defaults_tags,islandora_fits_tags
     ```
 
 This should get you a starter Islandora site with:
