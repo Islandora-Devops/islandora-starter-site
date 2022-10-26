@@ -188,18 +188,7 @@ In summary: These two messages seem to be ignorable.
 
 #### Patches
 
-##### [`assets/patches/islandora_fits/migrate_term_and_squash_config.diff`](assets/patches/islandora_fits/migrate_term_and_squash_config.diff)
-
-This patch deals with rolling out the effects of two active pull requests, namely:
-* https://github.com/roblib/islandora_fits/pull/14 and
-* https://github.com/roblib/islandora_fits/pull/15
-
-For details as to what these pull requests address, see:
-* https://github.com/roblib/islandora_fits/issues/12 and
-* https://github.com/roblib/islandora_fits/issues/13
-
-After these issues are resolved (and our `composer.lock` has been updated to encompass the fixes), then the patch
-should be able to be dropped.
+There are currently no patches included with the Starter Site. If a patch (external or internal) is necessary, it can be applied automatically by composer by using the [composer-patches plugin](https://github.com/cweagans/composer-patches). Any patches included in the Starter Site should be described fully here (including when they should be removed).
 
 ### Ongoing Project Maintenance
 

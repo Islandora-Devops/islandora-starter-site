@@ -95,9 +95,6 @@
             ]
         },
         "patches": {
-          "islandora-rdm/islandora_fits": {
-            "Combined term migration introduction and config avoidance": "./assets/patches/islandora_fits/migrate_term_and_squash_config.diff"
-          }
         }
     },
     "require-dev": {
