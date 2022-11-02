@@ -6,7 +6,19 @@
 [![Contribution Guidelines](http://img.shields.io/badge/CONTRIBUTING-Guidelines-blue.svg)](./CONTRIBUTING.md)
 [![LICENSE](https://img.shields.io/badge/license-GPLv2-blue.svg?style=flat-square)](./LICENSE)
 
-Base configuration and module suite for a starter site.
+A starting Drupal configuration for Islandora sites. 
+
+## Quick Installation
+
+To launch a fully-functioning Islandora Starter site as well as the (non-Drupal)
+tools and services that support it, try one of the Islandora deployment tools:
+
+* [Islandora Playbook](https://github.com/Islandora-Devops/islandora-playbook) - Ansible-based, works locally with VirtualBox and Vagrant.
+  * use the `starter` (default) or `starter_dev` option
+* [ISLE-DC](https://github.com/Islandora-Devops/isle-dc) - Docker-based
+  * use the `make starter` or `make starter_dev` option
+
+## Manual Installation
 
 Your mileage may vary. Depending on your particular use case, some Islandora
 prerequisites may not be needed; for example, if you do not need Fedora,
