@@ -4,10 +4,10 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_alt_title
+    - field.storage.node.field_edtf_date_created
     - field.storage.node.field_description
     - field.storage.node.field_dewey_classification
     - field.storage.node.field_edition
-    - field.storage.node.field_edtf_date_created
     - field.storage.node.field_extent
     - field.storage.node.field_full_title
     - field.storage.node.field_isbn
@@ -17,12 +17,12 @@ dependencies:
     - field.storage.node.field_physical_form
     - field.storage.node.field_resource_type
     - field.storage.node.field_rights
-    - field.storage.node.field_tags
     - field.storage.node.field_subject_general
     - field.storage.node.field_geographic_subject
     - field.storage.node.field_subjects_name
     - field.storage.node.field_temporal_subject
     - field.storage.node.field_subject
+    - field.storage.node.field_tags
     - search_api.server.default_solr_server
     - core.entity_view_mode.node.search_index
   module:
@@ -235,6 +235,7 @@ field_settings:
       view_mode:
         'entity:node':
           article: search_index
+          islandora_object: search_index
           page: search_index
   status:
     label: 'Publishing status'
