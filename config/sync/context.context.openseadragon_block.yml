@@ -35,12 +35,14 @@ reactions:
         label_display: '0'
         region: content_below
         weight: '-1'
+        custom_id: openseadragon_block
         theme: olivero
         css_class: ''
         unique: 0
         context_id: openseadragon_block
         context_mapping: {  }
-        iiif_manifest_url: 'http://localhost:8000/node/[node:nid]/book-manifest'
+        iiif_manifest_url: '/node/[node:nid]/book-manifest'
+        third_party_settings: {  }
     include_default_blocks: 1
     saved: false
 weight: -1
