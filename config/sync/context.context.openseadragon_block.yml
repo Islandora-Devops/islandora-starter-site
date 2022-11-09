@@ -33,23 +33,9 @@ reactions:
         label: 'Openseadragon block'
         provider: openseadragon
         label_display: '0'
-        region: content
+        region: content_below
         weight: '-1'
-        theme: bartik
-        css_class: ''
-        unique: 0
-        context_id: openseadragon_block
-        context_mapping: {  }
-        iiif_manifest_url: 'http://localhost:8000/node/[node:nid]/book-manifest'
-      16401a13-1031-4ffe-96b2-5909df309f6a:
-        uuid: 16401a13-1031-4ffe-96b2-5909df309f6a
-        id: openseadragon_block
-        label: 'Openseadragon block'
-        provider: openseadragon
-        label_display: visible
-        region: content
-        weight: '0'
-        theme: bartik
+        theme: olivero
         css_class: ''
         unique: 0
         context_id: openseadragon_block

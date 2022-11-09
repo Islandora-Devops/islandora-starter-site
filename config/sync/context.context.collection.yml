@@ -32,9 +32,9 @@ reactions:
         label: ''
         provider: views
         label_display: visible
-        region: content_suffix
+        region: content_below
         weight: '0'
-        theme: bartik
+        theme: olivero
         css_class: ''
         unique: 0
         context_id: collection
