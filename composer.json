@@ -33,7 +33,7 @@
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/controlled_access_terms": "^2",
-        "islandora/islandora": "^2.4",
+        "islandora/islandora": "^2.5",
         "islandora/openseadragon": "^2"
     },
     "conflict": {
