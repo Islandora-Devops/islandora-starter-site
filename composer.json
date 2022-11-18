@@ -12,6 +12,18 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "library/pdf.js",
+                "version": "2.16.105",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/mozilla/pdf.js/releases/download/v2.16.105/pdfjs-2.16.105-dist.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -34,7 +46,8 @@
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2.5",
-        "islandora/openseadragon": "^2"
+        "islandora/openseadragon": "^2",
+        "library/pdf.js": "^2.4"
     },
     "conflict": {
         "drupal/drupal": "*",
