@@ -162,7 +162,7 @@ display:
           admin_label: ''
           plugin_id: string
           operator: '!='
-          value: 'http://purl.org/dc/dcmitype/Collection'
+          value: 'http://purl.org/ontology/bibo/Collection'
           group: 1
           exposed: false
           expose:
@@ -363,7 +363,7 @@ display:
           admin_label: ''
           plugin_id: string
           operator: '!='
-          value: 'http://purl.org/dc/dcmitype/Collection'
+          value: 'http://purl.org/ontology/bibo/Collection'
           group: 1
           exposed: false
           expose:
