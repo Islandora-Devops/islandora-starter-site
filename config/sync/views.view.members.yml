@@ -7,9 +7,6 @@ dependencies:
   module:
     - node
     - user
-  enforced:
-    module:
-      - islandora_core_feature
 _core:
   default_config_hash: ATR84UMbnx8nK3zGApyME_LIDQSYk2-WTjP3_iEfTM0
 id: members

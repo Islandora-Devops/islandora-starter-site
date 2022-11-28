@@ -14,9 +14,6 @@ dependencies:
     - media.type.audio
   module:
     - islandora_audio
-  enforced:
-    module:
-      - islandora_core_feature
 _core:
   default_config_hash: WkacGkCcx7wkdncVI8sq5snOYKKAD2URkVHjFnqsXHE
 id: media.audio.source
