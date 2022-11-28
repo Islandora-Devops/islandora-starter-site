@@ -4,9 +4,6 @@ status: true
 dependencies:
   module:
     - islandora
-  enforced:
-    module:
-      - islandora_fits
 _core:
   default_config_hash: XtBYoGhM0h6E6KN_OfmCVMN8ey6inC6fdogp7FuSQPE
 label: 'FITS derivatives'
