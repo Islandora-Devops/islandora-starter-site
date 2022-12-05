@@ -1,6 +1,6 @@
 uuid: 0834cb8f-c2e8-4edf-a811-01052043e273
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - facets.facet.subject_name

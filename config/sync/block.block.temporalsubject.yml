@@ -1,6 +1,6 @@
 uuid: 8fb0c923-1639-4314-be61-bf648dc18669
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - facets.facet.temporal_subject
