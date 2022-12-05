@@ -8,12 +8,12 @@ dependencies:
     - facets
     - system
   theme:
-    - bartik
+    - olivero
 _core:
   default_config_hash: 1BMA18tJL_4xlrR2wg5QSmr499p157HBiWAgv_rJmQ4
 id: temporalsubject
-theme: bartik
-region: header
+theme: olivero
+region: sidebar
 weight: 0
 provider: null
 plugin: 'facet_block:temporal_subject'

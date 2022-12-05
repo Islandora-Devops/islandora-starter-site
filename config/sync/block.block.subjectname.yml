@@ -8,12 +8,12 @@ dependencies:
     - facets
     - system
   theme:
-    - bartik
+    - olivero
 _core:
   default_config_hash: VFNCtt7POqemCYyZ3x3gWDwdyJfoAmbqHim37oy6onU
 id: subjectname
-theme: bartik
-region: header
+theme: olivero
+region: sidebar
 weight: 0
 provider: null
 plugin: 'facet_block:subject_name'

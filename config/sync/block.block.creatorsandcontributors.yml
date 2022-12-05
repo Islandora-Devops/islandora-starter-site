@@ -9,12 +9,12 @@ dependencies:
     - islandora
     - system
   theme:
-    - bartik
+    - olivero
 _core:
   default_config_hash: jziE1LayhQhICzoN5LBg3jdBwNieZWUHHr4xGAlwj_o
 id: creatorsandcontributors
-theme: bartik
-region: header
+theme: olivero
+region: sidebar
 weight: 0
 provider: null
 plugin: 'facet_block:creators_and_contributors'

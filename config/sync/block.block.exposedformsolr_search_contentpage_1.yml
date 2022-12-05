@@ -7,11 +7,11 @@ dependencies:
   module:
     - views
   theme:
-    - bartik
+    - olivero
 _core:
   default_config_hash: UGbvzHUCMdMe84lOKlLRajT3aIi2OFnAGpZw1eceoQY
 id: exposedformsolr_search_contentpage_1
-theme: bartik
+theme: olivero
 region: header
 weight: -5
 provider: null
