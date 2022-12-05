@@ -8,12 +8,12 @@ dependencies:
     - facets
     - system
   theme:
-    - bartik
+    - olivero
 _core:
   default_config_hash: Gb14JbPGc1IX6-hfhZr_EVEg-AUiYnV50EJcfUIIgHc
 id: physicalform
-theme: bartik
-region: header
+theme: olivero
+region: sidebar
 weight: 0
 provider: null
 plugin: 'facet_block:physical_form'
