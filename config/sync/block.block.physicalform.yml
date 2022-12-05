@@ -1,6 +1,6 @@
 uuid: cbb732ca-9e8d-4597-bfd1-e81e40210010
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - facets.facet.physical_form
