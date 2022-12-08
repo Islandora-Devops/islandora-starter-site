@@ -1,7 +1,7 @@
 vid,name,description,external_uri,authority_link_source
 islandora_display,"Open Seadragon","Display using the Open Seadragon viewer",http://openseadragon.github.io,
 islandora_display,"PDFjs","Display using the PDF.js viewer",http://mozilla.github.io/pdf.js,
-resource_types,"Collection","An aggregation of resources",http://purl.org/ontology/bibo/Collection,
+resource_types,"Collection","An aggregation of resources",http://purl.org/ontology/bibo/Collection,bibo
 resource_types,"Dataset","Data encoded in a defined structure",http://purl.org/dc/dcmitype/Dataset,dcmi_types
 resource_types,"Image","A visual representation other than text",http://purl.org/dc/dcmitype/Image,dcmi_types
 resource_types,"Interactive Resource","A resource requiring interaction from the user to be understood, executed, or experienced",http://purl.org/dc/dcmitype/InteractiveResource,dcmi_types
