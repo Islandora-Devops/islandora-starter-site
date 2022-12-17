@@ -12,7 +12,7 @@ _core:
 label: Collection
 name: collection
 group: Display
-description: 'Display block of children'
+description: 'If a Collection, display a block of children'
 requireAllConditions: false
 disabled: false
 conditions:
@@ -41,6 +41,23 @@ reactions:
         context_mapping: {  }
         views_label: ''
         items_per_page: none
+      71991e2c-74a8-4200-b085-2bf6e6d0a046:
+        uuid: 71991e2c-74a8-4200-b085-2bf6e6d0a046
+        id: 'views_block:members-block_1'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: views_block_members_block_1
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: collection
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
     include_default_blocks: 1
     saved: false
 weight: 1
