@@ -27,20 +27,6 @@ reactions:
   blocks:
     id: blocks
     blocks:
-      41f1d520-14ae-479e-90d2-34aa6f4a750e:
-        id: 'views_block:members-block_1'
-        label: ''
-        provider: views
-        label_display: visible
-        region: content_suffix
-        weight: '0'
-        theme: bartik
-        css_class: ''
-        unique: 0
-        context_id: collection
-        context_mapping: {  }
-        views_label: ''
-        items_per_page: none
       71991e2c-74a8-4200-b085-2bf6e6d0a046:
         uuid: 71991e2c-74a8-4200-b085-2bf6e6d0a046
         id: 'views_block:members-block_1'
