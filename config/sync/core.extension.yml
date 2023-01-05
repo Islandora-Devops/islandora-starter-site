@@ -58,6 +58,8 @@ module:
   islandora_video: 0
   islandora_workbench_integration: 0
   jquery_ui: 0
+  jquery_ui_autocomplete: 0
+  jquery_ui_menu: 0
   jsonld: 0
   jwt: 0
   key: 0
