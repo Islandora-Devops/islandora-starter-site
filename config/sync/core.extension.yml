@@ -102,8 +102,6 @@ module:
   update: 0
   user: 0
   view_mode_switch: 0
-  views_bulk_edit: 0
-  views_bulk_operations: 0
   views_data_export: 0
   views_ui: 0
   content_translation: 10

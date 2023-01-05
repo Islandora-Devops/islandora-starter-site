@@ -5,6 +5,9 @@ dependencies:
   module:
     - media
     - node
+  enforced:
+    module:
+      - islandora_core_feature
 _core:
   default_config_hash: VN6byCtafQaDCBbb4rpeh3YZPTHgir0ycHw6y-S-TYw
 id: media.field_media_of

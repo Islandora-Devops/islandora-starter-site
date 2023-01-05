@@ -8,6 +8,10 @@ dependencies:
   module:
     - file
     - filehash
+  enforced:
+    module:
+      - media
+      - islandora_core_feature
 third_party_settings:
   filehash:
     dedupe: 0

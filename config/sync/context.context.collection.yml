@@ -12,7 +12,7 @@ _core:
 label: Collection
 name: collection
 group: Display
-description: 'If a Collection, display a block of children'
+description: 'If a Collection or Compound, display a block of children'
 requireAllConditions: false
 disabled: false
 conditions:
@@ -21,8 +21,8 @@ conditions:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
-    uri: 'http://purl.org/dc/dcmitype/Collection'
-    logic: and
+    uri: 'http://purl.org/dc/dcmitype/Collection,http://vocab.getty.edu/aat/300242735'
+    logic: or
 reactions:
   blocks:
     id: blocks
@@ -32,9 +32,9 @@ reactions:
         label: ''
         provider: views
         label_display: visible
-        region: content_below
+        region: content_suffix
         weight: '0'
-        theme: olivero
+        theme: bartik
         css_class: ''
         unique: 0
         context_id: collection

@@ -46,8 +46,6 @@
         "drupal/transliterate_filenames": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/view_mode_switch": "^2.0",
-        "drupal/views_bulk_edit": "^2.8",
-        "drupal/views_bulk_operations": "^4.2",
         "drupal/views_data_export": "^1.2",
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",

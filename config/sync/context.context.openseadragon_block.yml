@@ -30,7 +30,7 @@ reactions:
       30e02221-7810-425f-abed-5b5f82da4612:
         uuid: 30e02221-7810-425f-abed-5b5f82da4612
         id: openseadragon_block
-        label: 'Openseadragon block'
+        label: 'Multipage Viewer'
         provider: openseadragon
         label_display: visible
         region: content_above

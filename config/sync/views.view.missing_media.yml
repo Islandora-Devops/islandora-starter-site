@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_member_of
     - field.storage.node.field_model
+    - system.menu.admin
     - taxonomy.vocabulary.islandora_models
   module:
     - csv_serialization
@@ -244,7 +245,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'administer media'
       cache:
         type: tag
         options: {  }
@@ -1257,6 +1258,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/extracted-text
+      menu:
+        type: normal
+        title: 'Missing Extracted Text '
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -1694,6 +1704,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/fits-file
+      menu:
+        type: normal
+        title: 'Missing FITS'
+        description: ''
+        weight: 1
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2131,6 +2150,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/intermediate-file
+      menu:
+        type: normal
+        title: 'Missing Intermediate File'
+        description: ''
+        weight: 2
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2568,6 +2596,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/original-file
+      menu:
+        type: normal
+        title: 'Missing Original File'
+        description: ''
+        weight: 3
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3005,6 +3042,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/preservation-master-file
+      menu:
+        type: normal
+        title: 'Missing Preservation File'
+        description: ''
+        weight: 4
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3442,6 +3488,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/service-file
+      menu:
+        type: normal
+        title: 'Missing Service File'
+        description: ''
+        weight: 6
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -3879,6 +3934,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/thumbnail-image
+      menu:
+        type: normal
+        title: 'Missing Thumbnail Image'
+        description: ''
+        weight: 7
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -4316,6 +4380,15 @@ display:
           category_facets: {  }
           category_facets_concat_separator: ', '
       path: admin/content/missing-media/transcript
+      menu:
+        type: normal
+        title: 'Missing Transcript'
+        description: ''
+        weight: 9
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
