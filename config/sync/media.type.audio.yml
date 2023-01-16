@@ -1,7 +1,7 @@
 uuid: 8603fb90-4c4e-4961-8b2f-c6921ab79f6e
 langcode: en
 status: true
-dependencies:
+dependencies: null
 _core:
   default_config_hash: Y7QeW6smKPA0t7mYNd7aMGeNUxRMWD4b6P1pQVdZco0
 id: audio

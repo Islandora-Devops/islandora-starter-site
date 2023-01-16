@@ -56,8 +56,8 @@ third_party_settings:
     advanced:
       index_prefix: ''
     multilingual:
-      specific_languages: {  }
       use_language_undefined_as_fallback_language: false
+      specific_languages: {  }
       use_universal_collation: false
 _core:
   default_config_hash: 3HSYR81fyYsY--a93ZG1VSN3PEHVN_o78qIhDfsxzs4
