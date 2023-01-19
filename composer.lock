@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "361e76e30ab60a87e1881a9591335b1c",
+    "content-hash": "2a4955f59dc7bcb38826b456687c0b82",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2763,17 +2763,17 @@
         },
         {
             "name": "drupal/filehash",
-            "version": "2.0.8",
+            "version": "2.0.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/filehash.git",
-                "reference": "2.0.8"
+                "reference": "2.0.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/filehash-2.0.8.zip",
-                "reference": "2.0.8",
-                "shasum": "fc5fcbe64155b8b87c5e9a7416d2b0d9e18dd0c9"
+                "url": "https://ftp.drupal.org/files/projects/filehash-2.0.9.zip",
+                "reference": "2.0.9",
+                "shasum": "776b59faeef7302101647374c7b2fa9e99cf2535"
             },
             "require": {
                 "drupal/core": "^8.6 || ^9.0 || ^10.0"
@@ -2787,8 +2787,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.8",
-                    "datestamp": "1663284786",
+                    "version": "2.0.9",
+                    "datestamp": "1673523003",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2909,22 +2909,22 @@
         },
         {
             "name": "drupal/geolocation",
-            "version": "3.11.0",
+            "version": "3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geolocation.git",
-                "reference": "8.x-3.11"
+                "reference": "8.x-3.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.11.zip",
-                "reference": "8.x-3.11",
-                "shasum": "7a563ba6ba18380b636c10d936a28837100a4e02"
+                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.12.zip",
+                "reference": "8.x-3.12",
+                "shasum": "eb31fe9080e2e0dcf442fc9b0a859f326219db5a"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
                 "drupal/jquery_ui": "*",
-                "drupal/jquery_ui_autocomplete": "*",
+                "drupal/jquery_ui_autocomplete": "^2.0",
                 "php": "^7.3 || ^8.0"
             },
             "require-dev": {
@@ -2937,6 +2937,7 @@
                 "drupal/geolocation_google_maps_demo": "*",
                 "drupal/geolocation_google_static_maps": "*",
                 "drupal/geolocation_leaflet": "*",
+                "drupal/geolocation_leaflet_demo": "*",
                 "drupal/search_api": "*",
                 "drupal/search_api_location": "*",
                 "drupal/search_api_location_views": "*"
@@ -2944,8 +2945,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.11",
-                    "datestamp": "1671546967",
+                    "version": "8.x-3.12",
+                    "datestamp": "1673282362",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6639,16 +6640,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.64.1",
+            "version": "2.65.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c"
+                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c",
-                "reference": "f2e59963f4c4f4fdfb9fcfd752e8d2e2b79a4e2c",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/09acf64155c16dc6f580f36569ae89344e9734a3",
+                "reference": "09acf64155c16dc6f580f36569ae89344e9734a3",
                 "shasum": ""
             },
             "require": {
@@ -6737,7 +6738,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-01T23:17:36+00:00"
+            "time": "2023-01-06T15:55:01+00:00"
         },
         {
             "name": "nikic/php-parser",
