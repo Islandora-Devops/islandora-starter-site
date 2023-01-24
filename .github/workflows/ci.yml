@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ 8.1, 8.2 ]
+        php-versions: [ 8.1 ] # 8.2 may not be possible until we upgrade to D10. https://www.drupal.org/docs/system-requirements/php-requirements
 
     name: PHP ${{ matrix.php-versions }}
 
