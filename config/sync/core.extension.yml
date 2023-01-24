@@ -9,7 +9,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
-  ckeditor: 0
+  ckeditor5: 0
   comment: 0
   config: 0
   config_update: 0
@@ -113,5 +113,4 @@ module:
 theme:
   olivero: 0
   claro: 0
-  bartik: 0
 profile: minimal
