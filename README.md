@@ -8,6 +8,9 @@
 
 A starting Drupal configuration for Islandora sites. 
 
+> **Warning**
+> The composer.lock file is now being compiled with PHP 8.1. If you are still on PHP 7.4 (e.g. ISLE), you can either check out [an older commit](https://github.com/Islandora-Devops/islandora-starter-site/commit/a6bfad92cc86232e4a9704c092bf8bdf2b1264b0), or if you are daring, blow away the lock file so that Composer can get you a set of appropriate components. However, it's possible that this may (and probably eventually will) cause your module versions to be incompatible with the config versions in `config/sync`. 
+
 ## What is a Starter Site?
 
 The Starter Site is a ready-to-customize Drupal site that shows off Islandora's features. It can be used as a template for your site, but once you start using it, your site (and all its config) are managed by you. Like a template MS Word document, changes that are made to the template after you've started using it **cannot and will not** be automatically transferred into your copy (in this case, your Islandora site). If you need these kinds of services done for you, check out our [service providers](https://www.islandora.ca/service-providers). However, we will endeavour to document and communicate changes, should you wish to incorporate them.
