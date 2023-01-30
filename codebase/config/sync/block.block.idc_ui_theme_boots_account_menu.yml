@@ -1,0 +1,27 @@
+uuid: 6fc7c68b-4887-4ab0-b571-ef9b2e182b6a
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: gmxYWWHmgbe0Pnv8y48ZLSLH5mEHejOjAP6RLxUfdzU
+id: idc_ui_theme_boots_account_menu
+theme: idc_ui_theme_boots
+region: secondary_menu
+weight: -10
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

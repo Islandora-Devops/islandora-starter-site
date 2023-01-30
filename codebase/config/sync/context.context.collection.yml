@@ -1,0 +1,49 @@
+uuid: a936e30e-a520-47c8-a872-ee479fda3493
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.members
+  module:
+    - islandora
+    - views
+_core:
+  default_config_hash: vH6Z5udf5Ab9cLW3Zl2-6VCbT0hagmZfalNjb654KVs
+label: Collection
+name: collection
+group: Display
+description: 'If a Collection or Compound, display a block of children'
+requireAllConditions: false
+disabled: false
+conditions:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection,http://vocab.getty.edu/aat/300242735'
+    logic: or
+reactions:
+  blocks:
+    id: blocks
+    blocks:
+      71991e2c-74a8-4200-b085-2bf6e6d0a046:
+        uuid: 71991e2c-74a8-4200-b085-2bf6e6d0a046
+        id: 'views_block:members-block_1'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: views_block_members_block_1
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: collection
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+    include_default_blocks: 1
+    saved: false
+weight: 1

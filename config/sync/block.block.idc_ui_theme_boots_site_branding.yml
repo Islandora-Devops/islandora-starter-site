@@ -1,0 +1,25 @@
+uuid: 73365296-5801-49ad-b74a-1a6e30ffb83b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: idc_ui_theme_boots_site_branding
+theme: idc_ui_theme_boots
+region: header
+weight: -11
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

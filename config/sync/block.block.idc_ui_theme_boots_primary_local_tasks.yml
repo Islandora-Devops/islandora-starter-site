@@ -1,0 +1,22 @@
+uuid: 84e0d500-0948-4b71-af39-27d74ee9bf47
+langcode: en
+status: true
+dependencies:
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: idc_ui_theme_boots_primary_local_tasks
+theme: idc_ui_theme_boots
+region: highlighted
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

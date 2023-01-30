@@ -1,0 +1,42 @@
+uuid: 28e6999f-81a0-4c6b-83a4-5ea808edfac1
+langcode: en
+status: true
+dependencies:
+  module:
+    - context
+    - islandora
+    - system
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: Qe6YFMsxZxHcUdSm0nXTftS8MjGN2cX-lfUJievSwXU
+id: idc_ui_theme_boots_sitebranding
+theme: idc_ui_theme_boots
+region: footer_first
+weight: -9
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    context_mapping: {  }
+    view_inclusion: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    negate: null
+    context_mapping: {  }
+    pages: ''
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

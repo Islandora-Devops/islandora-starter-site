@@ -1,0 +1,20 @@
+uuid: 6c481d9c-6e3c-4297-819d-04df06e6e4bb
+langcode: en
+status: true
+dependencies:
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: 3YhiHkVshhPZ5VIR7-ZjGNmUTjtq8QAhEwu5gpIrNyU
+id: idc_ui_theme_boots_local_actions
+theme: idc_ui_theme_boots
+region: content
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

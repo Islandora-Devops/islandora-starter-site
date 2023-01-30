@@ -1,0 +1,23 @@
+uuid: df12edea-ae6b-4a16-951e-98267aa6f216
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: idc_ui_theme_boots_syndicate
+theme: idc_ui_theme_boots
+region: top_header
+weight: -1
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

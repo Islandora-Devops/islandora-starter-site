@@ -1,6 +1,6 @@
 {
-    "name": "islandora/islandora-starter-site",
-    "description": "Project template for Islandora sites.",
+    "name": "jhu-idc/idc-codebase",
+    "description": "JHU template for Islandora repository.",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.islandora.ca",
@@ -24,22 +24,73 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mjordan/islandora_workbench_integration",
+                "version": "1.0.0",
+                "type": "drupal-module",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/mjordan/islandora_workbench_integration.git",
+                    "reference": "main"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jhu-idc/idc_ui_theme_boots",
+                "version": "1.0.0",
+                "type": "drupal-theme",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/jhu-idc/idc_ui_theme_boots.git",
+                    "reference": "main"
+                },
+                "require": {
+                    "drupal/bootstrap_barrio": "^4.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jhu-idc/idc_default_migration",
+                "version": "1.0.0",
+                "type": "drupal-module",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/DonRichards/idc_default_migration.git",
+                    "reference": "main"
+                },
+                "require": {
+                    "drupal/migrate_plus": "*"
+                }
+            }
         }
     ],
     "require": {
         "php": "^7.4 || ^8",
-        "composer/installers": "^1.9",
+        "composer/installers": "*",
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.1",
+        "drupal/block_class": "^2.0",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/csv_serialization": "^2.1",
         "drupal/facets": "^2",
         "drupal/field_group": "^3",
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.1",
         "drupal/flysystem": "^2.0@alpha",
-        "drupal/hal": "^1.0",
+        "drupal/hal": "*",
+        "drupal/jquery_ui": "^1.6",
+        "drupal/jquery_ui_autocomplete": "^2.0",
+        "drupal/jquery_ui_menu": "^2.0",
         "drupal/matomo": "^1.19",
+        "drupal/migrate_tools": "^6.0",
         "drupal/pdf": "^1.1",
         "drupal/rest_oai_pmh": "^2.0@beta",
         "drupal/search_api_solr": "^4.2",
@@ -51,8 +102,10 @@
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/controlled_access_terms": "^2",
-        "islandora/islandora": "^2",
+        "islandora/islandora": "^2.5",
         "islandora/openseadragon": "^2",
+        "jhu-idc/idc_default_migration": "1.0.0",
+        "jhu-idc/idc_ui_theme_boots": "^1.0",
         "library/pdf.js": "^2.4",
         "mjordan/islandora_workbench_integration": "^1.0"
     },
@@ -118,8 +171,12 @@
         }
     },
     "require-dev": {
+        "drupal/coder": "^8.3",
         "drupal/config_inspector": "^2.1",
-        "drupal/devel": "^5.0",
-        "drupal/restui": "^1.21"
+        "drupal/console": "^1.9",
+        "drupal/devel": "^5.1",
+        "drupal/restui": "^1.21",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "squizlabs/php_codesniffer": "*"
     }
 }

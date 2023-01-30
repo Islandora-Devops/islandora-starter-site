@@ -1,0 +1,73 @@
+uuid: b1f80daf-542a-40ae-8e55-8c5e56d59974
+langcode: en
+status: true
+dependencies: {  }
+id: idc_default_migration_menu_link_main
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: idc_initial_setup
+label: 'Create main menu links'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: 2
+      title: 'Sheridan Libraries'
+      menu_name: main
+      link: 'http://library.jhu.edu'
+      description: 'Search for books, music, films, and more from JHU and other libraries. Catalyst. Catalyst. WorldCat. Search Catalyst Advanced Search - Catalyst.'
+      weight: 2
+      expanded: 0
+    -
+      id: 3
+      title: 'Welch Medical Library'
+      menu_name: main
+      link: 'http://welch.jhmi.edu'
+      description: 'Welch Medical Library serves the information needs of the faculty, staff, and students of Johns Hopkins Medicine, Nursing and Public Health.'
+      weight: 3
+      expanded: 1
+    -
+      id: 4
+      title: 'SAIS Library'
+      menu_name: main
+      link: 'http://www.sais-jhu.edu/atoz/mason-library-washington-dc'
+      description: 'Mason Library provides services, collections, and technologies that support the Johns Hopkins SAIS community.'
+      weight: 4
+      expanded: 1
+    -
+      id: 5
+      title: 'Friedheim Music Library'
+      menu_name: main
+      link: 'https://musiclibrary.peabody.jhu.edu'
+      description: 'The Arthur Friedheim Music Library serves the faculty, staff, and students of the two divisions of the Peabody Institute (the Conservatory and the Preparatory) and Johns Hopkins University, as well as the general public.'
+      weight: 5
+      expanded: 1
+    -
+      id: 6
+      title: 'APL Library'
+      menu_name: main
+      link: 'https://www.jhuapl.edu/Library/'
+      description: 'Johns Hopkins Applied Physics Laboratory Information and Research Services are available only to APL staff members via APLs intranet.'
+      weight: 6
+      expanded: 1
+  ids:
+    id:
+      type: integer
+process:
+  bundle:
+    plugin: default_value
+    default_value: menu_link_content
+  title: title
+  menu_name: menu_name
+  link/uri:
+    plugin: default_value
+    source: link
+  weight: weight
+  expanded: expanded
+  link/options: '@opts'
+  description: description
+destination:
+  plugin: 'entity:menu_link_content'
+migration_dependencies: null

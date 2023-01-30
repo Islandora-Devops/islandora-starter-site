@@ -1,0 +1,31 @@
+uuid: eedc559b-5340-4852-9853-c8a24191ae17
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.subject
+  module:
+    - facets
+    - system
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: 8CNTurKBSOQZRTrWiaCmfAwseQyzXZOb8gJohUvIBFw
+id: idc_ui_theme_boots_subject
+theme: idc_ui_theme_boots
+region: top_header
+weight: -7
+provider: null
+plugin: 'facet_block:subject'
+settings:
+  id: 'facet_block:subject'
+  label: Subject
+  label_display: visible
+  provider: facets
+  block_id: subject
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /solr-search/content

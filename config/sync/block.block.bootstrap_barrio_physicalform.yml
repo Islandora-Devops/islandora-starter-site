@@ -1,0 +1,31 @@
+uuid: 36e7fe20-9edc-4b47-bd15-47e3a61dde91
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.physical_form
+  module:
+    - facets
+    - system
+  theme:
+    - bootstrap_barrio
+_core:
+  default_config_hash: Gb14JbPGc1IX6-hfhZr_EVEg-AUiYnV50EJcfUIIgHc
+id: bootstrap_barrio_physicalform
+theme: bootstrap_barrio
+region: top_header
+weight: 0
+provider: null
+plugin: 'facet_block:physical_form'
+settings:
+  id: 'facet_block:physical_form'
+  label: 'Physical Form'
+  label_display: visible
+  provider: facets
+  block_id: physicalform
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /solr-search/content

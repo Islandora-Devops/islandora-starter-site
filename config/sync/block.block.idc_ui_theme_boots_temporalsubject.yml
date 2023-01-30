@@ -1,0 +1,31 @@
+uuid: b8a8cc1e-fb40-4b06-8b76-4f851363aca8
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.temporal_subject
+  module:
+    - facets
+    - system
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: 1BMA18tJL_4xlrR2wg5QSmr499p157HBiWAgv_rJmQ4
+id: idc_ui_theme_boots_temporalsubject
+theme: idc_ui_theme_boots
+region: top_header
+weight: -4
+provider: null
+plugin: 'facet_block:temporal_subject'
+settings:
+  id: 'facet_block:temporal_subject'
+  label: 'Temporal Subject'
+  label_display: visible
+  provider: facets
+  block_id: temporalsubject
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /solr-search/content

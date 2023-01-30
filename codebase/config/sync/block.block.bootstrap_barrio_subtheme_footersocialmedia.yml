@@ -1,0 +1,21 @@
+uuid: 9ca42ce8-0934-41cd-bc46-0ab137b54634
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bootstrap_barrio_subtheme
+_core:
+  default_config_hash: Rhoi0rlqhcjf2FHWtebBe3Y3pd90_rBDgkk6YDJAVOE
+id: bootstrap_barrio_subtheme_footersocialmedia
+theme: bootstrap_barrio_subtheme
+region: footer_second
+weight: -8
+provider: null
+plugin: 'fixed_block_content:carapace_fb_footer_social_media'
+settings:
+  id: 'fixed_block_content:carapace_fb_footer_social_media'
+  label: 'Footer: Social Media'
+  label_display: '0'
+  provider: fixed_block_content
+  view_mode: ''
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 2d5933d0-c5a8-427c-a8de-fcfb23dfd90d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - idc_ui_theme_boots
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: idc_ui_theme_boots_page_title
+theme: idc_ui_theme_boots
+region: top_header
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
