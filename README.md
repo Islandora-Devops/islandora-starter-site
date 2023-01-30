@@ -8,6 +8,12 @@
 
 A starting Drupal configuration for Islandora sites. 
 
+## What is a Starter Site?
+
+The Starter Site is a ready-to-customize Drupal site that shows off Islandora's features. It can be used as a template for your site, but once you start using it, your site (and all its config) are managed by you. Like a template MS Word document, changes that are made to the template after you've started using it **cannot and will not** be automatically transferred into your copy (in this case, your Islandora site). If you need these kinds of services done for you, check out our [service providers](https://www.islandora.ca/service-providers). However, we will endeavour to document and communicate changes, should you wish to incorporate them.
+
+The Starter site contains instructions to set up a Drupal site, but several features requre the presence of external services such as Fedora, Solr, and others (see installation instructions below). 
+
 ## Quick Installation
 
 To launch a fully-functioning Islandora Starter site as well as the (non-Drupal)
@@ -20,29 +26,30 @@ tools and services that support it, try one of the Islandora deployment tools:
 
 ## Manual Installation
 
-Your mileage may vary. Depending on your particular use case, some Islandora
-prerequisites may not be needed; for example, if you do not need Fedora,
-Cantaloupe, or otherwise you can skip their installation and configuration. Note
-that this may leave behind stray configurations that should be removed. This
-is left as an exercise for the site admin, as documenting such advanced usage is
-beyond the scope of this document.
+The config files in the Starter Site assume a full suite of external services.
+If you do not need all the external services (such as Fedora or Matomo) then
+you can skip them but you will also want to adjust the Drupal configs. Such a
+partial install is beyond the scope of this document.
 
 ## Prerequisites
 
 1. PHP and [Composer](https://getcomposer.org/) installed
-2. Database installation/configuration [for Drupal](https://www.drupal.org/docs/system-requirements/database-server-requirements)
-    * Drivers for MySQL/MariaDB/Percona (`mysql`), PostgreSQL (`pgsql`), and
-SQLite (`sqlite`) are installed. Using other (contrib) drivers would require
-additional installation/configuration steps outside the scope of this document.
-3. [Fedora Commons (FCRepo)](https://github.com/fcrepo/fcrepo) installation
+2. A Database server installed and [configured for Drupal](https://www.drupal.org/docs/system-requirements/database-server-requirements)
+    * The Starter Site installs drivers for MySQL/MariaDB/Percona (`mysql`),
+PostgreSQL (`pgsql`), and SQLite (`sqlite`). Using other (contrib) drivers
+would require additional installation/configuration, and is outside the
+scope of this document.
+3. [Fedora Commons (FCRepo)](https://github.com/fcrepo/fcrepo) installed
     1. [Syn](https://github.com/Islandora/Syn/) installed and configured with a
 key.
-4. Triplestore installation
-5. Cantaloupe installation
-    1. `http://127.0.0.1:8080/cantaloupe/iiif/2` is expected to be resolvable,
-and to accept full URLs as resource IDs.
+4. Triplestore installed
+5. Cantaloupe installed
+    1. A IIIF URL is expected to be resolvable, and to accept full URLs as
+resource IDs. If the URL is not `http://127.0.0.1:8080/cantaloupe/iiif/2`,
+this will have to be set (see Usage step 5).
 6. ActiveMQ/Alpaca/Crayfish installation
-    1. ActiveMQ expected to be listening for STOMP messages at `tcp://127.0.0.1:61613`
+    1. ActiveMQ expected to be listening for STOMP messages at a `tcp` url.
+If not the default `tcp://127.0.0.1:61613`, this will have to be set (see Usage step 5)
     2. Queues (and underlying (micro)services) configured appropriately:
 
 | Queue Name                                | Destination                                                |
@@ -50,20 +57,23 @@ and to accept full URLs as resource IDs.
 | `islandora-connector-homarus`             | Homarus (Crayfish ffmpeg transcoding microservice)         |
 | `islandora-indexing-fcrepo-delete`        | FCRepo indexer                                             |
 | `islandora-indexing-triplestore-delete`   | Triplestore indexer                                        |
- | `islandora-connector-houdini`             | Houdini (Crayfish imagemagick transformation microservice) |
- | `islandora-connector-ocr`                 | Hypercube (Crayfish OCR microservice)                      |
- | `islandora-indexing-fcrepo-file-external` | FCRepo indexer                                             |
- | `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
- | `islandora-indexing-triplestore-index`    | Triplestore indexer                                        |
- | `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
- | `islandora-connector-fits`                | CrayFits derivative processor                              |
+| `islandora-connector-houdini`             | Houdini (Crayfish imagemagick transformation microservice) |
+| `islandora-connector-ocr`                 | Hypercube (Crayfish OCR microservice)                      |
+| `islandora-indexing-fcrepo-file-external` | FCRepo indexer                                             |
+| `islandora-indexing-fcrepo-media`         | FCRepo indexer                                             |
+| `islandora-indexing-triplestore-index`    | Triplestore indexer                                        |
+| `islandora-indexing-fcrepo-content`       | FCRepo indexer                                             |
+| `islandora-connector-fits`                | CrayFits derivative processor                              |
 
 7. A [Drupal-compatible web server](https://www.drupal.org/docs/system-requirements/web-server-requirements)
 8. A [Matomo installation](https://matomo.org/)
     * Further details in the [`matomo` module's](https://www.drupal.org/project/matomo) documentation
 9. [FITS Web Service](https://projects.iq.harvard.edu/fits/downloads#fits-servlet) and
-[CrayFits](https://github.com/roblib/CrayFits) installations
+[CrayFits](https://github.com/roblib/CrayFits) installed
     * Further details in the [`islandora_fits` module's](https://github.com/roblib/islandora_fits) README/documentation
+10. A Solr server installed or available with a core set up
+    * Further details on [Drupal's Search API Solr module](https://www.drupal.org/project/search_api_solr) page.
+    * If not available at `127.0.0.1:8983`, or if the core name is not `ISLANDORA` its information will need to be set up (see Usage step 5)
 
 ## Usage
 
@@ -102,6 +112,7 @@ and to accept full URLs as resource IDs.
     After this step, you should configure your web server to serve `web/`
 directory as its document root.
 
+
 4. Add (or otherwise create) a user to the `fedoraadmin` role; for example,
 giving the default `admin` user the role:
 
@@ -109,14 +120,28 @@ giving the default `admin` user the role:
     composer exec -- drush user:role:add fedoraadmin admin
     ```
 
-5. Make the Syn/JWT keys available to our configuration either by (or by some combination of):
-    1. Symlinking the private key to `/opt/islandora/auth/private.key`; or,
-    2. Configuring the location to the private key on the site at
-`http://<your-web-server>/admin/config/system/keys/manage/islandora_rsa_key`
-(where `<your-web-server>` accesses your web server which is configured to serve
-from the starter site's `web/` directory).
+5. Configure the locations of external services.
 
-6. Run the migrations in the `islandora` migration group to populate the base
+Change the following Drupal configs to your values using any method (GUI,
+`drush cset`, config overrides in `settings.php`...):
+
+| Value                           | Drupal Config item                    | Default Starter Site value                | 
+| ------------------------------- | ------------------------------------- | ------------------------------------------|
+| ActiveMQ (broker)               | `islandora.settings broker_url`       | `tcp://127.0.0.1:61613`                   |
+| Cantaloupe (for OpenSeadragon)  | `openseadragon.settings iiif_server`  | `http://127.0.0.1:8080/cantaloupe/iiif/2` |
+| Cantaloupe (for Islandora IIIF) | `islandora_iiif.settings iiif_server` | `http://127.0.0.1:8080/cantaloupe/iiif/2` |
+| Matomo URL                      | `matomo.settings url_http`            | `http://localhost:8000/matomo/`           |
+| Solr - URL                      | `search_api.server.default_solr_server backend_config.connector_config.host` | `127.0.0.1` |
+| Solr - port                     | `search_api.server.default_solr_server backend_config.connector_config.port` | `8983` |
+| Solr - core name                | `search_api.server.default_solr_server backend_config.connector_config.core` | `ISLANDORA` |
+
+
+6. Make the Syn/JWT keys available to our configuration either by (or by some combination of):
+    1. Symlinking the private key to `/opt/islandora/auth/private.key`; or,
+    2. Setting the appropriate location as `key.key.islandora_rsa_key key_provider_settings.file_location`
+(using the methods listed in step 5 or at `/admin/config/system/keys/manage/islandora_rsa_key`)
+
+7. Run the migrations in the `islandora` migration group to populate the base
 taxonomies, specifying the `--userid` targeting the user with the `fedoraadmin`
 role:
 
@@ -124,10 +149,11 @@ role:
     composer exec -- drush migrate:import --userid=1 islandora_tags,islandora_defaults_tags,islandora_fits_tags
     ```
 
+
 This should get you a starter Islandora site with:
 
 * A basic node bundle to represent repository content
-* A handful of media types presentable
+* A handful of media types that store content in Fedora
 * RDF and JSON-LD mappings for miscellaneous entities to support storage in
 Fedora, Triplestore indexing and client requests.
 
@@ -200,7 +226,7 @@ In summary: These two messages seem to be ignorable.
 
 #### Patches
 
-There are currently no patches included with the Starter Site. If a patch (external or internal) is necessary, it can be applied automatically by composer by using the [composer-patches plugin](https://github.com/cweagans/composer-patches). Any patches included in the Starter Site should be described fully here (including when they should be removed).
+There are currently no patches included with the Starter Site. If a patch (external or internal) is necessary, it can be applied automatically by composer by using the [composer-patches plugin](https://github.com/cweagans/composer-patches). Any patches included in the Starter Site should be described fully in this section (including when they should be removed).
 
 ### Ongoing Project Maintenance
 

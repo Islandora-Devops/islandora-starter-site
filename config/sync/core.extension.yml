@@ -45,7 +45,6 @@ module:
   hal: 0
   help: 0
   history: 0
-  idc_default_migration: 0
   image: 0
   islandora: 0
   islandora_advanced_search: 0
@@ -74,7 +73,6 @@ module:
   migrate: 0
   migrate_plus: 0
   migrate_source_csv: 0
-  migrate_tools: 0
   mysql: 0
   node: 0
   openseadragon: 0
@@ -115,6 +113,4 @@ module:
 theme:
   olivero: 0
   claro: 0
-  bootstrap_barrio: 0
-  idc_ui_theme_boots: 0
 profile: minimal
