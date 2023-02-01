@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ 8.1 ] # 8.2 may not be possible until we upgrade to D10. https://www.drupal.org/docs/system-requirements/php-requirements
+        php-versions: [ 7.4, 8.1 ] # 8.2 may not be possible until we upgrade to D10. https://www.drupal.org/docs/system-requirements/php-requirements
 
     name: PHP ${{ matrix.php-versions }}
 
@@ -27,7 +27,7 @@ jobs:
       # From https://github.com/shivammathur/setup-php#cache-composer-dependencies
       - name: Get composer cache directory
         id: composer-cache
-        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT 
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
@@ -35,7 +35,16 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
       - name: Install dependencies
-        run: composer install
+        shell: bash
+        run: |
+          if composer install ; then
+            echo "Installed via 'composer install'."
+          elif composer upgrade; then
+            echo "Installed via 'composer upgrade'."
+          else
+            echo "Failed to install composer project."
+            exit 1
+          fi
       - name: Test site installation
         run: composer exec -- drush site:install --existing-config --db-url=sqlite:test_db
       - name: Inspect configuration
