@@ -24,7 +24,20 @@
                     "type": "zip"
                 }
             }
-        }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "islandora/views_nested_details",
+              "version": "dev-main",
+              "type": "drupal-module",
+              "source": {
+                "url": "https://github.com/Islandora-Labs/views_nested_details",
+                "type": "git",
+                "reference":"main"
+              }
+            }
+        }        
     ],
     "require": {
         "php": "^7.4 || ^8",
@@ -42,7 +55,7 @@
         "drupal/matomo": "^1.19",
         "drupal/pdf": "^1.1",
         "drupal/rest_oai_pmh": "^2.0@beta",
-        "drupal/search_api_solr": "^4.2",
+        "drupal/search_api_solr": "*",
         "drupal/taxonomy_manager": "^2.0",
         "drupal/transliterate_filenames": "^2.0",
         "drupal/twig_tweak": "^3.2",
@@ -53,8 +66,11 @@
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",
+        "islandora/views_nested_details": "dev-main",
         "library/pdf.js": "^2.4",
-        "mjordan/islandora_workbench_integration": "^1.0"
+        "maennchen/zipstream-php": "2.2.6",
+        "mjordan/islandora_workbench_integration": "^1.0",
+        "symfony/string": "5.4"
     },
     "conflict": {
         "drupal/drupal": "*",
