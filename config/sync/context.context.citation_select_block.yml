@@ -1,0 +1,54 @@
+uuid: 34924fda-481b-4e40-b074-eff73eaefad7
+langcode: en
+status: true
+dependencies:
+  module:
+    - citation_select
+    - islandora
+    - node
+label: 'Citation Select Block'
+name: citation_select_block
+group: Display
+description: 'If a Repository Item, show Citation Select Block'
+requireAllConditions: true
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 8941e626-3686-4dbe-85d9-412d41c20fd6
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      islandora_object: islandora_object
+  node_has_term:
+    id: node_has_term
+    negate: true
+    uuid: 2c1eed65-4ab3-4362-9b8f-f955e5313c63
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection'
+    logic: and
+reactions:
+  blocks:
+    id: blocks
+    uuid: 065ab74d-a9d4-4ce7-9b89-b1f1186f6c44
+    blocks:
+      c22706b2-3f26-4b40-aacc-856c6a87176e:
+        uuid: c22706b2-3f26-4b40-aacc-856c6a87176e
+        id: citation_select_block
+        label: 'Citation Select Block'
+        provider: citation_select
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: citation_select_block
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: citation_select_block
+        context_mapping: {  }
+        third_party_settings: {  }
+    include_default_blocks: 1
+    saved: false
+weight: 0
