@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "887ee451ec322f89266a212f4462e83a",
+    "content-hash": "b1d7afb9129fe5279187e247550cbb4f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5514,11 +5514,11 @@
         },
         {
             "name": "islandora/views_nested_details",
-            "version": "dev-main",
+            "version": "1.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Islandora-Labs/views_nested_details",
-                "reference": "main"
+                "reference": "1.0.0-beta1"
             },
             "type": "drupal-module"
         },
@@ -11816,7 +11816,7 @@
         "drupal/flysystem": 15,
         "drupal/rest_oai_pmh": 10,
         "islandora-rdm/islandora_fits": 20,
-        "islandora/views_nested_details": 20
+        "islandora/views_nested_details": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,

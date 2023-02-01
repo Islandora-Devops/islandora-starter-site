@@ -29,12 +29,12 @@
             "type": "package",
             "package": {
               "name": "islandora/views_nested_details",
-              "version": "dev-main",
+              "version": "1.0.0-beta1",
               "type": "drupal-module",
               "source": {
                 "url": "https://github.com/Islandora-Labs/views_nested_details",
                 "type": "git",
-                "reference":"main"
+                "reference":"1.0.0-beta1"
               }
             }
         }        
@@ -66,7 +66,7 @@
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",
-        "islandora/views_nested_details": "dev-main",
+        "islandora/views_nested_details": "^1.0.0-beta",
         "library/pdf.js": "^2.4",
         "maennchen/zipstream-php": "2.2.6",
         "mjordan/islandora_workbench_integration": "^1.0",
