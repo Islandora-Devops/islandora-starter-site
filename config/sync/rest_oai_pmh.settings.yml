@@ -12,15 +12,15 @@ repository_email: admin@example.com
 expiration: '3600'
 metadata_map_plugins:
   -
-    label: oai_dc
-    value: dublin_core_rdf
+    label: mods
+    value: mods
   -
     label: oai_raw
     value: ''
   -
-    label: mods
-    value: ''
+    label: oai_dc
+    value: dublin_core_rdf
 cache_technique: liberal_cache
 mods_view:
-  view_machine_name: ''
-  view_display_name: ''
+  view_machine_name: oai_pmh_item_data
+  view_display_name: page_1

@@ -1,0 +1,13 @@
+diff --git a/src/Plugin/rest/resource/OaiPmh.php b/src/Plugin/rest/resource/OaiPmh.php
+index db2ea29..6e66d79 100644
+--- a/src/Plugin/rest/resource/OaiPmh.php
++++ b/src/Plugin/rest/resource/OaiPmh.php
+@@ -500,7 +500,7 @@ class OaiPmh extends ResourceBase {
+       // XXX: GROUP_CONCAT() doesn't exist in PostgreSQL.
+       $query->addExpression("STRING_AGG(m.set_id, ',')", 'sets');
+     }
+-    $query->groupBy('r.entity_type, r.entity_id');
++    $query->groupBy('r.entity_id')->groupBy('r.entity_type');
+ 
+     // XXX: Result sets can be unpredictable when limiting without an ORDER BY
+     // clause.
