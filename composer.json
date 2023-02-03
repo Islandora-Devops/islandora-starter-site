@@ -54,9 +54,7 @@
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",
         "library/pdf.js": "^2.4",
-        "maennchen/zipstream-php": "2.2.6",
-        "mjordan/islandora_workbench_integration": "^1.0",
-        "symfony/string": "5.4"
+        "mjordan/islandora_workbench_integration": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*",
