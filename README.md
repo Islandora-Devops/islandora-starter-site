@@ -14,6 +14,8 @@ The Starter Site is a ready-to-customize Drupal site that shows off Islandora's 
 
 The Starter site contains instructions to set up a Drupal site, but several features requre the presence of external services such as Fedora, Solr, and others (see installation instructions below). 
 
+The Starter Site uses semantic-like versioning now, but this is only for compatibility with the tools that install it. The Starter Site will change major versions whenever it requires something new from the tools that create its environment (Playbook/ISLE).
+
 ## Quick Installation
 
 To launch a fully-functioning Islandora Starter site as well as the (non-Drupal)
