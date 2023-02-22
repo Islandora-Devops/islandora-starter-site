@@ -44,6 +44,7 @@
         "drupal/rest_oai_pmh": "^2.0@beta",
         "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
+	    "drupal/term_merge": "^2.0@beta",
         "drupal/transliterate_filenames": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/view_mode_switch": "^2.0",
@@ -60,7 +61,7 @@
         "drupal/drupal": "*",
         "drupal/core": "<=8"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "discard-changes": "stash",
