@@ -5,26 +5,23 @@ dependencies:
   module:
     - citation_select
     - islandora
-    - node
 label: 'Citation Select Block'
 name: citation_select_block
 group: Display
-description: 'If a Repository Item, show Citation Select Block'
+description: 'On an Islandora nodes (except Collections), show Citation Select Block'
 requireAllConditions: true
 disabled: false
 conditions:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    negate: false
-    uuid: 8941e626-3686-4dbe-85d9-412d41c20fd6
+  node_is_islandora_object:
+    id: node_is_islandora_object
+    negate: 0
+    uuid: 97898fc7-d3bd-4b37-940f-2240e41a11ef
     context_mapping:
       node: '@node.node_route_context:node'
-    bundles:
-      islandora_object: islandora_object
   node_has_term:
     id: node_has_term
     negate: true
-    uuid: 2c1eed65-4ab3-4362-9b8f-f955e5313c63
+    uuid: 1fc2fcef-4975-4e9e-97f6-b8127a01f5c6
     context_mapping:
       node: '@node.node_route_context:node'
     uri: 'http://purl.org/dc/dcmitype/Collection'
