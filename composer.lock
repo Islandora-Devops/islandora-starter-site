@@ -4,8 +4,167 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dee628c96ffe4a0fd943fd173a638876",
+    "content-hash": "1dd76d7c7206f23c26b894947b087d55",
     "packages": [
+        {
+            "name": "academicpuma/citeproc-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seboettg/citeproc-php-old.git",
+                "reference": "41da9655943bc495439df92ff68890b61277d724"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seboettg/citeproc-php-old/zipball/41da9655943bc495439df92ff68890b61277d724",
+                "reference": "41da9655943bc495439df92ff68890b61277d724",
+                "shasum": ""
+            },
+            "require": {
+                "academicpuma/locales": ">=1.0",
+                "academicpuma/styles": ">=1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "phpunit/phpunit-skeleton-generator": "2.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AcademicPuma\\CiteProc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL v3"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Böttger",
+                    "email": "boettger@cs.uni-kassel.de"
+                }
+            ],
+            "description": "This is an effort to implement a full-featured standalone CSL processor in PHP. The code based on the implementation of Ron Jerome.",
+            "support": {
+                "issues": "https://github.com/seboettg/citeproc-php-old/issues",
+                "source": "https://github.com/seboettg/citeproc-php-old/tree/1.0.0"
+            },
+            "abandoned": "seboettg/citeproc-php",
+            "time": "2015-09-15T09:01:39+00:00"
+        },
+        {
+            "name": "academicpuma/locales",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seboettg/locales.git",
+                "reference": "e5985dbc979f6a285e74006466daab40fd53573f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seboettg/locales/zipball/e5985dbc979f6a285e74006466daab40fd53573f",
+                "reference": "e5985dbc979f6a285e74006466daab40fd53573f",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Creative Commons Attribution-ShareAlike 3.0 License"
+            ],
+            "authors": [
+                {
+                    "name": "seboettg",
+                    "email": "boettger@cs.uni-kassel.de"
+                }
+            ],
+            "description": "Citation Style Language (CSL) Locales Repository",
+            "support": {
+                "source": "https://github.com/seboettg/locales/tree/master"
+            },
+            "time": "2015-09-08T14:33:33+00:00"
+        },
+        {
+            "name": "academicpuma/styles",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seboettg/styles.git",
+                "reference": "24a0ab9277d3cc7d344e621721b2f4c2ed2f2ecc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seboettg/styles/zipball/24a0ab9277d3cc7d344e621721b2f4c2ed2f2ecc",
+                "reference": "24a0ab9277d3cc7d344e621721b2f4c2ed2f2ecc",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Creative Commons Attribution-ShareAlike 3.0 License"
+            ],
+            "authors": [
+                {
+                    "name": "seboettg",
+                    "email": "boettger@cs.uni-kassel.de"
+                }
+            ],
+            "description": "Citation Style Language (CSL) Stylesheet Repository",
+            "support": {
+                "source": "https://github.com/seboettg/styles/tree/master"
+            },
+            "time": "2015-09-08T14:22:08+00:00"
+        },
+        {
+            "name": "adci/full-name-parser",
+            "version": "0.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ADCI/full-name-parser.git",
+                "reference": "2c59942d97195bbdc101e3d1a0ad01519577edb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ADCI/full-name-parser/zipball/2c59942d97195bbdc101e3d1a0ad01519577edb0",
+                "reference": "2c59942d97195bbdc101e3d1a0ad01519577edb0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8.28 <5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ADCI\\FullNameParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ADCI Solutions",
+                    "homepage": "https://www.adcisolutions.com"
+                }
+            ],
+            "description": "Parses a human name",
+            "keywords": [
+                "full name",
+                "name",
+                "parse",
+                "parser",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/adci/full-name-parser/issues",
+                "source": "https://github.com/adci/full-name-parser"
+            },
+            "time": "2019-11-05T05:32:16+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "1.3.0",
@@ -61,6 +220,111 @@
                 "source": "https://github.com/asm89/stack-cors/tree/1.3.0"
             },
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "audiolabs/bibtexparser",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/audiolabs/bibtexparser.git",
+                "reference": "01dd501db831ed7f10e9656e83f9895dab26a9da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/audiolabs/bibtexparser/zipball/01dd501db831ed7f10e9656e83f9895dab26a9da",
+                "reference": "01dd501db831ed7f10e9656e83f9895dab26a9da",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AudioLabs": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Werner",
+                    "email": "nils.werner@audiolabs-erlangen.de",
+                    "homepage": "http://www.audiolabs-erlangen.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bibtex parser for PHP 5.3",
+            "homepage": "http://github.com/alabs/bibtexparser",
+            "keywords": [
+                "bibtex",
+                "latex",
+                "parsing"
+            ],
+            "support": {
+                "issues": "https://github.com/audiolabs/bibtexparser/issues",
+                "source": "https://github.com/audiolabs/bibtexparser/tree/master"
+            },
+            "time": "2020-08-24T07:09:27+00:00"
+        },
+        {
+            "name": "caseyamcl/php-marc21",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caseyamcl/php-marc21.git",
+                "reference": "807c1920d729d39fe49a07fdb10427caccf376c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caseyamcl/php-marc21/zipball/807c1920d729d39fe49a07fdb10427caccf376c0",
+                "reference": "807c1920d729d39fe49a07fdb10427caccf376c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0|^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PhpMarc": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Casey McLaughlin",
+                    "email": "caseyamcl@gmail.com",
+                    "homepage": "https://caseymclaughlin.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Grant Gingell",
+                    "homepage": "http://www.grantgingell.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MARC Record handling tool for PHP",
+            "homepage": "https://github.com/caseyamc/php-marc21",
+            "keywords": [
+                "conversion",
+                "format",
+                "library",
+                "marc"
+            ],
+            "support": {
+                "issues": "https://github.com/caseyamcl/php-marc21/issues",
+                "source": "https://github.com/caseyamcl/php-marc21/tree/master"
+            },
+            "time": "2020-08-20T21:08:48+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -769,16 +1033,16 @@
         },
         {
             "name": "consolidation/self-update",
-            "version": "2.0.5",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/self-update.git",
-                "reference": "8a64bdd8daf5faa8e85f56534dd99caf928164b3"
+                "reference": "714b09fdf0513f83292874bb12de0566066040c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/8a64bdd8daf5faa8e85f56534dd99caf928164b3",
-                "reference": "8a64bdd8daf5faa8e85f56534dd99caf928164b3",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/714b09fdf0513f83292874bb12de0566066040c2",
+                "reference": "714b09fdf0513f83292874bb12de0566066040c2",
                 "shasum": ""
             },
             "require": {
@@ -818,9 +1082,9 @@
             "description": "Provides a self:update command for Symfony Console applications.",
             "support": {
                 "issues": "https://github.com/consolidation/self-update/issues",
-                "source": "https://github.com/consolidation/self-update/tree/2.0.5"
+                "source": "https://github.com/consolidation/self-update/tree/2.1.0"
             },
-            "time": "2022-02-09T22:44:24+00:00"
+            "time": "2023-02-21T19:33:55+00:00"
         },
         {
             "name": "consolidation/site-alias",
@@ -1697,6 +1961,155 @@
             }
         },
         {
+            "name": "drupal/bibcite",
+            "version": "2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bibcite.git",
+                "reference": "2.0.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bibcite-2.0.0-beta2.zip",
+                "reference": "2.0.0-beta2",
+                "shasum": "fc2d6850c18479c661df67b11d38c5fe42b83744"
+            },
+            "require": {
+                "academicpuma/citeproc-php": "~1.0",
+                "adci/full-name-parser": "^0.2.4",
+                "audiolabs/bibtexparser": "^1.0",
+                "caseyamcl/php-marc21": "~1.0",
+                "drupal/core": "^8 || ^9",
+                "drupal/entity": "^1.0",
+                "drupal/token": "^1.0",
+                "technosophos/libris": "~2.0"
+            },
+            "require-dev": {
+                "drupal/bibcite_entity": "*",
+                "drupal/entity": "*",
+                "drupal/token": "*"
+            },
+            "suggest": {
+                "drupal/bibcite_altmetric": "Adds Altmetric badges to BibCite reference entities",
+                "drupal/bibcite_crossref": "Provides DOI lookup functionality",
+                "drupal/bibcite_migrate": "Migrate your bibliographic data from the Bibliography (biblio) module",
+                "drupal/bibcite_pubmed": "Provides PubMed import and lookup functionality",
+                "drupal/metatag_google_scholar": "Provides number of meta tags to help with indexing of scholarly content/articles in Google Scholar"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta2",
+                    "datestamp": "1642044055",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "AardWolf",
+                    "homepage": "https://www.drupal.org/user/3540355"
+                },
+                {
+                    "name": "adci_contributor",
+                    "homepage": "https://www.drupal.org/user/1830536"
+                },
+                {
+                    "name": "adcillc",
+                    "homepage": "https://www.drupal.org/user/366450"
+                },
+                {
+                    "name": "antongp",
+                    "homepage": "https://www.drupal.org/user/1060446"
+                },
+                {
+                    "name": "hxdef",
+                    "homepage": "https://www.drupal.org/user/2622115"
+                },
+                {
+                    "name": "usdv",
+                    "homepage": "https://www.drupal.org/user/2476206"
+                }
+            ],
+            "description": "Working with bibliographic data",
+            "homepage": "https://www.drupal.org/project/bibcite",
+            "keywords": [
+                "Bibliography",
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/bibcite",
+                "issues": "https://www.drupal.org/project/issues/bibcite"
+            }
+        },
+        {
+            "name": "drupal/citation_select",
+            "version": "1.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/citation_select.git",
+                "reference": "1.0.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/citation_select-1.0.0-beta3.zip",
+                "reference": "1.0.0-beta3",
+                "shasum": "d5388bd0f724cd19f0caf950be8d0774958551f7"
+            },
+            "require": {
+                "drupal/bibcite": "^2.0@beta",
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/token": "^1.9",
+                "professional-wiki/edtf": "~2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-beta3",
+                    "datestamp": "1677182811",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "kirsta",
+                    "homepage": "https://www.drupal.org/user/173761"
+                },
+                {
+                    "name": "kylehuynh",
+                    "homepage": "https://www.drupal.org/user/3255474"
+                },
+                {
+                    "name": "lkj.gomez",
+                    "homepage": "https://www.drupal.org/user/3688342"
+                },
+                {
+                    "name": "Natkeeran",
+                    "homepage": "https://www.drupal.org/user/1016288"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/citation_select",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/citation_select"
+            }
+        },
+        {
             "name": "drupal/config_update",
             "version": "1.7.0",
             "source": {
@@ -1814,6 +2227,10 @@
                 {
                     "name": "jmiccolis",
                     "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "Kristen Pol",
+                    "homepage": "https://www.drupal.org/user/8389"
                 },
                 {
                     "name": "nedjo",
@@ -2303,6 +2720,75 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
+            }
+        },
+        {
+            "name": "drupal/entity",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entity.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "1cf7712318fad144eab106a8fcfcd396aeb5676f"
+            },
+            "require": {
+                "drupal/core": "^9.2|^10.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1661898023",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "dixon_",
+                    "homepage": "https://www.drupal.org/user/239911"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "mglaman",
+                    "homepage": "https://www.drupal.org/user/2416470"
+                },
+                {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
+                }
+            ],
+            "description": "Provides expanded entity APIs, which will be moved to Drupal core one day.",
+            "homepage": "https://www.drupal.org/project/entity",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entity",
+                "issues": "https://www.drupal.org/project/issues/entity"
             }
         },
         {
@@ -3686,17 +4172,17 @@
         },
         {
             "name": "drupal/rest_oai_pmh",
-            "version": "2.0.0-beta7",
+            "version": "2.0.0-beta8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rest_oai_pmh.git",
-                "reference": "2.0.0-beta7"
+                "reference": "2.0.0-beta8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.0.0-beta7.zip",
-                "reference": "2.0.0-beta7",
-                "shasum": "b53527a38f663bf0d937976cb963cd58f8967698"
+                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.0.0-beta8.zip",
+                "reference": "2.0.0-beta8",
+                "shasum": "17e3322a59d132a80f95199db0eab7be5f9cf9a3"
             },
             "require": {
                 "drupal/core": "^9"
@@ -3704,8 +4190,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta7",
-                    "datestamp": "1671655896",
+                    "version": "2.0.0-beta8",
+                    "datestamp": "1676243376",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -3991,7 +4477,7 @@
                 "issues": "https://www.drupal.org/project/issues/taxonomy_manager"
             }
         },
-	{
+        {
             "name": "drupal/term_merge",
             "version": "2.0.0-beta4",
             "source": {
@@ -4292,17 +4778,17 @@
         },
         {
             "name": "drupal/view_mode_switch",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/view_mode_switch.git",
-                "reference": "2.0.4"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/view_mode_switch-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "034b8eaba3db3161d1fc4f7835ef63b6b8b04683"
+                "url": "https://ftp.drupal.org/files/projects/view_mode_switch-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "54aa4faee1ae834a15adbe9b16eb1443e7659ea6"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -4314,8 +4800,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1668516415",
+                    "version": "2.0.5",
+                    "datestamp": "1676027872",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11150,6 +11636,54 @@
             "time": "2022-08-02T15:47:23+00:00"
         },
         {
+            "name": "technosophos/libris",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/technosophos/LibRIS.git",
+                "reference": "5b6628ece0e57e90bd54f3b2d8de922dc4cc662c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/technosophos/LibRIS/zipball/5b6628ece0e57e90bd54f3b2d8de922dc4cc662c",
+                "reference": "5b6628ece0e57e90bd54f3b2d8de922dc4cc662c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LibRIS": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT or GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "M Butcher",
+                    "homepage": "http://technosophos.com"
+                }
+            ],
+            "description": "An RIS parser. RIS is a format for reference metadata.",
+            "homepage": "https://github.com/technosophos/LibRIS",
+            "keywords": [
+                "Bibliography",
+                "File parser",
+                "RIS",
+                "Reference"
+            ],
+            "support": {
+                "issues": "https://github.com/technosophos/LibRIS/issues",
+                "source": "https://github.com/technosophos/LibRIS/tree/master"
+            },
+            "abandoned": true,
+            "time": "2012-03-14T16:36:15+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v2.15.4",
             "source": {
@@ -11918,9 +12452,11 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/bibcite": 10,
+        "drupal/citation_select": 10,
         "drupal/flysystem": 15,
         "drupal/rest_oai_pmh": 10,
-	"drupal/term_merge": 10,
+        "drupal/term_merge": 10,
         "islandora-rdm/islandora_fits": 20
     },
     "prefer-stable": true,
