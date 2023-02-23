@@ -44,7 +44,7 @@
         "drupal/matomo": "^1.19",
         "drupal/pdf": "^1.1",
         "drupal/rest_oai_pmh": "^2.0@beta",
-        "drupal/search_api_solr": "*",
+        "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
 	    "drupal/term_merge": "^2.0@beta",
         "drupal/transliterate_filenames": "^2.0",
@@ -57,9 +57,7 @@
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",
         "library/pdf.js": "^2.4",
-        "maennchen/zipstream-php": "2.2.6",
-        "mjordan/islandora_workbench_integration": "^1.0",
-        "symfony/string": "5.4"
+        "mjordan/islandora_workbench_integration": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dee628c96ffe4a0fd943fd173a638876",
+    "content-hash": "1dd76d7c7206f23c26b894947b087d55",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1033,16 +1033,16 @@
         },
         {
             "name": "consolidation/self-update",
-            "version": "2.0.5",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/self-update.git",
-                "reference": "8a64bdd8daf5faa8e85f56534dd99caf928164b3"
+                "reference": "714b09fdf0513f83292874bb12de0566066040c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/8a64bdd8daf5faa8e85f56534dd99caf928164b3",
-                "reference": "8a64bdd8daf5faa8e85f56534dd99caf928164b3",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/714b09fdf0513f83292874bb12de0566066040c2",
+                "reference": "714b09fdf0513f83292874bb12de0566066040c2",
                 "shasum": ""
             },
             "require": {
@@ -1082,9 +1082,9 @@
             "description": "Provides a self:update command for Symfony Console applications.",
             "support": {
                 "issues": "https://github.com/consolidation/self-update/issues",
-                "source": "https://github.com/consolidation/self-update/tree/2.0.5"
+                "source": "https://github.com/consolidation/self-update/tree/2.1.0"
             },
-            "time": "2022-02-09T22:44:24+00:00"
+            "time": "2023-02-21T19:33:55+00:00"
         },
         {
             "name": "consolidation/site-alias",
@@ -2227,6 +2227,10 @@
                 {
                     "name": "jmiccolis",
                     "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "Kristen Pol",
+                    "homepage": "https://www.drupal.org/user/8389"
                 },
                 {
                     "name": "nedjo",
@@ -4168,17 +4172,17 @@
         },
         {
             "name": "drupal/rest_oai_pmh",
-            "version": "2.0.0-beta7",
+            "version": "2.0.0-beta8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rest_oai_pmh.git",
-                "reference": "2.0.0-beta7"
+                "reference": "2.0.0-beta8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.0.0-beta7.zip",
-                "reference": "2.0.0-beta7",
-                "shasum": "b53527a38f663bf0d937976cb963cd58f8967698"
+                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.0.0-beta8.zip",
+                "reference": "2.0.0-beta8",
+                "shasum": "17e3322a59d132a80f95199db0eab7be5f9cf9a3"
             },
             "require": {
                 "drupal/core": "^9"
@@ -4186,8 +4190,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta7",
-                    "datestamp": "1671655896",
+                    "version": "2.0.0-beta8",
+                    "datestamp": "1676243376",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -4473,7 +4477,7 @@
                 "issues": "https://www.drupal.org/project/issues/taxonomy_manager"
             }
         },
-	{
+        {
             "name": "drupal/term_merge",
             "version": "2.0.0-beta4",
             "source": {
@@ -4774,17 +4778,17 @@
         },
         {
             "name": "drupal/view_mode_switch",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/view_mode_switch.git",
-                "reference": "2.0.4"
+                "reference": "2.0.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/view_mode_switch-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "034b8eaba3db3161d1fc4f7835ef63b6b8b04683"
+                "url": "https://ftp.drupal.org/files/projects/view_mode_switch-2.0.5.zip",
+                "reference": "2.0.5",
+                "shasum": "54aa4faee1ae834a15adbe9b16eb1443e7659ea6"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -4796,8 +4800,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1668516415",
+                    "version": "2.0.5",
+                    "datestamp": "1676027872",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12452,7 +12456,7 @@
         "drupal/citation_select": 10,
         "drupal/flysystem": 15,
         "drupal/rest_oai_pmh": 10,
-	"drupal/term_merge": 10,
+        "drupal/term_merge": 10,
         "islandora-rdm/islandora_fits": 20
     },
     "prefer-stable": true,
@@ -12465,5 +12469,4 @@
         "php": "7.4"
     },
     "plugin-api-version": "2.3.0"
-
 }
