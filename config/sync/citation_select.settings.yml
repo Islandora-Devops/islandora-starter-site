@@ -8,7 +8,7 @@ csl_map:
   field_linked_agent:
     - publisher
     - author
-  field_place_published_country:
+  field_place_published:
     - publisher-place
   title:
     - title

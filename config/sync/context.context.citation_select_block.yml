@@ -39,7 +39,7 @@ reactions:
         id: citation_select_block
         label: 'Citation Select Block'
         provider: citation_select
-        label_display: visible
+        label_display: '0'
         region: content
         weight: '0'
         custom_id: citation_select_block
