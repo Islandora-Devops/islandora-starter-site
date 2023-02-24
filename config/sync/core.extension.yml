@@ -5,10 +5,12 @@ module:
   admin_toolbar: 0
   automated_cron: 0
   basic_auth: 0
+  bibcite: 0
   big_pipe: 0
   block: 0
   block_content: 0
   breakpoint: 0
+  citation_select: 0
   ckeditor5: 0
   comment: 0
   config: 0
@@ -96,6 +98,8 @@ module:
   system: 0
   taxonomy: 0
   taxonomy_manager: 0
+  term_merge: 0
+  term_reference_change: 0
   text: 0
   token: 0
   toolbar: 0
@@ -106,6 +110,7 @@ module:
   user: 0
   view_mode_switch: 0
   views_data_export: 0
+  views_nested_details: 0
   views_ui: 0
   content_translation: 10
   views: 10
