@@ -24,6 +24,19 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "islandora/views_nested_details",
+              "version": "1.0.0-beta1",
+              "type": "drupal-module",
+              "source": {
+                "url": "https://github.com/Islandora-Labs/views_nested_details",
+                "type": "git",
+                "reference":"1.0.0-beta1"
+              }
+            }
         }
     ],
     "require": {
@@ -31,6 +44,8 @@
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.1",
+        "drupal/bibcite": "^2.0@beta",
+        "drupal/citation_select": "^1.0@beta",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/facets": "^2",
@@ -44,6 +59,7 @@
         "drupal/rest_oai_pmh": "^2.0@beta",
         "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
+	    "drupal/term_merge": "^2.0@beta",
         "drupal/transliterate_filenames": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/view_mode_switch": "^2.0",
@@ -53,6 +69,7 @@
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",
+        "islandora/views_nested_details": "^1.0.0-beta",
         "library/pdf.js": "^2.4",
         "mjordan/islandora_workbench_integration": "^1.0"
     },
@@ -60,7 +77,7 @@
         "drupal/drupal": "*",
         "drupal/core": "<=8"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "discard-changes": "stash",
@@ -70,7 +87,10 @@
             "drupal/core-composer-scaffold": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "php": "7.4"
+        }
     },
     "extra": {
         "drupal-scaffold": {
