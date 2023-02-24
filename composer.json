@@ -123,6 +123,9 @@
         "patches": {
         }
     },
+    "scripts": {
+        "post-update-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"]
+     },
     "require-dev": {
         "drupal/config_inspector": "^2.1",
         "drupal/devel": "^5.0",
