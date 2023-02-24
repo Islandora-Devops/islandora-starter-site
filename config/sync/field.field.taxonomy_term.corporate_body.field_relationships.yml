@@ -31,7 +31,7 @@ settings:
     sort:
       field: name
       direction: asc
-    auto_create: 0
+    auto_create: false
     auto_create_bundle: corporate_body
   rel_types:
     'schema:alumni': Alumni
