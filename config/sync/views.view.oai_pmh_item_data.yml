@@ -13,7 +13,7 @@ dependencies:
     - field.storage.node.field_local_identifier
     - field.storage.node.field_place_published
     - field.storage.node.field_rights
-    - field.storage.node.field_subject
+    - field.storage.node.field_subject_general
     - field.storage.node.field_temporal_subject
     - search_api.index.default_solr_index
   module:
@@ -980,7 +980,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: '| '
           field_api_classes: false
           field_rendering: true
           fallback_handler: search_api
@@ -1041,7 +1041,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -1062,10 +1062,10 @@ display:
             display_methods:
               taxonomy_vocabulary:
                 display_method: label
-        field_subject:
-          id: field_subject
+        field_subject_general:
+          id: field_subject_general
           table: search_api_datasource_default_solr_index_entity_node
-          field: field_subject
+          field: field_subject_general
           relationship: none
           group_type: group
           admin_label: ''
@@ -1633,7 +1633,7 @@ display:
         - 'config:field.storage.node.field_local_identifier'
         - 'config:field.storage.node.field_place_published'
         - 'config:field.storage.node.field_rights'
-        - 'config:field.storage.node.field_subject'
+        - 'config:field.storage.node.field_subject_general'
         - 'config:field.storage.node.field_temporal_subject'
         - 'config:search_api.index.default_solr_index'
   page_1:
@@ -1674,6 +1674,6 @@ display:
         - 'config:field.storage.node.field_local_identifier'
         - 'config:field.storage.node.field_place_published'
         - 'config:field.storage.node.field_rights'
-        - 'config:field.storage.node.field_subject'
+        - 'config:field.storage.node.field_subject_general'
         - 'config:field.storage.node.field_temporal_subject'
         - 'config:search_api.index.default_solr_index'

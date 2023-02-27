@@ -9,8 +9,7 @@
 {% set role_name = role_name_info|split(':') %}
 {% set name_type_info = elements.linked_agent_vocabulary|split(',') %}
 
-{% set name_type_info_x = name_type_info[loop.index - 1]|replace({"Person":"person"})|raw %}
-{% set name_type_info_x = name_type_info_x|replace({"Corporate Body":"corporate"})|raw %}
+{% set name_type_info_x = name_type_info[loop.index0]|replace({"Person":"person", "Corporate Body":"corporate", "Family":"family"})|raw %}
 
 <name type="{{ name_type_info_x }}">
     <role>
@@ -61,7 +60,7 @@
   {% for temporal in elements.subject_temporal |split ('|') %}
     <temporal>{{ temporal|trim }}</temporal>
   {% endfor %}
- 
+
   {% set name_type_info = elements.subjects_name_vocabulary|split('|') %}
   {% for subject_name_info in elements.subjects_name |split ('|') %}
 
