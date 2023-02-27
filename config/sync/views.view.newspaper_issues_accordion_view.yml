@@ -10,7 +10,7 @@ dependencies:
     - user
     - views_nested_details
 id: newspaper_issues_accordion_view
-label: 'Newspaper Issues Accordion View'
+label: 'Newspaper Issues'
 module: views
 description: 'List the children of a node, by date issued.'
 tag: ''
