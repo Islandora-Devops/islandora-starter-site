@@ -1245,7 +1245,7 @@ display:
               All: 0
             group_items:
               1:
-                title: 'Orphans - "Media of" is broken'
+                title: 'Orphans: invalid/missing "Media of"'
                 operator: empty
                 value:
                   min: ''
