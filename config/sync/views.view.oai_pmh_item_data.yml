@@ -22,7 +22,7 @@ dependencies:
 id: oai_pmh_item_data
 label: 'OAI-PMH Item Data'
 module: views
-description: ''
+description: 'Generate data used to populate the OAI-PMH MODS Twig Template.'
 tag: ''
 base_table: search_api_index_default_solr_index
 base_field: search_api_id

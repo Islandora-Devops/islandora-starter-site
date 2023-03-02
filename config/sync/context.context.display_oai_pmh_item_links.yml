@@ -10,7 +10,7 @@ dependencies:
 label: 'Display OAI-PMH Item Links'
 name: display_oai_pmh_item_links
 group: Display
-description: 'If a Repository Item, show OAI-PMH Item Record Links'
+description: 'If an Islandora node, and not a Collection, show OAI-PMH Item Record Links (MODS, DC)'
 requireAllConditions: true
 disabled: false
 conditions:

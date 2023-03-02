@@ -8,7 +8,7 @@ dependencies:
 label: 'Citation Select Block'
 name: citation_select_block
 group: Display
-description: 'On an Islandora nodes (except Collections), show Citation Select Block'
+description: 'If an Islandora node, and not a Collection, show Citation Select Block'
 requireAllConditions: true
 disabled: false
 conditions:
