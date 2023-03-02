@@ -38,7 +38,7 @@ reactions:
         id: 'views_block:oai_pmh_item_links-block_1'
         label: ''
         provider: views
-        label_display: visible
+        label_display: '0'
         region: content
         weight: '0'
         custom_id: views_block_oai_pmh_item_links_block_1
