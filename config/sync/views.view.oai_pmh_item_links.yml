@@ -8,7 +8,7 @@ dependencies:
 id: oai_pmh_item_links
 label: 'OAI-PMH Item Links'
 module: views
-description: ''
+description: 'Provide links to MODS and DC serializations of a node.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -35,7 +35,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set host =  url('<front>')|first|raw|replace({ 'https:': \"\", '/': \"\" }) %}\r\n<a href=\"/oai/request?identifier=oai%3A{{ host }}%3Anode-{{ nid }}&metadataPrefix=mods&verb=GetRecord\">Display MODS Record</a><br> \r\n<a href=\"/oai/request?identifier=oai%3A{{ host }}%3Anode-{{ nid }}&metadataPrefix=oai_dc&verb=GetRecord\">Display DC Record</a>"
+            text: "{% set host =  url('<front>')|first|replace({ 'http:': '', 'https:': '', '/': ''})|split(':')|first %}\r\n<a href=\"/oai/request?identifier=oai%3A{{ host }}%3Anode-{{ nid }}&metadataPrefix=mods&verb=GetRecord\">{{ 'Display MODS Record'|t }}</a><br> \r\n<a href=\"/oai/request?identifier=oai%3A{{ host }}%3Anode-{{ nid }}&metadataPrefix=oai_dc&verb=GetRecord\">{{ 'Display DC Record'|t }}</a>"
             make_link: false
             path: ''
             absolute: false
@@ -193,7 +193,18 @@ display:
     display_plugin: block
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
     cache_metadata:
       max-age: -1
       contexts:
