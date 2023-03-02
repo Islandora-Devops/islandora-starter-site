@@ -1,0 +1,67 @@
+uuid: 1929ef0f-83af-4915-b839-ff92bc697cc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.compound_object_members
+    - views.view.playlist_item_media
+  module:
+    - islandora
+    - views
+_core:
+  default_config_hash: bf6r8n84zfTehLO229wiLYP8nMwA3RhyIHKiZzccuiI
+name: compound_object_members
+label: 'Compound Object Members'
+group: Display
+description: 'If a Compound, display a block of children'
+requireAllConditions: false
+disabled: false
+conditions:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://vocab.getty.edu/aat/300242735'
+    logic: or
+reactions:
+  blocks:
+    blocks:
+      421ddc3f-01c6-4ea1-a7e4-ba4861e78d90:
+        id: 'views_block:compound_object_members-block_1'
+        label: ''
+        label_display: visible
+        provider: views
+        views_label: ''
+        items_per_page: none
+        uuid: 421ddc3f-01c6-4ea1-a7e4-ba4861e78d90
+        region: content_above
+        weight: '1'
+        custom_id: views_block_compound_object_members_block_1
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: compound_object_members
+        context_mapping: {  }
+        third_party_settings: {  }
+      f7c740ad-a0a4-474a-b363-6c28d98984c6:
+        id: 'views_block:playlist_item_media-block_1'
+        label: ''
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: none
+        uuid: f7c740ad-a0a4-474a-b363-6c28d98984c6
+        region: content_above
+        weight: '0'
+        custom_id: views_block_playlist_item_media_block_1
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: compound_object_members
+        context_mapping: {  }
+        third_party_settings: {  }
+    id: blocks
+    include_default_blocks: 1
+    saved: false
+weight: 1
