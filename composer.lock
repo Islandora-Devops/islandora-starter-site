@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "20fa88b91097c50f9a3f78b83d77414b",
+    "content-hash": "1ffa56a320452bb96f1c8876383a9b56",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -6117,10 +6117,27 @@
             "version": "1.0.0-beta1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Islandora-Labs/views_nested_details",
-                "reference": "1.0.0-beta1"
+                "url": "https://github.com/Islandora-Labs/views_nested_details.git",
+                "reference": "c8bbff301ef6e6a9b1cd6bb22a5280eef1f9d32d"
             },
-            "type": "drupal-module"
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Islandora-Labs/views_nested_details/zipball/c8bbff301ef6e6a9b1cd6bb22a5280eef1f9d32d",
+                "reference": "c8bbff301ef6e6a9b1cd6bb22a5280eef1f9d32d",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "views_nested_details",
+            "homepage": "https://github.com/Islandora-Labs/views_nested_details",
+            "support": {
+                "issues": "https://github.com/Islandora-Labs/views_nested_details/issues",
+                "source": "https://github.com/Islandora-Labs/views_nested_details/tree/1.0.0-beta1"
+            },
+            "time": "2023-02-01T17:22:16+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -12477,5 +12494,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

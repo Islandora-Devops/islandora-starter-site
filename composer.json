@@ -24,19 +24,6 @@
                     "type": "zip"
                 }
             }
-        },
-        {
-            "type": "package",
-            "package": {
-              "name": "islandora/views_nested_details",
-              "version": "1.0.0-beta1",
-              "type": "drupal-module",
-              "source": {
-                "url": "https://github.com/Islandora-Labs/views_nested_details",
-                "type": "git",
-                "reference":"1.0.0-beta1"
-              }
-            }
         }
     ],
     "require": {
