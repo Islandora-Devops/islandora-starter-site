@@ -122,8 +122,15 @@
             ]
         },
         "patches": {
+            "drupal/rest_oai_pmh": {
+                "View render issue #3283661": "https://www.drupal.org/files/issues/2022-06-01/mods_view_render.patch"
+            }
         }
     },
+    "scripts": {
+        "post-install-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"],
+        "post-update-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"]
+     },
     "require-dev": {
         "drupal/config_inspector": "^2.1",
         "drupal/devel": "^5.0",
