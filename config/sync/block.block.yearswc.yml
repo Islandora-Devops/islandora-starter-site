@@ -1,34 +1,29 @@
-uuid: f1131ce4-e562-46ae-b9ba-3f7463e9a123
+uuid: 9d0c1b52-b1f3-414d-854a-6b68c98f76e8
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.resource_type_2
+    - facets.facet.year_swc
   module:
     - context
     - facets
     - islandora
-    - system
   theme:
     - olivero
-id: resourcetype_2
+id: yearswc
 theme: olivero
 region: sidebar
 weight: 0
 provider: null
-plugin: 'facet_block:resource_type_2'
+plugin: 'facet_block:year_swc'
 settings:
-  id: 'facet_block:resource_type_2'
-  label: 'Resource Type'
+  id: 'facet_block:year_swc'
+  label: Year
   label_display: visible
   provider: facets
   context_mapping: {  }
-  block_id: resourcetype_2
+  block_id: yearswc
 visibility:
-  context:
-    id: context
-    negate: null
-    values: ''
   user_status:
     id: user_status
     negate: false
@@ -40,16 +35,16 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  context:
+    id: context
+    negate: null
+    values: ''
   context_all:
     id: context_all
     negate: null
-    values: ''
+    values: collection
   media_source_mimetype:
     id: media_source_mimetype
     negate: false
     context_mapping: {  }
     mimetype: ''
-  request_path:
-    id: request_path
-    negate: false
-    pages: '/node/*/search'

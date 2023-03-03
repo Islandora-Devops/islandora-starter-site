@@ -1,30 +1,29 @@
-uuid: d5cb2c16-4125-49d7-8a52-3f493b6a1f3e
+uuid: 3abc4969-9a58-4135-a98b-f950b8377a42
 langcode: en
 status: true
 dependencies:
-  config:
-    - facets.facet.subject
   module:
+    - advanced_search
     - context
-    - facets
     - islandora
   theme:
     - olivero
-_core:
-  default_config_hash: 8CNTurKBSOQZRTrWiaCmfAwseQyzXZOb8gJohUvIBFw
-id: subject
+id: solrsearchcontentadvancedsearchforpage
 theme: olivero
 region: sidebar
-weight: -6
+weight: -16
 provider: null
-plugin: 'facet_block:subject'
+plugin: 'advanced_search_block:solr_search_content__page_1'
 settings:
-  id: 'facet_block:subject'
-  label: Subject
+  id: 'advanced_search_block:solr_search_content__page_1'
+  label: Search
   label_display: visible
-  provider: facets
-  context_mapping: {  }
-  block_id: subject
+  provider: advanced_search
+  fields:
+    - title_aggregated_fulltext
+    - abstract_description_fulltext
+    - linked_agent_name_fulltext
+  context_filter: null
 visibility:
   user_status:
     id: user_status
@@ -37,11 +36,6 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  view_inclusion:
-    id: view_inclusion
-    negate: false
-    view_inclusion:
-      view-solr_search_content-page_1: view-solr_search_content-page_1
   context:
     id: context
     negate: null
@@ -55,3 +49,8 @@ visibility:
     negate: false
     context_mapping: {  }
     mimetype: ''
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1

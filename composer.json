@@ -24,7 +24,11 @@
                     "type": "zip"
                 }
             }
-        }
+        },
+	{
+	    "type": "vcs",
+	    "url": "https://github.com/digitalutsc/advanced_search.git"
+	}
     ],
     "require": {
         "php": "^7.4 || ^8",
@@ -46,13 +50,14 @@
         "drupal/rest_oai_pmh": "^2.0@beta",
         "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
-	    "drupal/term_merge": "^2.0@beta",
+	"drupal/term_merge": "^2.0@beta",
         "drupal/transliterate_filenames": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/view_mode_switch": "^2.0",
         "drupal/views_data_export": "^1.2",
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
+	"islandora/advanced_search": "dev-contrib",
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",

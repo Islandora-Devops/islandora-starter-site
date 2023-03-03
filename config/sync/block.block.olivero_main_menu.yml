@@ -13,7 +13,7 @@ _core:
 id: olivero_main_menu
 theme: olivero
 region: primary_menu
-weight: 0
+weight: -10
 provider: null
 plugin: 'system_menu_block:main'
 settings:

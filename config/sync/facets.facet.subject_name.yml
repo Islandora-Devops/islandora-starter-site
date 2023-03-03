@@ -11,7 +11,7 @@ _core:
   default_config_hash: 7wIVHSpCnRPcuQN3CG6sK7bDUdbHR0waVas0fLnWV7k
 id: subject_name
 name: 'Subject (Names)'
-weight: -1
+weight: 0
 min_count: 1
 missing: false
 missing_label: others

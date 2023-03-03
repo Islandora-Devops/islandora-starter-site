@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: member_of_content_title
 name: 'Member of » Content » Title'
-weight: 0
+weight: 2
 min_count: 1
 missing: false
 missing_label: others

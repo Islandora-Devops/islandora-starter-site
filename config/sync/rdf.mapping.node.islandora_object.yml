@@ -152,9 +152,6 @@ fieldMappings:
   field_weight:
     properties:
       - 'co:index'
-  field_linked_agent:
-    properties:
-      - 'dcterms:contributor'
   title:
     properties:
       - 'dcterms:title'
