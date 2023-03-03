@@ -13,6 +13,7 @@ module:
   citation_select: 0
   ckeditor5: 0
   comment: 0
+  compound_viewer: 0
   config: 0
   config_update: 0
   contact: 0

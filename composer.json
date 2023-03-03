@@ -24,6 +24,19 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "islandora/compound_viewer",
+              "version": "dev-main",
+              "type": "drupal-module",
+              "source": {
+                "url": "https://github.com/Natkeeran/compound_viewer",
+                "type": "git",
+                "reference":"main"
+              }
+            }
         }
     ],
     "require": {
@@ -57,6 +70,7 @@
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",
         "islandora/views_nested_details": "^1.0.0-beta",
+        "islandora/compound_viewer": "dev-main",
         "library/pdf.js": "^2.4",
         "mjordan/islandora_workbench_integration": "^1.0"
     },

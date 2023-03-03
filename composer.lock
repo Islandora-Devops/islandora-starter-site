@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ffa56a320452bb96f1c8876383a9b56",
+    "content-hash": "98879c579fd1367b3420218a2267eec2",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -5809,6 +5809,16 @@
                 "source": "https://github.com/Islandora/chullo/tree/1.3.0"
             },
             "time": "2021-12-16T22:31:48+00:00"
+        },
+        {
+            "name": "islandora/compound_viewer",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Natkeeran/compound_viewer",
+                "reference": "main"
+            },
+            "type": "drupal-module"
         },
         {
             "name": "islandora/controlled_access_terms",
@@ -12483,7 +12493,8 @@
         "drupal/flysystem": 15,
         "drupal/rest_oai_pmh": 10,
         "drupal/term_merge": 10,
-        "islandora-rdm/islandora_fits": 20
+        "islandora-rdm/islandora_fits": 20,
+        "islandora/compound_viewer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
