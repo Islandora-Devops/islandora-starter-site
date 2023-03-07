@@ -509,7 +509,7 @@ display:
     id: data_export_1
     display_title: 'Data export'
     display_plugin: data_export
-    position: 9
+    position: 10
     display_options:
       title: 'CSV of Missing Media'
       fields:
@@ -838,7 +838,7 @@ display:
     id: page_1
     display_title: 'Extracted Text'
     display_plugin: page
-    position: 1
+    position: 2
     display_options:
       title: 'Extracted Text'
       fields:
@@ -1262,10 +1262,10 @@ display:
         type: normal
         title: 'Missing Extracted Text '
         description: ''
-        weight: 0
+        weight: 2
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -1284,7 +1284,7 @@ display:
     id: page_2
     display_title: 'FITS File'
     display_plugin: page
-    position: 1
+    position: 3
     display_options:
       title: 'FITS File'
       fields:
@@ -1708,10 +1708,10 @@ display:
         type: normal
         title: 'Missing FITS'
         description: ''
-        weight: 1
+        weight: 3
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -1730,7 +1730,7 @@ display:
     id: page_3
     display_title: 'Intermediate File'
     display_plugin: page
-    position: 1
+    position: 4
     display_options:
       title: 'Intermediate File'
       fields:
@@ -2154,10 +2154,10 @@ display:
         type: normal
         title: 'Missing Intermediate File'
         description: ''
-        weight: 2
+        weight: 4
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -2176,7 +2176,7 @@ display:
     id: page_4
     display_title: 'Original File'
     display_plugin: page
-    position: 1
+    position: 5
     display_options:
       title: 'Original File'
       fields:
@@ -2600,10 +2600,10 @@ display:
         type: normal
         title: 'Missing Original File'
         description: ''
-        weight: 3
+        weight: 5
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -2622,7 +2622,7 @@ display:
     id: page_5
     display_title: 'Preservation Master File'
     display_plugin: page
-    position: 1
+    position: 6
     display_options:
       title: 'Preservation Master File'
       fields:
@@ -3046,10 +3046,10 @@ display:
         type: normal
         title: 'Missing Preservation File'
         description: ''
-        weight: 4
+        weight: 6
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -3068,7 +3068,7 @@ display:
     id: page_6
     display_title: 'Service File'
     display_plugin: page
-    position: 1
+    position: 7
     display_options:
       title: 'Service File'
       fields:
@@ -3492,10 +3492,10 @@ display:
         type: normal
         title: 'Missing Service File'
         description: ''
-        weight: 6
+        weight: 7
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -3514,7 +3514,7 @@ display:
     id: page_7
     display_title: 'Thumbnail Image'
     display_plugin: page
-    position: 1
+    position: 8
     display_options:
       title: 'Thumbnail Image'
       fields:
@@ -3938,10 +3938,10 @@ display:
         type: normal
         title: 'Missing Thumbnail Image'
         description: ''
-        weight: 7
+        weight: 8
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -3960,7 +3960,7 @@ display:
     id: page_8
     display_title: Transcript
     display_plugin: page
-    position: 1
+    position: 9
     display_options:
       title: Transcript
       fields:
@@ -4387,7 +4387,7 @@ display:
         weight: 9
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.missing_media.page_9'
         context: '0'
     cache_metadata:
       max-age: -1
@@ -4401,4 +4401,151 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_member_of'
+        - 'config:field.storage.node.field_model'
+  page_9:
+    id: page_9
+    display_title: 'Menu Link: Missing Media'
+    display_plugin: page
+    position: 1
+    display_options:
+      filters:
+        delta:
+          id: delta
+          table: media__field_media_use
+          field: delta
+          relationship: reverse__media__field_media_of
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_model_target_id:
+          id: field_model_target_id
+          table: node__field_model
+          field: field_model_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_model_target_id_op
+            label: 'Select Models that Generate Extracted Text'
+            description: ''
+            use_operator: false
+            operator: field_model_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_model_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              fedoraadmin: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: islandora_models
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: 'provides a menu link under Content.'
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
+      path: admin/content/missing-media/all
+      menu:
+        type: normal
+        title: 'Missing Media'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: system.admin_content
+        context: '0'
+      tab_options:
+        type: normal
+        title: 'Missing Media'
+        description: ''
+        weight: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
         - 'config:field.storage.node.field_model'
