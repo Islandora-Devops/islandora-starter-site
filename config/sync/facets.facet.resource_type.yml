@@ -61,6 +61,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hide_inactive_siblings_processor:
+    processor_id: hide_inactive_siblings_processor
+    weights:
+      build: 10
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
