@@ -39,7 +39,7 @@ widget:
       show_more_label: 'Show more'
 empty_behavior:
   behavior: none
-only_visible_when_facet_source_is_visible: false
+only_visible_when_facet_source_is_visible: true
 show_only_one_result: false
 show_title: false
 processor_configs:
