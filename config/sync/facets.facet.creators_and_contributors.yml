@@ -33,9 +33,9 @@ widget:
   config:
     show_numbers: true
     soft_limit: 10
-    show_reset_link: true
+    show_reset_link: false
     reset_text: 'Show all'
-    hide_reset_when_no_selection: true
+    hide_reset_when_no_selection: false
     soft_limit_settings:
       show_less_label: 'Show less'
       show_more_label: 'Show more'
@@ -63,6 +63,16 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hide_inactive_siblings_processor:
+    processor_id: hide_inactive_siblings_processor
+    weights:
+      build: 10
+    settings: {  }
+  hierarchy_processor:
+    processor_id: hierarchy_processor
+    weights:
+      build: 100
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

@@ -1,4 +1,4 @@
-uuid: 0b05acbf-44dd-4780-b00b-943a9c6a3cbd
+uuid: d4bf2651-0fd1-4fde-aa10-27e664dcceea
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.solr_search_content
   module:
     - search_api
-id: member_of
-name: 'Member of'
-weight: -4
+id: subject_names_swc
+name: 'Subject (Names) SwC'
+weight: 1
 min_count: 1
 missing: false
 missing_label: others
-url_alias: member_of
-facet_source_id: 'search_api:views_page__solr_search_content__page_1'
-field_identifier: member_of_title
+url_alias: subject_names
+facet_source_id: 'search_api:views_block__solr_search_content__block_1'
+field_identifier: subject_names_name
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -30,7 +30,7 @@ widget:
   type: links
   config:
     show_numbers: true
-    soft_limit: 0
+    soft_limit: 10
     show_reset_link: false
     reset_text: 'Show all'
     hide_reset_when_no_selection: false

@@ -1,4 +1,4 @@
-uuid: 4f207cea-7b7f-4df6-b29d-c96897f2419e
+uuid: 13299e29-0750-40e0-9b0b-96fb2ea69405
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.solr_search_content
   module:
     - search_api
-id: resource_type_2
-name: 'Resource Type'
-weight: 0
+id: member_of_swc
+name: 'Member Of SwC'
+weight: -2
 min_count: 1
 missing: false
 missing_label: others
-url_alias: resource_type
-facet_source_id: 'search_api:views_page__solr_search_content__page_2'
-field_identifier: field_resource_type
+url_alias: member_of
+facet_source_id: 'search_api:views_block__solr_search_content__block_1'
+field_identifier: member_of_title
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -29,7 +29,7 @@ enable_parent_when_child_gets_disabled: true
 widget:
   type: links
   config:
-    show_numbers: false
+    show_numbers: true
     soft_limit: 0
     show_reset_link: false
     reset_text: 'Show all'
@@ -61,6 +61,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hide_inactive_siblings_processor:
+    processor_id: hide_inactive_siblings_processor
+    weights:
+      build: 10
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:

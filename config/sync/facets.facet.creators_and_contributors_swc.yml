@@ -1,4 +1,4 @@
-uuid: 0b05acbf-44dd-4780-b00b-943a9c6a3cbd
+uuid: b90ae15a-a42f-4152-9b6e-c4e7b8677d1a
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.solr_search_content
   module:
     - search_api
-id: member_of
-name: 'Member of'
-weight: -4
+id: creators_and_contributors_swc
+name: 'Creators and Contributors_swc'
+weight: -1
 min_count: 1
 missing: false
 missing_label: others
-url_alias: member_of
-facet_source_id: 'search_api:views_page__solr_search_content__page_1'
-field_identifier: member_of_title
+url_alias: creators_and_contributors
+facet_source_id: 'search_api:views_block__solr_search_content__block_1'
+field_identifier: field_linked_agent_name
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -30,7 +30,7 @@ widget:
   type: links
   config:
     show_numbers: true
-    soft_limit: 0
+    soft_limit: 10
     show_reset_link: false
     reset_text: 'Show all'
     hide_reset_when_no_selection: false

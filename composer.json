@@ -24,7 +24,11 @@
                     "type": "zip"
                 }
             }
-        }
+        },
+	{
+	    "type": "vcs",
+	    "url": "https://github.com/digitalutsc/advanced_search.git"
+	}
     ],
     "require": {
         "php": "^7.4 || ^8",
@@ -53,6 +57,7 @@
         "drupal/views_data_export": "^1.2",
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
+	"islandora/advanced_search": "dev-contrib",
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2",
         "islandora/openseadragon": "^2",

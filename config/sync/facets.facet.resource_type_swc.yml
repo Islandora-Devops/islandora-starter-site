@@ -1,4 +1,4 @@
-uuid: 0b05acbf-44dd-4780-b00b-943a9c6a3cbd
+uuid: 875c0607-ab88-4d2c-8f75-4deb6e21e57e
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.solr_search_content
   module:
     - search_api
-id: member_of
-name: 'Member of'
-weight: -4
+id: resource_type_swc
+name: 'Resource Type SWC'
+weight: -3
 min_count: 1
 missing: false
 missing_label: others
-url_alias: member_of
-facet_source_id: 'search_api:views_page__solr_search_content__page_1'
-field_identifier: member_of_title
+url_alias: resource_type_swc
+facet_source_id: 'search_api:views_block__solr_search_content__block_1'
+field_identifier: field_resource_type
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -30,7 +30,7 @@ widget:
   type: links
   config:
     show_numbers: true
-    soft_limit: 0
+    soft_limit: 15
     show_reset_link: false
     reset_text: 'Show all'
     hide_reset_when_no_selection: false
@@ -70,6 +70,11 @@ processor_configs:
     processor_id: hierarchy_processor
     weights:
       build: 100
+    settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler

@@ -1,4 +1,4 @@
-uuid: 0b05acbf-44dd-4780-b00b-943a9c6a3cbd
+uuid: c9793dd5-504e-4803-a0d4-5f6a98732708
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.solr_search_content
   module:
     - search_api
-id: member_of
-name: 'Member of'
-weight: -4
+id: subject_temporal_swc
+name: 'Subject (Temporal) SwC'
+weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: member_of
-facet_source_id: 'search_api:views_page__solr_search_content__page_1'
-field_identifier: member_of_title
+url_alias: subject_temporal
+facet_source_id: 'search_api:views_block__solr_search_content__block_1'
+field_identifier: subject_temporal_name
 query_operator: or
 hard_limit: 0
 exclude: false

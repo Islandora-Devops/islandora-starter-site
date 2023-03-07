@@ -5,9 +5,9 @@ dependencies:
   config:
     - facets.facet.creators_and_contributors
   module:
+    - context
     - facets
     - islandora
-    - system
   theme:
     - olivero
 _core:
@@ -15,7 +15,7 @@ _core:
 id: creatorsandcontributors
 theme: olivero
 region: sidebar
-weight: -8
+weight: -10
 provider: null
 plugin: 'facet_block:creators_and_contributors'
 settings:
@@ -23,15 +23,35 @@ settings:
   label: 'Creators and Contributors'
   label_display: visible
   provider: facets
+  context_mapping: {  }
   block_id: creatorsandcontributors
 visibility:
-  request_path:
-    id: request_path
-    negate: false
-    context_mapping: {  }
-    pages: /solr-search/content
   media_source_mimetype:
     id: media_source_mimetype
     negate: false
     context_mapping: {  }
     mimetype: ''
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1
+  context:
+    id: context
+    negate: null
+    values: ''
+  context_all:
+    id: context_all
+    negate: null
+    values: ''

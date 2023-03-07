@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_abstract
     - field.storage.node.field_alt_title
     - field.storage.node.field_edtf_date_created
     - field.storage.node.field_member_of
@@ -66,6 +67,15 @@ name: 'Default Solr content index'
 description: 'Default content index created by the Solr Search Defaults module'
 read_only: false
 field_settings:
+  abstract_description_fulltext:
+    label: Description
+    property_path: aggregated_field
+    type: text
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/field_abstract'
+        - 'entity:node/field_description'
   author:
     label: 'Author name'
     datasource_id: 'entity:node'
@@ -190,6 +200,14 @@ field_settings:
         - field.storage.node.field_linked_agent
       module:
         - taxonomy
+  field_member_of:
+    label: 'Member of'
+    datasource_id: 'entity:node'
+    property_path: field_member_of
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_member_of
   field_oclc_number:
     label: 'OCLC Number'
     datasource_id: 'entity:node'
@@ -234,6 +252,16 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
+  linked_agent_name_fulltext:
+    label: Names
+    datasource_id: 'entity:node'
+    property_path: 'field_linked_agent:entity:name'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_linked_agent
+      module:
+        - taxonomy
   linked_agent_vid:
     label: 'Linked Agent Vocab'
     datasource_id: 'entity:node'
@@ -269,6 +297,14 @@ field_settings:
     indexed_locked: true
     type_locked: true
     hidden: true
+  processed:
+    label: Abstract
+    datasource_id: 'entity:node'
+    property_path: 'field_abstract:processed'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_abstract
   rendered_item:
     label: 'Rendered item'
     property_path: rendered_item
@@ -299,10 +335,10 @@ field_settings:
     dependencies:
       module:
         - node
-  subject_aggregated:
-    label: 'Subjects (All)'
+  subject_aggregated_fulltext:
+    label: Subjects
     property_path: aggregated_field
-    type: string
+    type: text
     configuration:
       type: union
       fields:
@@ -374,6 +410,16 @@ field_settings:
     label: 'Title (All)'
     property_path: aggregated_field
     type: string
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/field_alt_title'
+        - 'entity:node/field_full_title'
+        - 'entity:node/title'
+  title_aggregated_fulltext:
+    label: Title
+    property_path: aggregated_field
+    type: text
     configuration:
       type: union
       fields:

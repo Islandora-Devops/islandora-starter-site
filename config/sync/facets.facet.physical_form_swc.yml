@@ -1,4 +1,4 @@
-uuid: d7044666-52d9-4e22-a387-2e9b7e1cfec2
+uuid: 97b62e68-e8f1-4a39-95a3-c6ff19987267
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.solr_search_content
   module:
     - search_api
-id: member_of_content_title
-name: 'Member of » Content » Title'
+id: physical_form_swc
+name: 'Physical Form SwC'
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: member_of_content_title
-facet_source_id: 'search_api:views_page__solr_search_content__page_1'
-field_identifier: member_of_title
+url_alias: physical_form_swc
+facet_source_id: 'search_api:views_block__solr_search_content__block_1'
+field_identifier: field_physical_form
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -61,6 +61,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hide_inactive_siblings_processor:
+    processor_id: hide_inactive_siblings_processor
+    weights:
+      build: 10
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
