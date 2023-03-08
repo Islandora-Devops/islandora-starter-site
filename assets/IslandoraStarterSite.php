@@ -2,7 +2,7 @@
 
 namespace Islandora;
 
-use Composer\Json\JsonFile
+use Composer\Json\JsonFile;
 use Composer\Script\Event;
 use Composer\Util\Platform;
 
