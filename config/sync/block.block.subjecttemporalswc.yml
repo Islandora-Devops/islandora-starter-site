@@ -1,34 +1,29 @@
-uuid: 56c77381-d362-4acb-bf96-a32842a2b312
+uuid: c1cd3c9b-574e-482e-a44d-c68f3142c10a
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.solr_search_content
+    - facets.facet.subject_temporal_swc
   module:
     - context
+    - facets
     - islandora
-    - views
   theme:
     - olivero
-_core:
-  default_config_hash: UGbvzHUCMdMe84lOKlLRajT3aIi2OFnAGpZw1eceoQY
-id: exposedformsolr_search_contentpage_1
+id: subjecttemporalswc
 theme: olivero
 region: sidebar
-weight: -11
+weight: -1
 provider: null
-plugin: 'views_exposed_filter_block:solr_search_content-page_1'
+plugin: 'facet_block:subject_temporal_swc'
 settings:
-  id: 'views_exposed_filter_block:solr_search_content-page_1'
-  label: ''
-  label_display: '0'
-  provider: views
-  views_label: ''
+  id: 'facet_block:subject_temporal_swc'
+  label: 'Temporal Subject'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: subjecttemporalswc
 visibility:
-  context:
-    id: context
-    negate: null
-    values: ''
   user_status:
     id: user_status
     negate: false
@@ -40,10 +35,14 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  context:
+    id: context
+    negate: null
+    values: ''
   context_all:
     id: context_all
     negate: null
-    values: ''
+    values: collection
   media_source_mimetype:
     id: media_source_mimetype
     negate: false

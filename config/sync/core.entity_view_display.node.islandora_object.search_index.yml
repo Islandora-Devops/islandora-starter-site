@@ -424,11 +424,6 @@ content:
     third_party_settings: {  }
     weight: 10
     region: content
-  search_within_this_collection_link_entity_view_1:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
 hidden:
   display_media_entity_view_3: true
   display_media_thumbnail: true

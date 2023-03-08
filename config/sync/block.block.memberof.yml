@@ -8,13 +8,12 @@ dependencies:
     - context
     - facets
     - islandora
-    - system
   theme:
     - olivero
 id: memberof
 theme: olivero
 region: sidebar
-weight: -9
+weight: -12
 provider: null
 plugin: 'facet_block:member_of'
 settings:
@@ -49,7 +48,8 @@ visibility:
     negate: false
     context_mapping: {  }
     mimetype: ''
-  request_path:
-    id: request_path
+  view_inclusion:
+    id: view_inclusion
     negate: false
-    pages: /solr-search/content
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1

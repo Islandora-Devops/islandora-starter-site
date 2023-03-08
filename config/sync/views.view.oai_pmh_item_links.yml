@@ -1,15 +1,14 @@
-uuid: c65bd76b-e99c-42f1-9c81-bd9b1c863ac6
+uuid: fef77d2f-ab24-441b-859a-1313d66cd293
 langcode: en
 status: true
 dependencies:
   module:
-    - eva
     - node
     - user
-id: search_within_this_collection_link
-label: 'Search Within This Collection link'
+id: oai_pmh_item_links
+label: 'OAI-PMH Item Links'
 module: views
-description: 'hacky way to get a link to node/%node/search on a node''s page.'
+description: 'Provide links to MODS and DC serializations of a node.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -20,22 +19,25 @@ display:
     display_plugin: default
     position: 0
     display_options:
+      title: 'OAI-PMH Item Links'
       fields:
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: custom
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
           label: ''
           exclude: false
           alter:
             alter_text: true
-            text: 'Search within {{ drupal_field(''title'', ''node'', arguments.field_member_of_target_id ) }}'
-            make_link: true
-            path: '/node/{{ raw_arguments.field_member_of_target_id }}/search'
+            text: "{% set host =  url('<front>')|first|replace({ 'http:': '', 'https:': '', '/': ''})|split(':')|first %}\r\n<a href=\"/oai/request?identifier=oai%3A{{ host }}%3Anode-{{ nid }}&metadataPrefix=mods&verb=GetRecord\">{{ 'Display MODS Record'|t }}</a><br> \r\n<a href=\"/oai/request?identifier=oai%3A{{ host }}%3Anode-{{ nid }}&metadataPrefix=oai_dc&verb=GetRecord\">{{ 'Display DC Record'|t }}</a>"
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -69,12 +71,27 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: some
         options:
           offset: 0
-          items_per_page: 1
+          items_per_page: 5
       exposed_form:
         type: basic
         options:
@@ -93,32 +110,18 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+      sorts: {  }
+      arguments:
+        nid:
+          id: nid
+          table: node_field_revision
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: created
-          plugin_id: date
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
-          granularity: second
-      arguments:
-        field_member_of_target_id:
-          id: field_member_of_target_id
-          table: node__field_member_of
-          field: field_member_of_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: numeric
+          entity_field: nid
+          plugin_id: node_nid
           default_action: default
           exception:
             value: all
@@ -161,18 +164,8 @@ display:
             operator_list: {  }
       style:
         type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          uses_fields: false
       row:
         type: fields
-        options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
       query:
         type: views_query
         options:
@@ -188,15 +181,16 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  entity_view_1:
-    id: entity_view_1
-    display_title: EVA
-    display_plugin: entity_view
+  block_1:
+    id: block_1
+    display_title: Block
+    display_plugin: block
     position: 1
     display_options:
       display_extenders:
@@ -211,11 +205,10 @@ display:
           category_fallback: ''
           category_facets: {  }
           category_facets_concat_separator: ', '
-      entity_type: node
-      bundles: {  }
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - 'user.node_grants:view'

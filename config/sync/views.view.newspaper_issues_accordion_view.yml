@@ -1,4 +1,4 @@
-uuid: 35ed259c-70a3-4ebb-974c-7c3ec932376f
+uuid: eb1fb208-6666-42af-8eca-bc239ae9a619
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,8 @@ dependencies:
     - controlled_access_terms
     - node
     - user
-id: newspapers
+    - views_nested_details
+id: newspaper_issues_accordion_view
 label: 'Newspaper Issues'
 module: views
 description: 'List the children of a node, by date issued.'
@@ -587,18 +588,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: html_list
+        type: nested_details
         options:
           grouping:
+            -
+              field: field_edtf_date_issued
+              rendered: true
+              rendered_strip: false
             -
               field: field_edtf_date_issued_1
               rendered: true
               rendered_strip: false
           row_class: ''
           default_row_class: true
-          type: ul
-          wrapper_class: item-list
-          class: ''
       row:
         type: fields
         options:

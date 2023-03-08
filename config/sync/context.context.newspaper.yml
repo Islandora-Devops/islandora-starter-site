@@ -1,9 +1,9 @@
-uuid: 1efd72d3-7a06-4f43-9249-3ccea32d300d
+uuid: 7b1d17e2-aa1a-4740-9c7c-d110f6f34b84
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.newspapers
+    - views.view.newspaper_issues_accordion_view
   module:
     - islandora
     - views
@@ -27,15 +27,15 @@ reactions:
     id: blocks
     uuid: 83998c46-0118-4deb-9c12-10e33d02b49b
     blocks:
-      ed4c4f13-b90a-4274-9d88-ef9d69c8c34b:
-        uuid: ed4c4f13-b90a-4274-9d88-ef9d69c8c34b
-        id: 'views_block:newspapers-block_1'
+      8a31d625-66c6-44ae-98b4-32b8789325b0:
+        uuid: 8a31d625-66c6-44ae-98b4-32b8789325b0
+        id: 'views_block:newspaper_issues_accordion_view-block_1'
         label: ''
         provider: views
         label_display: '0'
         region: content
         weight: '0'
-        custom_id: views_block_newspapers_block_1
+        custom_id: views_block_newspaper_issues_accordion_view_block_1
         theme: olivero
         css_class: ''
         unique: 0

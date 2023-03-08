@@ -1193,15 +1193,17 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        field_media_of_target_id:
-          id: field_media_of_target_id
-          table: media__field_media_of
-          field: field_media_of_target_id
-          relationship: none
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: field_media_of
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: nid
           plugin_id: numeric
-          operator: '='
+          operator: empty
           value:
             min: ''
             max: ''
@@ -1209,36 +1211,41 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_media_of_target_id_op
-            label: 'Media of (field_media_of)'
-            description: null
+            operator_id: nid_op
+            label: 'Orphaned Media'
+            description: 'Media where the linked content does not exist'
             use_operator: false
-            operator: field_media_of_target_id_op
+            operator: nid_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_media_of_target_id
+            identifier: nid
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            min_placeholder: null
-            max_placeholder: null
-            placeholder: null
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              fedoraadmin: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
           is_grouped: true
           group_info:
             label: 'Orphaned Media'
-            description: 'Select missing media of to find orphaned media'
-            identifier: field_media_of_target_id
+            description: ''
+            identifier: nid
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
+            default_group_multiple:
+              All: 0
             group_items:
               1:
-                title: 'Missing Media Of'
+                title: 'Orphans: invalid/missing "Media of"'
                 operator: empty
                 value:
                   min: ''

@@ -1,29 +1,25 @@
-uuid: 36c2289e-ac65-4d3e-914a-290b1365f72e
+uuid: 511e8501-9bd6-4e07-95f2-6415fd5c7db8
 langcode: en
 status: true
 dependencies:
   module:
+    - advanced_search
     - context
     - islandora
-    - islandora_advanced_search
   theme:
     - olivero
 id: solrsearchcontentsearchresultspagerforpage
 theme: olivero
 region: content
-weight: -11
+weight: -12
 provider: null
-plugin: 'islandora_advanced_search_result_pager:solr_search_content__page_1'
+plugin: 'advanced_search_result_pager:solr_search_content__page_1'
 settings:
-  id: 'islandora_advanced_search_result_pager:solr_search_content__page_1'
+  id: 'advanced_search_result_pager:solr_search_content__page_1'
   label: 'Solr search content: Search Results Pager for Page'
-  label_display: visible
-  provider: islandora_advanced_search
+  label_display: '0'
+  provider: advanced_search
 visibility:
-  context:
-    id: context
-    negate: null
-    values: ''
   user_status:
     id: user_status
     negate: false
@@ -35,15 +31,19 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  context_all:
-    id: context_all
-    negate: null
-    values: ''
   view_inclusion:
     id: view_inclusion
     negate: false
     view_inclusion:
-      view-collection_children-page_1: view-collection_children-page_1
+      view-solr_search_content-page_1: view-solr_search_content-page_1
+  context:
+    id: context
+    negate: null
+    values: ''
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
   media_source_mimetype:
     id: media_source_mimetype
     negate: false

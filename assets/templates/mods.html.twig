@@ -1,0 +1,136 @@
+<titleInfo>
+  <title lang="eng">{{ elements.title }}</title>
+  {% if elements.subtitle is not empty%}
+    <subTitle>{{ elements.subtitle }}</subTitle>
+  {% endif %}
+</titleInfo>
+
+{% for role_name_info in elements.linked_agent |split ('|') %}
+{% set role_name = role_name_info|split(':') %}
+{% set name_type_info = elements.linked_agent_vocabulary|split(',') %}
+
+{% set name_type_info_x = name_type_info[loop.index0]|replace({"Person":"person", "Corporate Body":"corporate", "Family":"family"})|raw %}
+
+<name type="{{ name_type_info_x }}">
+    <role>
+      <roleTerm type="text">{{ role_name[0] }}</roleTerm>
+    </role>
+    <namePart>{{ role_name[1] }}</namePart>
+</name>
+{% endfor %}
+
+<typeOfResource>{{ elements.typeofresource }}</typeOfResource>
+<genre>{{ elements.genre }} </genre>
+<abstract>{{ elements.description }}</abstract>
+<language>
+  {% for language in elements.language_iso6392b |split ('|') %}
+    <languageTerm authority="iso639-2b" type="code">{{ language|trim }}</languageTerm>
+  {% endfor %}
+</language>
+<originInfo>
+  <publisher>{{ elements.publisher }}</publisher>
+  <place>
+    <placeTerm type="text">{{ elements.published_place }}</placeTerm>
+    <placeTerm authority="marccountry">{{ elements.published_place_marccountry }}</placeTerm>
+  </place>
+  <dateCreated keyDate="yes">{{ elements.datecreated_rad14b5 }}</dateCreated>
+  {% if elements.datecreated_start_iso8601 is not empty%}
+    <dateCreated point="start">{{ elements.datecreated_start_iso8601 }}</dateCreated>
+  {% endif %}
+  {% if elements.datecreated_end_iso8601 is not empty%}
+    <dateCreated point="end">{{ elements.datecreated_end_iso8601 }}</dateCreated>
+  {% endif %}
+  <copyrightDate>{{ elements.datecopyright_iso8601 }}</copyrightDate>
+</originInfo>
+<physicalDescription>
+  <form authority="smd">{{ elements.physicaldescription_form }}</form>
+  <extent>{{ elements.physicaldescription_extent }}</extent>
+  <reformattingQuality>{{ elements.physicaldescription_reformatting_quality }}</reformattingQuality>
+  <digitalOrigin>{{ elements.physicaldescription_digitalorigin }}</digitalOrigin>
+  <internetMediaType>{{ elements.physicaldescription_internetmediatype }}</internetMediaType>
+  <note>{{ elements.physicaldescription_note }}</note>
+</physicalDescription>
+<subject authority="local">
+  {% for topic in elements.subject_topic |split ('|') %}
+    <topic>{{ topic|trim }}</topic>
+  {% endfor %}
+  {% for geographic in elements.subject_geographic |split ('|') %}
+    <geographic>{{ geographic|trim }}</geographic>
+  {% endfor %}
+  {% for temporal in elements.subject_temporal |split ('|') %}
+    <temporal>{{ temporal|trim }}</temporal>
+  {% endfor %}
+
+  {% set name_type_info = elements.subjects_name_vocabulary|split('|') %}
+  {% for subject_name_info in elements.subjects_name |split ('|') %}
+
+  {% set name_type_info_x = name_type_info[loop.index - 1]|replace({"Person":"person"})|raw %}
+  {% set name_type_info_x = name_type_info_x|replace({"Corporate Body":"corporate"})|raw %}
+
+  <name type="{{ name_type_info_x }}">
+    <namePart>{{ subject_name_info }}</namePart>
+  </name>
+  {% endfor %}
+
+  <hierarchicalGeographic>
+    <continent>{{ elements.subject_hierarchicalgeographic_continent }}</continent>
+    <country>{{ elements.subject_hierarchicalgeographic_country }}</country>
+    <state>{{ elements.subject_hierarchicalgeographic_state }}</state>
+    <province>{{ elements.subject_hierarchicalgeographic_province }}</province>
+    <region>{{ elements.subject_hierarchicalgeographic_region }}</region>
+    <county>{{ elements.subject_hierarchicalgeographic_county }}</county>
+    <island>{{ elements.subject_hierarchicalgeographic_island }}</island>
+    <city>{{ elements.subject_hierarchicalgeographic_city }}</city>
+    <citySection>{{ elements.subject_hierarchicalgeographic_citysection }}</citySection>
+  </hierarchicalGeographic>
+  <cartographics>
+    <coordinates>{{ elements.subject_geographic_coordinates }}</coordinates>
+  </cartographics>
+</subject>
+{% if elements.relateditem_title is not empty %}
+  <relatedItem type="host">
+    <titleInfo>
+      <title>{{ elements.relateditem_title }}</title>
+    </titleInfo>
+  </relatedItem>
+{% endif %}
+{% if elements.relateditem_collection_title is not empty %}
+  <relatedItem type="collection">
+    <titleInfo>
+      <title>{{ elements.relateditem_collection_title }}</title>
+    </titleInfo>
+  </relatedItem>
+{% endif %}
+{% if elements.accesscondition_restrictionandaccess is not empty%}
+  <accessCondition type="restriction and access">{{ elements.accesscondition_restrictionandaccess }}</accessCondition>
+{% endif %}
+<accessCondition type="use and reproduction">{{ elements.accesscondition_useandreproduction }}</accessCondition>
+<location>
+  <url usage="primary display">{{ elements.location_url }}</url>
+  {% if elements.location_physical is not empty %}
+    <physicalLocation>{{ elements.location_physical }}</physicalLocation>
+  {% endif %}
+</location>
+<identifier type="uri">{{ elements.identifier_uri}}</identifier>
+<identifier type="local">{{ elements.identifier_local}}</identifier>
+<identifier type="ark">{{ elements.identifier_ark}}</identifier>
+<note>{{ elements.note }}</note>
+<recordInfo>
+  {% if elements.recordinfo_note_coursecode is not empty %}
+  <recordInfoNote type="courseCode">{{ elements.recordinfo_note_coursecode }}</recordInfoNote>
+  {% endif %}
+  {% if elements.recordinfo_note_courseyear is not empty %}
+    <recordInfoNote type="courseYear">{{ elements.recordinfo_note_courseyear }}</recordInfoNote>
+  {% endif %}
+  {% if elements.recordinfo_note_courseterm is not empty %}
+    <recordInfoNote type="courseTerm">{{ elements.recordinfo_note_courseterm }}</recordInfoNote>
+  {% endif %}
+  <languageOfCataloging>
+  {% if elements.recordinfo_cataloguing_language_iso6392b is not empty %}
+    <languageTerm authority="iso639-2b" type="code">{{ elements.recordinfo_cataloguing_language_iso6392b }}</languageTerm>
+  {% else %}
+    {# Assume language of cataloguing is eng #}
+    <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+  {% endif %}
+  </languageOfCataloging>
+</recordInfo>

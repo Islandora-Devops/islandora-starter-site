@@ -11,7 +11,7 @@ _core:
   default_config_hash: '-kS3T9_5sZ-R0F3FpEYcphpjlBCsF0vRw8LlzbmKo6E'
 id: physical_form
 name: 'Physical Form'
-weight: 1
+weight: -2
 min_count: 1
 missing: false
 missing_label: others
@@ -63,10 +63,15 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  hide_non_narrowing_result_processor:
-    processor_id: hide_non_narrowing_result_processor
+  hide_inactive_siblings_processor:
+    processor_id: hide_inactive_siblings_processor
     weights:
-      build: 40
+      build: 10
+    settings: {  }
+  hierarchy_processor:
+    processor_id: hierarchy_processor
+    weights:
+      build: 100
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler

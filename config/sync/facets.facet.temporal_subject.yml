@@ -11,7 +11,7 @@ _core:
   default_config_hash: m8xjlb85p3PCns2LJMakGwaXjxaJJN_ZhZKfJm55ymU
 id: temporal_subject
 name: 'Subject (Temporal)'
-weight: 0
+weight: 1
 min_count: 1
 missing: false
 missing_label: others
@@ -63,10 +63,15 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  hide_non_narrowing_result_processor:
-    processor_id: hide_non_narrowing_result_processor
+  hide_inactive_siblings_processor:
+    processor_id: hide_inactive_siblings_processor
     weights:
-      build: 40
+      build: 10
+    settings: {  }
+  hierarchy_processor:
+    processor_id: hierarchy_processor
+    weights:
+      build: 100
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler

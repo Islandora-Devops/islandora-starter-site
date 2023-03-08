@@ -1,30 +1,24 @@
-uuid: d5cb2c16-4125-49d7-8a52-3f493b6a1f3e
+uuid: 0b112c69-6a7f-4be5-999c-4e5a5b5486d4
 langcode: en
 status: true
 dependencies:
-  config:
-    - facets.facet.subject
   module:
+    - advanced_search
     - context
-    - facets
     - islandora
   theme:
     - olivero
-_core:
-  default_config_hash: 8CNTurKBSOQZRTrWiaCmfAwseQyzXZOb8gJohUvIBFw
-id: subject
+id: solrsearchcontentsearchresultspagerforblock
 theme: olivero
-region: sidebar
-weight: -6
+region: content
+weight: -10
 provider: null
-plugin: 'facet_block:subject'
+plugin: 'advanced_search_result_pager:solr_search_content__block_1'
 settings:
-  id: 'facet_block:subject'
-  label: Subject
-  label_display: visible
-  provider: facets
-  context_mapping: {  }
-  block_id: subject
+  id: 'advanced_search_result_pager:solr_search_content__block_1'
+  label: 'Solr search content: Search Results Pager for Block'
+  label_display: '0'
+  provider: advanced_search
 visibility:
   user_status:
     id: user_status
@@ -37,11 +31,6 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  view_inclusion:
-    id: view_inclusion
-    negate: false
-    view_inclusion:
-      view-solr_search_content-page_1: view-solr_search_content-page_1
   context:
     id: context
     negate: null
@@ -49,7 +38,7 @@ visibility:
   context_all:
     id: context_all
     negate: null
-    values: ''
+    values: collection
   media_source_mimetype:
     id: media_source_mimetype
     negate: false
