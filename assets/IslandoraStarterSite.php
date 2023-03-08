@@ -24,7 +24,11 @@ class StarterSite {
     $package = $composer->getPackage();
     $version_file = new JsonFile('.starter_site_version');
     $version_file->write([
+      'package' => "$package",
+      'full-pretty-version' => $package->getFullPrettyVersion(),
+      'pretty-string' => $package->getPrettyString(),
       'pretty-version' => $package->getPrettyVersion(),
+      'unique-name' => $package->getUniqueName(),
       'version' => $package->getVersion(),
       'release-date' => $package->getReleaseDate(),
     ]);
