@@ -45,4 +45,4 @@ reactions:
         third_party_settings: {  }
     include_default_blocks: 1
     saved: false
-weight: -1
+weight: -8

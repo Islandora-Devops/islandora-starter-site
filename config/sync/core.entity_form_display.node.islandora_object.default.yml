@@ -45,6 +45,7 @@ dependencies:
     - field.field.node.islandora_object.field_subjects_name
     - field.field.node.islandora_object.field_table_of_contents
     - field.field.node.islandora_object.field_temporal_subject
+    - field.field.node.islandora_object.field_viewer_override
     - field.field.node.islandora_object.field_weight
     - node.type.islandora_object
   module:
@@ -58,7 +59,6 @@ third_party_settings:
     group_structure:
       children:
         - langcode
-        - field_display_hints
         - field_weight
         - translation
         - path
@@ -138,7 +138,7 @@ third_party_settings:
       label: Identifiers
       region: content
       parent_name: ''
-      weight: 21
+      weight: 20
       format_type: details
       format_settings:
         classes: ''
@@ -203,7 +203,7 @@ third_party_settings:
       label: 'Classification '
       region: content
       parent_name: ''
-      weight: 20
+      weight: 19
       format_type: details
       format_settings:
         classes: ''
@@ -221,7 +221,7 @@ third_party_settings:
       label: 'Specific Subject Types'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 18
       format_type: details
       format_settings:
         classes: ''
@@ -253,7 +253,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 44
+    weight: 42
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -556,7 +556,7 @@ content:
     third_party_settings: {  }
   field_rights:
     type: string_textfield
-    weight: 22
+    weight: 21
     region: content
     settings:
       size: 60
@@ -610,9 +610,15 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_viewer_override:
+    type: options_select
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_weight:
     type: number
-    weight: 38
+    weight: 35
     region: content
     settings:
       placeholder: ''
@@ -626,27 +632,27 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 40
+    weight: 37
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 42
+    weight: 40
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 41
+    weight: 39
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 45
+    weight: 43
     region: content
     settings:
       display_label: true
@@ -660,13 +666,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 39
+    weight: 36
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 43
+    weight: 41
     region: content
     settings:
       match_operator: CONTAINS
