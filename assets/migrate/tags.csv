@@ -10,3 +10,5 @@ resource_types,"Sound","A resource primarily intended to be heard",http://purl.o
 resource_types,"Still Image","A static visual representation",http://purl.org/dc/dcmitype/StillImage,dcmi_types
 resource_types,"Software","A computer program in source or compiled form",http://purl.org/dc/dcmitype/Software,dcmi_types
 resource_types,"Text","A resource consisting primarily of words for reading",http://purl.org/dc/dcmitype/Text,dcmi_types
+islandora_display,"OpenSeadragon","Display using the OpenSeadragon viewer",http://openseadragon.github.io,
+islandora_display,"PDF.js","Display using the PDF.js viewer",http://mozilla.github.io/pdf.js,

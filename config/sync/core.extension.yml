@@ -108,7 +108,6 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
-  view_mode_switch: 0
   views_data_export: 0
   views_nested_details: 0
   views_ui: 0

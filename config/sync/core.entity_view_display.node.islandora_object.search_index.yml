@@ -46,6 +46,7 @@ dependencies:
     - field.field.node.islandora_object.field_subjects_name
     - field.field.node.islandora_object.field_table_of_contents
     - field.field.node.islandora_object.field_temporal_subject
+    - field.field.node.islandora_object.field_viewer_override
     - field.field.node.islandora_object.field_weight
     - node.type.islandora_object
   module:
@@ -430,6 +431,7 @@ hidden:
   field_model: true
   field_pid: true
   field_place_published_country: true
+  field_viewer_override: true
   field_weight: true
   islandora_fits_checksum: true
   langcode: true

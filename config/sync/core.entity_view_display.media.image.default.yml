@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.image.field_display_mode_for_viewer
     - field.field.media.image.field_file_size
     - field.field.media.image.field_height
     - field.field.media.image.field_media_image
@@ -107,7 +106,6 @@ content:
     region: content
 hidden:
   created: true
-  field_display_mode_for_viewer: true
   langcode: true
   search_api_excerpt: true
   thumbnail: true
