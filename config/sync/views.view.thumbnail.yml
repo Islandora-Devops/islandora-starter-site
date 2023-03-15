@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.thumbnail
+    - views.view.thumbnail_of_first_child
   module:
     - media
     - taxonomy
@@ -269,6 +270,20 @@ display:
     display_plugin: block
     position: 2
     display_options:
+      empty:
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: 'Thumbnail of First Child'
+          plugin_id: view
+          empty: true
+          view_to_insert: 'thumbnail_of_first_child:block_1'
+          inherit_arguments: true
+      defaults:
+        empty: false
       display_description: ''
       display_extenders:
         matomo:
