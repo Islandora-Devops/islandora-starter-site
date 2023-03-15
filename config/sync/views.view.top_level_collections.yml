@@ -139,7 +139,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view: thumbnail
-          display: block_1
+          display: block_2
           arguments: '{{ raw_fields.nid }}'
         title:
           id: title
