@@ -5774,12 +5774,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/digitalutsc/advanced_search.git",
-                "reference": "c38487eb3b8f2939ceeb74309cfbf194080c290e"
+                "reference": "b7d439e08f069e495f1b354e7976e49fd43eef61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digitalutsc/advanced_search/zipball/c38487eb3b8f2939ceeb74309cfbf194080c290e",
-                "reference": "c38487eb3b8f2939ceeb74309cfbf194080c290e",
+                "url": "https://api.github.com/repos/digitalutsc/advanced_search/zipball/b7d439e08f069e495f1b354e7976e49fd43eef61",
+                "reference": "b7d439e08f069e495f1b354e7976e49fd43eef61",
                 "shasum": ""
             },
             "require": {
@@ -5819,7 +5819,7 @@
                 "issues": "https://github.com/digitalutsc/advanced_search/issues",
                 "source": "https://github.com/digitalutsc/advanced_search/tree/islandora_lite"
             },
-            "time": "2023-03-09T14:34:14+00:00"
+            "time": "2023-03-15T13:47:24+00:00"
         },
         {
             "name": "islandora/chullo",
