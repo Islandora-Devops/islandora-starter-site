@@ -59,7 +59,7 @@
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/advanced_search": "dev-contrib",
         "islandora/controlled_access_terms": "^2",
-        "islandora/islandora": "^2",
+        "islandora/islandora": "dev-upgrade-crayfish-commons",
         "islandora/openseadragon": "^2",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^2.4",
