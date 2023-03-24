@@ -143,8 +143,8 @@
         "drupal/restui": "^1.21"
     },
     "autoload": {
-      "classmap": [
-        "assets/IslandoraStarterSite.php"
-      ]
+        "classmap": [
+            "assets/IslandoraStarterSite.php"
+        ]
     }
 }
