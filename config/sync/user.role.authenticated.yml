@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - rest.resource.oai_pmh
   module:
     - comment
     - contact
     - filter
     - matomo
     - media
+    - rest
     - shortcut
     - system
 _core:
@@ -28,3 +30,4 @@ permissions:
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'view media'
+  - 'restful get oai_pmh'
