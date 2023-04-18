@@ -5489,12 +5489,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Islandora/chullo.git",
-                "reference": "aa1c8053f4cac9805a936d3deb08c2b9c549f661"
+                "reference": "21b25fb687fc9e3fea2e2f35ceaa71116e5d0333"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/chullo/zipball/aa1c8053f4cac9805a936d3deb08c2b9c549f661",
-                "reference": "aa1c8053f4cac9805a936d3deb08c2b9c549f661",
+                "url": "https://api.github.com/repos/Islandora/chullo/zipball/21b25fb687fc9e3fea2e2f35ceaa71116e5d0333",
+                "reference": "21b25fb687fc9e3fea2e2f35ceaa71116e5d0333",
                 "shasum": ""
             },
             "require": {
@@ -5542,7 +5542,7 @@
                 "issues": "https://github.com/Islandora/documentation/issues",
                 "source": "https://github.com/Islandora/chullo/tree/update-dependencies"
             },
-            "time": "2023-04-18T19:55:31+00:00"
+            "time": "2023-04-18T20:49:58+00:00"
         },
         {
             "name": "islandora/controlled_access_terms",
