@@ -133,22 +133,18 @@
         }
     },
     "scripts": {
+        "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"],
         "post-install-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"],
         "post-update-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"]
-     },
+    },
     "require-dev": {
         "drupal/config_inspector": "^2.1",
         "drupal/devel": "^5.0",
         "drupal/restui": "^1.21"
     },
-    "scripts": {
-      "post-root-package-install": [
-        "Islandora\\StarterSite::rootPackageInstall"
-      ]
-    },
     "autoload": {
-      "classmap": [
-        "assets/IslandoraStarterSite.php"
-      ]
+        "classmap": [
+            "assets/IslandoraStarterSite.php"
+        ]
     }
 }
