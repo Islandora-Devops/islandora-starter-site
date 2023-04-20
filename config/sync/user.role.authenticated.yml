@@ -27,7 +27,7 @@ permissions:
   - 'access site-wide contact form'
   - 'opt-in or out of matomo tracking'
   - 'post comments'
+  - 'restful get oai_pmh'
   - 'skip comment approval'
   - 'use text format basic_html'
   - 'view media'
-  - 'restful get oai_pmh'
