@@ -22,6 +22,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'restful get oai_pmh'
   - 'use text format restricted_html'
   - 'view media'
-  - 'restful get oai_pmh'
