@@ -5484,6 +5484,206 @@
             "time": "2023-03-16T03:06:07+00:00"
         },
         {
+            "name": "digitalutsc/islandora_group",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/islandora_group.git",
+                "reference": "78006bbd0d60ca4e919a9982b99c6804ae01ea91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/islandora_group/zipball/78006bbd0d60ca4e919a9982b99c6804ae01ea91",
+                "reference": "78006bbd0d60ca4e919a9982b99c6804ae01ea91",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/group": "^3.0",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module assists to manage access control for node and media with Group module",
+            "homepage": "https://www.drupal.org/project/islandora_group",
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/islandora_group",
+                "source": "http://cgit.drupalcode.org/islandora_group"
+            },
+            "time": "2023-05-15T19:11:29+00:00"
+        },
+        {
+            "name": "drupal/group",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/group.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "cfdba82755062c218719e0f2e6bbcda5becb9bdd"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10",
+                "drupal/entity": "^1.2",
+                "drupal/flexible_permissions": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1682085992",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kristiaan Van den Eynde",
+                    "homepage": "https://www.drupal.org/u/kristiaanvandeneynde",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "kristiaanvandeneynde",
+                    "homepage": "https://www.drupal.org/user/1345130"
+                }
+            ],
+            "description": "This module allows you to group users, content and other entities",
+            "homepage": "http://drupal.org/project/group",
+            "support": {
+                "source": "https://git.drupalcode.org/project/group",
+                "issues": "https://drupal.org/project/issues/group"
+            }
+        },
+        {
+            "name": "drupal/group_permissions",
+            "version": "2.0.0-alpha5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/group_permissions.git",
+                "reference": "2.0.0-alpha5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group_permissions-2.0.0-alpha5.zip",
+                "reference": "2.0.0-alpha5",
+                "shasum": "f65294198beb6f9e91f6227915880e1567af2496"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/group": "^2.0 || ^3.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha5",
+                    "datestamp": "1670262349",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nikolay Lobachev",
+                    "homepage": "https://www.drupal.org/u/lobsterr",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Group permissions module provides custom permissions per group.",
+            "homepage": "https://github.com/cnect-web/group_permissions",
+            "support": {
+                "source": "https://git.drupalcode.org/project/group_permissions",
+                "issues": "https://www.drupal.org/project/issues/group_permissions"
+            }
+        },
+        {
+            "name": "drupal/groupmedia",
+            "version": "4.0.0-alpha7",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/groupmedia.git",
+                "reference": "4.0.0-alpha7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/groupmedia-4.0.0-alpha7.zip",
+                "reference": "4.0.0-alpha7",
+                "shasum": "6151beeedfad6df32ae208217f5bb1dbfd2045f5"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/group": "^3.0"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*",
+                "drupal/views_bulk_operations": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0-alpha7",
+                    "datestamp": "1683239527",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Dmitriiev",
+                    "homepage": "https://www.drupal.org/u/admitriiev",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nikolay Lobachev",
+                    "homepage": "https://www.drupal.org/u/lobsterr",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module allows you to integrate media entity into group functionality",
+            "homepage": "http://drupal.org/project/groupmedia",
+            "support": {
+                "source": "https://git.drupalcode.org/project/groupmedia",
+                "issues": "https://drupal.org/project/issues/groupmedia"
+            }
+        },
+        {
             "name": "islandora/chullo",
             "version": "1.3.0",
             "source": {
