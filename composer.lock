@@ -5540,12 +5540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/digitalutsc/islandora_group.git",
-                "reference": "78006bbd0d60ca4e919a9982b99c6804ae01ea91"
+                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digitalutsc/islandora_group/zipball/78006bbd0d60ca4e919a9982b99c6804ae01ea91",
-                "reference": "78006bbd0d60ca4e919a9982b99c6804ae01ea91",
+                "url": "https://api.github.com/repos/digitalutsc/islandora_group/zipball/a786210aef6043788edeb2c7c12a56a82577f91a",
+                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a",
                 "shasum": ""
             },
             "require": {
