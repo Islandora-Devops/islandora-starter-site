@@ -5580,6 +5580,51 @@
             "time": "2023-05-15T19:11:29+00:00"
         },
         {
+            "name": "digitalutsc/islandora_group_defaults",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/islandora_group_defaults.git",
+                "reference": "95c9f2005e7b01975a82989fc02dd87a354eb006"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/islandora_group_defaults/zipball/95c9f2005e7b01975a82989fc02dd87a354eb006",
+                "reference": "95c9f2005e7b01975a82989fc02dd87a354eb006",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/group": "^3.0@RC",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Default config for Access controle with Group, Group Media",
+            "homepage": "https://www.drupal.org/project/islandora_group",
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/islandora_group",
+                "source": "http://cgit.drupalcode.org/islandora_group"
+            },
+            "time": "2023-05-15T21:15:27+00:00"
+        },
+        {
             "name": "drupal/group",
             "version": "3.0.1",
             "source": {

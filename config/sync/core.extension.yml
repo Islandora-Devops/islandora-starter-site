@@ -29,6 +29,7 @@ module:
   devel: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   eva: 0
   facets: 0
   facets_summary: 0
@@ -43,8 +44,13 @@ module:
   file_replace: 0
   filehash: 0
   filter: 0
+  flexible_permissions: 0
   flysystem: 0
   geolocation: 0
+  gnode: 0
+  group: 0
+  group_permissions: 0
+  groupmedia: 0
   hal: 0
   help: 0
   history: 0
@@ -54,6 +60,8 @@ module:
   islandora_breadcrumbs: 0
   islandora_core_feature: 0
   islandora_fits: 0
+  islandora_group_defaults: 0
+  islandora_group: 0
   islandora_iiif: 0
   islandora_image: 0
   islandora_text_extraction: 0
@@ -89,6 +97,7 @@ module:
   responsive_image: 0
   rest: 0
   rest_oai_pmh: 0
+  rules: 0
   search_api: 0
   search_api_solr: 0
   serialization: 0
@@ -106,8 +115,10 @@ module:
   tour: 0
   transliterate_filenames: 0
   twig_tweak: 0
+  typed_data: 0
   update: 0
   user: 0
+  variationcache: 0
   views_data_export: 0
   views_field_view: 0
   views_nested_details: 0
