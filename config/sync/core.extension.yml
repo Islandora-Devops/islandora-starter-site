@@ -97,7 +97,6 @@ module:
   responsive_image: 0
   rest: 0
   rest_oai_pmh: 0
-  rules: 0
   search_api: 0
   search_api_solr: 0
   serialization: 0
