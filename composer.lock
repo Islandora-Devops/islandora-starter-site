@@ -1363,6 +1363,95 @@
             "time": "2023-05-16T19:23:08+00:00"
         },
         {
+            "name": "digitalutsc/group_solr",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/group_solr.git",
+                "reference": "49f0259ce1144c8a7ba9fe449c67dc281d338edf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/group_solr/zipball/49f0259ce1144c8a7ba9fe449c67dc281d338edf",
+                "reference": "49f0259ce1144c8a7ba9fe449c67dc281d338edf",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/group": "^3.0",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha",
+                "drupal/search_api_solr": "^4.2"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module add Solr indexed field(s) which is determined access control with Group module for an indexed item to be public or private for annonymous users",
+            "homepage": "https://github.com/digitalutsc/group_solr",
+            "support": {
+                "issues": "https://github.com/digitalutsc/group_solr/issues",
+                "source": "https://github.com/digitalutsc/group_solr"
+            },
+            "time": "2023-05-10T13:25:58+00:00"
+        },
+        {
+            "name": "digitalutsc/private_files_adapter",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/private_files_adapter.git",
+                "reference": "556f5a81b658925ec98726de3537fa6bb9204ef7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/private_files_adapter/zipball/556f5a81b658925ec98726de3537fa6bb9204ef7",
+                "reference": "556f5a81b658925ec98726de3537fa6bb9204ef7",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/jwt": "^1.1"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module override access control for private file system with Cantaloupe",
+            "homepage": "https://www.drupal.org/project/private_files_adapter",
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/private_files_adapter",
+                "source": "http://cgit.drupalcode.org/private_files_adapter"
+            },
+            "time": "2023-04-28T15:57:31+00:00"
+        },
+        {
             "name": "doctrine/annotations",
             "version": "1.13.3",
             "source": {
