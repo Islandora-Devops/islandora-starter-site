@@ -1,0 +1,25 @@
+uuid: 9393e151-c23f-4703-8d93-b0e8f2c777c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - media
+_core:
+  default_config_hash: E_VRObQuM4B9z_NdEKCPF5l6mgQdV_07IgmOx_iBvDU
+id: media.ableplayer_caption
+field_name: ableplayer_caption
+entity_type: media
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

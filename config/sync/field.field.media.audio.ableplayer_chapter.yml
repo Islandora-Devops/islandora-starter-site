@@ -1,0 +1,27 @@
+uuid: d8ffd941-8428-4aac-8564-6f91d2a3d80e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.ableplayer_chapter
+    - media.type.audio
+  module:
+    - file
+id: media.audio.ableplayer_chapter
+field_name: ableplayer_chapter
+entity_type: media
+bundle: audio
+label: Chapters
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: vtt
+  max_filesize: ''
+  description_field: false
+field_type: file

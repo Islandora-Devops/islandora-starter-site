@@ -1,9 +1,9 @@
-uuid: d967c8ef-8d1d-45bc-a320-d269ecf1666c
+uuid: f609c4cc-cc3d-4d8b-a133-54342b7dc527
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.file_download
+    - core.entity_form_mode.media.media_library
     - field.field.media.audio.ableplayer_chapter
     - field.field.media.audio.ableplayer_description
     - field.field.media.audio.ableplayer_poster_image
@@ -17,24 +17,11 @@ dependencies:
     - field.field.media.audio.field_original_name
     - field.field.media.audio.field_track
     - media.type.audio
-  module:
-    - filehash
-_core:
-  default_config_hash: 2FZ_TcS2MGA5tQMskHrjKwJ_ucnDEdIfsnMG5MHhjyA
-id: media.audio.file_download
+id: media.audio.media_library
 targetEntityType: media
 bundle: audio
-mode: file_download
-content:
-  field_media_audio_file:
-    type: filehash_table
-    label: visually_hidden
-    settings:
-      algo: sha1
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 0
-    region: content
+mode: media_library
+content: {  }
 hidden:
   ableplayer_chapter: true
   ableplayer_description: true
@@ -43,7 +30,7 @@ hidden:
   created: true
   field_ableplayer_media_caption: true
   field_file_size: true
-  field_gemini_uri: true
+  field_media_audio_file: true
   field_media_of: true
   field_media_use: true
   field_mime_type: true
@@ -51,6 +38,7 @@ hidden:
   field_track: true
   langcode: true
   name: true
-  search_api_excerpt: true
-  thumbnail: true
+  path: true
+  status: true
+  translation: true
   uid: true

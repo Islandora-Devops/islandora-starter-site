@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.source
+    - field.field.media.audio.ableplayer_chapter
+    - field.field.media.audio.ableplayer_description
+    - field.field.media.audio.ableplayer_poster_image
+    - field.field.media.audio.ableplayer_sign_language
+    - field.field.media.audio.field_ableplayer_media_caption
     - field.field.media.audio.field_file_size
     - field.field.media.audio.field_media_audio_file
     - field.field.media.audio.field_media_of
@@ -38,7 +43,12 @@ content:
     weight: 0
     region: content
 hidden:
+  ableplayer_chapter: true
+  ableplayer_description: true
+  ableplayer_poster_image: true
+  ableplayer_sign_language: true
   created: true
+  field_ableplayer_media_caption: true
   field_file_size: true
   field_media_of: true
   field_media_use: true

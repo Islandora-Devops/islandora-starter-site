@@ -1,9 +1,9 @@
-uuid: d967c8ef-8d1d-45bc-a320-d269ecf1666c
+uuid: bdec9714-8ca9-41e3-a5ce-9f6a589a0f5b
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.file_download
+    - core.entity_view_mode.media.able_player
     - field.field.media.audio.ableplayer_chapter
     - field.field.media.audio.ableplayer_description
     - field.field.media.audio.ableplayer_poster_image
@@ -18,21 +18,27 @@ dependencies:
     - field.field.media.audio.field_track
     - media.type.audio
   module:
-    - filehash
+    - ableplayer
+    - ableplayer_extend
 _core:
   default_config_hash: 2FZ_TcS2MGA5tQMskHrjKwJ_ucnDEdIfsnMG5MHhjyA
-id: media.audio.file_download
+id: media.audio.able_player
 targetEntityType: media
 bundle: audio
-mode: file_download
+mode: able_player
 content:
   field_media_audio_file:
-    type: filehash_table
+    type: ableplayer_audio
     label: visually_hidden
     settings:
-      algo: sha1
-      use_description_as_link_text: true
-    third_party_settings: {  }
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+    third_party_settings:
+      ableplayer_extend:
+        display_ableplayer_transcript_audio: '1'
+        show_timestamp_audio: '1'
     weight: 0
     region: content
 hidden:

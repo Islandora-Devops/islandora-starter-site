@@ -25,15 +25,29 @@
                 }
             }
         },
-	{
-	    "type": "vcs",
-	    "url": "https://github.com/digitalutsc/advanced_search.git"
-	}
+	    {
+	        "type": "vcs",
+	        "url": "https://github.com/digitalutsc/advanced_search.git"
+	    },
+        {
+            "type": "package",
+            "package": {
+              "name": "islandora/ableplayer_extend",
+              "version": "dev-main",
+              "type": "drupal-module",
+              "source": {
+                "url": "https://github.com/digitalutsc/ableplayer_extend",
+                "type": "git",
+                "reference":"main"
+              }
+            }
+        }
     ],
     "require": {
         "php": "^7.4 || ^8",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
+        "drupal/ableplayer": "^3.0@alpha",
         "drupal/admin_toolbar": "^3.1",
         "drupal/bibcite": "^2.0@beta",
         "drupal/citation_select": "^1.0@beta",
@@ -57,6 +71,7 @@
         "drupal/views_field_view": "^1.0@beta",
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
+        "islandora/ableplayer_extend": "dev-main",
         "islandora/advanced_search": "dev-contrib",
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2",

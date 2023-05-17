@@ -1,0 +1,10 @@
+uuid: 32727e71-7988-4a54-b1ca-da854aeda78b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.able_player
+label: 'Able Player'
+targetEntityType: media
+cache: true

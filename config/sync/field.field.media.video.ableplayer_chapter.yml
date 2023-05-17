@@ -1,0 +1,27 @@
+uuid: 182f9bb9-c55a-4930-a4bb-06753fd36b94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.ableplayer_chapter
+    - media.type.video
+  module:
+    - file
+id: media.video.ableplayer_chapter
+field_name: ableplayer_chapter
+entity_type: media
+bundle: video
+label: Chapters
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: vtt
+  max_filesize: ''
+  description_field: false
+field_type: file

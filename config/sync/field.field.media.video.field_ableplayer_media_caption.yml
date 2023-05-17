@@ -1,0 +1,28 @@
+uuid: fae5ea86-59e8-44ed-830e-a229bed895a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_ableplayer_media_caption
+    - media.type.able_player_caption
+    - media.type.video
+id: media.video.field_ableplayer_media_caption
+field_name: field_ableplayer_media_caption
+entity_type: media
+bundle: video
+label: 'Ableplayer Media Caption'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      able_player_caption: able_player_caption
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

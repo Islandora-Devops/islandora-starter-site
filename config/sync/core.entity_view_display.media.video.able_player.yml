@@ -1,9 +1,9 @@
-uuid: 309bbcfa-8dfa-4e4c-8f00-67747f516075
+uuid: f7df152d-2100-49f2-9d9d-efec2606fe36
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.source
+    - core.entity_view_mode.media.able_player
     - field.field.media.video.ableplayer_chapter
     - field.field.media.video.ableplayer_description
     - field.field.media.video.ableplayer_poster_image
@@ -18,31 +18,27 @@ dependencies:
     - field.field.media.video.field_track
     - media.type.video
   module:
-    - islandora_video
+    - ableplayer
+    - ableplayer_extend
 _core:
-  default_config_hash: h5fVMfcI16Wt4zPnxik3f0JdSLeiSlk4h3a8IRBSa8w
-id: media.video.source
+  default_config_hash: uu0AyLKPsOKaxVZYcZhYaPRZ7JOotztenkoxCiLJ51o
+id: media.video.able_player
 targetEntityType: media
 bundle: video
-mode: source
+mode: able_player
 content:
-  field_gemini_uri:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
   field_media_video_file:
-    type: islandora_file_video
+    type: ableplayer_video
     label: visually_hidden
     settings:
-      controls: true
+      controls: false
       autoplay: false
       loop: false
       multiple_file_display_type: tags
-      muted: false
-      width: 640
-      height: 480
-    third_party_settings: {  }
+    third_party_settings:
+      ableplayer_extend:
+        display_ableplayer_transcript_video: '1'
+        show_timestamp_video: '1'
     weight: 0
     region: content
 hidden:
@@ -53,6 +49,7 @@ hidden:
   created: true
   field_ableplayer_media_caption: true
   field_file_size: true
+  field_gemini_uri: true
   field_media_of: true
   field_media_use: true
   field_mime_type: true

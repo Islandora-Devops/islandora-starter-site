@@ -1,0 +1,27 @@
+uuid: 9a28e39d-d725-4ea9-af71-4f14eb6b3d7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.ableplayer_poster_image
+    - media.type.video
+  module:
+    - file
+id: media.video.ableplayer_poster_image
+field_name: ableplayer_poster_image
+entity_type: media
+bundle: video
+label: 'Poster Image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'jpg png'
+  max_filesize: ''
+  description_field: false
+field_type: file

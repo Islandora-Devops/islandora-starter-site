@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.file_download
+    - field.field.media.video.ableplayer_chapter
+    - field.field.media.video.ableplayer_description
+    - field.field.media.video.ableplayer_poster_image
+    - field.field.media.video.ableplayer_sign_language
+    - field.field.media.video.field_ableplayer_media_caption
     - field.field.media.video.field_file_size
     - field.field.media.video.field_media_of
     - field.field.media.video.field_media_use
@@ -31,7 +36,12 @@ content:
     weight: 0
     region: content
 hidden:
+  ableplayer_chapter: true
+  ableplayer_description: true
+  ableplayer_poster_image: true
+  ableplayer_sign_language: true
   created: true
+  field_ableplayer_media_caption: true
   field_file_size: true
   field_gemini_uri: true
   field_media_of: true

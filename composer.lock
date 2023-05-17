@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ef3eeeb73ad2b12943ef2368524c14e",
+    "content-hash": "e6b3a47dc1d6a575666459af181d7f4c",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1536,6 +1536,58 @@
             },
             "abandoned": "roave/better-reflection",
             "time": "2022-05-31T18:46:25+00:00"
+        },
+        {
+            "name": "drupal/ableplayer",
+            "version": "3.0.0-alpha6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ableplayer.git",
+                "reference": "3.0.0-alpha6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ableplayer-3.0.0-alpha6.zip",
+                "reference": "3.0.0-alpha6",
+                "shasum": "cc7b4d2430174b91172b8218c731ebac4b6d75d3"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.0-alpha6",
+                    "datestamp": "1679698113",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "gonzalm8",
+                    "homepage": "https://www.drupal.org/user/3661751"
+                },
+                {
+                    "name": "npacker",
+                    "homepage": "https://www.drupal.org/user/3191165"
+                },
+                {
+                    "name": "theMusician",
+                    "homepage": "https://www.drupal.org/user/1197044"
+                }
+            ],
+            "description": "Accessible audio and video player",
+            "homepage": "https://www.drupal.org/project/ableplayer",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ableplayer"
+            }
         },
         {
             "name": "drupal/admin_toolbar",
@@ -5429,6 +5481,16 @@
                 "source": "http://cgit.drupalcode.org/islandora_fits"
             },
             "time": "2022-09-23T14:27:40+00:00"
+        },
+        {
+            "name": "islandora/ableplayer_extend",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/ableplayer_extend",
+                "reference": "main"
+            },
+            "type": "drupal-module"
         },
         {
             "name": "islandora/advanced_search",
@@ -12849,6 +12911,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/ableplayer": 15,
         "drupal/bibcite": 10,
         "drupal/citation_select": 10,
         "drupal/flysystem": 15,
@@ -12856,6 +12919,7 @@
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
+        "islandora/ableplayer_extend": 20,
         "islandora/advanced_search": 20
     },
     "prefer-stable": true,
@@ -12867,5 +12931,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

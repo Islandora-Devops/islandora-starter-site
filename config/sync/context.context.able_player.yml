@@ -1,0 +1,49 @@
+uuid: 5fc6b573-8d81-4cda-8172-fb48ca068f75
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_display_blocks
+  module:
+    - islandora
+    - views
+label: 'Able Player'
+name: able_player
+group: Display
+description: 'Displays the Service File or Original File in Able Player view mode'
+requireAllConditions: false
+disabled: false
+conditions:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    uuid: 7bbec6a5-86ff-47b4-9027-28e32a3d2947
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'https://ableplayer.github.io/ableplayer/'
+    logic: and
+reactions:
+  blocks:
+    id: blocks
+    uuid: 2d27abaf-89e5-4a96-8644-d21353159a16
+    blocks:
+      322a286b-ddd0-46c6-88ed-6aa5dda6efd0:
+        uuid: 322a286b-ddd0-46c6-88ed-6aa5dda6efd0
+        id: 'views_block:media_display_blocks-ableplayer'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content_above
+        weight: '0'
+        custom_id: views_block_media_display_blocks_ableplayer
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: able_player
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+    include_default_blocks: 1
+    saved: false
+weight: -5

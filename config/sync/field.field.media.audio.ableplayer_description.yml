@@ -1,0 +1,27 @@
+uuid: bcacdafb-43d9-4be4-8d7f-3f90da7e923c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.ableplayer_description
+    - media.type.audio
+  module:
+    - file
+id: media.audio.ableplayer_description
+field_name: ableplayer_description
+entity_type: media
+bundle: audio
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: vtt
+  max_filesize: ''
+  description_field: false
+field_type: file
