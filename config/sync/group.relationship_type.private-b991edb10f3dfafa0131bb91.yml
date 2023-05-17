@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - node.type.islandora_object
+  module:
+    - gnode
+    - node
+id: private-b991edb10f3dfafa0131bb91
+group_type: private
+content_plugin: 'group_node:islandora_object'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

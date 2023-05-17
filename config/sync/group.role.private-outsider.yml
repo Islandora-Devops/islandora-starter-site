@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - user.role.authenticated
+id: private-outsider
+label: Outsider
+weight: -101
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: private
+permissions:
+  - 'view group_node:islandora_object entity'

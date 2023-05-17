@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - media.type.audio
+  module:
+    - groupmedia
+    - media
+id: private-group_media-audio
+group_type: private
+content_plugin: 'group_media:audio'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

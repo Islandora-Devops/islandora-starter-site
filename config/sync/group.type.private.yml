@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: private
+label: Private
+description: 'This group type is meant for groups which have access control applied for them. '
+new_revision: true
+creator_membership: true
+creator_wizard: true
+creator_roles:
+  - private-admin

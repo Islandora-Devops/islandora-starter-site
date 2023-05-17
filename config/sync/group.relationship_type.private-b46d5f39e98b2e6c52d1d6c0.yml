@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - media.type.fits_technical_metadata
+  module:
+    - groupmedia
+    - media
+id: private-b46d5f39e98b2e6c52d1d6c0
+group_type: private
+content_plugin: 'group_media:fits_technical_metadata'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - user.role.administrator
+id: private-admin
+label: Admin
+weight: -99
+admin: true
+scope: insider
+global_role: administrator
+group_type: private
+permissions: {  }
