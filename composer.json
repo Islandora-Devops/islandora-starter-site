@@ -65,7 +65,6 @@
         "library/pdf.js": "^2.4",
         "mjordan/islandora_workbench_integration": "^1.0",
         "digitalutsc/islandora_group": "2.x-dev",
-        "drupal/jwt":"^1.1",
         "digitalutsc/group_solr": "dev-main",
         "digitalutsc/private_files_adapter": "dev-main"
     },
