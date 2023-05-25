@@ -895,7 +895,7 @@ display:
           table: node__field_member_of
           field: field_member_of_target_id
           relationship: none
-          group_type: group
+          group_type: count_distinct
           admin_label: ''
           plugin_id: numeric
           operator: '='
@@ -907,22 +907,30 @@ display:
           exposed: true
           expose:
             operator_id: field_member_of_target_id_op
-            label: 'Member of (field_member_of)'
-            description: null
-            use_operator: false
+            label: 'Number of Parents'
+            description: ''
+            use_operator: true
             operator: field_member_of_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
+            operator_limit_selection: true
+            operator_list:
+              '<': '<'
+              '=': '='
+              '>': '>'
+              between: between
             identifier: field_member_of_target_id
             required: false
             remember: false
             multiple: true
             remember_roles:
               authenticated: authenticated
-            min_placeholder: null
-            max_placeholder: null
-            placeholder: null
-          is_grouped: true
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              fedoraadmin: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
           group_info:
             label: Parents
             description: ''
@@ -969,6 +977,7 @@ display:
               '<': '<'
               '=': '='
               '>': '>'
+              between: between
             identifier: child_count
             required: false
             remember: false
@@ -1022,6 +1031,7 @@ display:
               '<': '<'
               '=': '='
               '>': '>'
+              between: between
             identifier: mid_count
             required: false
             remember: false
