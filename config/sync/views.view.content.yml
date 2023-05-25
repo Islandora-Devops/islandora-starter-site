@@ -586,7 +586,7 @@ display:
         type: bef
         options:
           submit_button: Filter
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -644,12 +644,6 @@ display:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
-              title_1:
-                plugin_id: default
-                advanced:
-                  placeholder_text: ''
-                  collapsible: false
-                  is_secondary: true
               field_member_of_target_id:
                 plugin_id: default
                 advanced:
@@ -919,51 +913,6 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        title_1:
-          id: title_1
-          table: node_field_data
-          field: title
-          relationship: field_member_of
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: title
-          plugin_id: string
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: title_1_op
-            label: 'Parent (Member of) title contains'
-            description: ''
-            use_operator: false
-            operator: title_1_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: title_1
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-              fedoraadmin: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         field_member_of_target_id:
           id: field_member_of_target_id
           table: node__field_member_of
