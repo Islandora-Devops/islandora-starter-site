@@ -1,0 +1,32 @@
+uuid: 06d3aa73-c573-4dc7-bdc5-7deae81c1a58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_hocr_extracted_text
+    - media.type.file
+  module:
+    - file
+    - filehash
+third_party_settings:
+  filehash:
+    dedupe: 0
+    dedupe_original: false
+id: media.file.field_hocr_extracted_text
+field_name: field_hocr_extracted_text
+entity_type: media
+bundle: file
+label: 'hOCR Extracted Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: xml
+  max_filesize: ''
+  description_field: false
+field_type: file

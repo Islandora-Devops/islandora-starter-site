@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.file.field_file_size
+    - field.field.media.file.field_hocr_extracted_text
     - field.field.media.file.field_media_file
     - field.field.media.file.field_media_of
     - field.field.media.file.field_media_use
@@ -25,6 +26,13 @@ content:
     weight: 6
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_hocr_extracted_text:
+    type: file_generic
+    weight: 27
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   field_media_file:
     type: file_generic

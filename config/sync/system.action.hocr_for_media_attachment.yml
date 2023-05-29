@@ -1,0 +1,23 @@
+uuid: 496ead25-2467-4adc-ad0c-60103320428a
+langcode: en
+status: true
+dependencies:
+  module:
+    - islandora_text_extraction
+id: hocr_for_media_attachment
+label: 'hOCR for media attachment'
+type: media
+plugin: generate_extracted_text_file
+configuration:
+  queue: islandora-connector-ocr
+  event: 'Generate Derivative'
+  source_term_uri: 'http://pcdm.org/use#OriginalFile'
+  mimetype: text/plain
+  args: '-c tessedit_create_hocr=1 -c hocr_font_info=0'
+  path: '[date:custom:Y]-[date:custom:m]/[media:mid]-extracted_text.txt'
+  source_field_name: field_media_file
+  destination_field_name: field_hocr_extracted_text
+  destination_media_type: file
+  scheme: null
+  destination_text_field_name: none
+  text_format: hocr

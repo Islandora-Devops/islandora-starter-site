@@ -1,0 +1,7 @@
+_core:
+  default_config_hash: MSljj58hP7M6ApvTWQH1_7AK8esKjfU0NegImNlcbd8
+mirador_library_installation_type: remote
+mirador_enabled_plugins:
+  miradorImageToolsPlugin: miradorImageToolsPlugin
+  textOverlayPlugin: textOverlayPlugin
+iiif_manifest_url: '/node/[node:nid]/manifest'

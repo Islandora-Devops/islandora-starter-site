@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.media.field_hocr_extracted_text
     - field.storage.media.field_media_file
     - field.storage.media.field_media_image
   module:
@@ -152,6 +153,69 @@ display:
             image_style: ''
             image_loading:
               attribute: lazy
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_hocr_extracted_text:
+          id: field_hocr_extracted_text
+          table: media__field_hocr_extracted_text
+          field: field_hocr_extracted_text
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: file_default
+          settings:
+            use_description_as_link_text: true
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -373,6 +437,7 @@ display:
         - url.query_args
         - user.permissions
       tags:
+        - 'config:field.storage.media.field_hocr_extracted_text'
         - 'config:field.storage.media.field_media_file'
         - 'config:field.storage.media.field_media_image'
   rest_export_1:
@@ -448,6 +513,11 @@ display:
           iiif_tile_field:
             field_media_file: field_media_file
             field_media_image: field_media_image
+            field_hocr_extracted_text: '0'
+          iiif_ocr_file_field:
+            field_hocr_extracted_text: field_hocr_extracted_text
+            field_media_file: 0
+            field_media_image: 0
       row:
         type: data_field
         options:
@@ -479,6 +549,7 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.media.field_hocr_extracted_text'
         - 'config:field.storage.media.field_media_file'
         - 'config:field.storage.media.field_media_image'
   rest_export_2:
@@ -549,7 +620,7 @@ display:
           admin_label: ''
           plugin_id: string
           operator: '='
-          value: 'http://pcdm.org/use#ServiceFile'
+          value: 'http://pcdm.org/use#OriginalFile'
           group: 1
           exposed: false
           expose:
@@ -589,6 +660,11 @@ display:
           iiif_tile_field:
             field_media_file: field_media_file
             field_media_image: field_media_image
+            field_hocr_extracted_text: '0'
+          iiif_ocr_file_field:
+            field_hocr_extracted_text: field_hocr_extracted_text
+            field_media_file: 0
+            field_media_image: 0
       row:
         type: data_field
         options:
@@ -621,7 +697,18 @@ display:
           plugin_id: standard
           required: false
       display_description: ''
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
       path: node/%node/manifest
     cache_metadata:
       max-age: -1
@@ -631,6 +718,7 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.media.field_hocr_extracted_text'
         - 'config:field.storage.media.field_media_file'
         - 'config:field.storage.media.field_media_image'
   rest_export_3:
@@ -646,10 +734,14 @@ display:
       style:
         type: iiif_manifest
         options:
-          uses_fields: false
           iiif_tile_field:
             field_media_file: field_media_file
             field_media_image: field_media_image
+            field_hocr_extracted_text: '0'
+          iiif_ocr_file_field:
+            field_hocr_extracted_text: field_hocr_extracted_text
+            field_media_file: 0
+            field_media_image: 0
       row:
         type: data_field
         options:
@@ -682,5 +774,6 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:field.storage.media.field_hocr_extracted_text'
         - 'config:field.storage.media.field_media_file'
         - 'config:field.storage.media.field_media_image'

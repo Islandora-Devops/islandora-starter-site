@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.file.field_file_size
+    - field.field.media.file.field_hocr_extracted_text
     - field.field.media.file.field_media_file
     - field.field.media.file.field_media_of
     - field.field.media.file.field_media_use
@@ -32,6 +33,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 6
+    region: content
+  field_hocr_extracted_text:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_media_file:
     type: file_default

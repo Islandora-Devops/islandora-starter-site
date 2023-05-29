@@ -1,9 +1,9 @@
-uuid: e8adec66-2bdf-42b3-ba6e-18dbac816166
+uuid: d9b34e5c-7e81-40fb-81b7-b9977427593a
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.file_download
+    - core.entity_view_mode.media.mirador
     - field.field.media.file.field_file_size
     - field.field.media.file.field_hocr_extracted_text
     - field.field.media.file.field_media_file
@@ -13,20 +13,18 @@ dependencies:
     - field.field.media.file.field_original_name
     - media.type.file
   module:
-    - filehash
+    - islandora_mirador
 _core:
-  default_config_hash: xvDrCk0MLOxsyqOt9bqbAvT-qq1yONc-knLG55Rf9Aw
-id: media.file.file_download
+  default_config_hash: DE4KOoAluHRkhvz2x7pR5mAiQWI-2Cybl7wvBwJKPYg
+id: media.file.mirador
 targetEntityType: media
 bundle: file
-mode: file_download
+mode: mirador
 content:
   field_media_file:
-    type: filehash_table
+    type: mirador_image
     label: visually_hidden
-    settings:
-      algo: sha1
-      use_description_as_link_text: true
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content

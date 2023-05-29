@@ -1,18 +1,18 @@
-uuid: bbd4f114-c54d-492c-9268-99ddd6f518cb
+uuid: 89520070-3fb4-4597-b6ab-2c7cb3d51de6
 langcode: en
 status: true
 dependencies:
   module:
     - islandora
-    - openseadragon
+    - islandora_mirador
 _core:
   default_config_hash: sN9l77XqTzoy1x5fp1O7v91Di5_6iCx9prNHDvGYrKo
-label: 'Openseadragon Block - Multipaged items'
-name: openseadragon_block
+label: 'Mirador Block - Multipaged items'
+name: mirador_block_multipaged_items
 group: Display
-description: 'If Paged Content or Publication Issue, display Openseadragon from manifest.'
+description: 'If Paged Content or Publication Issue, display Mirador from manifest.'
 requireAllConditions: false
-disabled: true
+disabled: false
 conditions:
   node_has_term:
     id: node_has_term
@@ -27,22 +27,22 @@ reactions:
     id: blocks
     uuid: 50b9b25e-0836-4531-8a78-9698d71d81de
     blocks:
-      30e02221-7810-425f-abed-5b5f82da4612:
-        uuid: 30e02221-7810-425f-abed-5b5f82da4612
-        id: openseadragon_block
-        label: 'Multipage Viewer'
-        provider: openseadragon
+      4ec7b5b2-8b85-4c42-b796-47b848fdad60:
+        uuid: 4ec7b5b2-8b85-4c42-b796-47b848fdad60
+        id: mirador_block
+        label: 'Mirador block'
+        provider: islandora_mirador
         label_display: visible
         region: content_above
-        weight: '0'
-        custom_id: openseadragon_block
+        weight: '1'
+        custom_id: mirador_block
         theme: olivero
         css_class: ''
         unique: 0
-        context_id: openseadragon_block
+        context_id: mirador_block_multipaged_items
         context_mapping: {  }
-        iiif_manifest_url: 'node/[node:nid]/book-manifest'
+        iiif_manifest_url: '/node/[node:nid]/book-manifest-original'
         third_party_settings: {  }
     include_default_blocks: 1
     saved: false
-weight: -8
+weight: -9

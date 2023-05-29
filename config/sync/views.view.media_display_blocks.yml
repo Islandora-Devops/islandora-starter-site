@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.mirador
     - core.entity_view_mode.media.open_seadragon
     - core.entity_view_mode.media.pdfjs
     - core.entity_view_mode.media.source
@@ -224,6 +225,158 @@ display:
       header: {  }
       footer: {  }
       display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user.permissions
+      tags: {  }
+  mirador:
+    id: mirador
+    display_title: Mirador
+    display_plugin: block
+    position: 3
+    display_options:
+      empty:
+        view:
+          id: view
+          table: views
+          field: view
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: view
+          empty: true
+          view_to_insert: 'media_display_blocks:mirador_original'
+          inherit_arguments: true
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:media'
+        options:
+          relationship: none
+          view_mode: mirador
+      defaults:
+        empty: false
+        style: false
+        row: false
+      display_description: ''
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
+      block_description: 'Media Display - Mirador - Service File with fallback to Original'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user.permissions
+      tags: {  }
+  mirador_original:
+    id: mirador_original
+    display_title: 'Mirador - Original File'
+    display_plugin: block
+    position: 6
+    display_options:
+      empty: {  }
+      filters:
+        status:
+          id: status
+          table: media_field_data
+          field: status
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        field_external_uri_uri:
+          id: field_external_uri_uri
+          table: taxonomy_term__field_external_uri
+          field: field_external_uri_uri
+          relationship: field_media_use
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: '='
+          value: 'http://pcdm.org/use#OriginalFile'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:media'
+        options:
+          relationship: none
+          view_mode: mirador
+      defaults:
+        empty: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+      display_description: 'Used as a fallback'
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
+      block_description: 'Media Display - Mirador - Original File'
     cache_metadata:
       max-age: -1
       contexts:
