@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ef3eeeb73ad2b12943ef2368524c14e",
+    "content-hash": "fe7c1f1b5a6fdc2ccea15a80c9a5387c",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -5747,6 +5747,44 @@
                 "source": "https://github.com/Islandora/islandora/tree/2.7.0"
             },
             "time": "2023-03-14T12:24:53+00:00"
+        },
+        {
+            "name": "islandora/islandora_mirador",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Islandora/islandora_mirador.git",
+                "reference": "6e75f042ed64bc8ad4fb6a41cea2fccc2412d6d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Islandora/islandora_mirador/zipball/6e75f042ed64bc8ad4fb6a41cea2fccc2412d6d1",
+                "reference": "6e75f042ed64bc8ad4fb6a41cea2fccc2412d6d1",
+                "shasum": ""
+            },
+            "require": {
+                "islandora/islandora": "^2"
+            },
+            "conflict": {
+                "drupal/core": "<=8",
+                "islandora/islandora_defaults": "<3"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Islandora support for Mirador viewer",
+            "homepage": "https://github.com/Islandora/islandora_mirador",
+            "keywords": [
+                "Islandora",
+                "drupal"
+            ],
+            "support": {
+                "issues": "https://github.com/Islandora/documentation/issues",
+                "source": "https://github.com/Islandora/islandora_mirador/tree/2.3.0"
+            },
+            "time": "2023-01-12T17:26:55+00:00"
         },
         {
             "name": "islandora/jsonld",
