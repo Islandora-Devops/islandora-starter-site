@@ -143,12 +143,12 @@ Change the following Drupal configs to your values using any method (GUI,
     2. Setting the appropriate location as `key.key.islandora_rsa_key key_provider_settings.file_location`
 (using the methods listed in step 5 or at `/admin/config/system/keys/manage/islandora_rsa_key`)
 
-7. Run the migrations in the `islandora` migration group to populate the base
+7. Run the migrations tagged with `islandora` to populate some
 taxonomies, specifying the `--userid` targeting the user with the `fedoraadmin`
 role:
 
     ```bash
-    composer exec -- drush migrate:import --userid=1 islandora_tags,islandora_defaults_tags,islandora_fits_tags
+    composer exec -- drush migrate:import --userid=1 --tag=islandora
     ```
 
 
