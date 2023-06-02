@@ -10,6 +10,7 @@ field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
   - islandora_defaults_tags
+  - islandora
 migration_group: islandora
 label: 'Tags migration for islandora_defaults feature'
 source:
