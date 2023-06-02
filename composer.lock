@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "007adaeeb05fdac56f0fc96d7f08addb",
-
+    "content-hash": "8839a33a32ca3e404b39de66f51b6221",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -11836,5 +11835,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }
