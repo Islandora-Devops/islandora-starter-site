@@ -130,9 +130,7 @@
         "patches": {}
     },
     "scripts": {
-        "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"],
-        "post-install-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"],
-        "post-update-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"]
+        "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]
     },
     "require-dev": {
         "drupal/config_inspector": "^2.1",
