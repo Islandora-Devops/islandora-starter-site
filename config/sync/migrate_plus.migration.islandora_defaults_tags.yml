@@ -10,14 +10,15 @@ field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
   - islandora_defaults_tags
+  - islandora
 migration_group: islandora
-label: 'Tags migration for islandora_defaults feature'
+label: 'Tags migration for Islandora Starter Site'
 source:
   plugin: csv
   path: ../assets/migrate/tags.csv
   header_row_count: 1
   ids:
-    - external_uri
+    - name
 process:
   name: name
   vid: vid
@@ -32,6 +33,14 @@ process:
     plugin: urlencode
     source: external_uri
   field_authority_link/source: authority_link_source
+  parent:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: islandora_defaults_tags
 destination:
   plugin: 'entity:taxonomy_term'
 migration_dependencies:
