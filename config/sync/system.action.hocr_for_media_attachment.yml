@@ -14,7 +14,7 @@ configuration:
   source_term_uri: 'http://pcdm.org/use#OriginalFile'
   mimetype: text/plain
   args: '-c tessedit_create_hocr=1 -c hocr_font_info=0'
-  path: '[date:custom:Y]-[date:custom:m]/[media:mid]-extracted_text.txt'
+  path: '[date:custom:Y]-[date:custom:m]/[media:mid]-extracted_text.xml'
   source_field_name: field_media_file
   destination_field_name: field_hocr_extracted_text
   destination_media_type: file
