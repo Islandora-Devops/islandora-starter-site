@@ -158,6 +158,22 @@ This should get you a starter Islandora site with:
 * RDF and JSON-LD mappings for miscellaneous entities to support storage in
 Fedora, Triplestore indexing and client requests.
 
+### Private file system
+
+* In Drupal container of isle-dc, create private file system directory
+
+````
+mkdir /var/www/drupal/web/sites/default/private_files
+```` 
+
+* In `/var/www/drupal/web/sites/default/settings.php`, search for `file_private_path`, set the following line:
+
+````
+$settings['file_private_path'] = 'sites/default/private_files';
+````
+
+* Clear cache 
+
 ### Post-installation cleanup
 
 1. Uninstall the database driver modules you are not using; for example, if

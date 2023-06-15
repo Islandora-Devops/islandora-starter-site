@@ -16,5 +16,5 @@ configuration:
   derivative_term_uri: 'http://pcdm.org/use#ThumbnailImage'
   mimetype: image/jpeg
   args: '-ss 00:00:03.000 -frames 1 -vf scale=100:-2'
-  scheme: public
+  scheme: private
   path: '[date:custom:Y]-[date:custom:m]/[node:nid].jpg'

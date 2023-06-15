@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  module:
+    - groupmedia
+    - media
+id: private-group_media_type
+group_type: private
+content_plugin: group_media_type
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 0
+  use_creation_wizard: false

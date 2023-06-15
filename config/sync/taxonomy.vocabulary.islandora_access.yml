@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Islandora Access'
+vid: islandora_access
+description: ''
+weight: 0

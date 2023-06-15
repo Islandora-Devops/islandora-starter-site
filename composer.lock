@@ -1318,6 +1318,140 @@
             "time": "2017-01-20T21:14:22+00:00"
         },
         {
+            "name": "digitalutsc/islandora_group",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/islandora_group.git",
+                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/islandora_group/zipball/a786210aef6043788edeb2c7c12a56a82577f91a",
+                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/group": "^3.0",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module assists to manage access control for node and media with Group module",
+            "homepage": "https://www.drupal.org/project/islandora_group",
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/islandora_group",
+                "source": "http://cgit.drupalcode.org/islandora_group"
+            },
+            "time": "2023-05-16T19:23:08+00:00"
+        },
+        {
+            "name": "digitalutsc/group_solr",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/group_solr.git",
+                "reference": "49f0259ce1144c8a7ba9fe449c67dc281d338edf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/group_solr/zipball/49f0259ce1144c8a7ba9fe449c67dc281d338edf",
+                "reference": "49f0259ce1144c8a7ba9fe449c67dc281d338edf",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/group": "^3.0",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha",
+                "drupal/search_api_solr": "^4.2"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module add Solr indexed field(s) which is determined access control with Group module for an indexed item to be public or private for annonymous users",
+            "homepage": "https://github.com/digitalutsc/group_solr",
+            "support": {
+                "issues": "https://github.com/digitalutsc/group_solr/issues",
+                "source": "https://github.com/digitalutsc/group_solr"
+            },
+            "time": "2023-05-10T13:25:58+00:00"
+        },
+        {
+            "name": "digitalutsc/private_files_adapter",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/private_files_adapter.git",
+                "reference": "556f5a81b658925ec98726de3537fa6bb9204ef7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/private_files_adapter/zipball/556f5a81b658925ec98726de3537fa6bb9204ef7",
+                "reference": "556f5a81b658925ec98726de3537fa6bb9204ef7",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/jwt": "^1.1"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module override access control for private file system with Cantaloupe",
+            "homepage": "https://www.drupal.org/project/private_files_adapter",
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/private_files_adapter",
+                "source": "http://cgit.drupalcode.org/private_files_adapter"
+            },
+            "time": "2023-04-28T15:57:31+00:00"
+        },
+        {
             "name": "doctrine/annotations",
             "version": "1.13.3",
             "source": {
@@ -3065,6 +3199,58 @@
             ]
         },
         {
+            "name": "drupal/flexible_permissions",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/flexible_permissions.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/flexible_permissions-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "a48740d2edcb04bb0d750c5d5c41ce8fb9acc332"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10",
+                "drupal/variationcache": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1679575763",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kristiaan Van den Eynde",
+                    "homepage": "https://www.drupal.org/u/kristiaanvandeneynde",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mathias Wächter",
+                    "homepage": "https://www.drupal.org/u/mef",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module allows you to gather, calculate and cache permissions from a myriad of sources",
+            "homepage": "http://drupal.org/project/flexible_permissions",
+            "support": {
+                "source": "https://git.drupalcode.org/project/flexible_permissions",
+                "issues": "https://drupal.org/project/issues/flexible_permissions"
+            }
+        },
+        {
             "name": "drupal/flysystem",
             "version": "2.0.0-beta2",
             "source": {
@@ -3208,6 +3394,161 @@
             "support": {
                 "source": "https://git.drupal.org/project/geolocation.git",
                 "issues": "https://www.drupal.org/project/issues/geolocation"
+            }
+        },
+        {
+            "name": "drupal/group",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/group.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "cfdba82755062c218719e0f2e6bbcda5becb9bdd"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10",
+                "drupal/entity": "^1.2",
+                "drupal/flexible_permissions": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1682085992",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Kristiaan Van den Eynde",
+                    "homepage": "https://www.drupal.org/u/kristiaanvandeneynde",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "kristiaanvandeneynde",
+                    "homepage": "https://www.drupal.org/user/1345130"
+                }
+            ],
+            "description": "This module allows you to group users, content and other entities",
+            "homepage": "http://drupal.org/project/group",
+            "support": {
+                "source": "https://git.drupalcode.org/project/group",
+                "issues": "https://drupal.org/project/issues/group"
+            }
+        },
+        {
+            "name": "drupal/group_permissions",
+            "version": "2.0.0-alpha5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/group_permissions.git",
+                "reference": "2.0.0-alpha5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group_permissions-2.0.0-alpha5.zip",
+                "reference": "2.0.0-alpha5",
+                "shasum": "f65294198beb6f9e91f6227915880e1567af2496"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/group": "^2.0 || ^3.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha5",
+                    "datestamp": "1670262349",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nikolay Lobachev",
+                    "homepage": "https://www.drupal.org/u/lobsterr",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Group permissions module provides custom permissions per group.",
+            "homepage": "https://github.com/cnect-web/group_permissions",
+            "support": {
+                "source": "https://git.drupalcode.org/project/group_permissions",
+                "issues": "https://www.drupal.org/project/issues/group_permissions"
+            }
+        },
+        {
+            "name": "drupal/groupmedia",
+            "version": "4.0.0-alpha7",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/groupmedia.git",
+                "reference": "4.0.0-alpha7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/groupmedia-4.0.0-alpha7.zip",
+                "reference": "4.0.0-alpha7",
+                "shasum": "6151beeedfad6df32ae208217f5bb1dbfd2045f5"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/group": "^3.0"
+            },
+            "require-dev": {
+                "drupal/paragraphs": "*",
+                "drupal/views_bulk_operations": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0-alpha7",
+                    "datestamp": "1683239527",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Dmitriiev",
+                    "homepage": "https://www.drupal.org/u/admitriiev",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nikolay Lobachev",
+                    "homepage": "https://www.drupal.org/u/lobsterr",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module allows you to integrate media entity into group functionality",
+            "homepage": "http://drupal.org/project/groupmedia",
+            "support": {
+                "source": "https://git.drupalcode.org/project/groupmedia",
+                "issues": "https://drupal.org/project/issues/groupmedia"
             }
         },
         {
@@ -4714,6 +5055,57 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/variationcache",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/variationcache.git",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/variationcache-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "92d1e4f6c2661498bff777f22246bf27d6a03a71"
+            },
+            "require": {
+                "drupal/core": "^9.5 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1679575893",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Kristiaan Van den Eynde",
+                    "homepage": "https://www.drupal.org/u/kristiaanvandeneynde",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Brad Jones",
+                    "homepage": "https://www.drupal.org/u/bradjones1",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This project provides VariationCache, a redirect-aware caching implementation.",
+            "homepage": "http://drupal.org/project/variationcache",
+            "support": {
+                "source": "https://git.drupalcode.org/project/variationcache",
+                "issues": "https://drupal.org/project/issues/variationcache"
             }
         },
         {
@@ -10070,20 +10462,11 @@
             "support": {
                 "source": "https://github.com/symfony/process/tree/v4.4.44"
             },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.1-dev"
                 },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-06-27T13:16:42+00:00"
         },
         {
@@ -11835,7 +12218,8 @@
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
-        "islandora/advanced_search": 20
+        "islandora/advanced_search": 20,
+        "digitalutsc/islandora_group": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
