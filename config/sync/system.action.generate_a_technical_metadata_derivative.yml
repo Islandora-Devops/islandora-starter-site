@@ -19,4 +19,4 @@ configuration:
   args: null
   destination_media_type: fits_technical_metadata
   scheme: public
-  path: '[date:custom:Y]-[date:custom:m]/[node:nid]-[term:name].xml'
+  path: '[date:custom:Y]-[date:custom:m]/[islandoratokens:media-original-file:filename]-[term:name].xml'

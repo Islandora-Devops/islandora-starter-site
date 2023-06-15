@@ -17,4 +17,4 @@ configuration:
   mimetype: image/jpeg
   args: '-ss 00:00:03.000 -frames 1 -vf scale=100:-2'
   scheme: public
-  path: '[date:custom:Y]-[date:custom:m]/[node:nid].jpg'
+  path: '[date:custom:Y]-[date:custom:m]/[islandoratokens:media-original-file:filename]-[term:name].jpg'

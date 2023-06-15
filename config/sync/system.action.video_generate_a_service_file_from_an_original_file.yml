@@ -19,4 +19,4 @@ configuration:
   mimetype: video/mp4
   args: ''
   scheme: public
-  path: '[date:custom:Y]-[date:custom:m]/[node:nid]-[term:name].mp4'
+  path: '[date:custom:Y]-[date:custom:m]/[islandoratokens:media-original-file:filename]-[term:name].mp4'

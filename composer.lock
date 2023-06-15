@@ -5917,16 +5917,16 @@
         },
         {
             "name": "islandora/islandora",
-            "version": "2.7.1",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Islandora/islandora.git",
-                "reference": "66401baec9a312e3e57c48c4b9b6989f8ed0c83c"
+                "reference": "da3311825c718ba56d03da157b5b6d8bbd55fb13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/islandora/zipball/66401baec9a312e3e57c48c4b9b6989f8ed0c83c",
-                "reference": "66401baec9a312e3e57c48c4b9b6989f8ed0c83c",
+                "url": "https://api.github.com/repos/Islandora/islandora/zipball/da3311825c718ba56d03da157b5b6d8bbd55fb13",
+                "reference": "da3311825c718ba56d03da157b5b6d8bbd55fb13",
                 "shasum": ""
             },
             "require": {
@@ -5982,9 +5982,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/islandora/tree/2.7.1"
+                "source": "https://github.com/Islandora/islandora/tree/2.8.0"
             },
-            "time": "2023-05-04T17:19:38+00:00"
+            "time": "2023-06-15T18:25:43+00:00"
         },
         {
             "name": "islandora/jsonld",
