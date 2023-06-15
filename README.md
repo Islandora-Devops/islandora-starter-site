@@ -1,5 +1,4 @@
-![Islandora logo](https://cloud.githubusercontent.com/assets/2371345/25624809/f95b0972-2f30-11e7-8992-a8f135402cdc.png)
-
+![Asset 2](https://github.com/Islandora-Devops/islandora-starter-site/assets/467898/0c861461-8b7c-49ee-ab52-c371a1c2f7df)
 # Islandora Starter Site
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg?style=flat-square)](https://php.net/)
@@ -143,12 +142,12 @@ Change the following Drupal configs to your values using any method (GUI,
     2. Setting the appropriate location as `key.key.islandora_rsa_key key_provider_settings.file_location`
 (using the methods listed in step 5 or at `/admin/config/system/keys/manage/islandora_rsa_key`)
 
-7. Run the migrations in the `islandora` migration group to populate the base
+7. Run the migrations tagged with `islandora` to populate some
 taxonomies, specifying the `--userid` targeting the user with the `fedoraadmin`
 role:
 
     ```bash
-    composer exec -- drush migrate:import --userid=1 islandora_tags,islandora_defaults_tags,islandora_fits_tags
+    composer exec -- drush migrate:import --userid=1 --tag=islandora
     ```
 
 

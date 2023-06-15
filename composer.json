@@ -35,6 +35,7 @@
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.1",
+        "drupal/better_exposed_filters": "^6.0",
         "drupal/bibcite": "^2.0@beta",
         "drupal/citation_select": "^1.0@beta",
         "drupal/core-composer-scaffold": "^9.4",
@@ -44,7 +45,7 @@
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.1",
         "drupal/flysystem": "^2.0@alpha",
-        "drupal/hal": "^1.0",
+        "drupal/hal": "^1.0||^2.0",
         "drupal/matomo": "^1.19",
         "drupal/pdf": "^1.1",
         "drupal/rest_oai_pmh": "^2.0@beta",
@@ -129,16 +130,10 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {
-            "drupal/rest_oai_pmh": {
-                "View render issue #3283661": "https://www.drupal.org/files/issues/2022-06-01/mods_view_render.patch"
-            }
-        }
+        "patches": {}
     },
     "scripts": {
-        "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"],
-        "post-install-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"],
-        "post-update-cmd": ["cp -f assets/templates/mods.html.twig web/modules/contrib/rest_oai_pmh/templates/mods.html.twig"]
+        "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]
     },
     "require-dev": {
         "drupal/config_inspector": "^2.1",

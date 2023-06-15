@@ -3,13 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_abstract
     - field.storage.node.field_alt_title
-    - field.storage.node.field_edtf_date_created
     - field.storage.node.field_member_of
     - field.storage.node.field_description
     - field.storage.node.field_dewey_classification
     - field.storage.node.field_edition
+    - field.storage.node.field_edtf_date_created
     - field.storage.node.field_extent
     - field.storage.node.field_full_title
     - field.storage.node.field_isbn
@@ -19,12 +18,13 @@ dependencies:
     - field.storage.node.field_physical_form
     - field.storage.node.field_resource_type
     - field.storage.node.field_rights
+    - field.storage.node.field_tags
+    - field.storage.node.field_abstract
     - field.storage.node.field_subject_general
     - field.storage.node.field_geographic_subject
     - field.storage.node.field_subjects_name
     - field.storage.node.field_temporal_subject
     - field.storage.node.field_subject
-    - field.storage.node.field_tags
     - search_api.server.default_solr_server
     - core.entity_view_mode.node.search_index
   module:
@@ -230,13 +230,11 @@ field_settings:
   field_resource_type:
     label: 'Resource Type'
     datasource_id: 'entity:node'
-    property_path: 'field_resource_type:entity:name'
-    type: string
+    property_path: field_resource_type
+    type: integer
     dependencies:
       config:
         - field.storage.node.field_resource_type
-      module:
-        - taxonomy
   field_rights:
     label: Rights
     datasource_id: 'entity:node'
@@ -490,6 +488,7 @@ processor_settings:
       preprocess_index: -45
     fields:
       field_descendant_of: node-field_member_of
+      field_resource_type: taxonomy_term-parent
   highlight:
     weights:
       postprocess_query: 0

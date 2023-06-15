@@ -1,14 +1,36 @@
-vid,name,description,external_uri,authority_link_source
-resource_types,"Collection","An aggregation of resources",http://purl.org/ontology/bibo/Collection,bibo
-resource_types,"Dataset","Data encoded in a defined structure",http://purl.org/dc/dcmitype/Dataset,dcmi_types
-resource_types,"Image","A visual representation other than text",http://purl.org/dc/dcmitype/Image,dcmi_types
-resource_types,"Interactive Resource","A resource requiring interaction from the user to be understood, executed, or experienced",http://purl.org/dc/dcmitype/InteractiveResource,dcmi_types
-resource_types,"Moving Image","A series of visual representations imparting an impression of motion when shown in succession",http://purl.org/dc/dcmitype/MovingImage,dcmi_types
-resource_types,"Physical Object","An inanimate, three-dimensional object or substance",http://purl.org/dc/dcmitype/PhysicalObject,dcmi_types
-resource_types,"Service","A system that provides one or more functions",http://purl.org/dc/dcmitype/Service,dcmi_types
-resource_types,"Sound","A resource primarily intended to be heard",http://purl.org/dc/dcmitype/Sound,dcmi_types
-resource_types,"Still Image","A static visual representation",http://purl.org/dc/dcmitype/StillImage,dcmi_types
-resource_types,"Software","A computer program in source or compiled form",http://purl.org/dc/dcmitype/Software,dcmi_types
-resource_types,"Text","A resource consisting primarily of words for reading",http://purl.org/dc/dcmitype/Text,dcmi_types
-islandora_display,"OpenSeadragon","Display using the OpenSeadragon viewer",http://openseadragon.github.io,
-islandora_display,"PDF.js","Display using the PDF.js viewer",http://mozilla.github.io/pdf.js,
+vid,name,description,external_uri,authority_link_source,parent
+resource_types,Text,Resource intended to be perceived visually and understood through the use of language in written or spoken form.,http://id.loc.gov/vocabulary/resourceTypes/txt,resourceTypes,
+resource_types,Periodical,,http://id.loc.gov/vocabulary/resourceTypes/per,resourceTypes,Text
+resource_types,Newspaper,,http://id.loc.gov/vocabulary/resourceTypes/nws,resourceTypes,Text
+resource_types,Book,,http://id.loc.gov/vocabulary/resourceTypes/bke,resourceTypes,Text
+resource_types,Legislation,,http://id.loc.gov/vocabulary/resourceTypes/leg,resourceTypes,Text
+resource_types,Cartographic,"Resource that shows spatial information, including maps, atlases, globes, digital, and other cartographic resources.",http://id.loc.gov/vocabulary/resourceTypes/car,resourceTypes,
+resource_types,Remote sensing image,,http://id.loc.gov/vocabulary/resourceTypes/rsi,resourceTypes,Cartographic
+resource_types,Globe,,http://id.loc.gov/vocabulary/resourceTypes/glo,resourceTypes,Cartographic
+resource_types,Map,,http://id.loc.gov/vocabulary/resourceTypes/map,resourceTypes,Cartographic
+resource_types,Notated music,"Graphic, non-realized representations of musical works intended to be perceived visually.",http://id.loc.gov/vocabulary/resourceTypes/not,resourceTypes,
+resource_types,Notated movement,,http://id.loc.gov/vocabulary/resourceTypes/nmv,resourceTypes,Notated music
+resource_types,Audio,"Resources expressed in an audible form, including music or other sounds.",http://id.loc.gov/vocabulary/resourceTypes/aud,resourceTypes,
+resource_types,Audio musical,,http://id.loc.gov/vocabulary/resourceTypes/aum,resourceTypes,Audio
+resource_types,Audio non-musical,,http://id.loc.gov/vocabulary/resourceTypes/aun,resourceTypes,Audio
+resource_types,Still Image,"Resource expressed through line, shape, shading, etc., intended to be perceived visually as a still image or images in two dimensions.",http://id.loc.gov/vocabulary/resourceTypes/img,resourceTypes,
+resource_types,Print,,http://id.loc.gov/vocabulary/resourceTypes/pri,resourceTypes,Still Image
+resource_types,Photograph,,http://id.loc.gov/vocabulary/resourceTypes/pho,resourceTypes,Still Image
+resource_types,Drawing,,http://id.loc.gov/vocabulary/resourceTypes/dwg,resourceTypes,Still Image
+resource_types,Moving Image,"Images intended to be perceived as moving, including motion pictures and video recordings.",http://id.loc.gov/vocabulary/resourceTypes/mov,resourceTypes,
+resource_types,Video recording,,http://id.loc.gov/vocabulary/resourceTypes/vid,resourceTypes,Moving Image
+resource_types,Motion picture,,http://id.loc.gov/vocabulary/resourceTypes/mot,resourceTypes,Moving Image
+resource_types,Artifact,Resource in a form intended to be perceived visually in three dimensions. Includes man-made objects as well as naturally occurring objects such as specimens mounted for viewing.,http://id.loc.gov/vocabulary/resourceTypes/art,resourceTypes,
+resource_types,Mixed Material,"Resource comprised of multiple types which is not driven by software; for instance, a manuscript collection of text, photographs and sound recordings.",http://id.loc.gov/vocabulary/resourceTypes/mix,resourceTypes,
+resource_types,Kit,,http://id.loc.gov/vocabulary/resourceTypes/kit,resourceTypes,Mixed Material
+resource_types,Digital,"Resource that is intended for manipulation by a computer, accessed either directly or remotely",http://id.loc.gov/vocabulary/resourceTypes/dig,resourceTypes,
+resource_types,Multimedia,Electronic resource that is a computer program or which consists of multiple media types that are software driven.,http://id.loc.gov/vocabulary/resourceTypes/mul,resourceTypes,
+resource_types,Software,,http://id.loc.gov/vocabulary/resourceTypes/sof,resourceTypes,Multimedia
+resource_types,Website,,http://id.loc.gov/vocabulary/resourceTypes/web,resourceTypes,Multimedia
+resource_types,Dataset,"Data encoded in a defined structure, but not normally displayed in its raw form.",http://id.loc.gov/vocabulary/resourceTypes/dat,resourceTypes,
+resource_types,Manuscript,Resource that is written in handwriting or typescript. These are generally unique resources.,http://id.loc.gov/vocabulary/resourceTypes/man,resourceTypes,
+resource_types,Collection,"Aggregation of resources, generally gathered together artificially.",http://id.loc.gov/vocabulary/resourceTypes/col,resourceTypes,
+resource_types,Unspecified,The type of resource is unknown or undetermined.,http://id.loc.gov/vocabulary/resourceTypes/unk,resourceTypes,
+resource_types,Tactile,Resource that is intended to be perceived by touch.,http://id.loc.gov/vocabulary/resourceTypes/tac,resourceTypes,
+islandora_display,"OpenSeadragon","Display using the OpenSeadragon viewer",http://openseadragon.github.io,,
+islandora_display,"PDF.js","Display using the PDF.js viewer",http://mozilla.github.io/pdf.js,,
