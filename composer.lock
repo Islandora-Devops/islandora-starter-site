@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8839a33a32ca3e404b39de66f51b6221",
+    "content-hash": "cb756740c22a98aeda76a30db4f98820",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1318,51 +1318,6 @@
             "time": "2017-01-20T21:14:22+00:00"
         },
         {
-            "name": "digitalutsc/islandora_group",
-            "version": "2.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/digitalutsc/islandora_group.git",
-                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/digitalutsc/islandora_group/zipball/a786210aef6043788edeb2c7c12a56a82577f91a",
-                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/group": "^3.0",
-                "drupal/group_permissions": "^2.0@alpha",
-                "drupal/groupmedia": "^4.0@alpha"
-            },
-            "default-branch": true,
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
-                    "email": "digitalscholarship@utsc.utoronto.ca",
-                    "role": "Owner"
-                },
-                {
-                    "name": "Kyle Huynh",
-                    "email": "kyle.huynh205@gmail.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "This module assists to manage access control for node and media with Group module",
-            "homepage": "https://www.drupal.org/project/islandora_group",
-            "support": {
-                "issues": "https://www.drupal.org/project/issues/islandora_group",
-                "source": "http://cgit.drupalcode.org/islandora_group"
-            },
-            "time": "2023-05-16T19:23:08+00:00"
-        },
-        {
             "name": "digitalutsc/group_solr",
             "version": "dev-main",
             "source": {
@@ -1409,20 +1364,68 @@
             "time": "2023-05-10T13:25:58+00:00"
         },
         {
+            "name": "digitalutsc/islandora_group",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digitalutsc/islandora_group.git",
+                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digitalutsc/islandora_group/zipball/a786210aef6043788edeb2c7c12a56a82577f91a",
+                "reference": "a786210aef6043788edeb2c7c12a56a82577f91a",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/group": "^3.0",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The University of Toronto Scarborough Library's Digital Scholarship Unit (DSU)",
+                    "email": "digitalscholarship@utsc.utoronto.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Kyle Huynh",
+                    "email": "kyle.huynh205@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "This module assists to manage access control for node and media with Group module",
+            "homepage": "https://www.drupal.org/project/islandora_group",
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/islandora_group",
+                "source": "http://cgit.drupalcode.org/islandora_group"
+            },
+            "time": "2023-05-16T19:23:08+00:00"
+        },
+        {
             "name": "digitalutsc/private_files_adapter",
             "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/digitalutsc/private_files_adapter.git",
-                "reference": "556f5a81b658925ec98726de3537fa6bb9204ef7"
+                "reference": "ff4b5b04b0e0ed66a08b1967e4326a150980b861"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/digitalutsc/private_files_adapter/zipball/556f5a81b658925ec98726de3537fa6bb9204ef7",
-                "reference": "556f5a81b658925ec98726de3537fa6bb9204ef7",
+                "url": "https://api.github.com/repos/digitalutsc/private_files_adapter/zipball/ff4b5b04b0e0ed66a08b1967e4326a150980b861",
+                "reference": "ff4b5b04b0e0ed66a08b1967e4326a150980b861",
                 "shasum": ""
             },
             "require": {
+                "drupal/group": "^3.0",
+                "drupal/group_permissions": "^2.0@alpha",
+                "drupal/groupmedia": "^4.0@alpha",
                 "drupal/jwt": "^1.1"
             },
             "default-branch": true,
@@ -1449,7 +1452,7 @@
                 "issues": "https://www.drupal.org/project/issues/private_files_adapter",
                 "source": "http://cgit.drupalcode.org/private_files_adapter"
             },
-            "time": "2023-04-28T15:57:31+00:00"
+            "time": "2023-06-08T19:07:26+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -3398,17 +3401,17 @@
         },
         {
             "name": "drupal/group",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/group.git",
-                "reference": "3.0.1"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/group-3.0.1.zip",
-                "reference": "3.0.1",
-                "shasum": "cfdba82755062c218719e0f2e6bbcda5becb9bdd"
+                "url": "https://ftp.drupal.org/files/projects/group-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "8f156fa2633f417110268ccb59ac73567fedaa24"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10",
@@ -3418,8 +3421,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.1",
-                    "datestamp": "1682085992",
+                    "version": "3.1.0",
+                    "datestamp": "1685092524",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4445,17 +4448,17 @@
         },
         {
             "name": "drupal/rest_oai_pmh",
-            "version": "2.0.0-beta11",
+            "version": "2.0.0-beta12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rest_oai_pmh.git",
-                "reference": "2.0.0-beta11"
+                "reference": "2.0.0-beta12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.0.0-beta11.zip",
-                "reference": "2.0.0-beta11",
-                "shasum": "67234bc12b5c316405e6da231a5081518a348e05"
+                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.0.0-beta12.zip",
+                "reference": "2.0.0-beta12",
+                "shasum": "83a2ffcf6e61085548ecda2d84a9d43bea9bccab"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -4463,8 +4466,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta11",
-                    "datestamp": "1685966589",
+                    "version": "2.0.0-beta12",
+                    "datestamp": "1686681467",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -6048,6 +6051,64 @@
                 }
             ],
             "time": "2023-04-17T16:00:37+00:00"
+        },
+        {
+            "name": "halaxa/json-machine",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/halaxa/json-machine.git",
+                "reference": "514025c5ebbdb8a058745b573b4a1e81d685802c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/514025c5ebbdb8a058745b573b4a1e81d685802c",
+                "reference": "514025c5ebbdb8a058745b573b4a1e81d685802c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "suggest": {
+                "ext-json": "To run JSON Machine out of the box without custom decoders.",
+                "guzzlehttp/guzzle": "To run example with GuzzleHttp"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JsonMachine\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "src/autoloader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Halaxa",
+                    "email": "filip@halaxa.cz"
+                }
+            ],
+            "description": "Efficient, easy-to-use and fast JSON pull parser",
+            "support": {
+                "issues": "https://github.com/halaxa/json-machine/issues",
+                "source": "https://github.com/halaxa/json-machine/tree/1.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/G2G57KTE4",
+                    "type": "other"
+                }
+            ],
+            "time": "2022-10-12T11:40:33+00:00"
         },
         {
             "name": "islandora-rdm/islandora_fits",
@@ -8503,21 +8564,22 @@
         },
         {
             "name": "solarium/solarium",
-            "version": "6.2.8",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/solariumphp/solarium.git",
-                "reference": "0bca4fdcd53e86dea19754b0081f91fe17248a9d"
+                "reference": "26295386d896d01937a4ec21436581aac86a3e9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/0bca4fdcd53e86dea19754b0081f91fe17248a9d",
-                "reference": "0bca4fdcd53e86dea19754b0081f91fe17248a9d",
+                "url": "https://api.github.com/repos/solariumphp/solarium/zipball/26295386d896d01937a4ec21436581aac86a3e9a",
+                "reference": "26295386d896d01937a4ec21436581aac86a3e9a",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": ">=2.0",
                 "ext-json": "*",
+                "halaxa/json-machine": "^1.1",
                 "php": "^7.3 || ^8.0",
                 "psr/event-dispatcher": "^1.0",
                 "psr/http-client": "^1.0",
@@ -8526,15 +8588,15 @@
             },
             "require-dev": {
                 "escapestudios/symfony2-coding-standard": "^3.11",
+                "ext-curl": "*",
                 "ext-iconv": "*",
-                "guzzlehttp/guzzle": "^7.2",
-                "nyholm/psr7": "^1.2",
-                "php-http/guzzle7-adapter": "^0.1",
+                "nyholm/psr7": "^1.8",
+                "php-http/guzzle7-adapter": "^1.0",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^9.6",
                 "roave/security-advisories": "dev-master",
                 "symfony/event-dispatcher": "^4.3 || ^5.0 || ^6.0"
             },
@@ -8563,9 +8625,9 @@
             ],
             "support": {
                 "issues": "https://github.com/solariumphp/solarium/issues",
-                "source": "https://github.com/solariumphp/solarium/tree/6.2.8"
+                "source": "https://github.com/solariumphp/solarium/tree/6.3.0"
             },
-            "time": "2022-12-06T10:22:19+00:00"
+            "time": "2023-06-13T07:45:42+00:00"
         },
         {
             "name": "stack/builder",
@@ -10462,11 +10524,20 @@
             "support": {
                 "source": "https://github.com/symfony/process/tree/v4.4.44"
             },
-            "type": "symfony-bridge",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "2.1-dev"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
                 },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2022-06-27T13:16:42+00:00"
         },
         {
@@ -12219,7 +12290,9 @@
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
         "islandora/advanced_search": 20,
-        "digitalutsc/islandora_group": 20
+        "digitalutsc/islandora_group": 20,
+        "digitalutsc/group_solr": 20,
+        "digitalutsc/private_files_adapter": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
