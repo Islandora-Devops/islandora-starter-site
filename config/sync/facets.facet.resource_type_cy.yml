@@ -19,13 +19,13 @@ field_identifier: field_resource_type
 query_operator: or
 hard_limit: 0
 exclude: false
-use_hierarchy: false
+use_hierarchy: true
 keep_hierarchy_parents_active: false
 hierarchy:
   type: taxonomy
   config: {  }
-expand_hierarchy: false
-enable_parent_when_child_gets_disabled: true
+expand_hierarchy: true
+enable_parent_when_child_gets_disabled: false
 widget:
   type: links
   config:
@@ -70,6 +70,16 @@ processor_configs:
     processor_id: hierarchy_processor
     weights:
       build: 100
+    settings: {  }
+  list_item:
+    processor_id: list_item
+    weights:
+      build: 5
+    settings: {  }
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
