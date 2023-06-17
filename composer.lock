@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8839a33a32ca3e404b39de66f51b6221",
+    "content-hash": "acf3a46cf4a233063ad769d5f3790e4b",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -3141,6 +3141,63 @@
             "homepage": "https://www.drupal.org/project/flysystem",
             "support": {
                 "source": "https://git.drupalcode.org/project/flysystem"
+            }
+        },
+        {
+            "name": "drupal/fullcalendar_solr",
+            "version": "1.0.0-beta6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/fullcalendar_solr.git",
+                "reference": "1.0.0-beta6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fullcalendar_solr-1.0.0-beta6.zip",
+                "reference": "1.0.0-beta6",
+                "shasum": "005ada67228a2b0f243c0b0d7c364642a3e31718"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-beta6",
+                    "datestamp": "1686929783",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "amym-li",
+                    "homepage": "https://www.drupal.org/user/3747823"
+                },
+                {
+                    "name": "kirsta",
+                    "homepage": "https://www.drupal.org/user/173761"
+                },
+                {
+                    "name": "Natkeeran",
+                    "homepage": "https://www.drupal.org/user/1016288"
+                },
+                {
+                    "name": "kylehuynh",
+                    "homepage": "https://www.drupal.org/user/3255474"
+                }
+            ],
+            "description": "Provides a View display style that renders a Year Calendar compatible with Search API",
+            "homepage": "https://www.drupal.org/project/fullcalendar_solr",
+            "support": {
+                "source": "https://git.drupalcode.org/project/fullcalendar_solr"
             }
         },
         {
@@ -11831,6 +11888,7 @@
         "drupal/bibcite": 10,
         "drupal/citation_select": 10,
         "drupal/flysystem": 15,
+        "drupal/fullcalendar_solr": 10,
         "drupal/rest_oai_pmh": 10,
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,

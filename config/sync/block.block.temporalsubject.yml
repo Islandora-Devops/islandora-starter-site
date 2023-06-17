@@ -15,7 +15,7 @@ _core:
 id: temporalsubject
 theme: olivero
 region: sidebar
-weight: -2
+weight: 2
 provider: null
 plugin: 'facet_block:temporal_subject'
 settings:

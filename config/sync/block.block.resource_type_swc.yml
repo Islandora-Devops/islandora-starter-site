@@ -13,7 +13,7 @@ dependencies:
 id: resource_type_swc
 theme: olivero
 region: sidebar
-weight: -13
+weight: -19
 provider: null
 plugin: 'facet_block:resource_type_swc'
 settings:
