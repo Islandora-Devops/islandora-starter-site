@@ -11,7 +11,7 @@ dependencies:
 id: solrsearchcontentsearchresultspagerforblock
 theme: olivero
 region: content
-weight: -10
+weight: -21
 provider: null
 plugin: 'advanced_search_result_pager:solr_search_content__block_1'
 settings:

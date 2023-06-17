@@ -13,7 +13,7 @@ dependencies:
 id: views_block__solr_search_content_block_1
 theme: olivero
 region: content
-weight: -9
+weight: -20
 provider: null
 plugin: 'views_block:solr_search_content-block_1'
 settings:

@@ -1,4 +1,4 @@
-uuid: 7916c76d-15ae-454a-8a2b-02012ad8d4a2
+uuid: 026bac1a-10e8-4c79-a6c3-21830c178b49
 langcode: en
 status: true
 dependencies:
@@ -8,22 +8,17 @@ dependencies:
     - islandora
   theme:
     - olivero
-id: solrsearchcontentadvancedsearchforblock
+id: calendarviewsearchresultspagerfordayview
 theme: olivero
-region: sidebar
+region: content
 weight: -23
 provider: null
-plugin: 'advanced_search_block:solr_search_content__block_1'
+plugin: 'advanced_search_result_pager:calendar_view__page_2'
 settings:
-  id: 'advanced_search_block:solr_search_content__block_1'
-  label: 'Search within Collection'
-  label_display: visible
+  id: 'advanced_search_result_pager:calendar_view__page_2'
+  label: 'Calendar View: Search Results Pager for Day View'
+  label_display: '0'
   provider: advanced_search
-  fields:
-    - title_aggregated_fulltext
-    - abstract_description_fulltext
-    - linked_agent_name_fulltext
-  context_filter: field_member_of
 visibility:
   user_status:
     id: user_status
@@ -36,14 +31,19 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-calendar_view-page_2: view-calendar_view-page_2
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
   context:
     id: context
     negate: null
     values: ''
-  context_all:
-    id: context_all
-    negate: null
-    values: collection
   media_source_mimetype:
     id: media_source_mimetype
     negate: false

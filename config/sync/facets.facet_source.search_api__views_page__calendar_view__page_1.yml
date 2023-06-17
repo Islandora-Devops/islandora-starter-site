@@ -1,0 +1,9 @@
+uuid: 11f94960-c57c-4a31-9ef0-d11aea01fcf3
+langcode: en
+status: true
+dependencies: {  }
+id: search_api__views_page__calendar_view__page_1
+name: 'search_api:views_page__calendar_view__page_1'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }

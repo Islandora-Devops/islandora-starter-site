@@ -13,7 +13,7 @@ dependencies:
 id: memberof
 theme: olivero
 region: sidebar
-weight: -12
+weight: -16
 provider: null
 plugin: 'facet_block:member_of'
 settings:

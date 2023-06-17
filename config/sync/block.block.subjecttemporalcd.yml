@@ -1,29 +1,28 @@
-uuid: 7916c76d-15ae-454a-8a2b-02012ad8d4a2
+uuid: 948975bb-0019-4e2c-9dd1-d926e5ffee3d
 langcode: en
 status: true
 dependencies:
+  config:
+    - facets.facet.subject_temporal_cd
   module:
-    - advanced_search
     - context
+    - facets
     - islandora
   theme:
     - olivero
-id: solrsearchcontentadvancedsearchforblock
+id: subjecttemporalcd
 theme: olivero
 region: sidebar
-weight: -23
+weight: 5
 provider: null
-plugin: 'advanced_search_block:solr_search_content__block_1'
+plugin: 'facet_block:subject_temporal_cd'
 settings:
-  id: 'advanced_search_block:solr_search_content__block_1'
-  label: 'Search within Collection'
+  id: 'facet_block:subject_temporal_cd'
+  label: 'Temporal Subject'
   label_display: visible
-  provider: advanced_search
-  fields:
-    - title_aggregated_fulltext
-    - abstract_description_fulltext
-    - linked_agent_name_fulltext
-  context_filter: field_member_of
+  provider: facets
+  context_mapping: {  }
+  block_id: subjecttemporalcd
 visibility:
   user_status:
     id: user_status
@@ -36,14 +35,19 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-calendar_view-page_2: view-calendar_view-page_2
+  context_all:
+    id: context_all
+    negate: null
+    values: ''
   context:
     id: context
     negate: null
     values: ''
-  context_all:
-    id: context_all
-    negate: null
-    values: collection
   media_source_mimetype:
     id: media_source_mimetype
     negate: false
