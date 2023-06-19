@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd8102babf3f3cf0db4eff415402b2dc",
+    "content-hash": "09f56438e64e07c89fa3e961aeed64e3",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -5923,16 +5923,16 @@
         },
         {
             "name": "islandora/islandora",
-            "version": "dev-jwt-version-bump",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Islandora/islandora.git",
-                "reference": "07843d9f4c433dc52d8427d9171a7668217917a0"
+                "reference": "cc5b5f838ddd2df4a9dee1c75c67245b60e28da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/islandora/zipball/07843d9f4c433dc52d8427d9171a7668217917a0",
-                "reference": "07843d9f4c433dc52d8427d9171a7668217917a0",
+                "url": "https://api.github.com/repos/Islandora/islandora/zipball/cc5b5f838ddd2df4a9dee1c75c67245b60e28da9",
+                "reference": "cc5b5f838ddd2df4a9dee1c75c67245b60e28da9",
                 "shasum": ""
             },
             "require": {
@@ -5988,9 +5988,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/islandora/tree/jwt-version-bump"
+                "source": "https://github.com/Islandora/islandora/tree/2.8.1"
             },
-            "time": "2023-06-19T16:22:10+00:00"
+            "time": "2023-06-19T16:49:41+00:00"
         },
         {
             "name": "islandora/jsonld",
@@ -11841,8 +11841,7 @@
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
-        "islandora/advanced_search": 20,
-        "islandora/islandora": 20
+        "islandora/advanced_search": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
