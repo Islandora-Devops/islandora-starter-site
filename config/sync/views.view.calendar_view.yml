@@ -4,7 +4,8 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_description
-    - field.storage.node.field_edtf_date_created
+    - field.storage.node.field_edtf_date_issued
+    - field.storage.node.field_resource_type
     - search_api.index.default_solr_index
   module:
     - controlled_access_terms
@@ -26,10 +27,10 @@ display:
     display_options:
       title: 'Calendar Block'
       fields:
-        field_edtf_date_created:
-          id: field_edtf_date_created
+        field_edtf_date_issued:
+          id: field_edtf_date_issued
           table: search_api_datasource_default_solr_index_entity_node
-          field: field_edtf_date_created
+          field: field_edtf_date_issued
           relationship: none
           group_type: group
           admin_label: ''
@@ -336,50 +337,6 @@ display:
           break_phrase: false
           not: false
       filters:
-        field_edtf_date_created:
-          id: field_edtf_date_created
-          table: search_api_index_default_solr_index
-          field: field_edtf_date_created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_string
-          operator: 'not empty'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         type:
           id: type
           table: search_api_index_default_solr_index
@@ -460,7 +417,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_edtf_date_created'
+        - 'config:field.storage.node.field_edtf_date_issued'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
   block_1:
@@ -789,10 +746,10 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-        field_edtf_date_created:
-          id: field_edtf_date_created
+        field_edtf_date_issued:
+          id: field_edtf_date_issued
           table: search_api_datasource_default_solr_index_entity_node
-          field: field_edtf_date_created
+          field: field_edtf_date_issued
           relationship: none
           group_type: group
           admin_label: ''
@@ -997,10 +954,100 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+      filters:
+        type:
+          id: type
+          table: search_api_index_default_solr_index
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            islandora_object: islandora_object
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        field_edtf_date_issued:
+          id: field_edtf_date_issued
+          table: search_api_index_default_solr_index
+          field: field_edtf_date_issued
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: 'not empty'
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: fullcalendar_solr
         options:
-          date_field: field_edtf_date_created
+          date_field: field_edtf_date_issued
           year_field: edtf_year
           heading_text: 'All issues for <year>'
           no_results: true
@@ -1022,6 +1069,8 @@ display:
         row: false
         fields: false
         arguments: false
+        filters: false
+        filter_groups: false
         header: false
       display_description: ''
       header:
@@ -1056,7 +1105,7 @@ display:
         - url
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_edtf_date_created'
+        - 'config:field.storage.node.field_edtf_date_issued'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
   page_2:
@@ -1065,7 +1114,7 @@ display:
     display_plugin: page
     position: 2
     display_options:
-      title: '{{ member_of_title }}:  {{ arguments.field_edtf_date_created }}'
+      title: '{{ member_of_title }}:  {{ arguments.field_edtf_date_issued }}'
       fields:
         nid:
           id: nid
@@ -1625,10 +1674,10 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-        field_edtf_date_created:
-          id: field_edtf_date_created
+        field_edtf_date_issued:
+          id: field_edtf_date_issued
           table: search_api_index_default_solr_index
-          field: field_edtf_date_created
+          field: field_edtf_date_issued
           relationship: none
           group_type: group
           admin_label: ''
@@ -1703,5 +1752,6 @@ display:
         - 'user.node_grants:view'
       tags:
         - 'config:field.storage.node.field_description'
+        - 'config:field.storage.node.field_resource_type'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
