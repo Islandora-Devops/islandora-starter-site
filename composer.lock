@@ -3145,17 +3145,17 @@
         },
         {
             "name": "drupal/fullcalendar_solr",
-            "version": "1.0.0-beta6",
+            "version": "1.0.0-beta7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/fullcalendar_solr.git",
-                "reference": "1.0.0-beta6"
+                "reference": "1.0.0-beta7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fullcalendar_solr-1.0.0-beta6.zip",
-                "reference": "1.0.0-beta6",
-                "shasum": "005ada67228a2b0f243c0b0d7c364642a3e31718"
+                "url": "https://ftp.drupal.org/files/projects/fullcalendar_solr-1.0.0-beta7.zip",
+                "reference": "1.0.0-beta7",
+                "shasum": "922a2ef1e54b9f3eaaa4cf7bb18aaab3179450ac"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -3164,8 +3164,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-beta6",
-                    "datestamp": "1686929783",
+                    "version": "1.0.0-beta7",
+                    "datestamp": "1687380128",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
