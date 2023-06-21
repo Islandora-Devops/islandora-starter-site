@@ -5697,7 +5697,7 @@
             },
             "time": "2022-09-23T14:27:40+00:00"
         },
-        
+        {
             "name": "islandora/advanced_search",
             "version": "2.0.0-beta1",
             "source": {
