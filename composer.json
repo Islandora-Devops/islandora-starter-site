@@ -29,12 +29,12 @@
             "type": "package",
             "package": {
               "name": "islandora/advanced_search",
-              "version": "2.0.0-beta1",
+              "version": "2.0.0-beta3",
               "type": "drupal-module",
               "source": {
                 "url": "https://github.com/digitalutsc/advanced_search",
                 "type": "git",
-                "reference":"2.0.0-beta1"
+                "reference":"2.0.0-beta3"
               }
             }
         }
