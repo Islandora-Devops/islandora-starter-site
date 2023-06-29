@@ -130,7 +130,11 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {}
+        "patches": {
+            "islandora/openseadragon": {
+              "openseadragon.authentication.patch": "https://raw.githubusercontent.com/digitalutsc/private_files_adapter/main/scripts/openseadragon.authentication.patch"
+            }
+        }
     },
     "scripts": {
         "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]
