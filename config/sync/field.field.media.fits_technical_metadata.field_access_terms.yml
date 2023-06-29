@@ -1,3 +1,4 @@
+uuid: 2d2c849b-3f6d-42fd-a245-1a25aa0d7067
 langcode: en
 status: true
 dependencies:
@@ -26,4 +27,3 @@ settings:
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference
-

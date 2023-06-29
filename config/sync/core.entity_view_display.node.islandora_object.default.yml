@@ -427,6 +427,7 @@ content:
 hidden:
   display_media_entity_view_3: true
   display_media_thumbnail: true
+  field_access_terms: true
   field_model: true
   field_pid: true
   field_place_published_country: true

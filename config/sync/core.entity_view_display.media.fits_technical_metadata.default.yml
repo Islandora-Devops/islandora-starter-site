@@ -53,6 +53,7 @@ content:
     region: content
 hidden:
   created: true
+  field_access_terms: true
   field_complete: true
   field_file_size: true
   fits_ois_file_information_md5che: true
