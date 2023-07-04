@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - views.view.calendar_view
     - views.view.newspaper_issues_accordion_view
   module:
     - islandora
@@ -36,6 +37,23 @@ reactions:
         region: content
         weight: '0'
         custom_id: views_block_newspaper_issues_accordion_view_block_1
+        theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: newspaper
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+      d8db4214-d207-4c93-8f5b-25a1fd852f6e:
+        uuid: d8db4214-d207-4c93-8f5b-25a1fd852f6e
+        id: 'views_block:calendar_view-block_1'
+        label: ''
+        provider: views
+        label_display: '0'
+        region: content
+        weight: '0'
+        custom_id: views_block_calendar_view_block_1
         theme: olivero
         css_class: ''
         unique: 0

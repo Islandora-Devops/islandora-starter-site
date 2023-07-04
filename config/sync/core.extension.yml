@@ -45,6 +45,7 @@ module:
   filehash: 0
   filter: 0
   flysystem: 0
+  fullcalendar_solr: 0
   geolocation: 0
   hal: 0
   help: 0

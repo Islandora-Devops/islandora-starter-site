@@ -13,7 +13,7 @@ dependencies:
 id: yearswc
 theme: olivero
 region: sidebar
-weight: 0
+weight: 7
 provider: null
 plugin: 'facet_block:year_swc'
 settings:

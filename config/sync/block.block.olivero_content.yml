@@ -11,7 +11,7 @@ _core:
 id: olivero_content
 theme: olivero
 region: content
-weight: -11
+weight: -22
 provider: null
 plugin: system_main_block
 settings:

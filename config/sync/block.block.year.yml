@@ -13,7 +13,7 @@ dependencies:
 id: year
 theme: olivero
 region: sidebar
-weight: 0
+weight: 6
 provider: null
 plugin: 'facet_block:year'
 settings:
