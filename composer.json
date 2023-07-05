@@ -74,8 +74,8 @@
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^2.4",
         "mjordan/islandora_workbench_integration": "^1.0",
-        "digitalutsc/group_solr": "^1.0.0-beta",
-        "digitalutsc/islandora_group": "^1.0.0-beta",
+        "digitalutsc/group_solr": "^1.0.0@beta",
+        "digitalutsc/islandora_group": "^1.0.0@beta",
         "digitalutsc/private_files_adapter": "^1.0.0@beta"
     },
     "conflict": {
