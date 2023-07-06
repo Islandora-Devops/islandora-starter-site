@@ -492,9 +492,14 @@ processor_settings:
     excerpt_always: true
     excerpt_length: 256
     exclude_fields:
+      - abstract_description_fulltext
       - field_description
       - field_full_title
+      - linked_agent_name_fulltext
+      - rendered_item
+      - subject_aggregated_fulltext
       - title
+      - title_aggregated_fulltext
     highlight: always
     highlight_partial: true
   html_filter:

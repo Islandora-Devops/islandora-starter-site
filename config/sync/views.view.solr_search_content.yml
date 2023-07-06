@@ -357,7 +357,7 @@ display:
           prefix: ''
           suffix: ''
           link_to_item: false
-          use_highlighting: false
+          use_highlighting: true
           multi_type: separator
           multi_separator: ', '
           format_plural_values: {  }
@@ -428,7 +428,7 @@ display:
           fallback_handler: search_api
           fallback_options:
             link_to_item: false
-            use_highlighting: false
+            use_highlighting: true
             multi_type: separator
             multi_separator: ', '
         field_linked_agent_name:
@@ -498,7 +498,7 @@ display:
           fallback_handler: search_api
           fallback_options:
             link_to_item: false
-            use_highlighting: false
+            use_highlighting: true
             multi_type: separator
             multi_separator: ', '
         field_description:
@@ -537,7 +537,7 @@ display:
             strip_tags: false
             trim: true
             preserve_tags: ''
-            html: false
+            html: true
           element_type: ''
           element_class: field__item
           element_label_type: ''
@@ -563,11 +563,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          field_rendering: true
+          field_rendering: false
           fallback_handler: search_api
           fallback_options:
             link_to_item: false
-            use_highlighting: false
+            use_highlighting: true
             multi_type: separator
             multi_separator: ', '
         processed:
@@ -620,7 +620,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           link_to_item: false
-          use_highlighting: false
+          use_highlighting: true
           multi_type: separator
           multi_separator: ', '
         search_api_excerpt:
@@ -631,7 +631,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: search_api
-          label: ''
+          label: 'Full Text'
           exclude: false
           alter:
             alter_text: false
@@ -661,15 +661,15 @@ display:
             preserve_tags: ''
             html: false
           element_type: ''
-          element_class: ''
+          element_class: field__item
           element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
+          element_label_class: field__label
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           link_to_item: false
