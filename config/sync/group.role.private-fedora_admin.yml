@@ -1,0 +1,15 @@
+uuid: adff3e07-9e00-44da-9f03-14a43c578091
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - user.role.fedoraadmin
+id: private-fedora_admin
+label: 'Fedora Admin'
+weight: -98
+admin: true
+scope: insider
+global_role: fedoraadmin
+group_type: private
+permissions: {  }

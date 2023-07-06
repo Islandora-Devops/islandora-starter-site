@@ -1,0 +1,8 @@
+uuid: fffefd30-6b2d-424c-9420-1ab7df0e6019
+langcode: en
+status: true
+dependencies: {  }
+name: 'Islandora Access'
+vid: islandora_access
+description: ''
+weight: 0

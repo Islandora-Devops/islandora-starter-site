@@ -1,0 +1,15 @@
+uuid: d5f9542e-f9b4-452d-99bc-56f9b9d7103b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - user.role.anonymous
+id: private-anonymous
+label: Anonymous
+weight: -102
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: private
+permissions: {  }
