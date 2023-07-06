@@ -64,7 +64,10 @@
         "islandora/openseadragon": "^2",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^2.4",
-        "mjordan/islandora_workbench_integration": "^1.0"
+        "mjordan/islandora_workbench_integration": "^1.0",
+        "digitalutsc/group_solr": "^1.0.0@beta",
+        "digitalutsc/islandora_group": "^1.0.0@beta",
+        "digitalutsc/private_files_adapter": "^1.0.0@beta"
     },
     "conflict": {
         "drupal/drupal": "*",
@@ -127,7 +130,11 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {}
+        "patches": {
+            "islandora/openseadragon": {
+              "openseadragon.authentication.patch": "https://raw.githubusercontent.com/digitalutsc/private_files_adapter/main/scripts/openseadragon.authentication.patch"
+            }
+        }
     },
     "scripts": {
         "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]

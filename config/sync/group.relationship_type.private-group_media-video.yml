@@ -1,0 +1,17 @@
+uuid: 4d4bfa6c-8f1b-4d93-9e4c-dff8d62388f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+    - media.type.video
+  module:
+    - groupmedia
+    - media
+id: private-group_media-video
+group_type: private
+content_plugin: 'group_media:video'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: true

@@ -34,6 +34,7 @@ dependencies:
     - taxonomy
     - search_api
     - controlled_access_terms
+    - group_solr
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -250,6 +251,10 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_tags
+  group_access_control:
+    label: ' Group: Access Control'
+    property_path: search_api_group_access_control
+    type: string
   linked_agent_name_fulltext:
     label: Names
     datasource_id: 'entity:node'
@@ -477,6 +482,7 @@ processor_settings:
     weights:
       preprocess_index: -10
   entity_type: {  }
+  group_access_control: {  }
   hierarchy:
     weights:
       preprocess_index: -45

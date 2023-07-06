@@ -121,6 +121,7 @@ hidden:
   display_media_original_download: true
   display_media_service_file: true
   display_media_thumbnail: true
+  field_access_terms: true
   field_alt_title: true
   field_classification: true
   field_coordinates: true

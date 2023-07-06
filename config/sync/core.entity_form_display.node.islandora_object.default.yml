@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.islandora_object.field_abstract
+    - field.field.node.islandora_object.field_access_terms
     - field.field.node.islandora_object.field_alt_title
     - field.field.node.islandora_object.field_classification
     - field.field.node.islandora_object.field_coordinates
@@ -67,6 +68,7 @@ third_party_settings:
         - uid
         - created
         - sticky
+        - field_access_terms
       label: System
       region: content
       parent_name: ''
@@ -253,7 +255,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 42
+    weight: 41
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -263,6 +265,16 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_access_terms:
+    type: entity_reference_autocomplete
+    weight: 43
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_alt_title:
@@ -638,21 +650,21 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 40
+    weight: 39
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 39
+    weight: 38
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 43
+    weight: 42
     region: content
     settings:
       display_label: true
@@ -672,7 +684,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 41
+    weight: 40
     region: content
     settings:
       match_operator: CONTAINS

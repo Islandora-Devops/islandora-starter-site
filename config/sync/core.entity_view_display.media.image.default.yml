@@ -106,6 +106,7 @@ content:
     region: content
 hidden:
   created: true
+  field_access_terms: true
   langcode: true
   search_api_excerpt: true
   thumbnail: true

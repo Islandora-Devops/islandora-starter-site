@@ -18,5 +18,5 @@ configuration:
   derivative_term_uri: 'http://pcdm.org/use#ServiceFile'
   mimetype: image/jpeg
   args: ''
-  scheme: public
+  scheme: private
   path: '[date:custom:Y]-[date:custom:m]/[node:nid]-[term:name].jpg'

@@ -44,6 +44,7 @@ content:
 hidden:
   body: true
   comment: true
+  field_access_terms: true
   field_image: true
   field_tags: true
   langcode: true

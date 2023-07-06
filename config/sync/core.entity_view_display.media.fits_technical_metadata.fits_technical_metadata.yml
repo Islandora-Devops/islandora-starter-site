@@ -60,6 +60,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_access_terms: true
   field_complete: true
   field_file_size: true
   field_media_of: true
