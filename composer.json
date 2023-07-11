@@ -25,10 +25,19 @@
                 }
             }
         },
-	{
-	    "type": "vcs",
-	    "url": "https://github.com/digitalutsc/advanced_search.git"
-	}
+	    {
+            "type": "package",
+            "package": {
+              "name": "islandora/advanced_search",
+              "version": "2.0.0-beta3",
+              "type": "drupal-module",
+              "source": {
+                "url": "https://github.com/digitalutsc/advanced_search",
+                "type": "git",
+                "reference":"2.0.0-beta3"
+              }
+            }
+        }
     ],
     "require": {
         "php": "^7.4 || ^8",
@@ -58,7 +67,7 @@
         "drupal/views_field_view": "^1.0@beta",
         "drush/drush": "^10.3",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
-        "islandora/advanced_search": "dev-contrib",
+        "islandora/advanced_search": "^2.0.0@beta",
         "islandora/controlled_access_terms": "^2",
         "islandora/islandora": "^2.8.1",
         "islandora/openseadragon": "^2",
