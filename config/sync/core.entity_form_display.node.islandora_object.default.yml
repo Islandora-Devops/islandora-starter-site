@@ -555,11 +555,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_rights:
-    type: string_textfield
-    weight: 21
+    type: text_textarea
+    weight: 44
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_subject:

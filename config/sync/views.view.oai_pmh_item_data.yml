@@ -12,6 +12,7 @@ dependencies:
     - field.storage.node.field_linked_agent
     - field.storage.node.field_local_identifier
     - field.storage.node.field_place_published
+    - field.storage.node.field_resource_type
     - field.storage.node.field_rights
     - field.storage.node.field_subject_general
     - field.storage.node.field_temporal_subject
@@ -19,6 +20,7 @@ dependencies:
   module:
     - controlled_access_terms
     - search_api
+    - text
 id: oai_pmh_item_data
 label: 'OAI-PMH Item Data'
 module: views
@@ -1461,7 +1463,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1470,9 +1472,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
+          type: text_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1632,10 +1633,12 @@ display:
         - 'config:field.storage.node.field_linked_agent'
         - 'config:field.storage.node.field_local_identifier'
         - 'config:field.storage.node.field_place_published'
+        - 'config:field.storage.node.field_resource_type'
         - 'config:field.storage.node.field_rights'
         - 'config:field.storage.node.field_subject_general'
         - 'config:field.storage.node.field_temporal_subject'
         - 'config:search_api.index.default_solr_index'
+        - 'search_api_list:default_solr_index'
   page_1:
     id: page_1
     display_title: Page
@@ -1673,7 +1676,9 @@ display:
         - 'config:field.storage.node.field_linked_agent'
         - 'config:field.storage.node.field_local_identifier'
         - 'config:field.storage.node.field_place_published'
+        - 'config:field.storage.node.field_resource_type'
         - 'config:field.storage.node.field_rights'
         - 'config:field.storage.node.field_subject_general'
         - 'config:field.storage.node.field_temporal_subject'
         - 'config:search_api.index.default_solr_index'
+        - 'search_api_list:default_solr_index'

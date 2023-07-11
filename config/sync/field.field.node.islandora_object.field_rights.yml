@@ -1,12 +1,12 @@
-uuid: 4cc2749c-e1fd-4ddc-b38f-2b5bbbfdc26f
+uuid: 57d89f5b-89bb-4a83-b042-2da5f3ddd57f
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_rights
     - node.type.islandora_object
-_core:
-  default_config_hash: TcLlBpkyrOqvKlsv2FWofgGorwanfxuIAPmtNJbnDFw
+  module:
+    - text
 id: node.islandora_object.field_rights
 field_name: field_rights
 entity_type: node
@@ -18,4 +18,4 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: text_long
