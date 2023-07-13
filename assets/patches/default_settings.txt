@@ -1,2 +1,2 @@
 $settings['config_sync_directory'] = '../config/sync';
-$settings['file_private_path'] = $app_root . '/../privatefolder';
+$settings['file_private_path'] = $app_root . '/../private_files';
