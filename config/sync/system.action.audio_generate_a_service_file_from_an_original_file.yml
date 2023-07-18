@@ -19,4 +19,4 @@ configuration:
   mimetype: audio/mpeg
   args: '-codec:a libmp3lame -q:a 5'
   scheme: public
-  path: '[date:custom:Y]-[date:custom:m]/[node:nid]-[term:name].mp3'
+  path: '[date:custom:Y]-[date:custom:m]/[islandoratokens:media-original-file:filename]-[term:name].mp3'

@@ -16,7 +16,7 @@ configuration:
   source_term_uri: 'http://pcdm.org/use#OriginalFile'
   derivative_term_uri: 'http://pcdm.org/use#ExtractedText'
   mimetype: text/plain
-  args: null
+  args: ''
   destination_media_type: extracted_text
   scheme: public
-  path: '[date:custom:Y]-[date:custom:m]/[node:nid]-[term:name].txt'
+  path: '[date:custom:Y]-[date:custom:m]/[islandoratokens:media-original-file:filename]-[term:name].txt'

@@ -19,4 +19,4 @@ configuration:
   mimetype: image/png
   args: '-thumbnail 100x100'
   scheme: public
-  path: '[date:custom:Y]-[date:custom:m]/[node:nid]-[term:name].png'
+  path: '[date:custom:Y]-[date:custom:m]/[islandoratokens:media-original-file:filename]-[term:name].png'
