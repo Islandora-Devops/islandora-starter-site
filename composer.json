@@ -135,7 +135,11 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {}
+        "patches": {
+	    "drupal/matomo": {
+	        "Allow install from existing config": "assets/patches/matomo-3363521-8.patch"
+	    }
+	}
     },
     "scripts": {
         "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]
