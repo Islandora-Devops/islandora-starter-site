@@ -1,0 +1,50 @@
+From da80d90705ca385addf6e68d16459d6433a2b8b0 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ignacio=20D=C3=ADaz-Roncero?=
+ <17740-idiaz.roncero@users.noreply.drupalcode.org>
+Date: Tue, 30 May 2023 10:49:24 +0000
+Subject: [PATCH] Add check for Role
+
+---
+ matomo.install | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+
+diff --git a/matomo.install b/matomo.install
+index 021b86b..a2ef178 100644
+--- a/matomo.install
++++ b/matomo.install
+@@ -9,6 +9,7 @@ declare(strict_types = 1);
+ 
+ use Drupal\Core\Url;
+ use Drupal\user\Entity\Role;
++use Drupal\user\RoleInterface;
+ 
+ /**
+  * Implements hook_install().
+@@ -16,14 +17,16 @@ use Drupal\user\Entity\Role;
+ function matomo_install(): void {
+   // Make the default install more user and GDPR friendly.
+   $role = Role::load('authenticated');
+-  $role->grantPermission('opt-in or out of matomo tracking');
+-  $success = $role->save();
+-  if ($success) {
+-    $messenger = \Drupal::messenger();
+-    $messenger->addMessage(t('Module %module granted %permission permission to authenticated users.', [
+-      '%module' => 'Matomo Analytics',
+-      '%permission' => t('Opt-in or out of tracking'),
+-    ]), 'status');
++  if ($role instanceof RoleInterface) {
++    $role->grantPermission('opt-in or out of matomo tracking');
++    $success = $role->save();
++    if ($success) {
++      $messenger = \Drupal::messenger();
++      $messenger->addMessage(t('Module %module granted %permission permission to authenticated users.', [
++        '%module' => 'Matomo Analytics',
++        '%permission' => t('Opt-in or out of tracking'),
++      ]), 'status');
++    }
+   }
+ 
+   if (\Drupal::moduleHandler()->moduleExists('views')) {
+-- 
+GitLab
+

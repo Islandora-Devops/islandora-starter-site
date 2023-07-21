@@ -137,7 +137,7 @@
         },
         "patches": {
 	    "drupal/matomo": {
-	        "Allow install from existing config": "assets/patches/matomo-3363521-8.patch"
+	        "Allow install from existing config": "assets/patches/matomo-3363521-7.patch"
 	    }
 	}
     },
