@@ -229,7 +229,7 @@ In summary: These two messages seem to be ignorable.
 
 If a patch (external or internal) is necessary, it can be applied automatically by composer by using the [composer-patches plugin](https://github.com/cweagans/composer-patches). Any patches included in the Starter Site should be described fully in this section (including when they should be removed).
 
-* rest_oai_pmh - issue#3283661 - https://www.drupal.org/files/issues/2022-06-01/mods_view_render.patch is being applied to fix an issue related to getting view data into the MODS twig representation.
+* None, presently.
 
 ### Ongoing Project Maintenance
 
