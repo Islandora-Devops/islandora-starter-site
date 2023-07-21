@@ -47,8 +47,10 @@
         "drupal/better_exposed_filters": "^6.0",
         "drupal/bibcite": "^2.0@beta",
         "drupal/citation_select": "^1.0@beta",
-        "drupal/core-composer-scaffold": "^9.4",
-        "drupal/core-recommended": "^9.4",
+        "drupal/config_update": "^2.0@alpha",
+        "drupal/context": "^5@RC",
+        "drupal/core-composer-scaffold": "^10.1",
+        "drupal/core-recommended": "^10.1",
         "drupal/facets": "^2",
         "drupal/field_group": "^3",
         "drupal/field_permissions": "^1",
@@ -65,7 +67,7 @@
         "drupal/twig_tweak": "^3.2",
         "drupal/views_data_export": "^1.2",
         "drupal/views_field_view": "^1.0@beta",
-        "drush/drush": "^10.3",
+        "drush/drush": "^12",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/advanced_search": "^2.0.0@beta",
         "islandora/controlled_access_terms": "^2",
@@ -89,10 +91,7 @@
             "drupal/core-composer-scaffold": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
         },
-        "sort-packages": true,
-        "platform": {
-            "php": "7.4"
-        }
+        "sort-packages": true
     },
     "extra": {
         "drupal-scaffold": {
