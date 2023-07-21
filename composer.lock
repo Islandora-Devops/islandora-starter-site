@@ -6030,23 +6030,23 @@
         },
         {
             "name": "islandora/openseadragon",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Islandora/openseadragon.git",
-                "reference": "3d64720f76e7d73d66347d7762918188b74af9f0"
+                "reference": "0f993e95ba32304c335966634b7ddd848a3cd326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/openseadragon/zipball/3d64720f76e7d73d66347d7762918188b74af9f0",
-                "reference": "3d64720f76e7d73d66347d7762918188b74af9f0",
+                "url": "https://api.github.com/repos/Islandora/openseadragon/zipball/0f993e95ba32304c335966634b7ddd848a3cd326",
+                "reference": "0f993e95ba32304c335966634b7ddd848a3cd326",
                 "shasum": ""
             },
             "require": {
                 "drupal/token": "^1.3"
             },
             "conflict": {
-                "drupal/core": "<=8"
+                "drupal/core": "<9.1"
             },
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
@@ -6079,9 +6079,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/openseadragon/tree/2.1.0"
+                "source": "https://github.com/Islandora/openseadragon/tree/2.1.1"
             },
-            "time": "2023-05-17T23:36:21+00:00"
+            "time": "2023-07-20T16:01:09+00:00"
         },
         {
             "name": "islandora/views_nested_details",
