@@ -73,6 +73,7 @@
         "islandora/openseadragon": "^2",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^2.4",
+        "mjordan/islandora_repository_reports": "dev-main",
         "mjordan/islandora_workbench_integration": "dev-main"
     },
     "conflict": {

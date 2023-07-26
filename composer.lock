@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65e408170db14716b62d5b1b03eb9217",
+    "content-hash": "b8e088f77ea734302594b2ad4dd3cfa6",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -7047,6 +7047,45 @@
             "time": "2022-08-18T16:18:26+00:00"
         },
         {
+            "name": "mjordan/islandora_repository_reports",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mjordan/islandora_repository_reports.git",
+                "reference": "90cfd079b24161755122a33c13ff3cee19c1d9fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mjordan/islandora_repository_reports/zipball/90cfd079b24161755122a33c13ff3cee19c1d9fd",
+                "reference": "90cfd079b24161755122a33c13ff3cee19c1d9fd",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Jordan",
+                    "email": "mjordan@sfu.ca",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Drupal 8/9 module that provides a collection of reports on various aspects of an Islandora repository.",
+            "homepage": "https://github.com/mjordan/islandora_repository_reports",
+            "keywords": [
+                "Islandora",
+                "drupal"
+            ],
+            "support": {
+                "issues": "https://github.com/mjordan/islandora_repository_reports/issues",
+                "source": "https://github.com/mjordan/islandora_repository_reports/tree/main"
+            },
+            "time": "2023-04-19T14:58:47+00:00"
+        },
+        {
             "name": "mjordan/islandora_workbench_integration",
             "version": "dev-main",
             "source": {
@@ -11950,6 +11989,7 @@
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
         "islandora/advanced_search": 10,
+        "mjordan/islandora_repository_reports": 20,
         "mjordan/islandora_workbench_integration": 20
     },
     "prefer-stable": true,
