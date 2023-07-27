@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c825334015002a8c709190ba38ec503b",
+    "content-hash": "805760408c492846a78409a462c01018",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1548,6 +1548,75 @@
             }
         },
         {
+            "name": "drupal/advanced_search",
+            "version": "2.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/advanced_search.git",
+                "reference": "2.0.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/advanced_search-2.0.0-beta3.zip",
+                "reference": "2.0.0-beta3",
+                "shasum": "0385ff36ecadc34b7cf648e7785d211d91b7d70e"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/facets": "^2.0",
+                "drupal/search_api_solr": "^4.2"
+            },
+            "require-dev": {
+                "drupal/coder": "*",
+                "phpunit/phpunit": "^8",
+                "sebastian/phpcpd": "*",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta3",
+                    "datestamp": "1690410417",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "scripts": {
+                "post-install-cmd": [
+                    "./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer"
+                ],
+                "post-update-cmd": [
+                    "./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer"
+                ],
+                "check": [
+                    "./vendor/bin/phpcs --standard=Drupal --ignore=*.md,vendor --extensions=php,module,inc,install,test,profile,theme,css,info .",
+                    "./vendor/bin/phpcpd --names='*.module,*.inc,*.test,*.php' --exclude=vendor ."
+                ]
+            },
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "rosiel",
+                    "homepage": "https://www.drupal.org/user/3263030"
+                }
+            ],
+            "description": "This module creates several blocks to support searching. It also enables the use of Ajax with search blocks, facets, and search results.",
+            "homepage": "https://github.com/digitalutsc/advanced_search",
+            "keywords": [
+                "Advanced Search",
+                "Islandora"
+            ],
+            "support": {
+                "source": "https://github.com/digitalutsc/advanced_search/tree/islandora_lite",
+                "issues": "https://github.com/digitalutsc/advanced_search/issues"
+            }
+        },
+        {
             "name": "drupal/better_exposed_filters",
             "version": "6.0.3",
             "source": {
@@ -1934,6 +2003,183 @@
                 "source": "https://github.com/oddhill/context",
                 "issues": "https://github.com/oddhill/context/issues",
                 "docs": "https://github.com/oddhill/context"
+            }
+        },
+        {
+            "name": "drupal/context_ui",
+            "version": "5.0.0-rc1",
+            "require": {
+                "drupal/context": "*",
+                "drupal/core": "^9.3 || ^10"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "5.0.0-rc1",
+                    "datestamp": "1677054769",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "alex_b",
+                    "homepage": "https://www.drupal.org/user/53995"
+                },
+                {
+                    "name": "boshtian",
+                    "homepage": "https://www.drupal.org/user/1773456"
+                },
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
+                },
+                {
+                    "name": "emanaton",
+                    "homepage": "https://www.drupal.org/user/120853"
+                },
+                {
+                    "name": "febbraro",
+                    "homepage": "https://www.drupal.org/user/43670"
+                },
+                {
+                    "name": "fizk",
+                    "homepage": "https://www.drupal.org/user/473174"
+                },
+                {
+                    "name": "hass",
+                    "homepage": "https://www.drupal.org/user/85918"
+                },
+                {
+                    "name": "hefox",
+                    "homepage": "https://www.drupal.org/user/426416"
+                },
+                {
+                    "name": "jmiccolis",
+                    "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "Kristen Pol",
+                    "homepage": "https://www.drupal.org/user/8389"
+                },
+                {
+                    "name": "nedjo",
+                    "homepage": "https://www.drupal.org/user/4481"
+                },
+                {
+                    "name": "NormySan",
+                    "homepage": "https://www.drupal.org/user/112352"
+                },
+                {
+                    "name": "patricksettle",
+                    "homepage": "https://www.drupal.org/user/26618"
+                },
+                {
+                    "name": "paulocs",
+                    "homepage": "https://www.drupal.org/user/3640109"
+                },
+                {
+                    "name": "Steven Jones",
+                    "homepage": "https://www.drupal.org/user/99644"
+                },
+                {
+                    "name": "tekante",
+                    "homepage": "https://www.drupal.org/user/640024"
+                },
+                {
+                    "name": "yhahn",
+                    "homepage": "https://www.drupal.org/user/264833"
+                }
+            ],
+            "description": "Provides a simple UI for settings up a site structure using Context.",
+            "homepage": "https://www.drupal.org/project/context",
+            "support": {
+                "source": "https://git.drupalcode.org/project/context"
+            }
+        },
+        {
+            "name": "drupal/controlled_access_terms",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/controlled_access_terms.git",
+                "reference": "2.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/controlled_access_terms-2.2.1.zip",
+                "reference": "2.2.1",
+                "shasum": "3932aba947050356cca19f5e0dfe0020d6803e84"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/geolocation": "^3.2",
+                "drupal/token": "^1.7",
+                "professional-wiki/edtf": "^2.0"
+            },
+            "conflict": {
+                "drupal/core": "<=8",
+                "islandora/jsonld": "<2.1.0"
+            },
+            "require-dev": {
+                "drupal/coder": "*",
+                "drupal/geolocation": "*",
+                "drupal/rdf": "*",
+                "phpunit/phpunit": "^6",
+                "sebastian/phpcpd": "*",
+                "squizlabs/php_codesniffer": "^2.8.1 || ^3"
+            },
+            "suggest": {
+                "drupal/name": "Provides western-centric structured names."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.1",
+                    "datestamp": "1690399701",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Islandora Foundation",
+                    "homepage": "https://www.drupal.org/user/3516709",
+                    "email": "community@islandora.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Seth Shaw",
+                    "homepage": "https://www.drupal.org/user/173761",
+                    "email": "seth.shaw@unlv.edu",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "rosiel",
+                    "homepage": "https://www.drupal.org/user/3263030"
+                }
+            ],
+            "description": "Drupal module for subjects and agents",
+            "homepage": "https://github.com/Islandora/controlled_access_terms",
+            "keywords": [
+                "Drupal",
+                "Islandora"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/controlled_access_terms",
+                "issues": "https://github.com/Islandora/documentation/issues"
             }
         },
         {
@@ -2678,6 +2924,80 @@
             }
         },
         {
+            "name": "drupal/features_ui",
+            "version": "3.13.0",
+            "require": {
+                "drupal/core": "^9.4 || ^10",
+                "drupal/features": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.13",
+                    "datestamp": "1686073886",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "donquixote",
+                    "homepage": "https://www.drupal.org/user/459338"
+                },
+                {
+                    "name": "e2thex",
+                    "homepage": "https://www.drupal.org/user/189123"
+                },
+                {
+                    "name": "febbraro",
+                    "homepage": "https://www.drupal.org/user/43670"
+                },
+                {
+                    "name": "flocondetoile",
+                    "homepage": "https://www.drupal.org/user/2006064"
+                },
+                {
+                    "name": "jmiccolis",
+                    "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "matthand",
+                    "homepage": "https://www.drupal.org/user/171527"
+                },
+                {
+                    "name": "mpotter",
+                    "homepage": "https://www.drupal.org/user/616192"
+                },
+                {
+                    "name": "nedjo",
+                    "homepage": "https://www.drupal.org/user/4481"
+                }
+            ],
+            "description": "Provides the user interface for Features.",
+            "homepage": "https://www.drupal.org/project/features",
+            "support": {
+                "source": "https://git.drupalcode.org/project/features"
+            }
+        },
+        {
             "name": "drupal/field_group",
             "version": "3.4.0",
             "source": {
@@ -3181,6 +3501,96 @@
             }
         },
         {
+            "name": "drupal/islandora",
+            "version": "2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/islandora.git",
+                "reference": "2.8.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/islandora-2.8.2.zip",
+                "reference": "2.8.2",
+                "shasum": "8100651658819c5b102e6d63bd70d0aea7415dff"
+            },
+            "require": {
+                "drupal/context": "^4 || ^5@RC",
+                "drupal/context_ui": "*",
+                "drupal/core": "^9 || ^10",
+                "drupal/ctools": "^3.8 || ^4",
+                "drupal/eva": "^3.0",
+                "drupal/features": "^3.13",
+                "drupal/features_ui": "*",
+                "drupal/file_replace": "^1.1",
+                "drupal/filehash": "^2",
+                "drupal/flysystem": "^2.0@alpha",
+                "drupal/jsonld": "*",
+                "drupal/jwt": "^1.1 || ^2",
+                "drupal/migrate_plus": "^5.1 || ^6",
+                "drupal/migrate_source_csv": "^3.4",
+                "drupal/prepopulate": "^2.2",
+                "drupal/search_api": "^1.8",
+                "drupal/token": "^1.3",
+                "islandora/chullo": "^2.0",
+                "islandora/fedora-entity-mapper": "^1.0",
+                "islandora/jsonld": "^2 || ^3",
+                "stomp-php/stomp-php": "4.* || ^5"
+            },
+            "require-dev": {
+                "drupal/coder": "*",
+                "phpunit/phpunit": "^6",
+                "sebastian/phpcpd": "*",
+                "squizlabs/php_codesniffer": "^2.7.1"
+            },
+            "suggest": {
+                "drupal/transliterate_filenames": "Sanitizes filenames when they are uploaded so they don't break your repository."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.8.2",
+                    "datestamp": "1690381681",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Islandora Foundation",
+                    "homepage": "https://www.drupal.org/user/173761",
+                    "email": "community@islandora.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Daniel Lamb",
+                    "homepage": "https://www.drupal.org/user/3263030",
+                    "email": "dlamb@islandora.ca",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "whikloj",
+                    "homepage": "https://www.drupal.org/user/431329"
+                }
+            ],
+            "description": "Core Islandora module",
+            "homepage": "https://github.com/Islandora/islandora",
+            "keywords": [
+                "Drupal",
+                "Islandora"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/islandora",
+                "issues": "https://github.com/Islandora/documentation/issues"
+            }
+        },
+        {
             "name": "drupal/jquery_ui",
             "version": "1.6.0",
             "source": {
@@ -3586,6 +3996,97 @@
             }
         },
         {
+            "name": "drupal/jsonld",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jsonld.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jsonld-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "035e95b29a52a0654ef96798dfbbc066e96337b6"
+            },
+            "require": {
+                "drupal/core": "^10",
+                "drupal/hal": "^1||^2",
+                "drupal/rdf": "^2.1"
+            },
+            "require-dev": {
+                "drupal/coder": "*",
+                "phpunit/phpunit": "^8",
+                "sebastian/phpcpd": "*",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1690395920",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\jsonld\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Drupal\\Tests\\jsonld\\": "tests/src/"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "scripts": {
+                "post-install-cmd": [
+                    "./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer"
+                ],
+                "post-update-cmd": [
+                    "./vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer"
+                ],
+                "check": [
+                    "./vendor/bin/phpcs --standard=Drupal --ignore=*.md,vendor --extensions=php,module,inc,install,test,profile,theme,css,info .",
+                    "./vendor/bin/phpcpd --names='*.module,*.inc,*.test,*.php' --exclude=vendor ."
+                ]
+            },
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Islandora Foundation",
+                    "homepage": "https://www.drupal.org/user/3516709",
+                    "email": "community@islandora.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Jared Whiklo",
+                    "homepage": "https://www.drupal.org/user/173761",
+                    "email": "jwhiklo@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "rosiel",
+                    "homepage": "https://www.drupal.org/user/3263030"
+                },
+                {
+                    "name": "scor",
+                    "homepage": "https://www.drupal.org/user/52142"
+                }
+            ],
+            "description": "JSON-LD serializer for Drupal",
+            "homepage": "https://github.com/Islandora/jsonld",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jsonld",
+                "issues": "https://github.com/Islandora/documentation/issues"
+            }
+        },
+        {
             "name": "drupal/jwt",
             "version": "2.0.0",
             "source": {
@@ -3890,6 +4391,74 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/migrate_source_csv",
                 "issues": "https://www.drupal.org/project/issues/migrate_source_csv"
+            }
+        },
+        {
+            "name": "drupal/openseadragon",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/openseadragon.git",
+                "reference": "2.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/openseadragon-2.1.1.zip",
+                "reference": "2.1.1",
+                "shasum": "7c657455bc039ef06e12784dff3eec795a538af5"
+            },
+            "require": {
+                "drupal/core": "^9.1 || ^10",
+                "drupal/token": "^1.3"
+            },
+            "conflict": {
+                "drupal/core": "<9.1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.1",
+                    "datestamp": "1690398311",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Islandora Foundation",
+                    "homepage": "https://www.drupal.org/user/3516709",
+                    "email": "community@islandora.ca",
+                    "role": "Owner"
+                },
+                {
+                    "name": "Daniel Lamb",
+                    "homepage": "https://www.drupal.org/user/173761",
+                    "email": "dlamb@islandora.ca",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jared Whiklo",
+                    "homepage": "https://www.drupal.org/user/3263030",
+                    "email": "jwhiklo@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "OpenSeadragon",
+            "homepage": "https://github.com/Islandora/openseadragon",
+            "keywords": [
+                "Drupal",
+                "Islandora",
+                "OpenSeadragon"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/openseadragon",
+                "issues": "https://github.com/Islandora/documentation/issues"
             }
         },
         {
@@ -5722,16 +6291,6 @@
             "time": "2023-07-03T22:50:13+00:00"
         },
         {
-            "name": "islandora/advanced_search",
-            "version": "2.0.0-beta3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/digitalutsc/advanced_search",
-                "reference": "2.0.0-beta3"
-            },
-            "type": "drupal-module"
-        },
-        {
             "name": "islandora/chullo",
             "version": "2.0.1",
             "source": {
@@ -5793,67 +6352,6 @@
             "time": "2023-06-30T14:00:02+00:00"
         },
         {
-            "name": "islandora/controlled_access_terms",
-            "version": "v2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Islandora/controlled_access_terms.git",
-                "reference": "98719a596fde38aeba4e2e6e8f7596b36a06ab64"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/controlled_access_terms/zipball/98719a596fde38aeba4e2e6e8f7596b36a06ab64",
-                "reference": "98719a596fde38aeba4e2e6e8f7596b36a06ab64",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/geolocation": "^3.2",
-                "drupal/token": "^1.7",
-                "professional-wiki/edtf": "^2.0"
-            },
-            "conflict": {
-                "drupal/core": "<=8",
-                "islandora/jsonld": "<2.1.0"
-            },
-            "require-dev": {
-                "drupal/coder": "*",
-                "phpunit/phpunit": "^6",
-                "sebastian/phpcpd": "*",
-                "squizlabs/php_codesniffer": "^2.8.1 || ^3"
-            },
-            "suggest": {
-                "drupal/name": "Provides western-centric structured names."
-            },
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Islandora Foundation",
-                    "email": "community@islandora.ca",
-                    "role": "Owner"
-                },
-                {
-                    "name": "Seth Shaw",
-                    "email": "seth.shaw@unlv.edu",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Drupal module for subjects and agents",
-            "homepage": "https://github.com/Islandora/controlled_access_terms",
-            "keywords": [
-                "Islandora",
-                "drupal"
-            ],
-            "support": {
-                "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/controlled_access_terms/tree/v2.2.1"
-            },
-            "time": "2023-06-07T17:31:12+00:00"
-        },
-        {
             "name": "islandora/fedora-entity-mapper",
             "version": "1.0.0",
             "source": {
@@ -5901,77 +6399,6 @@
                 "source": "https://github.com/Islandora/islandora-fedora-entity-mapper/tree/1.0.0"
             },
             "time": "2023-03-17T14:10:32+00:00"
-        },
-        {
-            "name": "islandora/islandora",
-            "version": "2.8.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Islandora/islandora.git",
-                "reference": "8f1537670d4ea77d95500c9853e4e785f0866a9e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/islandora/zipball/8f1537670d4ea77d95500c9853e4e785f0866a9e",
-                "reference": "8f1537670d4ea77d95500c9853e4e785f0866a9e",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/context": "^4 || ^5@RC",
-                "drupal/ctools": "^3.8 || ^4",
-                "drupal/eva": "^3.0",
-                "drupal/features": "^3.13",
-                "drupal/file_replace": "^1.1",
-                "drupal/filehash": "^2",
-                "drupal/flysystem": "^2.0@alpha",
-                "drupal/jwt": "^1.1 || ^2",
-                "drupal/migrate_plus": "^5.1 || ^6",
-                "drupal/migrate_source_csv": "^3.4",
-                "drupal/prepopulate": "^2.2",
-                "drupal/search_api": "^1.8",
-                "drupal/token": "^1.3",
-                "islandora/chullo": "^2.0",
-                "islandora/fedora-entity-mapper": "^1.0",
-                "islandora/jsonld": "^2 || ^3",
-                "stomp-php/stomp-php": "4.* || ^5"
-            },
-            "require-dev": {
-                "drupal/coder": "*",
-                "phpunit/phpunit": "^6",
-                "sebastian/phpcpd": "*",
-                "squizlabs/php_codesniffer": "^2.7.1"
-            },
-            "suggest": {
-                "drupal/transliterate_filenames": "Sanitizes filenames when they are uploaded so they don't break your repository."
-            },
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Islandora Foundation",
-                    "email": "community@islandora.ca",
-                    "role": "Owner"
-                },
-                {
-                    "name": "Daniel Lamb",
-                    "email": "dlamb@islandora.ca",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Core Islandora module",
-            "homepage": "https://github.com/Islandora/islandora",
-            "keywords": [
-                "Islandora",
-                "drupal"
-            ],
-            "support": {
-                "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/islandora/tree/2.8.2"
-            },
-            "time": "2023-07-12T12:26:30+00:00"
         },
         {
             "name": "islandora/jsonld",
@@ -6027,61 +6454,6 @@
                 "source": "https://github.com/Islandora/jsonld/tree/3.0.1"
             },
             "time": "2023-07-04T13:25:18+00:00"
-        },
-        {
-            "name": "islandora/openseadragon",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Islandora/openseadragon.git",
-                "reference": "0f993e95ba32304c335966634b7ddd848a3cd326"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/openseadragon/zipball/0f993e95ba32304c335966634b7ddd848a3cd326",
-                "reference": "0f993e95ba32304c335966634b7ddd848a3cd326",
-                "shasum": ""
-            },
-            "require": {
-                "drupal/token": "^1.3"
-            },
-            "conflict": {
-                "drupal/core": "<9.1"
-            },
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Islandora Foundation",
-                    "email": "community@islandora.ca",
-                    "role": "Owner"
-                },
-                {
-                    "name": "Daniel Lamb",
-                    "email": "dlamb@islandora.ca",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Jared Whiklo",
-                    "email": "jwhiklo@gmail.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "OpenSeadragon",
-            "homepage": "https://github.com/Islandora/openseadragon",
-            "keywords": [
-                "Islandora",
-                "drupal",
-                "openseadragon"
-            ],
-            "support": {
-                "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/openseadragon/tree/2.1.1"
-            },
-            "time": "2023-07-20T16:01:09+00:00"
         },
         {
             "name": "islandora/views_nested_details",
@@ -11631,6 +12003,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/advanced_search": 10,
         "drupal/bibcite": 10,
         "drupal/citation_select": 10,
         "drupal/config_update": 15,
@@ -11640,7 +12013,6 @@
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
-        "islandora/advanced_search": 10,
         "mjordan/islandora_workbench_integration": 20
     },
     "prefer-stable": true,
