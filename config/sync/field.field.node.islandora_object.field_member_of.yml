@@ -12,7 +12,7 @@ field_name: field_member_of
 entity_type: node
 bundle: islandora_object
 label: 'Member of'
-description: 'This item''s parent item in Islandora. Usually this will be a collection or compound object.'
+description: "This item's parent item in Islandora. Usually this will be a collection or compound object."
 required: false
 translatable: false
 default_value: {  }
