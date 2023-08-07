@@ -10,7 +10,7 @@ dependencies:
 label: Newspaper
 name: newspaper
 group: Display
-description: 'If a Newspaper, display the newspaper''s children (issues) by date.'
+description: "If a Newspaper, display the newspaper's children (issues) by date."
 requireAllConditions: false
 disabled: false
 conditions:
