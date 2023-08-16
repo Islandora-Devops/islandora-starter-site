@@ -1,6 +1,6 @@
 uuid: 76251eb7-dc58-4076-817b-6728621a517c
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.member_of_swc
