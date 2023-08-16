@@ -373,12 +373,11 @@ content:
     weight: 22
     region: content
   field_rights:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
+    type: text_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    weight: 40
+    weight: 44
     region: content
   field_subject:
     type: entity_reference_label
