@@ -16,7 +16,7 @@ id: node.islandora_object.field_linked_agent
 field_name: field_linked_agent
 entity_type: node
 bundle: islandora_object
-label: 'Contributors'
+label: Contributors
 description: "Names of entities having some relationship to the resource, and, optionally, the relationship to the resource. If a relationship is not specified, it will be recorded as <a href=\"https://id.loc.gov/vocabulary/relators/asn.html\">Associated Name</a> in the system's linked data representation. <br /> \r\n<em>Publisher/manufacturer/distributor/etc. name is recorded here, with the appropriate relationship specified.</em><br />\r\nThis field does not allow creating names of entities on the fly. First create a <a href=\"/admin/structure/taxonomy/manage/person/add\" target=\"_blank\">person</a>, <a href=\"/admin/structure/taxonomy/manage/family/add\" target=\"_blank\">family</a>, or <a href=\"/admin/structure/taxonomy/manage/corporate_body/add\" target=\"_blank\">corporate body</a>, then link it here."
 required: false
 translatable: false
