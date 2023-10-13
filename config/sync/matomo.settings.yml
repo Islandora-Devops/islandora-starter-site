@@ -1,8 +1,8 @@
 _core:
   default_config_hash: mKwnhF-0ryfftZZP6jyqW8q9MEo9glyRkvRzSddrc0k
 site_id: '1'
-url_http: 'http://islandora.traefik.me/matomo/'
-url_https: 'https://islandora.traefik.me/matomo/'
+url_http: 'http://localhost:8000/matomo/'
+url_https: 'https://localhost:8000/matomo/'
 domain_mode: 0
 visibility:
   request_path_mode: 0
