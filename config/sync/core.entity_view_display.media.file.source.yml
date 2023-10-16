@@ -5,11 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.media.source
     - field.field.media.file.field_file_size
+    - field.field.media.file.field_height
     - field.field.media.file.field_media_file
     - field.field.media.file.field_media_of
     - field.field.media.file.field_media_use
     - field.field.media.file.field_mime_type
     - field.field.media.file.field_original_name
+    - field.field.media.file.field_width
     - media.type.file
   module:
     - file
@@ -32,10 +34,12 @@ hidden:
   created: true
   field_file_size: true
   field_gemini_uri: true
+  field_height: true
   field_media_of: true
   field_media_use: true
   field_mime_type: true
   field_original_name: true
+  field_width: true
   langcode: true
   name: true
   search_api_excerpt: true
