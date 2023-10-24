@@ -36,7 +36,6 @@
         "drupal/bibcite": "^2.0@beta",
         "drupal/citation_select": "^1.0@beta",
         "drupal/coi": "^4.0",
-        "drupal/config_override_warn": "^1.4",
         "drupal/config_update": "^2.0@alpha",
         "drupal/context": "^5@RC",
         "drupal/controlled_access_terms": "^2",
