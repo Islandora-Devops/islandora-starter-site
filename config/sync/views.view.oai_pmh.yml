@@ -246,18 +246,48 @@ display:
     display_plugin: entity_reference
     position: 1
     display_options:
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       style:
         type: entity_reference
         options:
           search_fields:
             title: title
       display_description: ''
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -267,6 +297,24 @@ display:
     display_plugin: entity_reference
     position: 1
     display_options:
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       arguments:
         field_member_of_target_id:
           id: field_member_of_target_id
@@ -311,13 +359,25 @@ display:
       defaults:
         arguments: false
       display_description: 'All items with collections grouped into a sets per collection they belong to.'
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -327,6 +387,24 @@ display:
     display_plugin: entity_reference
     position: 1
     display_options:
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
       filters:
         status:
           id: status
@@ -450,12 +528,24 @@ display:
         filters: false
         filter_groups: false
       display_description: 'Set of items that do not belong to any Collection, to be used with Collection Sets.'
-      display_extenders: {  }
+      display_extenders:
+        matomo:
+          enabled: false
+          keyword_gets: ''
+          keyword_behavior: first
+          keyword_concat_separator: ' '
+          category_behavior: none
+          category_gets: ''
+          category_concat_separator: ' '
+          category_fallback: ''
+          category_facets: {  }
+          category_facets_concat_separator: ', '
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
