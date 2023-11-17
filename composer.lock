@@ -3638,17 +3638,17 @@
         },
         {
             "name": "drupal/islandora",
-            "version": "2.9.1",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/islandora.git",
-                "reference": "2.9.1"
+                "reference": "2.10.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/islandora-2.9.1.zip",
-                "reference": "2.9.1",
-                "shasum": "9e7b40aa422676684ac2dfbfd614d0a77d8a8c50"
+                "url": "https://ftp.drupal.org/files/projects/islandora-2.10.0.zip",
+                "reference": "2.10.0",
+                "shasum": "9712b9844e965ad9cc00c3726ca8f10afe69865b"
             },
             "require": {
                 "drupal/context": "^4 || ^5@RC",
@@ -3680,13 +3680,14 @@
                 "squizlabs/php_codesniffer": "^2.7.1"
             },
             "suggest": {
+                "drupal/coi": "Some configuration fields work with Config Override Inspector.",
                 "drupal/transliterate_filenames": "Sanitizes filenames when they are uploaded so they don't break your repository."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.9.1",
-                    "datestamp": "1698071313",
+                    "version": "2.10.0",
+                    "datestamp": "1700257320",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4563,17 +4564,17 @@
         },
         {
             "name": "drupal/openseadragon",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/openseadragon.git",
-                "reference": "2.1.1"
+                "reference": "2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/openseadragon-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "7c657455bc039ef06e12784dff3eec795a538af5"
+                "url": "https://ftp.drupal.org/files/projects/openseadragon-2.2.0.zip",
+                "reference": "2.2.0",
+                "shasum": "a04308bb82eaa2874b1130998b29827102deeb1d"
             },
             "require": {
                 "drupal/core": "^9.1 || ^10",
@@ -4582,11 +4583,14 @@
             "conflict": {
                 "drupal/core": "<9.1"
             },
+            "suggest": {
+                "drupal/coi": "Some configuration fields work with Config Override Inspector."
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1690398311",
+                    "version": "2.2.0",
+                    "datestamp": "1700257252",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -12374,5 +12378,5 @@
         "php": "^7.4 || ^8"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
