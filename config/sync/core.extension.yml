@@ -14,8 +14,10 @@ module:
   breakpoint: 0
   citation_select: 0
   ckeditor5: 0
+  coi: 0
   comment: 0
   config: 0
+  config_override_core_fields: 0
   config_update: 0
   contact: 0
   context: 0

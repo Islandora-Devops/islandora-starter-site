@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "770f076837673b1a39bbc0a805016da3",
+    "content-hash": "0db3582c1e59ecbc37162c1048ca9e5f",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1855,6 +1855,107 @@
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/citation_select"
+            }
+        },
+        {
+            "name": "drupal/coi",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/coi.git",
+                "reference": "4.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/coi-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "1a77866371a3dae553e5861f95ba2e26c76c0055"
+            },
+            "require": {
+                "drupal/config_override_core_fields": "^4",
+                "drupal/core": "^10",
+                "php": ">=8.1"
+            },
+            "suggest": {
+                "drupal/token": "Shows Token UI on COI settings form."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0",
+                    "datestamp": "1693238227",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Phin",
+                    "homepage": "http://danielph.in",
+                    "email": "pro@danielph.in",
+                    "role": "Maintainer"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/coi",
+            "support": {
+                "source": "https://github.com/dpi/coi",
+                "issues": "https://github.com/dpi/coi/issues"
+            }
+        },
+        {
+            "name": "drupal/config_override_core_fields",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_override_core_fields.git",
+                "reference": "4.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_override_core_fields-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "db281661d21907f711946848bf2f97fd2304a36a"
+            },
+            "require": {
+                "drupal/core": ">=10",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "drupal/coi": ">=4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.0",
+                    "datestamp": "1693238348",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Phin",
+                    "homepage": "http://danielph.in",
+                    "email": "pro@danielph.in",
+                    "role": "Maintainer"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/config_override_core_fields",
+            "support": {
+                "source": "https://github.com/dpi/config_override_core_fields",
+                "issues": "https://github.com/dpi/config_override_core_fields/issues"
             }
         },
         {
