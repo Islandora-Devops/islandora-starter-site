@@ -35,8 +35,6 @@ module:
   eva: 0
   facets: 0
   facets_summary: 0
-  features: 0
-  features_ui: 0
   field: 0
   field_group: 0
   field_permissions: 0
@@ -90,7 +88,6 @@ module:
   path: 0
   path_alias: 0
   pdf: 0
-  pgsql: 0
   prepopulate: 0
   rdf: 0
   responsive_image: 0
@@ -100,7 +97,6 @@ module:
   search_api_solr: 0
   serialization: 0
   shortcut: 0
-  sqlite: 0
   syslog: 0
   system: 0
   taxonomy: 0
@@ -111,7 +107,6 @@ module:
   token: 0
   toolbar: 0
   tour: 0
-  transliterate_filenames: 0
   twig_tweak: 0
   update: 0
   user: 0

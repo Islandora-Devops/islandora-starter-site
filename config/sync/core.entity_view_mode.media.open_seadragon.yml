@@ -8,5 +8,6 @@ _core:
   default_config_hash: Psm3qxSAE17ncDreigYEVbFKSAvxxwqGUFp_MrebIyo
 id: media.open_seadragon
 label: 'Open Seadragon'
+description: ''
 targetEntityType: media
 cache: true
