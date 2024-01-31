@@ -35,7 +35,7 @@ settings:
     auto_create: false
     auto_create_bundle: person
   rel_types:
-    'relators:asn': ''
+    'relators:att': ''
     'relators:abr': Abridger
     'relators:act': Actor
     'relators:adp': Adapter
@@ -53,7 +53,7 @@ settings:
     'relators:art': Artist
     'relators:ard': 'Artistic director'
     'relators:asg': Assignee
-    'relators:att': 'Attributed name'
+    'relators:asn': 'Associated name'
     'relators:auc': Auctioneer
     'relators:aut': Author
     'relators:aqt': 'Author in quotations or text abstracts'
