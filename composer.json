@@ -55,7 +55,6 @@
         "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
         "drupal/term_merge": "^2.0@beta",
-        "drupal/transliterate_filenames": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drupal/views_data_export": "^1.2",
         "drupal/views_field_view": "^1.0@beta",
@@ -125,11 +124,7 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {
-	    "drupal/matomo": {
-	        "Allow install from existing config": "assets/patches/matomo-3363521-7.patch"
-	    }
-	}
+        "patches": {}
     },
     "scripts": {
         "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]
