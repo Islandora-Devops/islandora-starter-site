@@ -30,6 +30,7 @@
         "php": "^7.4 || ^8",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
+        "discoverygarden/dgi_image_discovery": "*",
         "drupal/admin_toolbar": "^3.1",
         "drupal/advanced_search": "^2.0.0@beta",
         "drupal/better_exposed_filters": "^6.0",
