@@ -12,7 +12,6 @@ dependencies:
     - field.field.media.image.field_mime_type
     - field.field.media.image.field_original_name
     - field.field.media.image.field_width
-    - image.style.medium
     - media.type.image
   module:
     - islandora
@@ -28,7 +27,7 @@ content:
     label: visually_hidden
     settings:
       image_link: content
-      image_style: medium
+      image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
