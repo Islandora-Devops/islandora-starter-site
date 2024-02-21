@@ -1,6 +1,6 @@
 uuid: 3aedd62d-a991-4c64-9eb2-b0f4a8fe0a68
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.media.thumbnail
