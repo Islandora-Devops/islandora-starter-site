@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_description
     - field.storage.node.field_resource_type
-    - image.style.medium
     - search_api.index.default_solr_index
   module:
     - dgi_image_discovery
@@ -152,7 +151,7 @@ display:
           click_sort_column: target_id
           type: media_thumbnail
           settings:
-            image_style: medium
+            image_style: ''
             image_link: content
             image_loading:
               attribute: lazy
