@@ -162,6 +162,7 @@ content:
     weight: 11
     region: content
 hidden:
+  did_image: true
   display_media_entity_view_1: true
   display_media_entity_view_2: true
   display_media_entity_view_3: true

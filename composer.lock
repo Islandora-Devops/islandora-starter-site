@@ -1334,6 +1334,34 @@
             "time": "2022-10-27T11:44:00+00:00"
         },
         {
+            "name": "discoverygarden/dgi_image_discovery",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/discoverygarden/dgi_image_discovery.git",
+                "reference": "145bb803cc9566876d6a5590d02d23a0cb174916"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/discoverygarden/dgi_image_discovery/zipball/145bb803cc9566876d6a5590d02d23a0cb174916",
+                "reference": "145bb803cc9566876d6a5590d02d23a0cb174916",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/search_api": "^1.19"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "support": {
+                "issues": "https://github.com/discoverygarden/dgi_image_discovery/issues",
+                "source": "https://github.com/discoverygarden/dgi_image_discovery/tree/v1.0.5"
+            },
+            "time": "2023-09-22T18:14:28+00:00"
+        },
+        {
             "name": "doctrine/annotations",
             "version": "1.14.3",
             "source": {

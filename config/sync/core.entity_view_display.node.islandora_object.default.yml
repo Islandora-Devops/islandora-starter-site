@@ -424,6 +424,7 @@ content:
     weight: 9
     region: content
 hidden:
+  did_image: true
   display_media_entity_view_3: true
   display_media_thumbnail: true
   field_model: true
