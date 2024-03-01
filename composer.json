@@ -46,7 +46,7 @@
         "drupal/field_group": "^3",
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.1",
-        "drupal/flysystem": "^2.0@alpha",
+        "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.8.1",

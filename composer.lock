@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff2e1bd8f2f672eb45e945980250ac4e",
+    "content-hash": "0f12ce96f37c1357ef12cf7dc1e199df",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -3379,17 +3379,17 @@
         },
         {
             "name": "drupal/flysystem",
-            "version": "2.1.0-rc6",
+            "version": "2.2.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/flysystem.git",
-                "reference": "2.1.0-rc6"
+                "reference": "2.2.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/flysystem-2.1.0-rc6.zip",
-                "reference": "2.1.0-rc6",
-                "shasum": "9b75e51e349b71af85f3cefbfc3d5a906f9a6536"
+                "url": "https://ftp.drupal.org/files/projects/flysystem-2.2.0-alpha1.zip",
+                "reference": "2.2.0-alpha1",
+                "shasum": "6c30d02ce9edac9ebb3f7f1d3289e1a88acabab2"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10.0",
@@ -3404,11 +3404,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.0-rc6",
-                    "datestamp": "1691587388",
+                    "version": "2.2.0-alpha1",
+                    "datestamp": "1701358903",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "message": "Alpha releases are not covered by Drupal security advisories."
                     }
                 }
             },
