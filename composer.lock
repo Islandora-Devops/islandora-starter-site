@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5469bccaae05fb1d967b7dafb02299b0",
+    "content-hash": "ff2e1bd8f2f672eb45e945980250ac4e",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -1807,17 +1807,17 @@
         },
         {
             "name": "drupal/bibcite",
-            "version": "2.0.0-beta3",
+            "version": "3.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bibcite.git",
-                "reference": "2.0.0-beta3"
+                "reference": "3.0.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bibcite-2.0.0-beta3.zip",
-                "reference": "2.0.0-beta3",
-                "shasum": "2ccb09b8be2d3cc5713c4b41156719808d5eb78e"
+                "url": "https://ftp.drupal.org/files/projects/bibcite-3.0.0-beta3.zip",
+                "reference": "3.0.0-beta3",
+                "shasum": "0f56b2078fb4751999e5cd4e936f11efaa8d9858"
             },
             "require": {
                 "academicpuma/citeproc-php": "~1.0",
@@ -1844,8 +1844,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta3",
-                    "datestamp": "1688554407",
+                    "version": "3.0.0-beta3",
+                    "datestamp": "1689237020",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -1895,20 +1895,20 @@
         },
         {
             "name": "drupal/citation_select",
-            "version": "1.0.0-beta3",
+            "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/citation_select.git",
-                "reference": "1.0.0-beta3"
+                "reference": "1.0.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/citation_select-1.0.0-beta3.zip",
-                "reference": "1.0.0-beta3",
-                "shasum": "d5388bd0f724cd19f0caf950be8d0774958551f7"
+                "url": "https://ftp.drupal.org/files/projects/citation_select-1.0.0-beta5.zip",
+                "reference": "1.0.0-beta5",
+                "shasum": "974d26b8cd9508de9a615accf03720fcf4adfac0"
             },
             "require": {
-                "drupal/bibcite": "^2.0@beta",
+                "drupal/bibcite": "^3.0@beta",
                 "drupal/core": "^8.8 || ^9 || ^10",
                 "drupal/token": "^1.9",
                 "professional-wiki/edtf": "~2.0"
@@ -1916,8 +1916,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-beta3",
-                    "datestamp": "1677182811",
+                    "version": "1.0.0-beta5",
+                    "datestamp": "1698419516",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
