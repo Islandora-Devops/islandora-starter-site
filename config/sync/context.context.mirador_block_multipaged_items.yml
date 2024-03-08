@@ -41,7 +41,7 @@ reactions:
         unique: 0
         context_id: mirador_block_multipaged_items
         context_mapping: {  }
-        iiif_manifest_url: '/node/[node:nid]/book-manifest-original'
+        iiif_manifest_url: '/node/[node:nid]/book-manifest'
         third_party_settings: {  }
     include_default_blocks: 1
     saved: false
