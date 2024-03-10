@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f12ce96f37c1357ef12cf7dc1e199df",
+    "content-hash": "cd02fd1b41b60fe03ee307eca052fff0",
     "packages": [
         {
             "name": "academicpuma/citeproc-php",
@@ -275,6 +275,41 @@
                 "source": "https://github.com/audiolabs/bibtexparser/tree/master"
             },
             "time": "2020-08-24T07:09:27+00:00"
+        },
+        {
+            "name": "born-digital/islandora_iiif_hocr",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Born-Digital-US/islandora_iiif_hocr.git",
+                "reference": "b8e01ecf1974c9cb1a6851a42ccdddeca53989e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Born-Digital-US/islandora_iiif_hocr/zipball/b8e01ecf1974c9cb1a6851a42ccdddeca53989e7",
+                "reference": "b8e01ecf1974c9cb1a6851a42ccdddeca53989e7",
+                "shasum": ""
+            },
+            "require": {
+                "islandora/islandora": "^2"
+            },
+            "default-branch": true,
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Islandora support for hOCR markup in IIIF manifests",
+            "homepage": "https://github.com/Born-Digital-US/islandora_iiif_hocr",
+            "keywords": [
+                "Drupal",
+                "IIIF",
+                "Islandora"
+            ],
+            "support": {
+                "issues": "https://github.com/Born-Digital-US/islandora_iiif_hocr/issues",
+                "source": "https://github.com/Born-Digital-US/islandora_iiif_hocr/tree/2.x"
+            },
+            "time": "2024-03-01T20:15:04+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -1335,16 +1370,16 @@
         },
         {
             "name": "discoverygarden/dgi_image_discovery",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/discoverygarden/dgi_image_discovery.git",
-                "reference": "bb3a011e29c7c41e2923ab1c04630bc72eb24078"
+                "reference": "ca4768fa39efd7fbae6e16368183e0a9952b8c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/discoverygarden/dgi_image_discovery/zipball/bb3a011e29c7c41e2923ab1c04630bc72eb24078",
-                "reference": "bb3a011e29c7c41e2923ab1c04630bc72eb24078",
+                "url": "https://api.github.com/repos/discoverygarden/dgi_image_discovery/zipball/ca4768fa39efd7fbae6e16368183e0a9952b8c9e",
+                "reference": "ca4768fa39efd7fbae6e16368183e0a9952b8c9e",
                 "shasum": ""
             },
             "require": {
@@ -1357,9 +1392,33 @@
             ],
             "support": {
                 "issues": "https://github.com/discoverygarden/dgi_image_discovery/issues",
-                "source": "https://github.com/discoverygarden/dgi_image_discovery/tree/v1.1.0"
+                "source": "https://github.com/discoverygarden/dgi_image_discovery/tree/v1.2.0"
             },
-            "time": "2024-02-06T18:55:32+00:00"
+            "time": "2024-03-06T19:27:25+00:00"
+        },
+        {
+            "name": "discoverygarden/islandora_hocr",
+            "version": "v1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/discoverygarden/islandora_hocr.git",
+                "reference": "655fd49dedcc541c1d800b1a5f1873a37e8c3e32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/discoverygarden/islandora_hocr/zipball/655fd49dedcc541c1d800b1a5f1873a37e8c3e32",
+                "reference": "655fd49dedcc541c1d800b1a5f1873a37e8c3e32",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "support": {
+                "source": "https://github.com/discoverygarden/islandora_hocr/tree/v1.3.3",
+                "issues": "https://github.com/discoverygarden/islandora_hocr/issues"
+            },
+            "time": "2023-11-08T18:38:04+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2384,6 +2443,10 @@
                     "role": "Maintainer"
                 },
                 {
+                    "name": "joecorall",
+                    "homepage": "https://www.drupal.org/user/1144790"
+                },
+                {
                     "name": "kirsta",
                     "homepage": "https://www.drupal.org/user/173761"
                 },
@@ -2413,16 +2476,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "10.2.3",
+            "version": "10.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "cc8c7952f7013795b735f5c15290e76937163bb7"
+                "reference": "d1c5b44adfc79bda03252471491b0fba89d87eff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/cc8c7952f7013795b735f5c15290e76937163bb7",
-                "reference": "cc8c7952f7013795b735f5c15290e76937163bb7",
+                "url": "https://api.github.com/repos/drupal/core/zipball/d1c5b44adfc79bda03252471491b0fba89d87eff",
+                "reference": "d1c5b44adfc79bda03252471491b0fba89d87eff",
                 "shasum": ""
             },
             "require": {
@@ -2570,13 +2633,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/10.2.3"
+                "source": "https://github.com/drupal/core/tree/10.2.4"
             },
-            "time": "2024-02-07T22:44:48+00:00"
+            "time": "2024-03-06T08:23:56+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.2.3",
+            "version": "10.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2620,22 +2683,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.2.3"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.2.4"
             },
             "time": "2024-01-26T14:59:30+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "10.2.3",
+            "version": "10.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "ee5d148455ca5792108a1fd007ae162ea2ffe859"
+                "reference": "550c4cb19afda15ef892d88469ab93dc38bf0b46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/ee5d148455ca5792108a1fd007ae162ea2ffe859",
-                "reference": "ee5d148455ca5792108a1fd007ae162ea2ffe859",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/550c4cb19afda15ef892d88469ab93dc38bf0b46",
+                "reference": "550c4cb19afda15ef892d88469ab93dc38bf0b46",
                 "shasum": ""
             },
             "require": {
@@ -2644,7 +2707,7 @@
                 "doctrine/annotations": "~1.14.3",
                 "doctrine/deprecations": "~1.1.2",
                 "doctrine/lexer": "~2.1.0",
-                "drupal/core": "10.2.3",
+                "drupal/core": "10.2.4",
                 "egulias/email-validator": "~4.0.2",
                 "guzzlehttp/guzzle": "~7.8.1",
                 "guzzlehttp/promises": "~2.0.2",
@@ -2705,9 +2768,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/10.2.3"
+                "source": "https://github.com/drupal/core-recommended/tree/10.2.4"
             },
-            "time": "2024-02-07T22:44:48+00:00"
+            "time": "2024-03-06T08:23:56+00:00"
         },
         {
             "name": "drupal/csv_serialization",
@@ -2997,17 +3060,17 @@
         },
         {
             "name": "drupal/facets",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/facets.git",
-                "reference": "2.0.6"
+                "reference": "2.0.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/facets-2.0.6.zip",
-                "reference": "2.0.6",
-                "shasum": "e984e6ce69026c20d2049d4ec53748e67c5e70de"
+                "url": "https://ftp.drupal.org/files/projects/facets-2.0.7.zip",
+                "reference": "2.0.7",
+                "shasum": "a58ad0c4c3fc2750bf095232a54218ae906852e3"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10.0"
@@ -3027,8 +3090,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.6",
-                    "datestamp": "1671207897",
+                    "version": "2.0.7",
+                    "datestamp": "1709900263",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3067,6 +3130,92 @@
                 "source": "git://git.drupal.org/project/facets.git",
                 "issues": "https://www.drupal.org/project/issues/facets",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/features",
+            "version": "3.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/features.git",
+                "reference": "8.x-3.14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.14.zip",
+                "reference": "8.x-3.14",
+                "shasum": "fff0bb2d133c524ddb326422eba625c55585232c"
+            },
+            "require": {
+                "drupal/config_update": "^1.4 || ^2",
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.14",
+                    "datestamp": "1702059191",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "donquixote",
+                    "homepage": "https://www.drupal.org/user/459338"
+                },
+                {
+                    "name": "e2thex",
+                    "homepage": "https://www.drupal.org/user/189123"
+                },
+                {
+                    "name": "febbraro",
+                    "homepage": "https://www.drupal.org/user/43670"
+                },
+                {
+                    "name": "flocondetoile",
+                    "homepage": "https://www.drupal.org/user/2006064"
+                },
+                {
+                    "name": "jmiccolis",
+                    "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "matthand",
+                    "homepage": "https://www.drupal.org/user/171527"
+                },
+                {
+                    "name": "mpotter",
+                    "homepage": "https://www.drupal.org/user/616192"
+                }
+            ],
+            "description": "Enables administrators to package configuration into modules",
+            "homepage": "https://www.drupal.org/project/features",
+            "support": {
+                "source": "https://git.drupalcode.org/project/features"
             }
         },
         {
@@ -4227,6 +4376,10 @@
                     "role": "Maintainer"
                 },
                 {
+                    "name": "joecorall",
+                    "homepage": "https://www.drupal.org/user/1144790"
+                },
+                {
                     "name": "kirsta",
                     "homepage": "https://www.drupal.org/user/173761"
                 },
@@ -4615,9 +4768,13 @@
                 },
                 {
                     "name": "Jared Whiklo",
-                    "homepage": "https://www.drupal.org/user/173761",
+                    "homepage": "https://www.drupal.org/user/1144790",
                     "email": "jwhiklo@gmail.com",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "kirsta",
+                    "homepage": "https://www.drupal.org/user/173761"
                 },
                 {
                     "name": "rosiel",
@@ -5547,23 +5704,23 @@
         },
         {
             "name": "drush/drush",
-            "version": "12.4.3",
+            "version": "12.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "8245acede57ecc62a90aa0f19ff3b29e5f11f971"
+                "reference": "a6585cddae47144413565f3c1cd29debc69f6b41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/8245acede57ecc62a90aa0f19ff3b29e5f11f971",
-                "reference": "8245acede57ecc62a90aa0f19ff3b29e5f11f971",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/a6585cddae47144413565f3c1cd29debc69f6b41",
+                "reference": "a6585cddae47144413565f3c1cd29debc69f6b41",
                 "shasum": ""
             },
             "require": {
                 "chi-teck/drupal-code-generator": "^3.0",
                 "composer-runtime-api": "^2.2",
                 "composer/semver": "^1.4 || ^3",
-                "consolidation/annotated-command": "^4.9.1",
+                "consolidation/annotated-command": "^4.9.2",
                 "consolidation/config": "^2.1.2",
                 "consolidation/filter-via-dot-access-data": "^2.0.2",
                 "consolidation/output-formatters": "^4.3.2",
@@ -5679,7 +5836,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/12.4.3"
+                "source": "https://github.com/drush-ops/drush/tree/12.4.4"
             },
             "funding": [
                 {
@@ -5687,7 +5844,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-16T22:57:24+00:00"
+            "time": "2024-03-02T12:14:56+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -6532,22 +6689,23 @@
         },
         {
             "name": "islandora/islandora",
-            "version": "2.11.0",
+            "version": "dev-959-iiif-width-height-caching",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Islandora/islandora.git",
-                "reference": "3065c87874b7da0440fff494d0e51c938b855fd7"
+                "reference": "bd327d98b549ec06267cf39c8407dded97e3818f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Islandora/islandora/zipball/3065c87874b7da0440fff494d0e51c938b855fd7",
-                "reference": "3065c87874b7da0440fff494d0e51c938b855fd7",
+                "url": "https://api.github.com/repos/Islandora/islandora/zipball/bd327d98b549ec06267cf39c8407dded97e3818f",
+                "reference": "bd327d98b549ec06267cf39c8407dded97e3818f",
                 "shasum": ""
             },
             "require": {
                 "drupal/context": "^4 || ^5@RC",
                 "drupal/ctools": "^3.8 || ^4",
                 "drupal/eva": "^3.0",
+                "drupal/features": "^3.13",
                 "drupal/file_replace": "^1.1",
                 "drupal/filehash": "^2",
                 "drupal/flysystem": "^2.0@alpha",
@@ -6569,7 +6727,6 @@
                 "squizlabs/php_codesniffer": "^2.7.1"
             },
             "suggest": {
-                "drupal/coi": "Some configuration fields work with Config Override Inspector.",
                 "drupal/transliterate_filenames": "Sanitizes filenames when they are uploaded so they don't break your repository."
             },
             "type": "drupal-module",
@@ -6597,9 +6754,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Islandora/documentation/issues",
-                "source": "https://github.com/Islandora/islandora/tree/2.11.0"
+                "source": "https://github.com/Islandora/islandora/tree/959-iiif-width-height-caching"
             },
-            "time": "2023-12-29T17:47:29+00:00"
+            "time": "2024-02-15T13:06:04+00:00"
         },
         {
             "name": "islandora/islandora_mirador",
@@ -7609,16 +7766,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.0.1",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "2218c2252c874a4624ab2f613d86ac32d227bc69"
+                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2218c2252c874a4624ab2f613d86ac32d227bc69",
-                "reference": "2218c2252c874a4624ab2f613d86ac32d227bc69",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/139676794dc1e9231bf7bcd123cfc0c99182cb13",
+                "reference": "139676794dc1e9231bf7bcd123cfc0c99182cb13",
                 "shasum": ""
             },
             "require": {
@@ -7661,9 +7818,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.1"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.0.2"
             },
-            "time": "2024-02-21T19:24:10+00:00"
+            "time": "2024-03-05T20:51:40+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -7798,16 +7955,16 @@
         },
         {
             "name": "pear/pear-core-minimal",
-            "version": "v1.10.14",
+            "version": "v1.10.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pear/pear-core-minimal.git",
-                "reference": "a86fc145edb5caedbf96527214ce3cadc9de4a32"
+                "reference": "d457b5c93e5001fbf4b5726d21038266e029e3be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/a86fc145edb5caedbf96527214ce3cadc9de4a32",
-                "reference": "a86fc145edb5caedbf96527214ce3cadc9de4a32",
+                "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/d457b5c93e5001fbf4b5726d21038266e029e3be",
+                "reference": "d457b5c93e5001fbf4b5726d21038266e029e3be",
                 "shasum": ""
             },
             "require": {
@@ -7843,7 +8000,7 @@
                 "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR",
                 "source": "https://github.com/pear/pear-core-minimal"
             },
-            "time": "2023-11-26T16:15:38+00:00"
+            "time": "2024-03-09T19:38:40+00:00"
         },
         {
             "name": "pear/pear_exception",
@@ -8693,16 +8850,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "4.0.5",
+            "version": "4.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "74be17022044ebaaecfdf0c5cd504fc9cd5a7131"
+                "reference": "ba01945089c3a293b01ba9badc29ad55b106b0bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/74be17022044ebaaecfdf0c5cd504fc9cd5a7131",
-                "reference": "74be17022044ebaaecfdf0c5cd504fc9cd5a7131",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/ba01945089c3a293b01ba9badc29ad55b106b0bc",
+                "reference": "ba01945089c3a293b01ba9badc29ad55b106b0bc",
                 "shasum": ""
             },
             "require": {
@@ -8747,7 +8904,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/diff/issues",
-                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.5"
+                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.6"
             },
             "funding": [
                 {
@@ -8755,7 +8912,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-07T05:35:17+00:00"
+            "time": "2024-03-02T06:30:58+00:00"
         },
         {
             "name": "solarium/solarium",
@@ -9577,16 +9734,16 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v6.4.4",
+            "version": "v6.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "7a186f64a7f02787c04e8476538624d6aa888e42"
+                "reference": "f6947cb939d8efee137797382cb4db1af653ef75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/7a186f64a7f02787c04e8476538624d6aa888e42",
-                "reference": "7a186f64a7f02787c04e8476538624d6aa888e42",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/f6947cb939d8efee137797382cb4db1af653ef75",
+                "reference": "f6947cb939d8efee137797382cb4db1af653ef75",
                 "shasum": ""
             },
             "require": {
@@ -9670,7 +9827,7 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v6.4.4"
+                "source": "https://github.com/symfony/http-kernel/tree/v6.4.5"
             },
             "funding": [
                 {
@@ -9686,7 +9843,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-27T06:32:13+00:00"
+            "time": "2024-03-04T21:00:47+00:00"
         },
         {
             "name": "symfony/mailer",
@@ -10807,16 +10964,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v6.4.3",
+            "version": "v6.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "3b2957ad54902f0f544df83e3d58b38d7e8e5842"
+                "reference": "7fe30068e207d9c31c0138501ab40358eb2d49a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/3b2957ad54902f0f544df83e3d58b38d7e8e5842",
-                "reference": "3b2957ad54902f0f544df83e3d58b38d7e8e5842",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/7fe30068e207d9c31c0138501ab40358eb2d49a4",
+                "reference": "7fe30068e207d9c31c0138501ab40358eb2d49a4",
                 "shasum": ""
             },
             "require": {
@@ -10870,7 +11027,7 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/v6.4.3"
+                "source": "https://github.com/symfony/routing/tree/v6.4.5"
             },
             "funding": [
                 {
@@ -10886,7 +11043,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-30T13:55:02+00:00"
+            "time": "2024-02-27T12:33:30+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -12094,16 +12251,16 @@
         },
         {
             "name": "doctrine/persistence",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "f75d11b1bcd0a9b75a9e1cabd80ffe3bc0164bcc"
+                "reference": "b6fd1f126b13c1f7e7321f7338b14a19116b5de4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/f75d11b1bcd0a9b75a9e1cabd80ffe3bc0164bcc",
-                "reference": "f75d11b1bcd0a9b75a9e1cabd80ffe3bc0164bcc",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/b6fd1f126b13c1f7e7321f7338b14a19116b5de4",
+                "reference": "b6fd1f126b13c1f7e7321f7338b14a19116b5de4",
                 "shasum": ""
             },
             "require": {
@@ -12172,7 +12329,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/3.3.0"
+                "source": "https://github.com/doctrine/persistence/tree/3.3.1"
             },
             "funding": [
                 {
@@ -12188,7 +12345,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-01T10:11:31+00:00"
+            "time": "2024-03-01T19:53:13+00:00"
         },
         {
             "name": "drupal/config_inspector",
@@ -12391,10 +12548,17 @@
             "version": "dev-8.x-1.x",
             "alias": "1.x-dev",
             "alias_normalized": "1.9999999.9999999.9999999-dev"
+        },
+        {
+            "package": "islandora/islandora",
+            "version": "dev-959-iiif-width-height-caching",
+            "alias": "2.11.0",
+            "alias_normalized": "2.11.0.0"
         }
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "born-digital/islandora_iiif_hocr": 20,
         "drupal/advanced_search": 10,
         "drupal/bibcite": 10,
         "drupal/citation_select": 10,
@@ -12405,6 +12569,7 @@
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,
         "islandora-rdm/islandora_fits": 20,
+        "islandora/islandora": 20,
         "mjordan/islandora_workbench_integration": 20
     },
     "prefer-stable": true,
