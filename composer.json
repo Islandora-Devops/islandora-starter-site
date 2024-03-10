@@ -10,6 +10,14 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/discoverygarden/islandora_hocr.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Born-Digital-US/islandora_iiif_hocr.git"
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
@@ -28,9 +36,11 @@
     ],
     "require": {
         "php": "^7.4 || ^8",
+        "born-digital/islandora_iiif_hocr": "^2@dev",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
+        "discoverygarden/islandora_hocr": "*",
         "drupal/admin_toolbar": "^3.1",
         "drupal/advanced_search": "^2.0.0@beta",
         "drupal/better_exposed_filters": "^6.0",
@@ -86,13 +96,6 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
-            },
-            "file-mapping": {
-                "[web-root]/sites/default/settings.php": {
-                    "mode": "append",
-                    "default": "web/core/assets/scaffold/files/default.settings.php",
-                    "append": "assets/patches/default_settings.txt"
-                }
             }
         },
         "installer-paths": {
