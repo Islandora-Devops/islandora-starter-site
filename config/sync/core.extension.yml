@@ -38,6 +38,8 @@ module:
   eva: 0
   facets: 0
   facets_summary: 0
+  features: 0
+  features_ui: 0
   field: 0
   field_group: 0
   field_permissions: 0
@@ -59,7 +61,9 @@ module:
   islandora_breadcrumbs: 0
   islandora_core_feature: 0
   islandora_fits: 0
+  islandora_hocr: 0
   islandora_iiif: 0
+  islandora_iiif_hocr: 0
   islandora_image: 0
   islandora_mirador: 0
   islandora_text_extraction: 0
