@@ -1,18 +1,14 @@
-uuid: bee3e601-2c6f-4ce7-8e9e-e6be5c1a9950
+uuid: 36020969-423e-4181-872c-16af33765301
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_display_title
     - node.type.islandora_object
     - search_api.index.default_solr_index
   module:
     - islandora_iiif_hocr
     - rest
     - search_api
-    - views_block_area
-_core:
-  default_config_hash: lvIQBL8yMLi95TLjdkveIf-I2hKet-_oOOsWG4ywE10
 id: search_in_hocr
 label: 'Search in hOCR'
 module: views
@@ -348,107 +344,7 @@ display:
           plugin_id: result
           empty: true
           content: 'Displaying results @start - @end of @total'
-      footer:
-        views_block_area:
-          id: views_block_area
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facets Summary'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facets_summary_block:facet_summary'
-        views_block_area_8:
-          id: views_block_area_8
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Genre'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:genre_block'
-        views_block_area_12:
-          id: views_block_area_12
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Collection'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:member_of_block'
-        views_block_area_1:
-          id: views_block_area_1
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Type'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:type_collections'
-        views_block_area_15:
-          id: views_block_area_15
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Subject (topical)'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:subject_block'
-        views_block_area_9:
-          id: views_block_area_9
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Subject (geographic)'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:geographic_subject_block'
-        views_block_area_17:
-          id: views_block_area_17
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Contributor'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:linked_agent_collection'
-        views_block_area_2:
-          id: views_block_area_2
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Location'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:location_search'
-        views_block_area_3:
-          id: views_block_area_3
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Date'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:date_col'
-        views_block_area_4:
-          id: views_block_area_4
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: 'Facet - Date Range (collection search)'
-          plugin_id: views_block_area
-          empty: false
-          block_id: 'facet_block:unified_date_col'
+      footer: null
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -460,7 +356,6 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_display_title'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
   rest_export_1:
@@ -813,7 +708,7 @@ display:
           row_class: ''
           default_row_class: true
           canvas_media_term_uri: 'http://pcdm.org/use#ServiceFile'
-          canvas_media_term: '7'
+          canvas_media_term: '40'
       row:
         type: data_field
         options:
@@ -871,7 +766,6 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_display_title'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
   rest_export_2:
@@ -1171,7 +1065,7 @@ display:
           row_class: ''
           default_row_class: true
           canvas_media_term_uri: 'http://pcdm.org/use#ServiceFile'
-          canvas_media_term: '7'
+          canvas_media_term: '40'
       row:
         type: data_field
         options:
@@ -1230,6 +1124,5 @@ display:
         - 'url.query_args:sort_order'
         - 'user.node_grants:view'
       tags:
-        - 'config:field.storage.node.field_display_title'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
