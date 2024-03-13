@@ -38,6 +38,7 @@ dependencies:
     - field.field.node.islandora_object.field_pid
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
+    - field.field.node.islandora_object.field_publisher
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
     - field.field.node.islandora_object.field_subject
@@ -93,7 +94,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_classification:
     type: string
@@ -251,7 +252,7 @@ content:
   field_gemini_uri:
     settings: {  }
     third_party_settings: {  }
-    weight: 41
+    weight: 40
     region: content
   field_genre:
     type: entity_reference_label
@@ -307,7 +308,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 4
+    weight: 3
     region: content
   field_local_identifier:
     type: string
@@ -323,7 +324,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   field_mode_of_issuance:
     type: entity_reference_label
@@ -364,6 +365,14 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_publisher:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_resource_type:
     type: entity_reference_label
     label: inline
@@ -377,7 +386,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 44
+    weight: 41
     region: content
   field_subject:
     type: entity_reference_label
