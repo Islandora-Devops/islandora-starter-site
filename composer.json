@@ -72,7 +72,7 @@
         "drupal/views_field_view": "^1.0@beta",
         "drush/drush": "^12",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
-        "islandora/islandora": "dev-959-iiif-width-height-caching as 2.11.0",
+        "islandora/islandora": "dev-hocr as 2.11.0",
         "islandora/islandora_mirador": "^2",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^2.4",
