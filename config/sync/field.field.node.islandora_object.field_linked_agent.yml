@@ -17,7 +17,7 @@ field_name: field_linked_agent
 entity_type: node
 bundle: islandora_object
 label: Contributors
-description: "Names of entities having some relationship to the resource, and, optionally, the relationship to the resource. If a relationship is not specified, it will be recorded as <a href=\"https://id.loc.gov/vocabulary/relators/att.html\">Attributed Name</a> in the system's linked data representation. <br /> \r\nThis field does not allow creating names of entities on the fly. First create a <a href=\"/admin/structure/taxonomy/manage/person/add\" target=\"_blank\">person</a>, <a href=\"/admin/structure/taxonomy/manage/family/add\" target=\"_blank\">family</a>, or <a href=\"/admin/structure/taxonomy/manage/corporate_body/add\" target=\"_blank\">corporate body</a>, then link it here.<br />\r\nPublisher/manufacturer/distributor/etc. can be recorded here (as a taxonomy term) or in the separate Publisher field (as text) which can be found under \"Publication Details and Dates\". "
+description: "Names of entities having some relationship to the resource, and, optionally, the relationship to the resource. If a relationship is not specified, it will be recorded as <a href=\"https://id.loc.gov/vocabulary/relators/att.html\">Attributed Name</a> in the system's linked data representation. <br /> \r\nThis field does not allow creating names of entities on the fly. First create a <a href=\"/admin/structure/taxonomy/manage/person/add\" target=\"_blank\">person</a>, <a href=\"/admin/structure/taxonomy/manage/family/add\" target=\"_blank\">family</a>, or <a href=\"/admin/structure/taxonomy/manage/corporate_body/add\" target=\"_blank\">corporate body</a>, then link it here.<br />\r\nPublisher should be recorded in the separate \"Publisher\" field (as text) which can be found under the section \"Publication Details and Dates\".  Publication Place can be recorded in \"Country of Publication\" or \"Place Published\" in the same section. "
 required: false
 translatable: false
 default_value: {  }
@@ -238,8 +238,6 @@ settings:
     'relators:pdr': 'Project director'
     'relators:pfr': Proofreader
     'relators:prv': Provider
-    'relators:pup': 'Publication place'
-    'relators:pbl': Publisher
     'relators:pbd': 'Publishing director'
     'relators:ppt': Puppeteer
     'relators:rdd': 'Radio director'

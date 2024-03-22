@@ -228,7 +228,7 @@ field_settings:
       module:
         - taxonomy
   field_publisher:
-    label: Publisher
+    label: 'Publisher (string)'
     datasource_id: 'entity:node'
     property_path: field_publisher
     type: string
@@ -236,7 +236,7 @@ field_settings:
       config:
         - field.storage.node.field_publisher
   field_publisher_fulltext:
-    label: Publisher_fulltext
+    label: Publisher
     datasource_id: 'entity:node'
     property_path: field_publisher
     type: text
@@ -479,6 +479,7 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
+  custom_value: {  }
   edtf_year_only:
     fields:
       islandora_object|field_copyright_date: islandora_object|field_copyright_date

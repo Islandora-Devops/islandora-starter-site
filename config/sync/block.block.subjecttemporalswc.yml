@@ -13,7 +13,7 @@ dependencies:
 id: subjecttemporalswc
 theme: olivero
 region: sidebar
-weight: -1
+weight: -2
 provider: null
 plugin: 'facet_block:subject_temporal_swc'
 settings:
