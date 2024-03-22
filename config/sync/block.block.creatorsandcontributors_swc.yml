@@ -13,7 +13,7 @@ dependencies:
 id: creatorsandcontributors_swc
 theme: olivero
 region: sidebar
-weight: -9
+weight: -12
 provider: null
 plugin: 'facet_block:creators_and_contributors_swc'
 settings:

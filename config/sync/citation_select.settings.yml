@@ -5,9 +5,8 @@ csl_map:
     - abstract
   field_genre:
     - genre
-  field_linked_agent:
+  field_publisher:
     - publisher
-    - author
   field_place_published:
     - publisher-place
   title:
@@ -18,9 +17,10 @@ csl_map:
     - language
   field_edtf_date_issued:
     - issued
+  field_linked_agent:
+    - author
 typed_relation_map:
   'relators:aut': author
   'relators:ctb': contributor
   'relators:edt': editor
-  'relators:pbl': publisher
 reference_type_field_map: {  }

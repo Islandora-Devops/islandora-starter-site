@@ -11,7 +11,7 @@ dependencies:
 id: solrsearchcontentadvancedsearchforpage
 theme: olivero
 region: sidebar
-weight: -16
+weight: -18
 provider: null
 plugin: 'advanced_search_block:solr_search_content__page_1'
 settings:
@@ -23,19 +23,9 @@ settings:
     - title_aggregated_fulltext
     - abstract_description_fulltext
     - linked_agent_name_fulltext
+    - field_publisher_fulltext
   context_filter: null
 visibility:
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
   media_source_mimetype:
     id: media_source_mimetype
     negate: false

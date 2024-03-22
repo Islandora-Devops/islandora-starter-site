@@ -13,7 +13,7 @@ dependencies:
 id: subjectsswc
 theme: olivero
 region: sidebar
-weight: -5
+weight: -6
 provider: null
 plugin: 'facet_block:subjects'
 settings:

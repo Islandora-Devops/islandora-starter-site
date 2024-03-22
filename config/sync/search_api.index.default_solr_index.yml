@@ -17,6 +17,7 @@ dependencies:
     - field.storage.node.field_linked_agent
     - field.storage.node.field_oclc_number
     - field.storage.node.field_physical_form
+    - field.storage.node.field_publisher
     - field.storage.node.field_resource_type
     - field.storage.node.field_rights
     - field.storage.node.field_subject_general
@@ -226,6 +227,22 @@ field_settings:
         - field.storage.node.field_physical_form
       module:
         - taxonomy
+  field_publisher:
+    label: 'Publisher (string)'
+    datasource_id: 'entity:node'
+    property_path: field_publisher
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_publisher
+  field_publisher_fulltext:
+    label: Publisher
+    datasource_id: 'entity:node'
+    property_path: field_publisher
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_publisher
   field_resource_type:
     label: 'Resource Type'
     datasource_id: 'entity:node'
@@ -462,6 +479,7 @@ processor_settings:
     weights:
       preprocess_index: -6
       preprocess_query: -4
+  custom_value: {  }
   edtf_year_only:
     fields:
       islandora_object|field_copyright_date: islandora_object|field_copyright_date
