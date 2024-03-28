@@ -422,9 +422,26 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: none
+        type: full
         options:
           offset: 0
+          items_per_page: 50
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -1102,6 +1119,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 0
       filters:
         islandora_has_media:
           id: islandora_has_media
@@ -1280,7 +1302,6 @@ display:
         - cookie
       displays:
         page_1: page_1
-        page_9: page_9
         default: '0'
         page_2: '0'
         page_3: '0'
@@ -1289,8 +1310,12 @@ display:
         page_6: '0'
         page_7: '0'
         page_8: '0'
-      filename: ''
-      automatic_download: false
+        page_9: '0'
+      filename: missing-extracted-text.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
+      export_limit: 0
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -1899,8 +1924,10 @@ display:
         page_7: '0'
         page_8: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-fits.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -2509,8 +2536,10 @@ display:
         page_7: '0'
         page_8: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-intermediate.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -3119,8 +3148,10 @@ display:
         page_7: '0'
         page_8: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-original.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -3729,8 +3760,10 @@ display:
         page_7: '0'
         page_8: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-preservation-file.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -4339,8 +4372,10 @@ display:
         page_7: '0'
         page_8: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-service-file.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -4949,8 +4984,10 @@ display:
         page_6: '0'
         page_8: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-thumbnail-image.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
@@ -5559,8 +5596,10 @@ display:
         page_6: '0'
         page_7: '0'
         page_9: '0'
-      filename: ''
-      automatic_download: false
+      filename: missing-transcript.csv
+      automatic_download: true
+      export_method: batch
+      export_batch_size: 1000
       store_in_public_file_directory: null
       custom_redirect_path: false
       redirect_to_display: none
