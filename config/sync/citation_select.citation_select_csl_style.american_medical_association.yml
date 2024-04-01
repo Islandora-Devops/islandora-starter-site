@@ -1,9 +1,9 @@
-uuid: 5f9e3133-be0a-4fb6-8fa4-9842e4f765b4
+uuid: 297ddc37-cbcc-4531-b7bf-f2c3bfe08d47
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: PWpxQYdw3OW0popF7vCzlSWdG-rM2ol9apgadLTEo5A
+  default_config_hash: wNL1xLpFMbwMU9Ndpvfu01EbZt4bG90Q2HCRktL-SlI
 id: american_medical_association
 parent: null
 label: 'American Medical Association 10th edition'
@@ -128,9 +128,8 @@ csl: |
     </group>
     </layout>
     </citation>
-    <bibliography hanging-indent="false" et-al-min="7" et-al-use-first="3" second-field-align="flush">
+    <bibliography hanging-indent="false" et-al-min="7" et-al-use-first="3">
     <layout>
-    <text variable="citation-number" suffix=". "/>
     <text macro="author"/>
     <text macro="title" prefix=" " suffix="."/>
     <choose>
@@ -287,3 +286,7 @@ csl: |
 updated: 1588472596
 custom: true
 url_id: 'http://www.zotero.org/styles/american-medical-association-10th-edition'
+override: null
+preview_mode: null
+citekey_pattern: null
+fields: null
