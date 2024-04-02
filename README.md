@@ -24,6 +24,8 @@ tools and services that support it, try one of the Islandora deployment tools:
   * use the `starter` (default) or `starter_dev` option
 * [ISLE-DC](https://github.com/Islandora-Devops/isle-dc) - Docker-based
   * use the `make starter` or `make starter_dev` option
+* [ISLE Site Template](https://github.com/Islandora-Devops/isle-site-template) - Docker-based
+  * The default installation instructions use the Starter Site.
 
 ## Manual Installation
 
