@@ -39,6 +39,7 @@ dependencies:
     - field.field.node.islandora_object.field_pid
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
+    - field.field.node.islandora_object.field_publisher
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
     - field.field.node.islandora_object.field_subject
@@ -71,6 +72,7 @@ content:
     settings:
       prefix: '<strong>'
       suffix: '</strong>'
+      strict: false
     third_party_settings: {  }
     weight: 5
     region: content
@@ -87,7 +89,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_member_of:
     type: entity_reference_label
@@ -103,7 +105,15 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-    weight: 1
+    weight: 0
+    region: content
+  field_publisher:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   islandora_fits_checksum:
     settings: {  }
@@ -113,7 +123,7 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
 hidden:
   did_image: true

@@ -13,7 +13,7 @@ dependencies:
 id: physicalformswc
 theme: olivero
 region: sidebar
-weight: -7
+weight: -8
 provider: null
 plugin: 'facet_block:physical_form_swc'
 settings:
