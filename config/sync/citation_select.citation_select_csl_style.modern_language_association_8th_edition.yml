@@ -1,4 +1,4 @@
-uuid: 5c31d644-11d5-4849-9e86-1ed223910645
+uuid: f31b3a60-569b-4499-b391-7774ada37a97
 langcode: en
 status: true
 dependencies: {  }
@@ -321,3 +321,7 @@ csl: |
 updated: 1570761387
 custom: true
 url_id: 'http://www.zotero.org/styles/modern-language-association'
+override: null
+preview_mode: null
+citekey_pattern: null
+fields: null

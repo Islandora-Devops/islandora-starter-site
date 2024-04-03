@@ -1,4 +1,4 @@
-uuid: d5c49b02-11fc-4938-96e4-cb8fc99e830e
+uuid: 7711a9e9-052b-4812-88bf-d8afa1f74acf
 langcode: en
 status: true
 dependencies: {  }
@@ -668,3 +668,7 @@ csl: |
 updated: 1587925370
 custom: true
 url_id: 'http://www.zotero.org/styles/chicago-author-date-16th-edition'
+override: null
+preview_mode: null
+citekey_pattern: null
+fields: null
