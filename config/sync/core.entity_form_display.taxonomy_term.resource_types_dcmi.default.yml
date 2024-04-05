@@ -1,20 +1,18 @@
-uuid: a9581693-7ee5-4564-b793-c0a045f92068
+uuid: 8149ad70-2a4b-46ee-8d80-6c1dca1a5ea2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.language.field_authority_link
-    - field.field.taxonomy_term.language.field_code
-    - taxonomy.vocabulary.language
+    - field.field.taxonomy_term.resource_types_dcmi.field_authority_link
+    - field.field.taxonomy_term.resource_types_dcmi.field_code
+    - taxonomy.vocabulary.resource_types_dcmi
   module:
     - controlled_access_terms
     - path
     - text
-_core:
-  default_config_hash: C56opIwc14F8xGc0jbrPwVD4KSyLuhoBDfJT-3VUCUw
-id: taxonomy_term.language.default
+id: taxonomy_term.resource_types_dcmi.default
 targetEntityType: taxonomy_term
-bundle: language
+bundle: resource_types_dcmi
 mode: default
 content:
   description:
@@ -58,20 +56,15 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 6
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  translation:
-    weight: 5
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden: {  }

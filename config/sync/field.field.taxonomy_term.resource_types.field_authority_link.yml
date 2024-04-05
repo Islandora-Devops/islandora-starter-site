@@ -21,7 +21,6 @@ default_value: {  }
 default_value_callback: ''
 settings:
   authority_sources:
-    dcmi_types: 'DCMI Type Vocabulary'
     marc_resource_types: 'MARC Resource Types'
     resourceTypes: 'Library of Congress Resource Types Scheme'
     bibo: 'Bibliographic Ontology'

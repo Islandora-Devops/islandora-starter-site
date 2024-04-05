@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.issuance_modes.field_authority_link
+    - field.field.taxonomy_term.issuance_modes.field_code
     - taxonomy.vocabulary.issuance_modes
   module:
     - controlled_access_terms
@@ -32,9 +33,17 @@ content:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_code:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 3
+    weight: 4
     region: content
     settings:
       include_locked: true
@@ -49,19 +58,19 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   translation:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

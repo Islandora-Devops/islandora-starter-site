@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.country.field_authority_link
+    - field.field.taxonomy_term.country.field_code
     - taxonomy.vocabulary.country
   module:
     - controlled_access_terms
@@ -17,31 +18,39 @@ bundle: country
 mode: default
 content:
   description:
-    type: text_textfield
-    weight: 0
+    type: text_textarea
+    weight: 1
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_authority_link:
     type: authority_link_default
-    weight: 31
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
+  field_code:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 4
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -49,19 +58,19 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 100
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   translation:
-    weight: 10
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,3 +1,4 @@
+uuid: 9728970a-1090-4d28-8c31-7b08e10d065e
 langcode: en
 status: true
 dependencies: {  }
@@ -11,7 +12,7 @@ migration_group: islandora
 label: 'Extra vocabularies migration for Islandora Starter Site'
 source:
   plugin: csv
-  path: ../assets/migrate/extra_vocabs.csv
+  path: ../assets/migrate/extra-vocabs.csv
   header_row_count: 1
   ids:
     - name
