@@ -482,10 +482,10 @@ processor_settings:
   custom_value: {  }
   edtf_year_only:
     fields:
-      islandora_object|field_copyright_date: islandora_object|field_copyright_date
-      islandora_object|field_edtf_date: islandora_object|field_edtf_date
-      islandora_object|field_edtf_date_created: islandora_object|field_edtf_date_created
-      islandora_object|field_edtf_date_issued: islandora_object|field_edtf_date_issued
+      node|islandora_object|field_copyright_date: node|islandora_object|field_copyright_date
+      node|islandora_object|field_edtf_date: node|islandora_object|field_edtf_date
+      node|islandora_object|field_edtf_date_created: node|islandora_object|field_edtf_date_created
+      node|islandora_object|field_edtf_date_issued: node|islandora_object|field_edtf_date_issued
     ignore_undated: 1
     ignore_open_start: 0
     open_start_year: '0'
