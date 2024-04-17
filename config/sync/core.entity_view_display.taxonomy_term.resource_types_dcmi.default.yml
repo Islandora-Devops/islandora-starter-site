@@ -1,19 +1,17 @@
-uuid: 57071666-556f-4543-bb9e-b02abb3cb512
+uuid: 2bf49a7d-4a90-4cf2-8e7b-d7106dab5fc7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.frequencies.field_authority_link
-    - field.field.taxonomy_term.frequencies.field_code
-    - taxonomy.vocabulary.frequencies
+    - field.field.taxonomy_term.resource_types_dcmi.field_authority_link
+    - field.field.taxonomy_term.resource_types_dcmi.field_code
+    - taxonomy.vocabulary.resource_types_dcmi
   module:
     - controlled_access_terms
     - text
-_core:
-  default_config_hash: 7VmnAl6W-srQIwcGpbYTMLkwd9fRlf3lhPvjTmbC1Y8
-id: taxonomy_term.frequencies.default
+id: taxonomy_term.resource_types_dcmi.default
 targetEntityType: taxonomy_term
-bundle: frequencies
+bundle: resource_types_dcmi
 mode: default
 content:
   description:

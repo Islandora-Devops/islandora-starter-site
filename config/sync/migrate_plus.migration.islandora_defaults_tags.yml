@@ -33,6 +33,11 @@ process:
     plugin: urlencode
     source: external_uri
   field_authority_link/source: authority_link_source
+  field_code:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: code
   parent:
     -
       plugin: skip_on_empty
