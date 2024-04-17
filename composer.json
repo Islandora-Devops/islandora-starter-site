@@ -10,14 +10,6 @@
     },
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/discoverygarden/islandora_hocr.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Born-Digital-US/islandora_iiif_hocr.git"
-        },
-        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
@@ -60,6 +52,7 @@
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.8.1",
         "drupal/islandora_mirador": "^2",
+        "drupal/matomo": "^1.19",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",
