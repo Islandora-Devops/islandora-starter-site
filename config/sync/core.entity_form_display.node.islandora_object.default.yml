@@ -39,6 +39,7 @@ dependencies:
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
     - field.field.node.islandora_object.field_publisher
+    - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
     - field.field.node.islandora_object.field_subject
@@ -53,6 +54,7 @@ dependencies:
     - controlled_access_terms
     - field_group
     - geolocation
+    - media_library
     - path
     - text
 third_party_settings:
@@ -61,6 +63,7 @@ third_party_settings:
       children:
         - field_member_of
         - field_weight
+        - field_representative_image
         - field_viewer_override
         - langcode
         - translation
@@ -611,6 +614,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_representative_image:
+    type: media_library_widget
+    weight: 16
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_resource_type:
     type: options_select
     weight: 9
@@ -681,7 +691,7 @@ content:
     third_party_settings: {  }
   field_weight:
     type: number
-    weight: 16
+    weight: 15
     region: content
     settings:
       placeholder: ''
