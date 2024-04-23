@@ -90,8 +90,8 @@ module:
   path: 0
   path_alias: 0
   pdf: 0
-  prepopulate: 0
   pgsql: 0
+  prepopulate: 0
   rdf: 0
   responsive_image: 0
   rest: 0
