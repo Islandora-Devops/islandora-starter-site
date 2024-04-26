@@ -125,10 +125,16 @@
                 "type:drupal-custom-theme"
             ]
         },
-        "patches": {}
+        "patches": {
+            "drupal/flysystem": {
+                "PHP 8.2 deprecation warning": "assets/patches/flysystem-3387094-1-2.1.0-rc6-1.patch"
+            }
+        }
     },
     "scripts": {
-        "post-root-package-install": ["Islandora\\StarterSite::rootPackageInstall"]
+        "post-root-package-install": [
+            "Islandora\\StarterSite::rootPackageInstall"
+        ]
     },
     "require-dev": {
         "drupal/config_inspector": "^2.1",
