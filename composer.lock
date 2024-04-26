@@ -2098,17 +2098,17 @@
         },
         {
             "name": "drupal/controlled_access_terms",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/controlled_access_terms.git",
-                "reference": "2.4.0"
+                "reference": "2.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/controlled_access_terms-2.4.0.zip",
-                "reference": "2.4.0",
-                "shasum": "1b65cf1990923ae79e947d6fc16d1a056591252e"
+                "url": "https://ftp.drupal.org/files/projects/controlled_access_terms-2.4.1.zip",
+                "reference": "2.4.1",
+                "shasum": "4197c75a67c59f9f4fbac0ba03848b118f438923"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -2134,8 +2134,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.4.0",
-                    "datestamp": "1711184429",
+                    "version": "2.4.1",
+                    "datestamp": "1713982994",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12263,5 +12263,5 @@
         "php": "^7.4 || ^8"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
