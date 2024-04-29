@@ -126,7 +126,7 @@
             ]
         },
         "patches": {
-            "drupal/flysystem": {
+            "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
             }
         }
