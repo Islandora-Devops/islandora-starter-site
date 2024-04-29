@@ -127,7 +127,7 @@
         },
         "patches": {
             "drupal/flysystem": {
-                "PHP 8.2 deprecation warning": "assets/patches/flysystem-3387094-1-2.1.0-rc6-1.patch"
+                "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
             }
         }
     },
