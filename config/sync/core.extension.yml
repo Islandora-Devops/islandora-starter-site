@@ -76,6 +76,7 @@ module:
   link: 0
   matomo: 0
   media: 0
+  media_library: 0
   menu_link_content: 0
   menu_ui: 0
   migrate: 0
@@ -117,6 +118,7 @@ module:
   views_field_view: 0
   views_nested_details: 0
   views_ui: 0
+  pathauto: 1
   content_translation: 10
   views: 10
   minimal: 1000

@@ -20,7 +20,7 @@ conditions:
     uuid: 79121791-57c8-47e5-89a2-27ee1884cc6e
     context_mapping:
       node: '@node.node_route_context:node'
-    uri: 'http://openseadragon.github.io,http://mozilla.github.io/pdf.js'
+    uri: 'http://openseadragon.github.io,http://mozilla.github.io/pdf.js,https://projectmirador.org'
     logic: or
 reactions:
   blocks:
