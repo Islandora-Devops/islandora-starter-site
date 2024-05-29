@@ -1257,7 +1257,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/content/node
+    path: admin/content/node
       menu:
         type: 'default tab'
         title: Content
