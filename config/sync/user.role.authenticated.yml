@@ -9,7 +9,6 @@ dependencies:
     - comment
     - contact
     - filter
-    - matomo
     - media
     - rest
     - shortcut
@@ -25,7 +24,6 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'opt-in or out of matomo tracking'
   - 'post comments'
   - 'restful get oai_pmh'
   - 'skip comment approval'

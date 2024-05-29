@@ -402,18 +402,7 @@ display:
             value: "<h2>Top-Level Collections</h2>\r\n<p> Islandora provides you with tools to flexibly designate content into one or more collections. These collections can also be nested within each other, and items can belong to more than one collection. This view shows every collection that is not a member of another collection, which is why we are calling them \"top-level\" collections </p>"
             format: basic_html
           tokenize: false
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -432,18 +421,7 @@ display:
       title: '<blank>'
       defaults:
         title: false
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       path: collections
     cache_metadata:
       max-age: -1

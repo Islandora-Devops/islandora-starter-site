@@ -2029,18 +2029,7 @@ display:
             use_serializer_encode_only: false
       defaults:
         fields: false
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       path: admin/content/media/csv
       auth:
         - basic_auth
@@ -2076,18 +2065,7 @@ display:
     position: 1
     display_options:
       display_description: ''
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       path: admin/content/media
       menu:
         type: tab
