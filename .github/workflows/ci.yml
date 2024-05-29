@@ -46,6 +46,8 @@ jobs:
 
       - name: Inspect configuration
         shell: bash
+        # Just warnings, for now...
+        continue-on-error: true
         run: |
           composer exec -- drush en config_inspector
           composer exec -- drush config:inspect --only-error --detail

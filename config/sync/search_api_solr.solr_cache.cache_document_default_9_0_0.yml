@@ -14,4 +14,4 @@ cache:
   size: 512
   initialSize: 512
   autowarmCount: 0
-solr_configs: null
+solr_configs: { }

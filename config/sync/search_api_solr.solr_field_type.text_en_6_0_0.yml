@@ -164,7 +164,7 @@ unstemmed_field_type:
           class: solr.LowerCaseFilterFactory
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
-spellcheck_field_type: null
+spellcheck_field_type: { }
 collated_field_type:
   name: collated_en
   class: solr.ICUCollationField
