@@ -450,11 +450,11 @@ display:
             field_media_image: field_media_image
             field_media_file: '0'
           iiif_ocr_file_field:
-            field_media_file: 0
-            field_media_image: 0
-          structured_text_term: '56'
-          search_endpoint: paged-content-search/%node
+            field_media_file: '0'
+            field_media_image: '0'
           structured_text_term_uri: 'https://discoverygarden.ca/use#hocr'
+          search_endpoint: paged-content-search/%node
+          structured_text_term: '56'
       row:
         type: data_field
         options:
@@ -586,11 +586,11 @@ display:
             field_media_image: field_media_image
             field_media_file: '0'
           iiif_ocr_file_field:
-            field_media_file: 0
-            field_media_image: 0
-          structured_text_term: '56'
-          search_endpoint: single-page-content-search/%node
+            field_media_file: '0'
+            field_media_image: '0'
           structured_text_term_uri: 'https://discoverygarden.ca/use#hocr'
+          search_endpoint: single-page-content-search/%node
+          structured_text_term: '56'
       row:
         type: data_field
         options:
@@ -663,11 +663,11 @@ display:
             field_media_file: field_media_file
             field_media_image: '0'
           iiif_ocr_file_field:
-            field_media_file: 0
-            field_media_image: 0
-          structured_text_term: '56'
-          search_endpoint: paged-content-search/%node
+            field_media_file: '0'
+            field_media_image: '0'
           structured_text_term_uri: 'https://discoverygarden.ca/use#hocr'
+          search_endpoint: paged-content-search/%node
+          structured_text_term: '56'
       row:
         type: data_field
         options:

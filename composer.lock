@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a1d6b4bb0100a89e642552dbf9ff4d1",
+    "content-hash": "6a63947955a4e1b16a2acccbe3929467",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -12410,7 +12410,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "born-digital/islandora_iiif_hocr": 20,
         "drupal/advanced_search": 10,
         "drupal/citation_select": 10,
         "drupal/config_update": 15,
