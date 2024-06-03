@@ -28,7 +28,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8",
-        "born-digital/islandora_iiif_hocr": "^2@dev",
+        "born-digital/islandora_iiif_hocr": "^2",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
