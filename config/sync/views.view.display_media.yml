@@ -269,18 +269,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'Best quality representation of the Object appropriate for long-term preservation.'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       entity_type: node
       bundles: {  }
       show_title: false
@@ -376,18 +365,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'The thumbnail file, formatted small.'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       entity_type: node
       bundles: {  }
       show_title: false
@@ -482,18 +460,7 @@ display:
         filter_groups: false
       display_description: 'The original creation format of a file'
       show_admin_links: false
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       entity_type: node
       bundles: {  }
       show_title: false
@@ -657,18 +624,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'A low resolution image representation of the Object appropriate for using as an icon.'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       entity_type: node
       bundles: {  }
       show_title: false

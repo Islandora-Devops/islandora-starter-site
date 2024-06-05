@@ -262,18 +262,7 @@ display:
         style: false
         row: false
       display_description: ''
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       block_description: 'Media Display - OpenSeadragon - Service File with fallback to Original'
     cache_metadata:
       max-age: -1
@@ -362,18 +351,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'Used as a fallback'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       block_description: 'Media Display - OpenSeadragon - Original File'
     cache_metadata:
       max-age: -1
@@ -414,18 +392,7 @@ display:
         style: false
         row: false
       display_description: ''
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       block_description: 'Media Display - PDFjs - Service File with fallback to Original'
     cache_metadata:
       max-age: -1
@@ -514,18 +481,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'Used as a fallback'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       block_description: 'Media Display - PDFjs - Original File'
     cache_metadata:
       max-age: -1
@@ -542,18 +498,7 @@ display:
     position: 1
     display_options:
       display_description: ''
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       block_description: 'Media Display - Source - Service file with fallback to Original'
     cache_metadata:
       max-age: -1
@@ -632,18 +577,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'Used as a fallback'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
       block_description: 'Media Display - Source - Original File'
     cache_metadata:
       max-age: -1

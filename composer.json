@@ -49,7 +49,6 @@
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.8.1",
-        "drupal/matomo": "^1.19",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",

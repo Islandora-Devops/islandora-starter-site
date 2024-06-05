@@ -30,7 +30,7 @@ tools and services that support it, try one of the Islandora deployment tools:
 ## Manual Installation
 
 The config files in the Starter Site assume a full suite of external services.
-If you do not need all the external services (such as Fedora or Matomo) then
+If you do not need all the external services (such as Fedora) then
 you can skip them but you will also want to adjust the Drupal configs. Such a
 partial install is beyond the scope of this document.
 
@@ -69,12 +69,10 @@ If not the default `tcp://127.0.0.1:61613`, this will have to be set (see Usage 
 | `islandora-connector-fits`                | CrayFits derivative processor                              |
 
 7. A [Drupal-compatible web server](https://www.drupal.org/docs/system-requirements/web-server-requirements)
-8. A [Matomo installation](https://matomo.org/)
-    * Further details in the [`matomo` module's](https://www.drupal.org/project/matomo) documentation
-9. [FITS Web Service](https://projects.iq.harvard.edu/fits/downloads#fits-servlet) and
+8. [FITS Web Service](https://projects.iq.harvard.edu/fits/downloads#fits-servlet) and
 [CrayFits](https://github.com/roblib/CrayFits) installed
     * Further details in the [`islandora_fits` module's](https://github.com/roblib/islandora_fits) README/documentation
-10. A Solr server installed or available with a core set up
+9. A Solr server installed or available with a core set up
     * Further details on [Drupal's Search API Solr module](https://www.drupal.org/project/search_api_solr) page.
     * If not available at `127.0.0.1:8983`, or if the core name is not `ISLANDORA` its information will need to be set up (see Usage step 5)
 
@@ -133,7 +131,6 @@ Change the following Drupal configs to your values using any method (GUI,
 | ActiveMQ (broker)               | `islandora.settings broker_url`       | `tcp://127.0.0.1:61613`                   |
 | Cantaloupe (for OpenSeadragon)  | `openseadragon.settings iiif_server`  | `http://127.0.0.1:8080/cantaloupe/iiif/2` |
 | Cantaloupe (for Islandora IIIF) | `islandora_iiif.settings iiif_server` | `http://127.0.0.1:8080/cantaloupe/iiif/2` |
-| Matomo URL                      | `matomo.settings url_http`            | `http://localhost:8000/matomo/`           |
 | Solr - URL                      | `search_api.server.default_solr_server backend_config.connector_config.host` | `127.0.0.1` |
 | Solr - port                     | `search_api.server.default_solr_server backend_config.connector_config.port` | `8983` |
 | Solr - core name                | `search_api.server.default_solr_server backend_config.connector_config.core` | `ISLANDORA` |
