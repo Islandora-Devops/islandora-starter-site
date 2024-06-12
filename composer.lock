@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "1c657b3b610439a25f9983fa0f4990d7",
+
     "packages": [
         {
             "name": "adci/full-name-parser",
