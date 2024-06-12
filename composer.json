@@ -48,7 +48,9 @@
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
-        "drupal/islandora": "^2.8.1",
+        "drupal/islandora": "^2.12",
+        "drupal/islandora_mirador": "^2.3",
+        "drupal/matomo": "^1.19",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",
@@ -61,8 +63,6 @@
         "drupal/views_field_view": "^1.0@beta",
         "drush/drush": "^12",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
-        "islandora/islandora": "^2.8.1",
-        "islandora/islandora_mirador": "^2",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^2.4",
         "mjordan/islandora_workbench_integration": "dev-main"
@@ -93,6 +93,11 @@
                     "mode": "append",
                     "default": "web/core/assets/scaffold/files/default.settings.php",
                     "append": "assets/patches/default_settings.txt"
+                },
+                "[web-root]/core/themes/olivero/olivero.theme": {
+                    "mode": "append",
+                    "default": "web/core/themes/olivero/olivero.theme",
+                    "append": "assets/patches/olivero.theme"
                 }
             }
         },
