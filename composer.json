@@ -48,6 +48,7 @@
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
+
         "drupal/islandora": "^2.12",
         "drupal/islandora_mirador": "^2.3",
         "drupal/matomo": "^1.19",
