@@ -93,11 +93,6 @@
                     "mode": "append",
                     "default": "web/core/assets/scaffold/files/default.settings.php",
                     "append": "assets/patches/default_settings.txt"
-                },
-                "[web-root]/core/themes/olivero/olivero.theme": {
-                    "mode": "append",
-                    "default": "web/core/themes/olivero/olivero.theme",
-                    "append": "assets/patches/olivero.theme"
                 }
             }
         },
