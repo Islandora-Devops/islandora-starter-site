@@ -310,18 +310,7 @@ display:
           search_fields:
             title: title
       display_description: ''
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -398,18 +387,7 @@ display:
       defaults:
         arguments: false
       display_description: 'All items with collections grouped into a sets per collection they belong to.'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -567,18 +545,7 @@ display:
         filters: false
         filter_groups: false
       display_description: 'Set of items that do not belong to any Collection, to be used with Collection Sets.'
-      display_extenders:
-        matomo:
-          enabled: false
-          keyword_gets: ''
-          keyword_behavior: first
-          keyword_concat_separator: ' '
-          category_behavior: none
-          category_gets: ''
-          category_concat_separator: ' '
-          category_fallback: ''
-          category_facets: {  }
-          category_facets_concat_separator: ', '
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
