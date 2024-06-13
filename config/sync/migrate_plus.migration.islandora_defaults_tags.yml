@@ -18,7 +18,7 @@ source:
   path: ../assets/migrate/tags.csv
   header_row_count: 1
   ids:
-    - name
+    - id
 process:
   name: name
   vid: vid
