@@ -15,4 +15,4 @@ cache:
   initialSize: 0
   autowarmCount: 10
   regenerator: solr.NoOpRegenerator
-solr_configs: { }
+solr_configs: {  }

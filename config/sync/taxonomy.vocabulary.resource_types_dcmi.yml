@@ -6,3 +6,4 @@ name: 'Resource Types (DCMI)'
 vid: resource_types_dcmi
 description: 'The DCMI Type Vocabulary'
 weight: 0
+new_revision: false

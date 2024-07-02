@@ -8,7 +8,6 @@ dependencies:
     - field.storage.node.field_resource_type
     - search_api.index.default_solr_index
   module:
-    - advanced_search
     - dgi_image_discovery
     - media
     - search_api
@@ -759,6 +758,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:

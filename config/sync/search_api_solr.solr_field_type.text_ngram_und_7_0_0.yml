@@ -70,8 +70,8 @@ field_type:
           class: solr.LowerCaseFilterFactory
         -
           class: solr.RemoveDuplicatesTokenFilterFactory
-unstemmed_field_type: { }
-spellcheck_field_type: { }
-collated_field_type: { }
+unstemmed_field_type: {  }
+spellcheck_field_type: {  }
+collated_field_type: {  }
 solr_configs: {  }
 text_files: {  }

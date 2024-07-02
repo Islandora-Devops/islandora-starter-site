@@ -28,4 +28,4 @@ request_handler:
         -
           name: timeAllowed
           VALUE: '${solr.mlt.timeAllowed:2000}'
-solr_configs: { }
+solr_configs: {  }

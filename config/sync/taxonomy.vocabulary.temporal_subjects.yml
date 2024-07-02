@@ -8,3 +8,4 @@ name: 'Temporal Subjects'
 vid: temporal_subjects
 description: 'Subject terms expressing periods of time'
 weight: 0
+new_revision: false
