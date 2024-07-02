@@ -8,3 +8,4 @@ name: 'Resource Types (LC)'
 vid: resource_types
 description: 'The LC Resource Types vocabulary. '
 weight: 0
+new_revision: false

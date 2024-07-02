@@ -25,4 +25,4 @@ request_handler:
         -
           name: pollInterval
           VALUE: '${solr.replication.pollInterval:00:00:60}'
-solr_configs: { }
+solr_configs: {  }

@@ -32,4 +32,4 @@ request_handler:
       str:
         -
           VALUE: suggest
-solr_configs: { }
+solr_configs: {  }

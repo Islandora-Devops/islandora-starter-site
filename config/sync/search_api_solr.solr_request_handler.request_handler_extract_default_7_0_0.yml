@@ -32,4 +32,4 @@ request_handler:
         -
           name: fmap.div
           VALUE: ignored_
-solr_configs: { }
+solr_configs: {  }

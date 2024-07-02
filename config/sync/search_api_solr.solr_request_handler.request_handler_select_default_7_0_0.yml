@@ -42,4 +42,4 @@ request_handler:
           VALUE: spellcheck
         -
           VALUE: elevator
-solr_configs: { }
+solr_configs: {  }
