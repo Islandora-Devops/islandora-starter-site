@@ -12,4 +12,4 @@ gemini_pseudo_bundles:
   'file:media': 'file:media'
   'image:media': 'image:media'
   'video:media': 'video:media'
-redirect_after_media_save: false
+redirect_after_media_save: true
