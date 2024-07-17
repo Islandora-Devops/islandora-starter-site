@@ -42,7 +42,7 @@ jobs:
 
       - name: Test site installation
         shell: bash
-        run: composer exec -- drush site:install --existing-config --db-url=sqlite:test_db
+        run: composer exec -- drush site:install --existing-config --db-url=sqlite://test_db
 
       - name: Inspect configuration
         shell: bash
