@@ -28,4 +28,4 @@ request_handler:
         -
           name: confFiles
           VALUE: '${solr.replication.confFiles:schema.xml,schema_extra_types.xml,schema_extra_fields.xml,elevate.xml}'
-solr_configs: { }
+solr_configs: {  }

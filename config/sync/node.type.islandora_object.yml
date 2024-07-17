@@ -14,7 +14,7 @@ _core:
 name: 'Repository Item'
 type: islandora_object
 description: 'An item in your Islandora repository.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

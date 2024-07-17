@@ -28,4 +28,4 @@ request_handler:
         -
           name: df
           VALUE: id
-solr_configs: { }
+solr_configs: {  }
