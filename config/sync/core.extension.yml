@@ -53,6 +53,7 @@ module:
   hal: 0
   help: 0
   history: 0
+  html_title: 0
   image: 0
   islandora: 0
   islandora_audio: 0

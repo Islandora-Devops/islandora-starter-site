@@ -20,6 +20,7 @@ dependencies:
     - search_api.index.default_solr_index
   module:
     - controlled_access_terms
+    - html_title
     - search_api
     - text
 id: oai_pmh_item_data
@@ -172,7 +173,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: html_title
           settings:
             link_to_entity: false
           group_column: value
@@ -1566,6 +1567,7 @@ display:
         type: mini
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 1
           total_pages: null
           id: 0
@@ -1580,7 +1582,6 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:

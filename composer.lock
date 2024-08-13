@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58a8377f401d0f4b64c339bcb672cb1d",
+    "content-hash": "5ffd0658b69240b96aa4cc1e5fb953b0",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -3394,6 +3394,54 @@
             "homepage": "https://www.drupal.org/project/hal",
             "support": {
                 "source": "https://git.drupalcode.org/project/hal"
+            }
+        },
+        {
+            "name": "drupal/html_title",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/html_title.git",
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/html_title-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "256ee5a97d19b2b4e5d94cb1deed47e033b3d6fd"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.5",
+                    "datestamp": "1705876402",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "generalredneck",
+                    "homepage": "https://www.drupal.org/user/368854"
+                },
+                {
+                    "name": "JeroenT",
+                    "homepage": "https://www.drupal.org/user/2228934"
+                }
+            ],
+            "description": "Enables limited HTML markup in node titles.",
+            "homepage": "https://www.drupal.org/project/html_title",
+            "support": {
+                "source": "https://git.drupalcode.org/project/html_title"
             }
         },
         {

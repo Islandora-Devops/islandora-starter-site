@@ -48,6 +48,7 @@
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
+        "drupal/html_title": "^1.5",
         "drupal/islandora": "^2.8.1",
         "drupal/islandora_mirador": "^2",
         "drupal/openseadragon": "^2",
