@@ -8,4 +8,4 @@ name: 'Islandora Media Use'
 vid: islandora_media_use
 description: 'Terms to define how a media object is to be used.'
 weight: 0
-new_revision: false
+new_revision: true
