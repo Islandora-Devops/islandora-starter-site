@@ -52,7 +52,6 @@
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.12.3",
         "drupal/islandora_mirador": "^2",
-        "drupal/matomo": "^1.19",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",
@@ -89,7 +88,15 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[web-root]/sites/default/settings.php": {
+                    "mode": "append",
+                    "default": "web/core/assets/scaffold/files/default.settings.php",
+                    "append": "assets/patches/default_settings.txt"
+                }
             }
+
         },
         "installer-paths": {
             "web/core": [
