@@ -1,0 +1,11 @@
+#!/bin/bash
+
+drush site:install minimal --account-name=islandora --account-pass=islandora --existing-config -y
+
+drush cache:rebuild
+drush config:import -y
+
+drush cache:rebuild
+drush -y migrate:import --userid=1 --tag=islandora
+
+drush cache:rebuild
