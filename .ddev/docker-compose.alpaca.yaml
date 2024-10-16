@@ -1,0 +1,30 @@
+---
+services:
+  alpaca:
+    container_name: ddev-${DDEV_SITENAME}-alpaca
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/alpaca:${ISLANDORA_DOCKER_IMAGE_TAG}
+    expose:
+      - 8181
+      - 11213
+    depends_on:
+      - activemq
+      - crayfish-homarus
+      - crayfish-houdini
+      - crayfish-hypercube
+    environment:
+      ALPACA_JMS_URL: tcp://ddev-${DDEV_SITENAME}-activemq:61616
+      ALPACA_DERIVATIVE_HOMARUS_URL: http://ddev-${DDEV_SITENAME}-crayfish-homarus/homarus/convert
+      ALPACA_DERIVATIVE_HOUDINI_URL: http://ddev-${DDEV_SITENAME}-crayfish-houdini/houdini/convert
+      ALPACA_DERIVATIVE_OCR_URL: http://ddev-${DDEV_SITENAME}-crayfish-hypercube/hypercube
+      ALPACA_DERIVATIVE_FITS_URL: http://ddev-${DDEV_SITENAME}-crayfish-crayfits/
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+    volumes:
+      - ddev-global-cache:/mnt/ddev-global-cache
+      - ./scripts/trust-certs:/usr/bin/trust-certs
+    secrets:
+      - ALPACA_ACTIVEMQ_PASSWORD
+      - ALPACA_KARAF_ADMIN_PASSWORD

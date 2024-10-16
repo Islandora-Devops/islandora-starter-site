@@ -1,0 +1,18 @@
+services:
+  crayfish-fits: &base
+    container_name: ddev-${DDEV_SITENAME}-crayfish-fits
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/fits:${ISLANDORA_DOCKER_IMAGE_TAG}
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+    volumes:
+      - ddev-global-cache:/mnt/ddev-global-cache
+      - ./scripts/trust-certs:/usr/bin/trust-certs
+  crayfish-crayfits:
+    << : *base
+    container_name: ddev-${DDEV_SITENAME}-crayfish-crayfits
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/crayfits:${ISLANDORA_DOCKER_IMAGE_TAG}
+    depends_on:
+      - crayfish-fits

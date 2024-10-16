@@ -1,0 +1,27 @@
+services:
+  crayfish-homarus: &base_crayfish
+    container_name: ddev-${DDEV_SITENAME}-crayfish-homarus
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/homarus:${ISLANDORA_DOCKER_IMAGE_TAG}
+    secrets:
+      - JWT_ADMIN_TOKEN
+      - JWT_PUBLIC_KEY
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+    volumes:
+      - ddev-global-cache:/mnt/ddev-global-cache
+      - ./scripts/trust-certs:/usr/bin/trust-certs
+  crayfish-houdini:
+    << : *base_crayfish
+    container_name: ddev-${DDEV_SITENAME}-crayfish-houdini
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/houdini:${ISLANDORA_DOCKER_IMAGE_TAG}
+  crayfish-hypercube:
+    << : *base_crayfish
+    container_name: ddev-${DDEV_SITENAME}-crayfish-hypercube
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/hypercube:${ISLANDORA_DOCKER_IMAGE_TAG}
+  crayfish-milliner:
+    << : *base_crayfish
+    container_name: ddev-${DDEV_SITENAME}-crayfish-milliner
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/milliner:${ISLANDORA_DOCKER_IMAGE_TAG}

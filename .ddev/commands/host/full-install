@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+## Description: Runs all the commands required to install a drupal site.
+## Usage: full-install
+
+set -e
+
+ddev auth ssh
+ddev start
+ddev composer install
+ddev install-site
+ddev launch

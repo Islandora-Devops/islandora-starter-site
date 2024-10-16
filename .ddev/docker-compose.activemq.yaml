@@ -1,0 +1,23 @@
+---
+volumes:
+  activemq-data:
+services:
+  activemq:
+    container_name: "ddev-${DDEV_SITENAME}-activemq"
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/activemq:${ISLANDORA_DOCKER_IMAGE_TAG}
+    restart: unless-stopped
+    volumes:
+      - activemq-data:/opt/activemq/data
+    expose:
+      - "8161"
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTP_EXPOSE=8161:8161
+    secrets:
+      - ACTIVEMQ_PASSWORD
+      - ACTIVEMQ_WEB_ADMIN_PASSWORD
