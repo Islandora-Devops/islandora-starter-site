@@ -5,6 +5,8 @@ drush site:install minimal --account-name=islandora --account-pass=islandora --e
 drush cache:rebuild
 drush config:import -y
 
+drush user:role:add fedoraadmin admin
+
 drush cache:rebuild
 drush -y migrate:import --userid=1 --tag=islandora
 
