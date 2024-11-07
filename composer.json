@@ -130,9 +130,6 @@
             },
             "drupal/flysystem": {
                 "required_derivative_scheme https://www.drupal.org/project/flysystem/issues/3457193": "https://www.drupal.org/files/issues/2024-07-01/3378738-1.patch"
-            },
-            "drupal/advanced_search": {
-               "set session": "https://patch-diff.githubusercontent.com/raw/Islandora/advanced_search/pull/52.patch"
             }
         }
     },
