@@ -7,7 +7,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build:
+  ubuntu-test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -52,7 +52,7 @@ jobs:
           composer exec -- drush en config_inspector
           composer exec -- drush config:inspect --only-error --detail
 
-  integration-test:
+  isle-test:
     runs-on: ubuntu-latest
     name: ISLE site template
     steps:
