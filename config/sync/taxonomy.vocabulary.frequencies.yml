@@ -8,4 +8,4 @@ name: Frequency
 vid: frequencies
 description: 'Terms to express publication frequency'
 weight: 0
-new_revision: false
+new_revision: true

@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ 8.1, 8.2, 8.3 ]
+        php-versions: [ 8.2, 8.3 ]
 
     name: PHP ${{ matrix.php-versions }}
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Test site installation
         shell: bash
-        run: composer exec -- drush site:install --existing-config --db-url=sqlite:test_db
+        run: composer exec -- drush site:install --existing-config --db-url=sqlite://sites/test_db
 
       - name: Inspect configuration
         shell: bash
