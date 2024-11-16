@@ -6,6 +6,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      # to pickup security releases on wednesdays
+      # https://www.drupal.org/drupal-security-team/security-release-numbers-and-release-timing#s-release-timing
       day: "thursday"
     versioning-strategy: increase-if-necessary
     allow:
