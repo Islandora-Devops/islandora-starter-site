@@ -6,12 +6,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      # to pickup security releases on wednesdays
+      # pickup security releases on wednesdays
       # https://www.drupal.org/drupal-security-team/security-release-numbers-and-release-timing#s-release-timing
       day: "thursday"
     versioning-strategy: increase-if-necessary
     allow:
       - dependency-name: "drupal/*"
+      - dependency-name: "drush/drush"
       - dependency-name: "islandora-rdm/islandora_fits"
       - dependency-name: "islandora/views_nested_details"
       - dependency-name: "mjordan/islandora_workbench_integration"
