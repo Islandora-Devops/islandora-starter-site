@@ -1,1 +1,3 @@
 $settings['config_sync_directory'] = '../config/sync';
+$config['islandora.settings']['broker_url'] = getenv('ISLANDORA_STARTER_SITE_BROKER_URL') ?: 'tcp://activemq:61613';
+$config['search_api.server.default_solr_server']['backend_config']['connector_config']['host'] = getenv('ISLANDORA_STARTER_SITE_SOLR_HOST') ?: 'solr';

@@ -29,10 +29,21 @@ nodejs_version: "16"
 
 hooks:
   post-start:
-    - exec: "cp assets/sites/default/* web/sites/default"
+    #- exec: "cp assets/sites/default/* web/sites/default"
+    - exec: trust-certs
+      service: alpaca
+    - exec: trust-certs
+      service: crayfish-crayfits
+    - exec: trust-certs
+      service: crayfish-fits
     - exec: trust-certs
       service: crayfish-homarus
-    - exec-host: docker exec -u root ddev-$DDEV_PROJECT-alpaca trust-certs
+    - exec: trust-certs
+      service: crayfish-houdini
+    - exec: trust-certs
+      service: crayfish-hypercube
+    - exec: trust-certs
+      service: crayfish-milliner
 
 webimage_extra_packages:
 #    - poppler-utils

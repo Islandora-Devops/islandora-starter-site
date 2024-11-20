@@ -1,0 +1,6 @@
+---
+services:
+  web:
+    secrets:
+      - source: JWT_PRIVATE_KEY
+        target: /opt/islandora/auth/private.key

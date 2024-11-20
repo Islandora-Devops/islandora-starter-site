@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+CERT="/mnt/ddev-global-cache/mkcert/rootCA.pem"
+if [ -f "$CERT" ]; then
+  cp $CERT /usr/local/share/ca-certificates/ddev.crt
+  update-ca-certificates
+
+  if command -v keytool &> /dev/null && ! keytool -list -keystore $JAVA_HOME/lib/security/cacerts -alias ddev -storepass changeit -noprompt &> /dev/null; then
+    keytool -import -trustcacerts -keystore $JAVA_HOME/lib/security/cacerts -alias ddev -file $CERT -storepass changeit -noprompt
+  fi
+fi
