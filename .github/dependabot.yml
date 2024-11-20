@@ -1,0 +1,21 @@
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      # pickup security releases on wednesdays
+      # https://www.drupal.org/drupal-security-team/security-release-numbers-and-release-timing#s-release-timing
+      day: "thursday"
+    versioning-strategy: increase-if-necessary
+    allow:
+      - dependency-name: "drupal/*"
+      - dependency-name: "drush/drush"
+      - dependency-name: "islandora-rdm/islandora_fits"
+      - dependency-name: "islandora/views_nested_details"
+      - dependency-name: "mjordan/islandora_workbench_integration"
+    commit-message:
+      prefix: "composer update"
+      include: "scope"
