@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -eu
+
+CORE_NAME=ISLANDORA
+SOLR_HOME=/opt/solr/server/solr
+CORE_DIR="$SOLR_HOME/$CORE_NAME"
+
+mkdir -p "$CORE_DIR/data"
+chown 100:1000 $CORE_DIR
+unzip -o "/mnt/solr-config-dump/dump/solr_config.zip" -d "$CORE_DIR/conf"
+chown -R 100:1000 $CORE_DIR
+curl -s "http://solr:8983/solr/admin/cores?action=CREATE&name=${CORE_NAME}&instanceDir=${CORE_NAME}&config=solrconfig.xml&dataDir=data"

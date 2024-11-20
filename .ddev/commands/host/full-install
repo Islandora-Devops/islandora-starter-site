@@ -8,4 +8,7 @@ ddev auth ssh
 ddev start
 ddev composer install
 ddev install-site
+ddev web-dump-solr-config
+ddev solr-create-core-from-dumped-config
+ddev install-terms
 ddev launch

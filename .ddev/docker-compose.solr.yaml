@@ -1,0 +1,22 @@
+---
+services:
+  solr:
+    container_name: ddev-${DDEV_SITENAME}-solr
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/solr:${ISLANDORA_DOCKER_IMAGE_TAG}
+    expose:
+      - 8983
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+    volumes:
+      - "solr-data:/opt/solr/server/solr"
+      - type: "bind"
+        source: "."
+        target: "/mnt/ddev_config"
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTP_EXPOSE=8983:8983
+volumes:
+  solr-data:

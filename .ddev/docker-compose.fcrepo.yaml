@@ -1,0 +1,24 @@
+---
+services:
+  fcrepo:
+    container_name: "ddev-${DDEV_SITENAME}-fcrepo"
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/fcrepo6:${ISLANDORA_DOCKER_IMAGE_TAG}
+    environment:
+      FCREPO_ALLOW_EXTERNAL_DRUPALHTTP: http:///${DDEV_SITENAME}.ddev.site/
+      FCREPO_ALLOW_EXTERNAL_DRUPALHTTPS: https://${DDEV_SITENAME}.ddev.site/
+      FCREPO_TOMCAT_ADMIN_ROLES: manager-gui,fedoraAdmin
+      FCREPO_TOMCAT_ADMIN_USER: admin
+      FCREPO_DISABLE_SYN: false
+    volumes:
+      - fcrepo-data:/data
+    depends_on:
+      - activemq
+    secrets:
+      - JWT_PUBLIC_KEY
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+volumes:
+  fcrepo-data:

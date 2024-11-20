@@ -1,0 +1,10 @@
+---
+services:
+  web:
+    volumes:
+      - "solr-config-dump:/mnt/solr-config-dump"
+  solr:
+    volumes:
+      - "solr-config-dump:/mnt/solr-config-dump"
+volumes:
+  solr-config-dump:
