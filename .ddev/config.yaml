@@ -18,13 +18,11 @@ nfs_mount_enabled: false
 mutagen_enabled: true
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
-#    - ACTIVEMQ_HOST=ddev-${DDEV_SITENAME}-activemq
-#    - CLAMAV_HOST=ddev-${DDEV_SITENAME}-clamav
-#    - IIIF_INGRESS_URL=http://${DDEV_SITENAME}.ddev.site/iiif/2
-#    - IIIF_URL=http://ddev-${DDEV_SITENAME}-cantaloupe/cantaloupe/iiif/2
-#    - MEMCACHED_HOST=ddev-${DDEV_SITENAME}-memcached
-#    - SOLR_HOST=ddev-${DDEV_SITENAME}-solr
+web_environment:
+    - ISLANDORA_STARTER_SITE_BROKER_URL=tcp://ddev-${DDEV_SITENAME}-activemq:61613
+    - ISLANDORA_STARTER_SITE_FCREPO_REST_ENDPOINT=https://${DDEV_HOSTNAME}:8080/fcrepo/rest/
+    - ISLANDORA_STARTER_SITE_IIIF_URL=https://${DDEV_HOSTNAME}:8182/iiif/2
+    - ISLANDORA_STARTER_SITE_SOLR_HOST=ddev-${DDEV_SITENAME}-solr
 nodejs_version: "16"
 
 hooks:
@@ -32,6 +30,8 @@ hooks:
     #- exec: "cp assets/sites/default/* web/sites/default"
     - exec: trust-certs
       service: alpaca
+    - exec: trust-certs
+      service: cantaloupe
     - exec: trust-certs
       service: crayfish-crayfits
     - exec: trust-certs

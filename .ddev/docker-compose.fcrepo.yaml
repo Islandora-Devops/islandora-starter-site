@@ -4,11 +4,13 @@ services:
     container_name: "ddev-${DDEV_SITENAME}-fcrepo"
     image: ${ISLANDORA_DOCKER_IMAGE_REPO}/fcrepo6:${ISLANDORA_DOCKER_IMAGE_TAG}
     environment:
-      FCREPO_ALLOW_EXTERNAL_DRUPALHTTP: http:///${DDEV_SITENAME}.ddev.site/
-      FCREPO_ALLOW_EXTERNAL_DRUPALHTTPS: https://${DDEV_SITENAME}.ddev.site/
+      FCREPO_ALLOW_EXTERNAL_DRUPALHTTP: http://${DDEV_HOSTNAME}/
+      FCREPO_ALLOW_EXTERNAL_DRUPALHTTPS: https://${DDEV_HOSTNAME}/
       FCREPO_TOMCAT_ADMIN_ROLES: manager-gui,fedoraAdmin
       FCREPO_TOMCAT_ADMIN_USER: admin
       FCREPO_DISABLE_SYN: false
+      VIRTUAL_HOST: ${DDEV_HOSTNAME}
+      HTTPS_EXPOSE: "8080:8080"
     volumes:
       - fcrepo-data:/data
     depends_on:

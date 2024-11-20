@@ -1,0 +1,34 @@
+---
+volumes:
+  cantaloupe-data:
+services:
+  cantaloupe:
+    container_name: "ddev-${DDEV_SITENAME}-cantaloupe"
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/cantaloupe:${ISLANDORA_DOCKER_IMAGE_TAG}
+    volumes:
+      - cantaloupe-data:/data
+      - ddev-global-cache:/mnt/ddev-global-cache
+      - ./scripts/trust-certs:/usr/bin/trust-certs
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    environment:
+      - VIRTUAL_HOST=${DDEV_HOSTNAME}
+      - HTTPS_EXPOSE=8182:8182
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.ddev.site
+      - ddev-${DDEV_SITENAME}-web:drupal
+      #- traefik.http.services.ddev-${DDEV_SITENAME}-cantaloupe.loadbalancer.server.port=8182
+      #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe-redirectscheme.redirectscheme.scheme=https
+      #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe-redirectscheme.redirectscheme.permanent=true
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_http.service=ddev-${DDEV_SITENAME}-cantaloupe
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_http.entrypoints=http
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_http.rule=Host(`${DDEV_SITENAME}.ddev.site`) && PathPrefix(`/cantaloupe`)
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_http.middlewares=ddev-${DDEV_SITENAME}-cantaloupe-redirectscheme
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_https.entrypoints=https
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_https.rule=Host(`${DDEV_SITENAME}.ddev.site`) && PathPrefix(`/cantaloupe`)
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_https.tls=true
+      #- traefik.http.routers.ddev-${DDEV_SITENAME}-cantaloupe_https.middlewares=ddev-${DDEV_SITENAME}-cantaloupe
+      #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe-custom-request-headers.headers.customrequestheaders.X-Forwarded-Path=/cantaloupe
+      #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe-strip-prefix.stripprefix.prefixes=/cantaloupe
+      #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe.chain.middlewares=ddev-${DDEV_SITENAME}-cantaloupe-strip-prefix,ddev-${DDEV_SITENAME}-cantaloupe-custom-request-headers
