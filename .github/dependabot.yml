@@ -19,3 +19,15 @@ updates:
     commit-message:
       prefix: "composer update"
       include: "scope"
+    groups:
+      single-pr:
+        applies-to: version-updates
+        patterns:
+        - "drupal/*"
+        - "drush/drush"
+        - "islandora-rdm/islandora_fits"
+        - "islandora/views_nested_details"
+        - "mjordan/islandora_workbench_integration"
+        update-types:
+        - "minor"
+        - "patch"
