@@ -32,7 +32,7 @@
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/advanced_search": "^2.0.0@beta",
+        "drupal/advanced_search": "^2.1",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/citation_select": "^2.0@beta",
         "drupal/coi": "^4.0",
@@ -130,9 +130,6 @@
             },
             "drupal/flysystem": {
                 "required_derivative_scheme https://www.drupal.org/project/flysystem/issues/3457193": "https://www.drupal.org/files/issues/2024-07-01/3378738-1.patch"
-            },
-            "drupal/advanced_search": {
-               "set session": "https://patch-diff.githubusercontent.com/raw/Islandora/advanced_search/pull/52.patch"
             }
         }
     },

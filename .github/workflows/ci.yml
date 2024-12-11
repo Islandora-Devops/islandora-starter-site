@@ -6,8 +6,12 @@ on:
   pull_request: {}
   workflow_dispatch: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build:
+  ubuntu-test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -51,3 +55,28 @@ jobs:
         run: |
           composer exec -- drush en config_inspector
           composer exec -- drush config:inspect --only-error --detail
+
+  isle-test:
+    runs-on: ubuntu-latest
+    name: ISLE site template
+    steps:
+      - name: Checkout isle-site-template
+        uses: actions/checkout@v4
+        with:
+          repository: Islandora-Devops/isle-site-template
+
+      - name: Install mkcert
+        run: |-
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+
+      - name: Start islandora-starter-site
+        run: ./tests/init-template-starter.sh
+        env:
+          # isle-buildkit tag
+          ISLANDORA_TAG: main
+          # the branch the PR is running on
+          ISLANDORA_STARTER_REF: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
+          # if coming from a fork, get the owner's repo
+          ISLANDORA_STARTER_OWNER: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
