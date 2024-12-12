@@ -39,7 +39,7 @@
         "drupal/config_update": "^2.0@alpha",
         "drupal/context": "^5@RC",
         "drupal/controlled_access_terms": "^2",
-        "drupal/core-composer-scaffold": "^10.1",
+        "drupal/core-composer-scaffold": "^11.0",
         "drupal/core-recommended": "^10.1",
         "drupal/facets": "^2",
         "drupal/field_group": "^3",
