@@ -127,9 +127,6 @@
         "patches": {
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
-            },
-            "drupal/flysystem": {
-                "required_derivative_scheme https://www.drupal.org/project/flysystem/issues/3457193": "https://www.drupal.org/files/issues/2024-07-01/3378738-1.patch"
             }
         }
     },
