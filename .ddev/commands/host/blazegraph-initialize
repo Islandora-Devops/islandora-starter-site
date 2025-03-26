@@ -1,0 +1,7 @@
+#!/bin/bash
+
+namespace=islandora
+triplestore_url="https://$DDEV_HOSTNAME:8081/bigdata"
+
+curl -X POST -H "Content-type: text/plain" --data-binary @<(ddev blazegraph-generate-properties islandora) "${triplestore_url}/namespace"
+curl -X POST -H "Content-type: text/plain" --data-binary @<(ddev blazegraph-inference) "${triplestore_url}/namespace/${namespace}/sparql"

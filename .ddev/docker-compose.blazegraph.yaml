@@ -1,0 +1,17 @@
+---
+services:
+  blazegraph:
+    container_name: "ddev-${DDEV_SITENAME}-blazegraph"
+    image: ${ISLANDORA_DOCKER_IMAGE_REPO}/blazegraph:${ISLANDORA_DOCKER_IMAGE_TAG}
+    environment:
+      VIRTUAL_HOST: ${DDEV_HOSTNAME}
+      HTTPS_EXPOSE: "8081:8080"
+    volumes:
+      - blazegraph-data:/data
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+    external_links:
+      - ddev-router:${DDEV_HOSTNAME}
+volumes:
+  blazegraph-data:

@@ -18,7 +18,7 @@ services:
       ALPACA_DERIVATIVE_OCR_URL: http://ddev-${DDEV_SITENAME}-crayfish-hypercube:8000/
       ALPACA_DERIVATIVE_FITS_URL: http://ddev-${DDEV_SITENAME}-crayfish-crayfits:8000/
       ALPACA_FCREPO_INDEXER_MILLINER_URL: http://ddev-${DDEV_SITENAME}-crayfish-milliner:8000/
-      ALPACA_TRIPLESTORE_INDEXER_ENABLED: false
+      ALPACA_TRIPLESTORE_INDEXER_URL: http://ddev-${DDEV_SITENAME}-blazegraph:8080/bigdata/namespace/islandora/sparql
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
