@@ -6,7 +6,7 @@ services:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     external_links:
-      - ddev-router:${DDEV_SITENAME}.ddev.site
+      - ddev-router:${DDEV_PRIMARY_URL}
     volumes:
       - ddev-global-cache:/mnt/ddev-global-cache
       - ./scripts/trust-certs:/usr/bin/trust-certs
