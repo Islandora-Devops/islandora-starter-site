@@ -21,6 +21,6 @@ services:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     external_links:
-      - ddev-router:${DDEV_PRIMARY_URL}
+      - ddev-router:${DDEV_HOSTNAME}
 volumes:
   fcrepo-data:

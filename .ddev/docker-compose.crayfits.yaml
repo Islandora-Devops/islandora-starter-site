@@ -6,7 +6,7 @@ services:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     external_links:
-      - ddev-router:${DDEV_PRIMARY_URL}
+      - ddev-router:${DDEV_HOSTNAME}
     volumes:
       - ddev-global-cache:/mnt/ddev-global-cache
       - ./scripts/trust-certs:/usr/bin/trust-certs
@@ -16,3 +16,5 @@ services:
     image: ${ISLANDORA_DOCKER_IMAGE_REPO}/crayfits:${ISLANDORA_DOCKER_IMAGE_TAG}
     depends_on:
       - crayfish-fits
+    environment:
+      CRAYFITS_WEBSERVICE_URI: ddev-${DDEV_SITENAME}-crayfish-fits:8080/fits/examine

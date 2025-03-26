@@ -9,7 +9,7 @@ services:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     external_links:
-      - ddev-router:${DDEV_PRIMARY_URL}
+      - ddev-router:${DDEV_HOSTNAME}
     volumes:
       - ddev-global-cache:/mnt/ddev-global-cache
       - ./scripts/trust-certs:/usr/bin/trust-certs
@@ -17,6 +17,8 @@ services:
     << : *base_crayfish
     container_name: ddev-${DDEV_SITENAME}-crayfish-houdini
     image: ${ISLANDORA_DOCKER_IMAGE_REPO}/houdini:${ISLANDORA_DOCKER_IMAGE_TAG}
+    environment:
+      HOUDINI_FCREPO_URL: http://${DDEV_HOSTNAME}:8080/fcrepo/rest
   crayfish-hypercube:
     << : *base_crayfish
     container_name: ddev-${DDEV_SITENAME}-crayfish-hypercube
@@ -25,3 +27,5 @@ services:
     << : *base_crayfish
     container_name: ddev-${DDEV_SITENAME}-crayfish-milliner
     image: ${ISLANDORA_DOCKER_IMAGE_REPO}/milliner:${ISLANDORA_DOCKER_IMAGE_TAG}
+    environment:
+      MILLINER_FCREPO_URL: http://${DDEV_HOSTNAME}:8080/fcrepo/rest

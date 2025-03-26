@@ -13,15 +13,17 @@ services:
       - crayfish-hypercube
     environment:
       ALPACA_JMS_URL: tcp://ddev-${DDEV_SITENAME}-activemq:61616
-      ALPACA_DERIVATIVE_HOMARUS_URL: http://ddev-${DDEV_SITENAME}-crayfish-homarus/homarus/convert
-      ALPACA_DERIVATIVE_HOUDINI_URL: http://ddev-${DDEV_SITENAME}-crayfish-houdini/houdini/convert
-      ALPACA_DERIVATIVE_OCR_URL: http://ddev-${DDEV_SITENAME}-crayfish-hypercube/hypercube
-      ALPACA_DERIVATIVE_FITS_URL: http://ddev-${DDEV_SITENAME}-crayfish-crayfits/
+      ALPACA_DERIVATIVE_HOMARUS_URL: http://ddev-${DDEV_SITENAME}-crayfish-homarus:8000/convert
+      ALPACA_DERIVATIVE_HOUDINI_URL: http://ddev-${DDEV_SITENAME}-crayfish-houdini:8000/convert
+      ALPACA_DERIVATIVE_OCR_URL: http://ddev-${DDEV_SITENAME}-crayfish-hypercube:8000/
+      ALPACA_DERIVATIVE_FITS_URL: http://ddev-${DDEV_SITENAME}-crayfish-crayfits:8000/
+      ALPACA_FCREPO_INDEXER_MILLINER_URL: http://ddev-${DDEV_SITENAME}-crayfish-milliner:8000/
+      ALPACA_TRIPLESTORE_INDEXER_ENABLED: false
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     external_links:
-      - ddev-router:${DDEV_PRIMARY_URL}
+      - ddev-router:${DDEV_HOSTNAME}
     volumes:
       - ddev-global-cache:/mnt/ddev-global-cache
       - ./scripts/trust-certs:/usr/bin/trust-certs

@@ -16,7 +16,7 @@ services:
       - VIRTUAL_HOST=${DDEV_HOSTNAME}
       - HTTPS_EXPOSE=8182:8182
     external_links:
-      - ddev-router:${DDEV_PRIMARY_URL}
+      - ddev-router:${DDEV_HOSTNAME}
       #- traefik.http.services.ddev-${DDEV_SITENAME}-cantaloupe.loadbalancer.server.port=8182
       #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe-redirectscheme.redirectscheme.scheme=https
       #- traefik.http.middlewares.ddev-${DDEV_SITENAME}-cantaloupe-redirectscheme.redirectscheme.permanent=true
