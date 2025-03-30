@@ -22,13 +22,11 @@
       matchUpdateTypes: [
         'major',
       ],
-      groupName: 'all major updates',
-      schedule: [
-        'after 10pm on the first day of the month',
-      ],
+      groupName: null,
       matchPackageNames: [
         '*',
       ],
+      prConcurrentLimit: 1,
     },
   ],
   labels: [
