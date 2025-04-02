@@ -1,0 +1,40 @@
+{
+  extends: [
+    'config:best-practices',
+    ':rebaseStalePrs',
+  ],
+  packageRules: [
+    {
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+        'digest',
+      ],
+      groupName: 'all non-major dependencies',
+      schedule: [
+        'after 10pm on Wednesday',
+      ],
+      matchPackageNames: [
+        '*',
+      ],
+    },
+    {
+      matchUpdateTypes: [
+        'major',
+      ],
+      groupName: null,
+      matchPackageNames: [
+        '*',
+      ],
+      prConcurrentLimit: 1,
+    },
+  ],
+  labels: [
+    'dependencies',
+  ],
+  osvVulnerabilityAlerts: true,
+  dependencyDashboardOSVVulnerabilitySummary: 'unresolved',
+  vulnerabilityAlerts: {
+    enabled: true,
+  },
+}
