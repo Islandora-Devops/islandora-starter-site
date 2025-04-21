@@ -10,6 +10,19 @@
     },
     "repositories": [
         {
+            "type": "package",
+            "package": {
+                "name": "drupal/citation_select",
+                "version": "2.0.0-beta1",
+                "type": "drupal-module",
+                "source": {
+                    "type": "git",
+                    "url": "https://git.drupalcode.org/issue/citation_select-3438190",
+                    "reference": "550b3156ce0c75f3caaed7fe6966c46804bf13c2"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
@@ -39,12 +52,11 @@
         "drupal/config_update": "^2.0@alpha",
         "drupal/context": "^5@RC",
         "drupal/controlled_access_terms": "^2",
-        "drupal/core-composer-scaffold": "^10.1",
-        "drupal/core-recommended": "^10.1",
+        "drupal/core-composer-scaffold": "^11.1",
+        "drupal/core-recommended": "^11.1",
         "drupal/facets": "^2",
         "drupal/field_group": "^3",
         "drupal/field_permissions": "^1",
-        "drupal/field_report": "^2.1",
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
