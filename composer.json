@@ -10,19 +10,6 @@
     },
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "drupal/citation_select",
-                "version": "2.0.0-beta1",
-                "type": "drupal-module",
-                "source": {
-                    "type": "git",
-                    "url": "https://git.drupalcode.org/issue/citation_select-3438190",
-                    "reference": "550b3156ce0c75f3caaed7fe6966c46804bf13c2"
-                }
-            }
-        },
-        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
