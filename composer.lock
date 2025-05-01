@@ -1843,21 +1843,21 @@
         },
         {
             "name": "drupal/citation_select",
-            "version": "2.0.0-beta1",
+            "version": "2.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/citation_select.git",
-                "reference": "2.0.0-beta1"
+                "reference": "2.0.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/citation_select-2.0.0-beta1.zip",
-                "reference": "2.0.0-beta1",
-                "shasum": "90d2f6a18187cb35fc459a4d1ea24ad58ee936ec"
+                "url": "https://ftp.drupal.org/files/projects/citation_select-2.0.0-beta2.zip",
+                "reference": "2.0.0-beta2",
+                "shasum": "0c46eb5d6010fa8e000a9321c764781a67abcfe3"
             },
             "require": {
                 "adci/full-name-parser": "^0.2.4",
-                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11",
                 "drupal/token": "^1.9",
                 "professional-wiki/edtf": "~2.0",
                 "seboettg/citeproc-php": "^2.6"
@@ -1865,8 +1865,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0-beta1",
-                    "datestamp": "1711983993",
+                    "version": "2.0.0-beta2",
+                    "datestamp": "1745418302",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -1891,7 +1891,7 @@
                     "homepage": "https://www.drupal.org/user/3688342"
                 },
                 {
-                    "name": "Natkeeran",
+                    "name": "natkeeran",
                     "homepage": "https://www.drupal.org/user/1016288"
                 }
             ],
@@ -5059,17 +5059,17 @@
         },
         {
             "name": "drupal/search_api_solr",
-            "version": "4.3.8",
+            "version": "4.3.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/search_api_solr.git",
-                "reference": "4.3.8"
+                "reference": "4.3.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/search_api_solr-4.3.8.zip",
-                "reference": "4.3.8",
-                "shasum": "6eb8c620c17f37639fd44c78819925ca05e0da47"
+                "url": "https://ftp.drupal.org/files/projects/search_api_solr-4.3.10.zip",
+                "reference": "4.3.10",
+                "shasum": "8d37467f0f2ab34ed6a0b61872ce7ff8e5e64730"
             },
             "require": {
                 "composer-runtime-api": ">=2.0",
@@ -5110,8 +5110,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.3.8",
-                    "datestamp": "1740166987",
+                    "version": "4.3.10",
+                    "datestamp": "1745427496",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5163,17 +5163,17 @@
         },
         {
             "name": "drupal/taxonomy_manager",
-            "version": "2.0.19",
+            "version": "2.0.20",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/taxonomy_manager.git",
-                "reference": "2.0.19"
+                "reference": "2.0.20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/taxonomy_manager-2.0.19.zip",
-                "reference": "2.0.19",
-                "shasum": "e82649940e4a35f5ce3d702dc800ec9b0c1f4e79"
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_manager-2.0.20.zip",
+                "reference": "2.0.20",
+                "shasum": "69079226ff05c19087829319c99c06714759cfac"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0",
@@ -5189,8 +5189,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.19",
-                    "datestamp": "1741177395",
+                    "version": "2.0.20",
+                    "datestamp": "1745967696",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5638,16 +5638,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "13.5.1",
+            "version": "13.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "16076b24532eb27aaf9e2b8bca1e05a74871c713"
+                "reference": "570a05dce7aea9770f17306808804290764127ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/16076b24532eb27aaf9e2b8bca1e05a74871c713",
-                "reference": "16076b24532eb27aaf9e2b8bca1e05a74871c713",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/570a05dce7aea9770f17306808804290764127ad",
+                "reference": "570a05dce7aea9770f17306808804290764127ad",
                 "shasum": ""
             },
             "require": {
@@ -5774,7 +5774,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.5.1"
+                "source": "https://github.com/drush-ops/drush/tree/13.6.0"
             },
             "funding": [
                 {
@@ -5782,7 +5782,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-04T11:38:40+00:00"
+            "time": "2025-04-22T12:14:13+00:00"
         },
         {
             "name": "easyrdf/easyrdf",
