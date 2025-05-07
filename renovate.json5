@@ -5,13 +5,13 @@
   ],
   packageRules: [
     {
-      "matchDatasources": [
-        "packagist"
+      matchDatasources: [
+        'packagist',
       ],
-      "matchPackageNames": [
-        "library/pdf.js",
+      matchPackageNames: [
+        'library/pdf.js',
       ],
-      "enabled": false
+      enabled: false,
     },
     {
       matchUpdateTypes: [
@@ -38,19 +38,19 @@
       prConcurrentLimit: 1,
     },
   ],
-  "customManagers": [
+  customManagers: [
     {
-      "customType": "regex",
-      "fileMatch": [
-        "composer.json"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/composer.json/',
       ],
-      "matchStrings": [
-        "\\s+\"url\":\\s\"https:\\/\\/github.com\\/mozilla\\/pdf\\.js\\/releases\\/download\\/v(?<currentValue>.*)\\/(?:pdfjs-[^\\/]+)-dist\\.zip\"",
+      matchStrings: [
+        '\\s+"url":\\s"https:\\/\\/github.com\\/mozilla\\/pdf\\.js\\/releases\\/download\\/v(?<currentValue>.*)\\/(?:pdfjs-[^\\/]+)-dist\\.zip"',
       ],
-      "depNameTemplate": "mozilla/pdf.js",
-      "datasourceTemplate": "github-releases",
-      "versioningTemplate": "semver-coerced",
-    }
+      depNameTemplate: 'mozilla/pdf.js',
+      datasourceTemplate: 'github-releases',
+      versioningTemplate: 'semver-coerced',
+    },
   ],
   labels: [
     'dependencies',
