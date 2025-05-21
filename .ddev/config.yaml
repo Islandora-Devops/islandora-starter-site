@@ -26,6 +26,10 @@ web_environment:
 nodejs_version: "16"
 
 hooks:
+  pre-start:
+    - exec-host: "[ -f $DDEV_APPROOT/.ddev/secrets/crayfish.key ] || docker run --mount type=bind,src=$DDEV_APPROOT/.ddev/secrets,dst=/mnt/secrets --rm alpine/openssl genrsa -out /mnt/secrets/crayfish.key"
+    - exec-host: "[ -f $DDEV_APPROOT/.ddev/secrets/crayfish.pub ] || docker run --mount type=bind,src=$DDEV_APPROOT/.ddev/secrets,dst=/mnt/secrets --rm alpine/openssl rsa -pubout -in /mnt/secrets/crayfish.key -out /mnt/secrets/crayfish.pub"
+    - exec-host: "[ -f $DDEV_APPROOT/.ddev/secrets/islandora.txt ] || (echo 'islandora' > $DDEV_APPROOT/.ddev/secrets/islandora.txt)"
   post-start:
     #- exec: "cp assets/sites/default/* web/sites/default"
     - exec: trust-certs
