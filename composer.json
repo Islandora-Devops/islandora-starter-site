@@ -17,10 +17,10 @@
             "type": "package",
             "package": {
                 "name": "library/pdf.js",
-                "version": "2.16.105",
+                "version": "5",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/mozilla/pdf.js/releases/download/v2.16.105/pdfjs-2.16.105-dist.zip",
+                    "url": "https://github.com/mozilla/pdf.js/releases/download/v5.2.133/pdfjs-5.2.133-dist.zip",
                     "type": "zip"
                 }
             }
@@ -28,7 +28,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8",
-        "composer/installers": "^1.9",
+        "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
         "drupal/admin_toolbar": "^3.1",
@@ -63,7 +63,7 @@
         "drush/drush": "^13",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/views_nested_details": "^1.0",
-        "library/pdf.js": "^2.4",
+        "library/pdf.js": "^5",
         "mjordan/islandora_workbench_integration": "dev-main"
     },
     "conflict": {
