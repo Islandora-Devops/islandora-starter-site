@@ -21,3 +21,9 @@ services:
     secrets:
       - ACTIVEMQ_PASSWORD
       - ACTIVEMQ_WEB_ADMIN_PASSWORD
+    healthcheck:
+      # XXX: The image has environment-specifics baked into the image, in
+      # particular, dealing with
+      # /var/run/s6/container_environment/ACTIVEMQ_WEB_ADMIN_PASSWORD
+      # See: https://github.com/Islandora-Devops/isle-buildkit/blob/fe6e83ea6a3468d06ef4263b3efcfde8323e3f80/activemq/Dockerfile#L41C21-L41C82
+      disable: true

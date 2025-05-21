@@ -18,5 +18,8 @@ services:
     environment:
       - VIRTUAL_HOST=$DDEV_HOSTNAME
       - HTTP_EXPOSE=8983:8983
+      # XXX: Add in list of modules, as things are not yet committed upstream.
+      # See: https://github.com/Islandora-Devops/isle-buildkit/pull/431
+      - SOLR_MODULES=extraction,langid,ltr,analysis-extras
 volumes:
   solr-data:
