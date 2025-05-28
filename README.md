@@ -26,6 +26,19 @@ tools and services that support it, try one of the Islandora deployment tools:
   * use the `make starter` or `make starter_dev` option
 * [ISLE Site Template](https://github.com/Islandora-Devops/isle-site-template) - Docker-based
   * The default installation instructions use the Starter Site.
+* [DDEV](https://ddev.com/get-started/) - Docker-based
+  * DDEV is intended primarily for development. 
+  * With DDEV installed and the code of this repo locally, inside of it, issuing a:
+    ```shell
+    # Fully install instance.
+    ddev full-install
+    ```
+    should install an instance for local development.
+  * Teardown of env, with something like:
+    ```shell
+    # Tear down the instance.
+    ddev delete
+    ```
 
 ## Manual Installation
 
