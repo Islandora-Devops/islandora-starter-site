@@ -80,3 +80,4 @@ jobs:
           ISLANDORA_STARTER_REF: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
           # if coming from a fork, get the owner's repo
           ISLANDORA_STARTER_OWNER: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
+          TERM: xterm-256color
