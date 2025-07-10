@@ -20,7 +20,7 @@
                 "version": "5",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/mozilla/pdf.js/releases/download/v5.3.31/pdfjs-5.3.31-dist.zip",
+                    "url": "https://github.com/mozilla/pdf.js/releases/download/v5.3.93/pdfjs-5.3.93-dist.zip",
                     "type": "zip"
                 }
             }
