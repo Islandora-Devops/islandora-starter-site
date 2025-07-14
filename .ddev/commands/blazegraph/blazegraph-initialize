@@ -1,0 +1,6 @@
+#!/bin/bash
+
+triplestore_url="https://$VIRTUAL_HOST:8081/bigdata"
+
+curl -X POST -H "Content-type: text/plain" --data-binary @/opt/islandora/default.properties "${triplestore_url}/namespace"
+curl -X POST -H "Content-type: text/plain" --data-binary @/opt/islandora/inference.ttl "${triplestore_url}/namespace/islandora/sparql"

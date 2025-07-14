@@ -8,10 +8,36 @@ services:
       HTTPS_EXPOSE: "8081:8080"
     volumes:
       - blazegraph-data:/data
+      - .:/mnt/ddev_config
+      - ddev-global-cache:/mnt/ddev-global-cache
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: ${DDEV_APPROOT}
     external_links:
       - ddev-router:${DDEV_HOSTNAME}
+    configs:
+      - source: default.properties
+        target: /opt/islandora/default.properties
+      - source: inference.ttl
+        target: /opt/islandora/inference.ttl
 volumes:
   blazegraph-data:
+configs:
+  default.properties:
+    content: |
+      com.bigdata.rdf.store.AbstractTripleStore.textIndex=false
+      com.bigdata.rdf.store.AbstractTripleStore.axiomsClass=com.bigdata.rdf.axioms.OwlAxioms
+      com.bigdata.rdf.sail.isolatableIndices=false
+      com.bigdata.rdf.store.AbstractTripleStore.justify=true
+      com.bigdata.rdf.sail.truthMaintenance=true
+      com.bigdata.rdf.sail.namespace=islandora
+      com.bigdata.rdf.store.AbstractTripleStore.quads=false
+      com.bigdata.namespace.islandora.lex.com.bigdata.btree.BTree.branchingFactor=400
+      com.bigdata.journal.Journal.groupCommit=false
+      com.bigdata.namespace.islandora.spo.com.bigdata.btree.BTree.branchingFactor=1024
+      com.bigdata.rdf.store.AbstractTripleStore.geoSpatial=false
+      com.bigdata.rdf.store.AbstractTripleStore.statementIdentifiers=false
+  inference.ttl:
+    content: |
+      <http://pcdm.org/models#memberOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://pcdm.org/models#hasMember> .
+      <http://pcdm.org/models#fileOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://pcdm.org/models#hasFile> .
