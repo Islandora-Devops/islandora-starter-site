@@ -1,0 +1,7 @@
+#!/bin/bash
+
+drush cache:rebuild
+
+drush -y migrate:import --userid=1 --tag=islandora
+
+drush cache:rebuild

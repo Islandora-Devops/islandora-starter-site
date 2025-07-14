@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+DUMP_DIR=/mnt/solr-config-dump/dump
+
+sudo mkdir -p $DUMP_DIR
+drush --yes search-api-solr:get-server-config default_solr_server "/tmp/solr_config.zip"
+sudo mv "/tmp/solr_config.zip" "$DUMP_DIR/solr_config.zip"
