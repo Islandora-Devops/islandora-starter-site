@@ -20,7 +20,7 @@
                 "version": "5",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/mozilla/pdf.js/releases/download/v5.2.133/pdfjs-5.2.133-dist.zip",
+                    "url": "https://github.com/mozilla/pdf.js/releases/download/v5.3.93/pdfjs-5.3.93-dist.zip",
                     "type": "zip"
                 }
             }
@@ -42,7 +42,7 @@
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/facets": "^2",
-        "drupal/field_group": "^3",
+        "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.1",
         "drupal/flysystem": "^2.2@alpha",

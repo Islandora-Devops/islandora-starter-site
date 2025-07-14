@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@cf4cade2721270509d5b1c766ab3549210a39a2a # v2
+        uses: shivammathur/setup-php@0f7f1d08e3e32076e51cae65eb0b0c871405b16e # v2
         with:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
@@ -72,7 +72,10 @@ jobs:
           sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
 
       - name: Start islandora-starter-site
-        run: ./tests/init-template-starter.sh
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actons"
+          ./tests/init-template-starter.sh
         env:
           # isle-buildkit tag
           ISLANDORA_TAG: main
@@ -80,3 +83,4 @@ jobs:
           ISLANDORA_STARTER_REF: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
           # if coming from a fork, get the owner's repo
           ISLANDORA_STARTER_OWNER: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
+          TERM: xterm-256color
