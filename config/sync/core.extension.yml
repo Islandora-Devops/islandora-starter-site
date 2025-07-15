@@ -33,6 +33,9 @@ module:
   devel: 0
   dgi_image_discovery: 0
   dynamic_page_cache: 0
+  eca: 0
+  eca_cm: 0
+  eca_ui: 0
   editor: 0
   eva: 0
   facets: 0
