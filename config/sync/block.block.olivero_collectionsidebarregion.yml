@@ -1,0 +1,35 @@
+uuid: 569ab1f9-e0e9-4e25-a1af-0e9d57fbe60c
+langcode: en
+status: true
+dependencies:
+  config:
+    - blockgroup.block_group_content.collection_sidebar_region
+  module:
+    - blockgroup
+    - islandora
+  theme:
+    - olivero
+id: olivero_collectionsidebarregion
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: 'block_group:collection_sidebar_region'
+settings:
+  id: 'block_group:collection_sidebar_region'
+  label: 'Collection (Sidebar region)'
+  label_display: '0'
+  provider: blockgroup
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection,http://vocab.getty.edu/aat/300242735'
+    logic: or
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

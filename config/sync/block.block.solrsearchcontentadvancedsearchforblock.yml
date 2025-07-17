@@ -4,13 +4,12 @@ status: true
 dependencies:
   module:
     - advanced_search
-    - context
     - islandora
   theme:
     - olivero
 id: solrsearchcontentadvancedsearchforblock
 theme: olivero
-region: sidebar
+region: collection_sidebar_region
 weight: -17
 provider: null
 plugin: 'advanced_search_block:solr_search_content__block_1'
@@ -26,10 +25,6 @@ settings:
     - field_publisher_fulltext
   context_filter: field_member_of
 visibility:
-  context_all:
-    id: context_all
-    negate: false
-    values: collection
   media_source_mimetype:
     id: media_source_mimetype
     negate: false

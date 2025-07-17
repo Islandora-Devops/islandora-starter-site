@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - islandora
     - system
   theme:
     - olivero
@@ -22,4 +23,9 @@ settings:
   use_site_logo: true
   use_site_name: true
   use_site_slogan: false
-visibility: {  }
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

@@ -11,7 +11,7 @@ name: collection
 group: Display
 description: 'If a Collection or Compound, display a block of children'
 requireAllConditions: false
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term

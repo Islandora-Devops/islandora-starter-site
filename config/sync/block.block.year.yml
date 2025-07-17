@@ -24,17 +24,6 @@ settings:
   context_mapping: {  }
   block_id: year
 visibility:
-  user_status:
-    id: user_status
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
-    user_status:
-      viewing_profile: '0'
-      logged_viewing_profile: '0'
-      own_page_true: '0'
-      field_value: '0'
-    user_fields: uid
   media_source_mimetype:
     id: media_source_mimetype
     negate: false

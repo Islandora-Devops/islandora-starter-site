@@ -1,0 +1,35 @@
+uuid: f23baf7c-bbe3-4494-955b-16813f3f1137
+langcode: en
+status: true
+dependencies:
+  config:
+    - blockgroup.block_group_content.collection_content_region
+  module:
+    - blockgroup
+    - islandora
+  theme:
+    - olivero
+id: olivero_collectioncontentregion
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'block_group:collection_content_region'
+settings:
+  id: 'block_group:collection_content_region'
+  label: 'Collection (Content region)'
+  label_display: '0'
+  provider: blockgroup
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection,http://vocab.getty.edu/aat/300242735'
+    logic: or
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''
