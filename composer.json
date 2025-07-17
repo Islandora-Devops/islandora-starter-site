@@ -128,6 +128,9 @@
             ]
         },
         "patches": {
+            "drupal/islandora": {
+                "Allow node_has_term and node_is_islandora_object conditions to be used in Block visibility": "https://patch-diff.githubusercontent.com/raw/Islandora/islandora/pull/1084.patch"
+            },
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
             }
