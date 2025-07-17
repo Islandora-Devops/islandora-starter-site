@@ -5,7 +5,6 @@ dependencies:
   module:
     - advanced_search
     - context
-    - islandora
     - system
   theme:
     - olivero
@@ -37,11 +36,6 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
   request_path:
     id: request_path
     negate: true

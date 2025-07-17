@@ -6,7 +6,6 @@ dependencies:
     - facets.facet.subjects
   module:
     - facets
-    - islandora
   theme:
     - olivero
 id: subjectsswc
@@ -22,9 +21,4 @@ settings:
   provider: facets
   context_mapping: {  }
   block_id: subjectsswc
-visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
+visibility: {  }

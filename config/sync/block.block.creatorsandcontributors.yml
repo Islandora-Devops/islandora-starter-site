@@ -7,7 +7,6 @@ dependencies:
   module:
     - context
     - facets
-    - islandora
   theme:
     - olivero
 _core:
@@ -26,11 +25,6 @@ settings:
   context_mapping: {  }
   block_id: creatorsandcontributors
 visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
   user_status:
     id: user_status
     negate: false

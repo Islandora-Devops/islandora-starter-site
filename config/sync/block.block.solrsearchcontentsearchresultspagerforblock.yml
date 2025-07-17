@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - advanced_search
-    - islandora
   theme:
     - olivero
 id: solrsearchcontentsearchresultspagerforblock
@@ -18,9 +17,4 @@ settings:
   label: 'Solr search content: Search Results Pager for Block'
   label_display: '0'
   provider: advanced_search
-visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
+visibility: {  }

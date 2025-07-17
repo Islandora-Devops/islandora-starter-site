@@ -7,7 +7,6 @@ dependencies:
   module:
     - context
     - facets
-    - islandora
   theme:
     - olivero
 id: olivero_publisher
@@ -29,8 +28,3 @@ visibility:
     negate: false
     view_inclusion:
       view-solr_search_content-page_1: view-solr_search_content-page_1
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''

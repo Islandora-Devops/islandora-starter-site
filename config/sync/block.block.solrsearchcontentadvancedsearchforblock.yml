@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - advanced_search
-    - islandora
   theme:
     - olivero
 id: solrsearchcontentadvancedsearchforblock
@@ -24,9 +23,4 @@ settings:
     - linked_agent_name_fulltext
     - field_publisher_fulltext
   context_filter: field_member_of
-visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
+visibility: {  }

@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.solr_search_content
   module:
-    - islandora
     - views
   theme:
     - olivero
@@ -22,9 +21,4 @@ settings:
   provider: views
   views_label: ''
   items_per_page: none
-visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
+visibility: {  }

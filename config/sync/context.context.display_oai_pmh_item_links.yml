@@ -12,7 +12,7 @@ name: display_oai_pmh_item_links
 group: Display
 description: 'If an Islandora node, and not a Collection, show OAI-PMH Item Record Links (MODS, DC)'
 requireAllConditions: true
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term

@@ -6,7 +6,6 @@ dependencies:
     - facets.facet.publisher_swc
   module:
     - facets
-    - islandora
   theme:
     - olivero
 id: olivero_publisherswc
@@ -22,9 +21,4 @@ settings:
   provider: facets
   context_mapping: {  }
   block_id: olivero_publisherswc
-visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
+visibility: {  }

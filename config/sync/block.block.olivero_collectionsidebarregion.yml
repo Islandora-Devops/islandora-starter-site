@@ -28,8 +28,3 @@ visibility:
       node: '@node.node_route_context:node'
     uri: 'http://purl.org/dc/dcmitype/Collection,http://vocab.getty.edu/aat/300242735'
     logic: or
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''

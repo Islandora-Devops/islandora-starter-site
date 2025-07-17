@@ -6,7 +6,6 @@ dependencies:
     - facets.facet.member_of_swc
   module:
     - facets
-    - islandora
   theme:
     - olivero
 id: memberofswc
@@ -22,9 +21,4 @@ settings:
   provider: facets
   context_mapping: {  }
   block_id: memberofswc
-visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
+visibility: {  }

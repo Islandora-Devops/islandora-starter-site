@@ -10,7 +10,7 @@ name: citation_select_block
 group: Display
 description: 'If an Islandora node, and not a Collection, show Citation Select Block'
 requireAllConditions: true
-disabled: false
+disabled: true
 conditions:
   node_is_islandora_object:
     id: node_is_islandora_object

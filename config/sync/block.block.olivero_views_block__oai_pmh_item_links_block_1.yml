@@ -1,0 +1,38 @@
+uuid: 81607bed-95a8-4848-acd4-b97ff57cb7d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.oai_pmh_item_links
+  module:
+    - islandora
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__oai_pmh_item_links_block_1
+theme: olivero
+region: content
+weight: -19
+provider: null
+plugin: 'views_block:oai_pmh_item_links-block_1'
+settings:
+  id: 'views_block:oai_pmh_item_links-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection'
+    logic: and
+  node_is_islandora_object:
+    id: node_is_islandora_object
+    negate: 0
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -7,7 +7,6 @@ dependencies:
   module:
     - context
     - facets
-    - islandora
   theme:
     - olivero
 id: year
@@ -24,11 +23,6 @@ settings:
   context_mapping: {  }
   block_id: year
 visibility:
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
   view_inclusion:
     id: view_inclusion
     negate: false
