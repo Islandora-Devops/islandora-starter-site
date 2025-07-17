@@ -5,13 +5,12 @@ dependencies:
   module:
     - advanced_search
     - context
-    - islandora
   theme:
     - olivero
 id: solrsearchcontentsearchresultspagerforpage
 theme: olivero
 region: content
-weight: -12
+weight: -23
 provider: null
 plugin: 'advanced_search_result_pager:solr_search_content__page_1'
 settings:
@@ -36,8 +35,3 @@ visibility:
     negate: false
     view_inclusion:
       view-solr_search_content-page_1: view-solr_search_content-page_1
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''

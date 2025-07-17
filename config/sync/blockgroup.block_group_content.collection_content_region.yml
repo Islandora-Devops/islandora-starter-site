@@ -1,0 +1,6 @@
+uuid: b03bf807-b0b1-4696-a3d6-de24d54462bd
+langcode: en
+status: true
+dependencies: {  }
+id: collection_content_region
+label: 'Collection (Content region)'

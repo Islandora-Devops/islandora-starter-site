@@ -12,7 +12,7 @@ name: mirador_block_multipaged_items
 group: Display
 description: 'If Paged Content or Publication Issue, display Mirador from manifest.'
 requireAllConditions: false
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term

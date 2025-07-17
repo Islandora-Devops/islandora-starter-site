@@ -1,0 +1,33 @@
+uuid: 41c4db14-1939-4484-b99a-4d06dd7869fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_display_blocks
+  module:
+    - islandora
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__media_display_blocks_pdfjs
+theme: olivero
+region: repository_item_media_viewers
+weight: 0
+provider: null
+plugin: 'views_block:media_display_blocks-pdfjs'
+settings:
+  id: 'views_block:media_display_blocks-pdfjs'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://mozilla.github.io/pdf.js'
+    logic: and

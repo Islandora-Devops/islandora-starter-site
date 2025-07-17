@@ -1,0 +1,6 @@
+uuid: 64c82a81-5855-43d3-be73-4d4c6840f162
+langcode: en
+status: true
+dependencies: {  }
+id: collection_sidebar_region
+label: 'Collection (Sidebar region)'

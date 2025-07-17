@@ -1,0 +1,33 @@
+uuid: 44c518c5-d8d7-4df3-9cce-460b09f85f23
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_display_blocks
+  module:
+    - islandora
+    - views
+  theme:
+    - olivero
+id: olivero_views_block__media_display_blocks_source
+theme: olivero
+region: repository_item_media_viewers
+weight: 0
+provider: null
+plugin: 'views_block:media_display_blocks-source'
+settings:
+  id: 'views_block:media_display_blocks-source'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'https://projectmirador.org,http://openseadragon.github.io,http://mozilla.github.io/pdf.js'
+    logic: or

@@ -12,7 +12,7 @@ name: default_media_display
 group: Display
 description: 'Displays the Service File or Original File in its "Source" view mode'
 requireAllConditions: true
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term

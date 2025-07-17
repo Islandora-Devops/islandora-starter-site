@@ -1,0 +1,29 @@
+uuid: b1c03eb9-3cee-4d2e-893b-4d24940d9556
+langcode: en
+status: true
+dependencies:
+  module:
+    - islandora
+    - islandora_mirador
+  theme:
+    - olivero
+id: olivero_miradorblock_2
+theme: olivero
+region: repository_item_media_viewers
+weight: 0
+provider: null
+plugin: mirador_block
+settings:
+  id: mirador_block
+  label: 'Mirador block - Single image items'
+  label_display: '0'
+  provider: islandora_mirador
+  iiif_manifest_url: '/node/[node:nid]/manifest'
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'https://projectmirador.org'
+    logic: and

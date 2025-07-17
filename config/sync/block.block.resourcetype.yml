@@ -7,7 +7,6 @@ dependencies:
   module:
     - context
     - facets
-    - islandora
   theme:
     - olivero
 id: resourcetype
@@ -35,11 +34,6 @@ visibility:
       own_page_true: '0'
       field_value: '0'
     user_fields: uid
-  media_source_mimetype:
-    id: media_source_mimetype
-    negate: false
-    context_mapping: {  }
-    mimetype: ''
   view_inclusion:
     id: view_inclusion
     negate: false

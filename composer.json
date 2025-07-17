@@ -34,6 +34,7 @@
         "drupal/admin_toolbar": "^3.1",
         "drupal/advanced_search": "^2.1",
         "drupal/better_exposed_filters": "^7.0",
+        "drupal/blockgroup": "^2.0",
         "drupal/citation_select": "^2.0@beta",
         "drupal/coi": "^4.0",
         "drupal/config_update": "^2.0@alpha",
@@ -127,6 +128,9 @@
             ]
         },
         "patches": {
+            "drupal/islandora": {
+                "Allow node_has_term and node_is_islandora_object conditions to be used in Block visibility": "https://patch-diff.githubusercontent.com/raw/Islandora/islandora/pull/1084.patch"
+            },
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
             }

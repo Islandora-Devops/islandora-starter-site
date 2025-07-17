@@ -1,0 +1,29 @@
+uuid: 5865823a-befd-4e7a-9a11-d26688646218
+langcode: en
+status: true
+dependencies:
+  module:
+    - islandora
+    - islandora_mirador
+  theme:
+    - olivero
+id: olivero_miradorblock
+theme: olivero
+region: repository_item_media_viewers
+weight: 0
+provider: null
+plugin: mirador_block
+settings:
+  id: mirador_block
+  label: 'Mirador Block - Multipaged items'
+  label_display: '0'
+  provider: islandora_mirador
+  iiif_manifest_url: '/node/[node:nid]/book-manifest'
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'https://schema.org/Book,https://schema.org/PublicationIssue'
+    logic: or

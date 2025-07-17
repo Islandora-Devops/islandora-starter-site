@@ -1,0 +1,33 @@
+uuid: 20a29e83-1e3f-4113-b45f-ec07191930f8
+langcode: en
+status: true
+dependencies:
+  module:
+    - citation_select
+    - islandora
+  theme:
+    - olivero
+id: olivero_citationselectblock
+theme: olivero
+region: content
+weight: -20
+provider: null
+plugin: citation_select_block
+settings:
+  id: citation_select_block
+  label: 'Citation Select Block'
+  label_display: '0'
+  provider: citation_select
+visibility:
+  node_has_term:
+    id: node_has_term
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    uri: 'http://purl.org/dc/dcmitype/Collection'
+    logic: and
+  node_is_islandora_object:
+    id: node_is_islandora_object
+    negate: 0
+    context_mapping:
+      node: '@node.node_route_context:node'
