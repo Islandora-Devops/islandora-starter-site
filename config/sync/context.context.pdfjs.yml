@@ -12,7 +12,7 @@ name: pdfjs
 group: Display
 description: 'Displays the Service File or Original File in PDF.js view mode'
 requireAllConditions: false
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term
