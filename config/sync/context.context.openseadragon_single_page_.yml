@@ -12,7 +12,7 @@ name: openseadragon_single_page_
 group: Display
 description: 'Displays the Service File or Original File in the OpenSeadragon view mode'
 requireAllConditions: true
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term
