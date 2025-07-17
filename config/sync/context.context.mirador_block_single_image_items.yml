@@ -12,7 +12,7 @@ name: mirador_block_single_image_items
 group: Display
 description: 'Display an image in the Mirador viewer.'
 requireAllConditions: false
-disabled: false
+disabled: true
 conditions:
   node_has_term:
     id: node_has_term

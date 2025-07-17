@@ -1,0 +1,28 @@
+uuid: 4cf81e2a-ab9a-43dd-a7e5-713aeba81cf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - blockgroup.block_group_content.repository_item_media_viewers
+  module:
+    - blockgroup
+    - islandora
+  theme:
+    - olivero
+id: olivero_repositoryitemmediaviewers
+theme: olivero
+region: content_above
+weight: 0
+provider: null
+plugin: 'block_group:repository_item_media_viewers'
+settings:
+  id: 'block_group:repository_item_media_viewers'
+  label: 'Repository Item Media Viewers'
+  label_display: '0'
+  provider: blockgroup
+visibility:
+  node_is_islandora_object:
+    id: node_is_islandora_object
+    negate: 0
+    context_mapping:
+      node: '@node.node_route_context:node'

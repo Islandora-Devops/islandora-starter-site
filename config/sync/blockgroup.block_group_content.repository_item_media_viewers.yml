@@ -1,0 +1,6 @@
+uuid: 15921769-e278-497f-baaa-65fa50c58d61
+langcode: en
+status: true
+dependencies: {  }
+id: repository_item_media_viewers
+label: 'Repository Item Media Viewers'
