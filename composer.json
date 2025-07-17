@@ -42,6 +42,8 @@
         "drupal/controlled_access_terms": "^2",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-recommended": "^10.1",
+        "drupal/eca": "^2.1",
+        "drupal/eca_cm": "^1.0",
         "drupal/facets": "^2",
         "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
