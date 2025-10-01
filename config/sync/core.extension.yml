@@ -3,7 +3,6 @@ _core:
 module:
   action: 0
   admin_toolbar: 0
-  admin_toolbar_links_access_filter: 0
   admin_toolbar_search: 0
   admin_toolbar_tools: 0
   advanced_search: 0
@@ -70,10 +69,8 @@ module:
   islandora_workbench_integration: 0
   jquery_ui: 0
   jquery_ui_autocomplete: 0
-  jquery_ui_datepicker: 0
   jquery_ui_menu: 0
-  jquery_ui_slider: 0
-  jquery_ui_touch_punch: 0
+  js_cookie: 0
   jsonld: 0
   jwt: 0
   key: 0

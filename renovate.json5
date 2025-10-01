@@ -1,0 +1,66 @@
+{
+  extends: [
+    'config:best-practices',
+    ':rebaseStalePrs',
+  ],
+  packageRules: [
+    {
+      matchDatasources: [
+        'packagist',
+      ],
+      matchPackageNames: [
+        'library/pdf.js',
+      ],
+      enabled: false,
+    },
+    {
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+        'digest',
+      ],
+      groupName: 'all non-major dependencies',
+      schedule: [
+        'after 10pm on Wednesday',
+      ],
+      matchPackageNames: [
+        '*',
+      ],
+    },
+    {
+      matchUpdateTypes: [
+        'major',
+      ],
+      groupName: null,
+      matchPackageNames: [
+        '*',
+      ],
+      prConcurrentLimit: 1,
+    },
+  ],
+  customManagers: [
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/composer.json/',
+      ],
+      matchStrings: [
+        '\\s+"url":\\s"https:\\/\\/github.com\\/mozilla\\/pdf\\.js\\/releases\\/download\\/v(?<currentValue>.*)\\/(?:pdfjs-[^\\/]+)-dist\\.zip"',
+      ],
+      depNameTemplate: 'mozilla/pdf.js',
+      datasourceTemplate: 'github-releases',
+      versioningTemplate: 'semver-coerced',
+    },
+  ],
+  labels: [
+    'dependencies',
+  ],
+  osvVulnerabilityAlerts: true,
+  "postUpdateOptions": [
+    "composerWithAll"
+  ],
+  dependencyDashboardOSVVulnerabilitySummary: 'unresolved',
+  vulnerabilityAlerts: {
+    enabled: true,
+  },
+}

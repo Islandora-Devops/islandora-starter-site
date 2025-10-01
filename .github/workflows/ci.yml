@@ -6,8 +6,12 @@ on:
   pull_request: {}
   workflow_dispatch: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  build:
+  ubuntu-test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -18,10 +22,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@20529878ed81ef8e78ddf08b480401e6101a850f # v2
         with:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
@@ -31,7 +35,7 @@ jobs:
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -51,3 +55,32 @@ jobs:
         run: |
           composer exec -- drush en config_inspector
           composer exec -- drush config:inspect --only-error --detail
+
+  isle-test:
+    runs-on: ubuntu-latest
+    name: ISLE site template
+    steps:
+      - name: Checkout isle-site-template
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          repository: Islandora-Devops/isle-site-template
+
+      - name: Install mkcert
+        run: |-
+          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
+          chmod +x mkcert-v*-linux-amd64
+          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+
+      - name: Start islandora-starter-site
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actons"
+          ./tests/init-template-starter.sh
+        env:
+          # isle-buildkit tag
+          ISLANDORA_TAG: main
+          # the branch the PR is running on
+          ISLANDORA_STARTER_REF: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
+          # if coming from a fork, get the owner's repo
+          ISLANDORA_STARTER_OWNER: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
+          TERM: xterm-256color

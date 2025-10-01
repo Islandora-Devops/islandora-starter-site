@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6df26af1259348594e18bc8b80e5484",
+    "content-hash": "d682acf9eee06946be8c7b01d774e567",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -112,6 +112,42 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.3.0"
             },
             "time": "2025-03-13T08:50:04+00:00"
+        },
+        {
+            "name": "born-digital/islandora_iiif_hocr",
+            "version": "2.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Born-Digital-US/islandora_iiif_hocr.git",
+                "reference": "c2fbd3d02f7d82e9596b182241164a71cfe2c769"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Born-Digital-US/islandora_iiif_hocr/zipball/c2fbd3d02f7d82e9596b182241164a71cfe2c769",
+                "reference": "c2fbd3d02f7d82e9596b182241164a71cfe2c769",
+                "shasum": ""
+            },
+            "require": {
+                "discoverygarden/islandora_hocr": "*",
+                "drupal/islandora": "*"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Islandora support for hOCR markup in IIIF manifests",
+            "homepage": "https://github.com/Born-Digital-US/islandora_iiif_hocr",
+            "keywords": [
+                "Islandora",
+                "drupal",
+                "iiif"
+            ],
+            "support": {
+                "issues": "https://github.com/Born-Digital-US/islandora_iiif_hocr/issues",
+                "source": "https://github.com/Born-Digital-US/islandora_iiif_hocr/tree/2.0.7"
+            },
+            "time": "2024-12-17T01:58:40+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -1274,6 +1310,31 @@
                 "source": "https://github.com/discoverygarden/dgi_image_discovery/tree/v1.5.0"
             },
             "time": "2025-01-08T16:03:05+00:00"
+        },
+        {
+            "name": "discoverygarden/islandora_hocr",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/discoverygarden/islandora_hocr.git",
+                "reference": "9dd768dc3b777c69d8e4ede78c17f85adad62afe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/discoverygarden/islandora_hocr/zipball/9dd768dc3b777c69d8e4ede78c17f85adad62afe",
+                "reference": "9dd768dc3b777c69d8e4ede78c17f85adad62afe",
+                "shasum": ""
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "support": {
+                "issues": "https://github.com/discoverygarden/islandora_hocr/issues",
+                "source": "https://github.com/discoverygarden/islandora_hocr/tree/v1.4.0"
+            },
+            "time": "2025-05-22T16:40:03+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -12233,4 +12294,3 @@
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
-
