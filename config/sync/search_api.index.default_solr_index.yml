@@ -31,6 +31,7 @@ dependencies:
   module:
     - controlled_access_terms
     - dgi_image_discovery
+    - islandora_hocr
     - node
     - search_api_solr
     - taxonomy
@@ -115,6 +116,11 @@ field_settings:
     dependencies:
       module:
         - node
+  content:
+    label: 'HOCR Field » HOCR Content Field'
+    datasource_id: 'entity:node'
+    property_path: 'islandora_hocr_field:content'
+    type: 'solr_text_custom:islandora_hocr'
   created:
     label: 'Authored on'
     datasource_id: 'entity:node'
@@ -557,6 +563,7 @@ processor_settings:
       h2: 3
       h3: 2
       string: 2
+  islandora_hocr_field: {  }
   language_with_fallback: {  }
   rendered_item:
     weights:

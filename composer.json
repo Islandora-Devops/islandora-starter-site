@@ -28,9 +28,11 @@
     ],
     "require": {
         "php": "^7.4 || ^8",
+        "born-digital/islandora_iiif_hocr": "^2.0",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
+        "discoverygarden/islandora_hocr": "^1.4",
         "drupal/admin_toolbar": "^3.1",
         "drupal/advanced_search": "^2.1",
         "drupal/better_exposed_filters": "^7.0",
@@ -48,7 +50,7 @@
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
-        "drupal/islandora": "^2.8.1",
+        "drupal/islandora": "^2.12.3",
         "drupal/islandora_mirador": "^2",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
@@ -94,6 +96,7 @@
                     "append": "assets/patches/default_settings.txt"
                 }
             }
+
         },
         "installer-paths": {
             "web/core": [
