@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
 
 if ! command -v mkcert &> /dev/null; then
   curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
