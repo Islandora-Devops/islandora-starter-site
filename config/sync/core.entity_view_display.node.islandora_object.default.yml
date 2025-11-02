@@ -25,6 +25,7 @@ dependencies:
     - field.field.node.islandora_object.field_geographic_subject
     - field.field.node.islandora_object.field_identifier
     - field.field.node.islandora_object.field_isbn
+    - field.field.node.islandora_object.field_issue
     - field.field.node.islandora_object.field_language
     - field.field.node.islandora_object.field_lcc_classification
     - field.field.node.islandora_object.field_linked_agent
@@ -48,6 +49,7 @@ dependencies:
     - field.field.node.islandora_object.field_table_of_contents
     - field.field.node.islandora_object.field_temporal_subject
     - field.field.node.islandora_object.field_viewer_override
+    - field.field.node.islandora_object.field_volume
     - field.field.node.islandora_object.field_weight
     - node.type.islandora_object
   module:
@@ -87,7 +89,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 18
+    weight: 20
     region: content
   field_alt_title:
     type: string
@@ -103,14 +105,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 35
+    weight: 37
     region: content
   field_coordinates:
     type: geolocation_latlng
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 31
+    weight: 33
     region: content
   field_coordinates_text:
     type: string
@@ -118,7 +120,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 32
+    weight: 34
     region: content
   field_copyright_date:
     type: edtf_default
@@ -173,7 +175,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 17
+    weight: 19
     region: content
   field_dewey_classification:
     type: string
@@ -181,7 +183,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 33
+    weight: 35
     region: content
   field_edition:
     type: string
@@ -233,7 +235,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 25
+    weight: 27
     region: content
   field_frequency:
     type: entity_reference_label
@@ -253,7 +255,7 @@ content:
   field_gemini_uri:
     settings: {  }
     third_party_settings: {  }
-    weight: 40
+    weight: 42
     region: content
   field_genre:
     type: entity_reference_label
@@ -261,7 +263,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 23
+    weight: 25
     region: content
   field_geographic_subject:
     type: entity_reference_label
@@ -269,7 +271,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 28
+    weight: 30
     region: content
   field_identifier:
     type: string
@@ -277,7 +279,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 36
+    weight: 38
     region: content
   field_isbn:
     type: string
@@ -285,7 +287,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 37
+    weight: 39
+    region: content
+  field_issue:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
     region: content
   field_language:
     type: entity_reference_label
@@ -293,7 +303,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 21
+    weight: 23
     region: content
   field_lcc_classification:
     type: string
@@ -301,7 +311,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 34
+    weight: 36
     region: content
   field_linked_agent:
     type: typed_relation_default
@@ -317,7 +327,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 39
+    weight: 41
     region: content
   field_member_of:
     type: entity_reference_label
@@ -340,7 +350,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 20
+    weight: 22
     region: content
   field_oclc_number:
     type: string
@@ -348,7 +358,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 38
+    weight: 40
     region: content
   field_physical_form:
     type: entity_reference_label
@@ -356,7 +366,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 24
+    weight: 26
     region: content
   field_place_published:
     type: string
@@ -380,14 +390,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 22
+    weight: 24
     region: content
   field_rights:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 41
+    weight: 43
     region: content
   field_subject:
     type: entity_reference_label
@@ -395,7 +405,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 27
+    weight: 29
     region: content
   field_subject_general:
     type: entity_reference_label
@@ -403,7 +413,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 26
+    weight: 28
     region: content
   field_subjects_name:
     type: entity_reference_label
@@ -411,14 +421,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 29
+    weight: 31
     region: content
   field_table_of_contents:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 19
+    weight: 21
     region: content
   field_temporal_subject:
     type: entity_reference_label
@@ -426,7 +436,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 30
+    weight: 32
+    region: content
+  field_volume:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 17
     region: content
   links:
     settings: {  }
