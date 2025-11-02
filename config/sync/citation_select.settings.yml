@@ -5,6 +5,8 @@ csl_map:
     - abstract
   field_genre:
     - genre
+  field_issue:
+    - issue
   field_publisher:
     - publisher
   field_place_published:
@@ -13,6 +15,8 @@ csl_map:
     - title
   'current url':
     - URL
+  field_volume:
+    - volume
   field_language:
     - language
   field_edtf_date_issued:
