@@ -57,25 +57,13 @@ jobs:
           composer exec -- drush config:inspect --only-error --detail
 
   isle-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: ISLE site template
     steps:
-      - name: Checkout isle-site-template
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-        with:
-          repository: Islandora-Devops/isle-site-template
-
-      - name: Install mkcert
-        run: |-
-          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
-          chmod +x mkcert-v*-linux-amd64
-          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - name: Start islandora-starter-site
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actons"
-          ./tests/init-template-starter.sh
+        run: ./ci/test.sh
         env:
           # isle-buildkit tag
           ISLANDORA_TAG: main
