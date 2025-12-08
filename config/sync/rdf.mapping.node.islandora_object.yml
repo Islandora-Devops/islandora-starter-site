@@ -180,4 +180,3 @@ fieldMappings:
       - 'dcterms:identifier'
     datatype_callback:
       callable: 'Drupal\rest_oai_pmh\EntityUrl::makeAbsoluteUrl'
-
