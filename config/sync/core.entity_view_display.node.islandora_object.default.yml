@@ -35,11 +35,13 @@ dependencies:
     - field.field.node.islandora_object.field_model
     - field.field.node.islandora_object.field_note
     - field.field.node.islandora_object.field_oclc_number
+    - field.field.node.islandora_object.field_parent_publication_title
     - field.field.node.islandora_object.field_physical_form
     - field.field.node.islandora_object.field_pid
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
     - field.field.node.islandora_object.field_publisher
+    - field.field.node.islandora_object.field_related_people_and_groups
     - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
@@ -54,6 +56,7 @@ dependencies:
     - node.type.islandora_object
   module:
     - controlled_access_terms
+    - entity_reference_revisions
     - geolocation
     - text
     - user
@@ -89,7 +92,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 20
+    weight: 21
     region: content
   field_alt_title:
     type: string
@@ -105,14 +108,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 37
+    weight: 38
     region: content
   field_coordinates:
     type: geolocation_latlng
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 33
+    weight: 34
     region: content
   field_coordinates_text:
     type: string
@@ -120,7 +123,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 34
+    weight: 35
     region: content
   field_copyright_date:
     type: edtf_default
@@ -175,7 +178,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 19
+    weight: 20
     region: content
   field_dewey_classification:
     type: string
@@ -183,7 +186,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 35
+    weight: 36
     region: content
   field_edition:
     type: string
@@ -235,7 +238,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 27
+    weight: 28
     region: content
   field_frequency:
     type: entity_reference_label
@@ -255,7 +258,7 @@ content:
   field_gemini_uri:
     settings: {  }
     third_party_settings: {  }
-    weight: 42
+    weight: 43
     region: content
   field_genre:
     type: entity_reference_label
@@ -263,7 +266,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 25
+    weight: 26
     region: content
   field_geographic_subject:
     type: entity_reference_label
@@ -271,7 +274,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 30
+    weight: 31
     region: content
   field_identifier:
     type: string
@@ -279,7 +282,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 38
+    weight: 39
     region: content
   field_isbn:
     type: string
@@ -287,7 +290,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 39
+    weight: 40
     region: content
   field_issue:
     type: string
@@ -295,7 +298,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 18
+    weight: 19
     region: content
   field_language:
     type: entity_reference_label
@@ -303,7 +306,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 23
+    weight: 24
     region: content
   field_lcc_classification:
     type: string
@@ -311,7 +314,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 36
+    weight: 37
     region: content
   field_linked_agent:
     type: typed_relation_default
@@ -327,7 +330,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 41
+    weight: 42
     region: content
   field_member_of:
     type: entity_reference_label
@@ -350,7 +353,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 22
+    weight: 23
     region: content
   field_oclc_number:
     type: string
@@ -358,7 +361,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 40
+    weight: 41
+    region: content
+  field_parent_publication_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 17
     region: content
   field_physical_form:
     type: entity_reference_label
@@ -366,7 +377,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 26
+    weight: 27
     region: content
   field_place_published:
     type: string
@@ -384,20 +395,29 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  field_related_people_and_groups:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 45
+    region: content
   field_resource_type:
     type: entity_reference_label
     label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 24
+    weight: 25
     region: content
   field_rights:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 43
+    weight: 44
     region: content
   field_subject:
     type: entity_reference_label
@@ -405,7 +425,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 29
+    weight: 30
     region: content
   field_subject_general:
     type: entity_reference_label
@@ -413,7 +433,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 28
+    weight: 29
     region: content
   field_subjects_name:
     type: entity_reference_label
@@ -421,14 +441,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 31
+    weight: 32
     region: content
   field_table_of_contents:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 21
+    weight: 22
     region: content
   field_temporal_subject:
     type: entity_reference_label
@@ -436,7 +456,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 32
+    weight: 33
     region: content
   field_volume:
     type: string
@@ -444,7 +464,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 17
+    weight: 18
     region: content
   links:
     settings: {  }

@@ -3,6 +3,8 @@ csl_map:
     - type
   field_description:
     - abstract
+  field_parent_publication_title:
+    - container-title
   field_genre:
     - genre
   field_issue:

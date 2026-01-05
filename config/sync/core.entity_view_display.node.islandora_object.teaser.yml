@@ -36,11 +36,13 @@ dependencies:
     - field.field.node.islandora_object.field_model
     - field.field.node.islandora_object.field_note
     - field.field.node.islandora_object.field_oclc_number
+    - field.field.node.islandora_object.field_parent_publication_title
     - field.field.node.islandora_object.field_physical_form
     - field.field.node.islandora_object.field_pid
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
     - field.field.node.islandora_object.field_publisher
+    - field.field.node.islandora_object.field_related_people_and_groups
     - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
@@ -163,10 +165,12 @@ hidden:
   field_mode_of_issuance: true
   field_note: true
   field_oclc_number: true
+  field_parent_publication_title: true
   field_physical_form: true
   field_pid: true
   field_place_published: true
   field_place_published_country: true
+  field_related_people_and_groups: true
   field_representative_image: true
   field_resource_type: true
   field_rights: true
