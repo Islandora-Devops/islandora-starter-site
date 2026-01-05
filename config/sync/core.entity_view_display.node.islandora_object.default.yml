@@ -41,7 +41,6 @@ dependencies:
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
     - field.field.node.islandora_object.field_publisher
-    - field.field.node.islandora_object.field_related_people_and_groups
     - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
@@ -56,7 +55,6 @@ dependencies:
     - node.type.islandora_object
   module:
     - controlled_access_terms
-    - entity_reference_revisions
     - geolocation
     - text
     - user
@@ -394,15 +392,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 4
-    region: content
-  field_related_people_and_groups:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 45
     region: content
   field_resource_type:
     type: entity_reference_label

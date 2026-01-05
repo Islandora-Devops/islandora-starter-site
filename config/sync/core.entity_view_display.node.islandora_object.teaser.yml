@@ -42,7 +42,6 @@ dependencies:
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
     - field.field.node.islandora_object.field_publisher
-    - field.field.node.islandora_object.field_related_people_and_groups
     - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
@@ -170,7 +169,6 @@ hidden:
   field_pid: true
   field_place_published: true
   field_place_published_country: true
-  field_related_people_and_groups: true
   field_representative_image: true
   field_resource_type: true
   field_rights: true

@@ -41,7 +41,6 @@ dependencies:
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
     - field.field.node.islandora_object.field_publisher
-    - field.field.node.islandora_object.field_related_people_and_groups
     - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
@@ -59,7 +58,6 @@ dependencies:
     - field_group
     - geolocation
     - media_library
-    - paragraphs
     - path
     - text
 third_party_settings:
@@ -637,24 +635,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_related_people_and_groups:
-    type: paragraphs
-    weight: 51
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      features:
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
     third_party_settings: {  }
   field_representative_image:
     type: media_library_widget
