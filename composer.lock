@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d682acf9eee06946be8c7b01d774e567",
+    "content-hash": "b524b3d5ce2d27a597c1f5ed2c921321",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -7363,22 +7363,21 @@
         },
         {
             "name": "mjordan/islandora_workbench_integration",
-            "version": "dev-main",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjordan/islandora_workbench_integration.git",
-                "reference": "c3e4de9b9ab20d6866a0f54de2e9855c797f357c"
+                "reference": "0049578cf2590c0a9b0391a681901f033baf7cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjordan/islandora_workbench_integration/zipball/c3e4de9b9ab20d6866a0f54de2e9855c797f357c",
-                "reference": "c3e4de9b9ab20d6866a0f54de2e9855c797f357c",
+                "url": "https://api.github.com/repos/mjordan/islandora_workbench_integration/zipball/0049578cf2590c0a9b0391a681901f033baf7cff",
+                "reference": "0049578cf2590c0a9b0391a681901f033baf7cff",
                 "shasum": ""
             },
             "require": {
                 "drupal/islandora": "^2"
             },
-            "default-branch": true,
             "type": "drupal-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -7399,9 +7398,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mjordan/islandora_workbench_integration/issues",
-                "source": "https://github.com/mjordan/islandora_workbench_integration/tree/v1.1.0"
+                "source": "https://github.com/mjordan/islandora_workbench_integration/tree/v1.2.0"
             },
-            "time": "2025-04-20T16:49:33+00:00"
+            "time": "2025-12-23T15:23:18+00:00"
         },
         {
             "name": "ml/iri",
@@ -12283,8 +12282,7 @@
         "drupal/rest_oai_pmh": 10,
         "drupal/term_merge": 10,
         "drupal/views_field_view": 10,
-        "islandora-rdm/islandora_fits": 20,
-        "mjordan/islandora_workbench_integration": 20
+        "islandora-rdm/islandora_fits": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
