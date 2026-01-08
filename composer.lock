@@ -1594,17 +1594,17 @@
         },
         {
             "name": "drupal/advanced_search",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/advanced_search.git",
-                "reference": "2.2.1"
+                "reference": "2.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/advanced_search-2.2.1.zip",
-                "reference": "2.2.1",
-                "shasum": "c8d3713866fbd717d6fd89137e68d3c308e36285"
+                "url": "https://ftp.drupal.org/files/projects/advanced_search-2.2.2.zip",
+                "reference": "2.2.2",
+                "shasum": "a65c967e6d6ff555d5544cafd757637e31178d88"
             },
             "require": {
                 "drupal/core": "^8.8 || ^9 || ^10 || ^11",
@@ -1624,8 +1624,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.1",
-                    "datestamp": "1764184600",
+                    "version": "2.2.2",
+                    "datestamp": "1767823003",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
