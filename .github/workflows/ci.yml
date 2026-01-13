@@ -2,7 +2,7 @@
 name: CI
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request: {}
   workflow_dispatch: {}
 
@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ 8.3, 8.4, 8.5 ]
+        php-versions: [8.3, 8.4, 8.5]
 
     name: PHP ${{ matrix.php-versions }}
 
@@ -61,14 +61,19 @@ jobs:
     name: ISLE site template
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          repository: Islandora-Devops/isle-site-template
 
       - name: Start islandora-starter-site
-        run: ./ci/test.sh
-        env:
-          # isle-buildkit tag
-          ISLANDORA_TAG: main
-          # the branch the PR is running on
-          ISLANDORA_STARTER_REF: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
-          # if coming from a fork, get the owner's repo
-          ISLANDORA_STARTER_OWNER: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
-          TERM: xterm-256color
+        uses: ./.github/actions/setup
+        with:
+          starter-site-owner: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
+          starter-site-ref: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
+
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          sparse-checkout: ci/test.sh
+          path: ./ci
+
+      - run: ./ci/ci/test.sh
+
