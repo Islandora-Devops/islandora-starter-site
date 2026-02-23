@@ -1966,4 +1966,3 @@ display:
         - 'config:field.storage.node.field_volume'
         - 'config:search_api.index.default_solr_index'
         - 'search_api_list:default_solr_index'
-
