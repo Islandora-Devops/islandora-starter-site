@@ -17,20 +17,22 @@
             "type": "package",
             "package": {
                 "name": "library/pdf.js",
-                "version": "2.16.105",
+                "version": "5",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/mozilla/pdf.js/releases/download/v2.16.105/pdfjs-2.16.105-dist.zip",
+                    "url": "https://github.com/mozilla/pdf.js/releases/download/v5.4.624/pdfjs-5.4.624-dist.zip",
                     "type": "zip"
                 }
             }
         }
     ],
     "require": {
-        "php": "^7.4 || ^8",
+        "php": "^8.3",
+        "born-digital/islandora_iiif_hocr": "^2.0",
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
+        "discoverygarden/islandora_hocr": "^1.4",
         "drupal/admin_toolbar": "^3.1",
         "drupal/advanced_search": "^2.1",
         "drupal/better_exposed_filters": "^7.0",
@@ -42,12 +44,12 @@
         "drupal/core-composer-scaffold": "^11.1",
         "drupal/core-recommended": "^11.1",
         "drupal/facets": "^2",
-        "drupal/field_group": "^3",
+        "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
-        "drupal/islandora": "^2.8.1",
+        "drupal/islandora": "^2.12.3",
         "drupal/islandora_mirador": "^2",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
@@ -63,8 +65,8 @@
         "drush/drush": "^13",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/views_nested_details": "^1.0",
-        "library/pdf.js": "^2.4",
-        "mjordan/islandora_workbench_integration": "dev-main"
+        "library/pdf.js": "^5",
+        "mjordan/islandora_workbench_integration": "^1"
     },
     "conflict": {
         "drupal/drupal": "*",
@@ -94,6 +96,7 @@
                     "append": "assets/patches/default_settings.txt"
                 }
             }
+
         },
         "installer-paths": {
             "web/core": [

@@ -2,7 +2,7 @@
 name: CI
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request: {}
   workflow_dispatch: {}
 
@@ -16,16 +16,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ 8.3, 8.4 ]
-
+        php-versions: [8.3, 8.4, 8.5]
     name: PHP ${{ matrix.php-versions }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@cf4cade2721270509d5b1c766ab3549210a39a2a # v2
+        uses: shivammathur/setup-php@44454db4f0199b8b9685a5d763dc37cbf79108e1 # v2
         with:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
@@ -35,7 +34,7 @@ jobs:
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache dependencies
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -57,26 +56,23 @@ jobs:
           composer exec -- drush config:inspect --only-error --detail
 
   isle-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: ISLE site template
     steps:
-      - name: Checkout isle-site-template
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           repository: Islandora-Devops/isle-site-template
 
-      - name: Install mkcert
-        run: |-
-          curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64"
-          chmod +x mkcert-v*-linux-amd64
-          sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
-
       - name: Start islandora-starter-site
-        run: ./tests/init-template-starter.sh
-        env:
-          # isle-buildkit tag
-          ISLANDORA_TAG: main
-          # the branch the PR is running on
-          ISLANDORA_STARTER_REF: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
-          # if coming from a fork, get the owner's repo
-          ISLANDORA_STARTER_OWNER: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
+        uses: ./.github/actions/setup
+        with:
+          starter-site-owner: "${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.owner.login || github.repository_owner }}"
+          starter-site-ref: "heads/${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}"
+
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          sparse-checkout: ci/test.sh
+          path: ./ci
+
+      - run: ./ci/ci/test.sh
+
