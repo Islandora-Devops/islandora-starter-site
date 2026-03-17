@@ -41,17 +41,18 @@
         "drupal/config_update": "^2.0@alpha",
         "drupal/context": "^5@RC",
         "drupal/controlled_access_terms": "^2",
-        "drupal/core-composer-scaffold": "^10.1",
-        "drupal/core-recommended": "^10.1",
+        "drupal/core-composer-scaffold": "^11.1",
+        "drupal/core-recommended": "^11.1",
         "drupal/facets": "^2",
         "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
-        "drupal/field_report": "^2.1",
+        "drupal/field_report": "^2.2",
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.12.3",
         "drupal/islandora_mirador": "^2",
+        "drupal/jwt": "3.x-dev",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",
@@ -59,10 +60,11 @@
         "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
         "drupal/term_merge": "^2.0@beta",
+        "drupal/tour": "*",
         "drupal/twig_tweak": "^3.2",
         "drupal/views_data_export": "^1.2",
         "drupal/views_field_view": "^1.0@beta",
-        "drush/drush": "^13",
+        "drush/drush": "^13.7",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^5",
@@ -128,6 +130,9 @@
             ]
         },
         "patches": {
+            "born-digital/islandora_iiif_hocr": {
+                "d11": "https://github.com/Born-Digital-US/islandora_iiif_hocr/pull/3.patch"
+            },
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
             }
