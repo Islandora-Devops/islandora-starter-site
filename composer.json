@@ -52,6 +52,7 @@
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.12.3",
         "drupal/islandora_mirador": "^2",
+        "drupal/jwt": "3.x-dev",
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",
