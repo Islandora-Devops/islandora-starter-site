@@ -1,0 +1,14 @@
+diff --git a/src/Transcoder/JwtTranscoder.php b/src/Transcoder/JwtTranscoder.php
+index bd17217..9d1e2c9 100644
+--- a/src/Transcoder/JwtTranscoder.php
++++ b/src/Transcoder/JwtTranscoder.php
+@@ -250,6 +250,9 @@ class JwtTranscoder implements JwtTranscoderInterface {
+    *   Returns NULL if operation is not found. Otherwise, returns key.
+    */
+   protected function getKey(string $operation) {
++    if ($this->algorithmType === NULL) {
++      return NULL;
++    }
+     if ($this->algorithmType == 'jwt_hs') {
+       return $this->secret;
+     }

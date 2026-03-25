@@ -131,7 +131,10 @@
         },
         "patches": {
             "born-digital/islandora_iiif_hocr": {
-                "d11": "https://github.com/Born-Digital-US/islandora_iiif_hocr/pull/3.patch"
+                "d11": "assets/patches/born-digital/islandora_iiif_hocr/d11.patch"
+            },
+            "drupal/jwt": {
+                "d11": "assets/patches/drupal/jwt/d11.patch"
             },
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
