@@ -43,6 +43,7 @@
         "drupal/controlled_access_terms": "^2",
         "drupal/core-composer-scaffold": "^11.1",
         "drupal/core-recommended": "^11.1",
+        "drupal/dxpr_theme": "^8.0",
         "drupal/facets": "^2",
         "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
