@@ -26,6 +26,10 @@ git checkout -- drupal/rootfs/var/www/drupal/config/sync/core.extension.yml
 # now make sure no other config differences
 if [ -n "$(git status drupal/rootfs/var/www/drupal/config/sync --porcelain)" ]; then
     echo "Error: Working directory is not clean" >&2
+    echo "What went wrong:"
     git status --short >&2
+    echo "What's different":
+    git diff
     exit 1
 fi
+
