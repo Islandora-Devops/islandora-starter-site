@@ -458,7 +458,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access administration pages'
       cache:
         type: tag
         options: {  }
