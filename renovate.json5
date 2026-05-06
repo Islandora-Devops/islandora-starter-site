@@ -3,6 +3,9 @@
     'config:best-practices',
     ':rebaseStalePrs',
   ],
+  lockFileMaintenance: {
+    enabled: false,
+  },
   packageRules: [
     {
       matchDatasources: [
