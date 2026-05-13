@@ -4853,17 +4853,17 @@
         },
         {
             "name": "drupal/rest_oai_pmh",
-            "version": "2.3.0",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rest_oai_pmh.git",
-                "reference": "2.3.0"
+                "reference": "2.3.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.3.0.zip",
-                "reference": "2.3.0",
-                "shasum": "21e469ee0df627c33bba40dd7158b2d86c3fc870"
+                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.3.2.zip",
+                "reference": "2.3.2",
+                "shasum": "d0cc6b49ee8ecfa0cdde56f73f70fbc894b96413"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -4874,8 +4874,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.3.0",
-                    "datestamp": "1778688838",
+                    "version": "2.3.2",
+                    "datestamp": "1778704100",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
