@@ -1,0 +1,22 @@
+uuid: 6f78916c-35ec-48df-bba0-bccbc30183bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dxpr_theme
+_core:
+  default_config_hash: FR6TscQ_wWvu_Oif0Ha6seHBgJwsupKvwisRs1yTxYw
+id: dxpr_theme_content
+theme: dxpr_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

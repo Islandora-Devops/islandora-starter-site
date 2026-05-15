@@ -1724,6 +1724,56 @@
             }
         },
         {
+            "name": "drupal/bootstrap5",
+            "version": "4.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bootstrap5.git",
+                "reference": "4.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bootstrap5-4.0.8.zip",
+                "reference": "4.0.8",
+                "shasum": "1d7dc5c04ce262628c005671117888caa498453e"
+            },
+            "require": {
+                "drupal/core": "^10.1 || ^11.0"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.8",
+                    "datestamp": "1770988520",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Roudakov (vladimiraus)",
+                    "homepage": "https://www.drupal.org/u/vladimiraus",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "vladimiraus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                }
+            ],
+            "description": "Master theme using Bootstrap 5: powerful front-end framework for faster and easier web development.",
+            "homepage": "https://www.drupal.org/project/bootstrap5",
+            "support": {
+                "source": "https://git.drupalcode.org/project/bootstrap5",
+                "issues": "https://www.drupal.org/project/issues/bootstrap5"
+            }
+        },
+        {
             "name": "drupal/citation_select",
             "version": "2.1.1",
             "source": {
@@ -2724,6 +2774,129 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
+            }
+        },
+        {
+            "name": "drupal/dxpr_theme",
+            "version": "8.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/dxpr_theme.git",
+                "reference": "8.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dxpr_theme-8.1.1.zip",
+                "reference": "8.1.1",
+                "shasum": "d43dde337253ac4fe3c9f3c7b82a3c8f33e41a35"
+            },
+            "require": {
+                "drupal/bootstrap5": "^3 || ^4",
+                "drupal/core": "^9.3 || ^10 || ^11",
+                "drupal/dxpr_theme_helper": "^3.0",
+                "drupal/media_library_form_element": "^2.1"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "8.1.1",
+                    "datestamp": "1775474967",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "DXPR",
+                    "homepage": "https://dxpr.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "jurriaanroelofs",
+                    "homepage": "https://www.drupal.org/user/52638"
+                }
+            ],
+            "description": "Low-code Drupal Framework Theme.",
+            "homepage": "https://www.drupal.org/project/dxpr_theme",
+            "keywords": [
+                "Bootstrap",
+                "DXPR",
+                "Drupal",
+                "Framework",
+                "Marketing",
+                "Theme"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/dxpr_theme",
+                "documentation": "https:/.dxpr.com/hc",
+                "issues": "https://dxpr.com/hc/tickets"
+            }
+        },
+        {
+            "name": "drupal/dxpr_theme_helper",
+            "version": "3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/dxpr_theme_helper.git",
+                "reference": "3.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dxpr_theme_helper-3.1.1.zip",
+                "reference": "3.1.1",
+                "shasum": "92ff282872d4233375b82d1e09e215cee90512b9"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10 || ^11"
+            },
+            "require-dev": {
+                "drush/drush": "*"
+            },
+            "suggest": {
+                "drupal/ai": "^1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.1",
+                    "datestamp": "1775476987",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "DXPR",
+                    "homepage": "https://dxpr.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Helper module  to support DXPR Theme.",
+            "homepage": "https://www.drupal.org/project/dxpr_theme_helper",
+            "keywords": [
+                "Bootstrap",
+                "DXPR",
+                "Drupal",
+                "Framework",
+                "Marketing",
+                "Theme"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/dxpr_theme_helper",
+                "documentation": "https://dxpr.com/hc",
+                "issues": "https://dxpr.com/hc/tickets"
             }
         },
         {
@@ -4317,6 +4490,77 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/key",
                 "issues": "http://drupal.org/project/key"
+            }
+        },
+        {
+            "name": "drupal/media_library_form_element",
+            "version": "2.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/media_library_form_element.git",
+                "reference": "2.1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/media_library_form_element-2.1.4.zip",
+                "reference": "2.1.4",
+                "shasum": "575d5a69e4b9e310336aeb3ee169ec2d7c8b3f2b"
+            },
+            "require": {
+                "drupal/core": "^10.3 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.4",
+                    "datestamp": "1759255782",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Kim Kennof",
+                    "homepage": "https://www.drupal.org/u/nightlife2008",
+                    "email": "kim.kennof@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "AUSY, a randstad company",
+                    "homepage": "https://www.ausy.be",
+                    "email": "info@ausy.be",
+                    "role": "Sponsor"
+                },
+                {
+                    "name": "mark_fullmer",
+                    "homepage": "https://www.drupal.org/user/2612816"
+                },
+                {
+                    "name": "nightlife2008",
+                    "homepage": "https://www.drupal.org/user/333515"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                }
+            ],
+            "description": "This module provides a Media Library Form API element to be used in all sorts of forms.",
+            "homepage": "https://www.drupal.org/project/media_library_form_element",
+            "keywords": [
+                "Drupal",
+                "Form API",
+                "Media",
+                "Media Library"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/media_library_form_element",
+                "issues": "https://www.drupal.org/project/issues/media_library_form_element"
             }
         },
         {
