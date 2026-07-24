@@ -261,8 +261,6 @@ settings:
     'relators:pdr': 'Project director'
     'relators:pfr': Proofreader
     'relators:prv': Provider
-    'relators:pup': 'Publication place'
-    'relators:pbl': Publisher
     'relators:pbd': 'Publishing director'
     'relators:ppt': Puppeteer
     'relators:rdd': 'Radio director'
