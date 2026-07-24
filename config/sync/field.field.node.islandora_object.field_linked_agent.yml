@@ -37,271 +37,312 @@ settings:
   rel_types:
     'relators:att': ''
     'relators:abr': Abridger
+    'relators:acp': 'Art copyist'
     'relators:act': Actor
+    'relators:adi': 'Art director'
     'relators:adp': Adapter
-    'relators:rcp': Addressee
+    'relators:afd': 'Assistant film director'
+    'relators:aft': 'Author of afterword, colophon, etc. (deprecated)'
+    'relators:anc': Announcer
     'relators:anl': Analyst
     'relators:anm': Animator
     'relators:ann': Annotator
-    'relators:apl': Appellant
+    'relators:ant': 'Bibliographic antecedent'
     'relators:ape': Appellee
+    'relators:apl': Appellant
     'relators:app': Applicant
+    'relators:aqt': 'Author in quotations or text abstracts'
     'relators:arc': Architect
-    'relators:arr': Arranger
-    'relators:acp': 'Art copyist'
-    'relators:adi': 'Art director'
-    'relators:art': Artist
     'relators:ard': 'Artistic director'
+    'relators:arr': Arranger
+    'relators:art': Artist
     'relators:asg': Assignee
     'relators:asn': 'Associated name'
-    'relators:auc': Auctioneer
-    'relators:aut': Author
-    'relators:aqt': 'Author in quotations or text abstracts'
-    'relators:aft': 'Author of afterword, colophon, etc.'
-    'relators:aud': 'Author of dialog'
-    'relators:aui': 'Author of introduction, etc.'
     'relators:ato': Autographer
-    'relators:ant': 'Bibliographic antecedent'
-    'relators:bnd': Binder
+    'relators:auc': Auctioneer
+    'relators:aud': 'Author of dialog'
+    'relators:aue': 'Audio engineer'
+    'relators:aui': 'Author of introduction, etc. (deprecated)'
+    'relators:aup': 'Audio producer'
+    'relators:aus': Screenwriter
+    'relators:aut': Author
     'relators:bdd': 'Binding designer'
-    'relators:blw': 'Blurb writer'
+    'relators:bjd': 'Bookjacket designer'
+    'relators:bka': 'Book artist'
     'relators:bkd': 'Book designer'
     'relators:bkp': 'Book producer'
-    'relators:bjd': 'Bookjacket designer'
+    'relators:blw': 'Blurb writer'
+    'relators:bnd': Binder
     'relators:bpd': 'Bookplate designer'
-    'relators:bsl': Bookseller
-    'relators:brl': 'Braille embosser'
     'relators:brd': Broadcaster
-    'relators:cll': Calligrapher
-    'relators:ctg': Cartographer
+    'relators:brl': 'Braille embosser'
+    'relators:bsl': Bookseller
+    'relators:cad': 'Casting director'
     'relators:cas': Caster
-    'relators:cns': Censor
+    'relators:ccp': Conceptor
     'relators:chr': Choreographer
     'relators:clb': 'Collaborator (deprecated, use Contributor)'
-    'relators:cng': Cinematographer
     'relators:cli': Client
-    'relators:cor': 'Collection registrar'
-    'relators:col': Collector
-    'relators:clt': Collotyper
+    'relators:cll': Calligrapher
     'relators:clr': Colorist
+    'relators:clt': Collotyper
     'relators:cmm': Commentator
-    'relators:cwt': 'Commentator for written text'
-    'relators:com': Compiler
-    'relators:cpl': Complainant
-    'relators:cpt': Complainant-appellant
-    'relators:cpe': Complainant-appellee
     'relators:cmp': Composer
     'relators:cmt': Compositor
-    'relators:ccp': Conceptor
     'relators:cnd': Conductor
+    'relators:cng': Cinematographer
+    'relators:cns': Censor
+    'relators:coe': Contestant-appellee
+    'relators:col': Collector
+    'relators:com': Compiler
     'relators:con': Conservator
-    'relators:csl': Consultant
-    'relators:csp': 'Consultant to a project'
+    'relators:cop': 'Camera operator'
+    'relators:cor': 'Collection registrar'
     'relators:cos': Contestant
     'relators:cot': Contestant-appellant
-    'relators:coe': Contestant-appellee
+    'relators:cou': 'Court governed'
+    'relators:cov': 'Cover designer'
+    'relators:cpc': 'Copyright claimant'
+    'relators:cpe': Complainant-appellee
+    'relators:cph': 'Copyright holder'
+    'relators:cpl': Complainant
+    'relators:cpt': Complainant-appellant
+    'relators:cre': Creator
+    'relators:crp': Correspondent
+    'relators:crr': Corrector
+    'relators:crt': 'Court reporter'
+    'relators:csl': Consultant
+    'relators:csp': 'Consultant to a project'
+    'relators:cst': 'Costume designer'
+    'relators:ctb': Contributor
+    'relators:cte': Contestee-appellee
+    'relators:ctg': Cartographer
+    'relators:ctr': Contractor
     'relators:cts': Contestee
     'relators:ctt': Contestee-appellant
-    'relators:cte': Contestee-appellee
-    'relators:ctr': Contractor
-    'relators:ctb': Contributor
-    'relators:cpc': 'Copyright claimant'
-    'relators:cph': 'Copyright holder'
-    'relators:crr': Corrector
-    'relators:crp': Correspondent
-    'relators:cst': 'Costume designer'
-    'relators:cou': 'Court governed'
-    'relators:crt': 'Court reporter'
-    'relators:cov': 'Cover designer'
-    'relators:cre': Creator
     'relators:cur': Curator
-    'relators:dnc': Dancer
-    'relators:dtc': 'Data contributor'
-    'relators:dtm': 'Data manager'
-    'relators:dte': Dedicatee
-    'relators:dto': Dedicator
+    'relators:cwt': 'Commentator for written text'
+    'relators:dbd': 'Dubbing director'
+    'relators:dbp': 'Distribution place'
     'relators:dfd': Defendant
-    'relators:dft': Defendant-appellant
     'relators:dfe': Defendant-appellee
+    'relators:dft': Defendant-appellant
+    'relators:dgc': 'Degree committee member'
     'relators:dgg': 'Degree granting institution'
     'relators:dgs': 'Degree supervisor'
+    'relators:dis': Dissertant
+    'relators:djo': DJ
     'relators:dln': Delineator
+    'relators:dnc': Dancer
+    'relators:dnr': Donor
     'relators:dpc': Depicted
     'relators:dpt': Depositor
-    'relators:dsr': Designer
-    'relators:drt': Director
-    'relators:dis': Dissertant
-    'relators:dbp': 'Distribution place'
-    'relators:dst': Distributor
-    'relators:dnr': Donor
     'relators:drm': Draftsman
+    'relators:drt': Director
+    'relators:dsr': Designer
+    'relators:dst': Distributor
+    'relators:dtc': 'Data contributor'
+    'relators:dte': Dedicatee
+    'relators:dtm': 'Data manager'
+    'relators:dto': Dedicator
     'relators:dub': 'Dubious author'
-    'relators:edt': Editor
     'relators:edc': 'Editor of compilation'
+    'relators:edd': 'Editorial director'
     'relators:edm': 'Editor of moving image work'
+    'relators:edt': Editor
+    'relators:egr': Engraver
     'relators:elg': Electrician
     'relators:elt': Electrotyper
-    'relators:enj': 'Enacting jurisdiction'
     'relators:eng': Engineer
-    'relators:egr': Engraver
+    'relators:enj': 'Enacting jurisdiction'
     'relators:etr': Etcher
     'relators:evp': 'Event place'
     'relators:exp': Expert
     'relators:fac': Facsimilist
-    'relators:fld': 'Field director'
-    'relators:fmd': 'Film director'
     'relators:fds': 'Film distributor'
+    'relators:fld': 'Field director'
     'relators:flm': 'Film editor'
-    'relators:fmp': 'Film producer'
+    'relators:fmd': 'Film director'
     'relators:fmk': Filmmaker
+    'relators:fmo': 'Former owner'
+    'relators:fmp': 'Film producer'
+    'relators:fnd': Funder
+    'relators:fon': Founder
     'relators:fpy': 'First party'
     'relators:frg': Forger
-    'relators:fmo': 'Former owner'
-    'relators:fnd': Funder
+    'relators:gdv': 'Game developer'
     'relators:gis': 'Geographic information specialist'
     'relators:grt': 'Graphic technician (deprecated, use Artist)'
+    'relators:gst': Guest
+    'relators:his': 'Host institution'
     'relators:hnr': Honoree
     'relators:hst': Host
-    'relators:his': 'Host institution'
-    'relators:ilu': Illuminator
     'relators:ill': Illustrator
+    'relators:ilu': Illuminator
+    'relators:ink': Inker
     'relators:ins': Inscriber
+    'relators:inv': Inventor
+    'relators:isb': 'Issuing body'
     'relators:itr': Instrumentalist
     'relators:ive': Interviewee
     'relators:ivr': Interviewer
-    'relators:inv': Inventor
-    'relators:isb': 'Issuing body'
     'relators:jud': Judge
     'relators:jug': 'Jurisdiction governed'
     'relators:lbr': Laboratory
+    'relators:lbt': Librettist
     'relators:ldr': 'Laboratory director'
-    'relators:lsa': 'Landscape architect'
     'relators:led': Lead
+    'relators:lee': Libelee-appellee
+    'relators:lel': Libelee
     'relators:len': Lender
+    'relators:let': Libelee-appellant
+    'relators:lgd': 'Lighting designer'
+    'relators:lie': Libelant-appellee
     'relators:lil': Libelant
     'relators:lit': Libelant-appellant
-    'relators:lie': Libelant-appellee
-    'relators:lel': Libelee
-    'relators:let': Libelee-appellant
-    'relators:lee': Libelee-appellee
-    'relators:lbt': Librettist
+    'relators:lsa': 'Landscape architect'
     'relators:lse': Licensee
     'relators:lso': Licensor
-    'relators:lgd': 'Lighting designer'
     'relators:ltg': Lithographer
+    'relators:ltr': Letterer
     'relators:lyr': Lyricist
+    'relators:mcp': 'Music copyist'
+    'relators:mdc': 'Metadata contact'
+    'relators:med': Medium
     'relators:mfp': 'Manufacture place'
     'relators:mfr': Manufacturer
-    'relators:mrb': Marbler
-    'relators:mrk': 'Markup editor'
-    'relators:med': Medium
-    'relators:mdc': 'Metadata contact'
-    'relators:mte': Metal-engraver
-    'relators:mtk': 'Minute taker'
+    'relators:mka': 'Makeup artist'
     'relators:mod': Moderator
     'relators:mon': Monitor
-    'relators:mcp': 'Music copyist'
+    'relators:mrb': Marbler
+    'relators:mrk': 'Markup editor'
     'relators:msd': 'Musical director'
+    'relators:mte': 'Metal engraver'
+    'relators:mtk': 'Minute taker'
+    'relators:mup': 'Music programmer'
     'relators:mus': Musician
+    'relators:mxe': 'Mixing engineer'
+    'relators:nan': 'News anchor'
     'relators:nrt': Narrator
-    'relators:osp': 'Onscreen presenter'
+    'relators:onp': 'Onscreen participant'
     'relators:opn': Opponent
-    'relators:orm': Organizer
     'relators:org': Originator
+    'relators:orm': Organizer
+    'relators:osp': 'Onscreen presenter'
     'relators:oth': Other
     'relators:own': Owner
+    'relators:pad': 'Place of address'
     'relators:pan': Panelist
-    'relators:ppm': Papermaker
-    'relators:pta': 'Patent applicant'
-    'relators:pth': 'Patent holder'
     'relators:pat': Patron
-    'relators:prf': Performer
-    'relators:pma': 'Permitting agency'
-    'relators:pht': Photographer
-    'relators:ptf': Plaintiff
-    'relators:ptt': Plaintiff-appellant
-    'relators:pte': Plaintiff-appellee
-    'relators:plt': Platemaker
-    'relators:pra': Praeses
-    'relators:pre': Presenter
-    'relators:prt': Printer
-    'relators:pop': 'Printer of plates'
-    'relators:prm': Printmaker
-    'relators:prc': 'Process contact'
-    'relators:pro': Producer
-    'relators:prn': 'Production company'
-    'relators:prs': 'Production designer'
-    'relators:pmn': 'Production manager'
-    'relators:prd': 'Production personnel'
-    'relators:prp': 'Production place'
-    'relators:prg': Programmer
+    'relators:pbd': 'Publishing director'
+    'relators:pbl': Publisher
     'relators:pdr': 'Project director'
     'relators:pfr': Proofreader
-    'relators:prv': Provider
-    'relators:pbd': 'Publishing director'
+    'relators:pht': Photographer
+    'relators:plt': Platemaker
+    'relators:pma': 'Permitting agency'
+    'relators:pmn': 'Production manager'
+    'relators:pnc': Penciller
+    'relators:pop': 'Printer of plates'
+    'relators:ppm': Papermaker
     'relators:ppt': Puppeteer
-    'relators:rdd': 'Radio director'
-    'relators:rpc': 'Radio producer'
-    'relators:rce': 'Recording engineer'
+    'relators:pra': Praeses
+    'relators:prc': 'Process contact'
+    'relators:prd': 'Production personnel'
+    'relators:pre': Presenter
+    'relators:prf': Performer
+    'relators:prg': Programmer
+    'relators:prm': Printmaker
+    'relators:prn': 'Production company'
+    'relators:pro': Producer
+    'relators:prp': 'Production place'
+    'relators:prs': 'Production designer'
+    'relators:prt': Printer
+    'relators:prv': Provider
+    'relators:pta': 'Patent applicant'
+    'relators:pte': Plaintiff-appellee
+    'relators:ptf': Plaintiff
+    'relators:pth': 'Patent holder'
+    'relators:ptt': Plaintiff-appellant
+    'relators:pup': 'Publication place'
+    'relators:rap': Rapporteur
+    'relators:rbr': Rubricator
     'relators:rcd': Recordist
+    'relators:rce': 'Recording engineer'
+    'relators:rcp': Addressee
+    'relators:rdd': 'Radio director'
     'relators:red': Redaktor
     'relators:ren': Renderer
-    'relators:rpt': Reporter
+    'relators:res': Researcher
+    'relators:rev': Reviewer
+    'relators:rpc': 'Radio producer'
     'relators:rps': Repository
+    'relators:rpt': Reporter
+    'relators:rpy': 'Responsible party'
+    'relators:rse': Respondent-appellee
+    'relators:rsg': Restager
+    'relators:rsp': Respondent
+    'relators:rsr': Restorationist
+    'relators:rst': Respondent-appellant
     'relators:rth': 'Research team head'
     'relators:rtm': 'Research team member'
-    'relators:res': Researcher
-    'relators:rsp': Respondent
-    'relators:rst': Respondent-appellant
-    'relators:rse': Respondent-appellee
-    'relators:rpy': 'Responsible party'
-    'relators:rsg': Restager
-    'relators:rsr': Restorationist
-    'relators:rev': Reviewer
-    'relators:rbr': Rubricator
-    'relators:sce': Scenarist
+    'relators:rxa': 'Remix artist'
     'relators:sad': 'Scientific advisor'
-    'relators:aus': Screenwriter
-    'relators:scr': Scribe
+    'relators:sce': Scenarist
     'relators:scl': Sculptor
-    'relators:spy': 'Second party'
-    'relators:sec': Secretary
-    'relators:sll': Seller
-    'relators:std': 'Set designer'
-    'relators:stg': Setting
-    'relators:sgn': Signer
-    'relators:sng': Singer
+    'relators:scr': Scribe
+    'relators:sde': 'Sound engineer'
     'relators:sds': 'Sound designer'
+    'relators:sec': Secretary
+    'relators:sfx': 'Special effects provider'
+    'relators:sgd': 'Stage director'
+    'relators:sgn': Signer
+    'relators:sht': 'Supporting host'
+    'relators:sll': Seller
+    'relators:sng': Singer
     'relators:spk': Speaker
     'relators:spn': Sponsor
-    'relators:sgd': 'Stage director'
+    'relators:spy': 'Second party'
+    'relators:srv': Surveyor
+    'relators:std': 'Set designer'
+    'relators:stg': Setting
+    'relators:stl': Storyteller
     'relators:stm': 'Stage manager'
     'relators:stn': 'Standards body'
     'relators:str': Stereotyper
-    'relators:stl': Storyteller
-    'relators:sht': 'Supporting host'
-    'relators:srv': Surveyor
-    'relators:tch': Teacher
+    'relators:swd': 'Software developer'
+    'relators:tad': 'Technical advisor'
+    'relators:tau': 'Television writer'
     'relators:tcd': 'Technical director'
-    'relators:tld': 'Television director'
-    'relators:tlp': 'Television producer'
+    'relators:tch': Teacher
     'relators:ths': 'Thesis advisor'
+    'relators:tld': 'Television director'
+    'relators:tlg': 'Television guest'
+    'relators:tlh': 'Television host'
+    'relators:tlp': 'Television producer'
     'relators:trc': Transcriber
     'relators:trl': Translator
     'relators:tyd': 'Type designer'
     'relators:tyg': Typographer
     'relators:uvp': 'University place'
-    'relators:vdg': Videographer
-    'relators:voc': 'Vocalist (deprecated, use Singer)'
     'relators:vac': 'Voice actor'
-    'relators:wit': Witness
-    'relators:wde': 'Wood engraver'
-    'relators:wdc': Woodcutter
-    'relators:wam': 'Writer of accompanying material'
+    'relators:vdg': Videographer
+    'relators:vfx': 'Visual effects provider'
+    'relators:voc': 'Vocalist (deprecated, use Singer)'
     'relators:wac': 'Writer of added commentary'
     'relators:wal': 'Writer of added lyrics'
+    'relators:wam': 'Writer of accompanying material'
+    'relators:wap': 'Writer of approbation'
     'relators:wat': 'Writer of added text'
+    'relators:waw': 'Writer of afterword'
+    'relators:wdc': Woodcutter
+    'relators:wde': 'Wood engraver'
+    'relators:wfs': 'Writer of film story'
+    'relators:wft': 'Writer of intertitles'
+    'relators:wfw': 'Writer of foreword'
     'relators:win': 'Writer of introduction'
+    'relators:wit': Witness
     'relators:wpr': 'Writer of preface'
     'relators:wst': 'Writer of supplementary textual content'
+    'relators:wts': 'Writer of television story'
 field_type: typed_relation
