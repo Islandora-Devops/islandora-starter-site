@@ -1,0 +1,17 @@
+uuid: a7c3997b-d701-40d4-ba92-b945a72cc59e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: THxcf03QNvh9YHDLj2rg5sizM85kZUvcwZUZmKUDxns
+name: android_chrome_192
+label: 'Android Chrome (192x192)'
+effects:
+  resize:
+    uuid: resize
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 192
+      height: 192
+      anchor: center-center

@@ -55,9 +55,74 @@ dependencies:
     - node.type.islandora_object
   module:
     - controlled_access_terms
+    - field_group
     - geolocation
     - text
     - user
+third_party_settings:
+  field_group:
+    group_metadata:
+      children:
+        - field_full_title
+        - field_member_of
+        - field_alt_title
+        - field_linked_agent
+        - field_description
+        - field_abstract
+        - field_table_of_contents
+        - field_note
+        - field_language
+        - field_resource_type
+        - field_publisher
+        - field_place_published
+        - field_edtf_date_issued
+        - field_edtf_date_created
+        - field_edtf_date
+        - field_copyright_date
+        - field_date_valid
+        - field_date_captured
+        - field_date_modified
+        - field_edition
+        - field_mode_of_issuance
+        - field_frequency
+        - field_parent_publication_title
+        - field_volume
+        - field_issue
+        - field_genre
+        - field_physical_form
+        - field_extent
+        - field_subject_general
+        - field_subject
+        - field_geographic_subject
+        - field_subjects_name
+        - field_temporal_subject
+        - field_coordinates
+        - field_coordinates_text
+        - field_dewey_classification
+        - field_lcc_classification
+        - field_classification
+        - field_identifier
+        - field_isbn
+        - field_oclc_number
+        - field_local_identifier
+        - field_rights
+      label: 'Item details'
+      parent_name: ''
+      region: content
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: 'islandora-metadata-group islandora-metadata-table border-top pt-4 mb-5'
+        show_empty_fields: false
+        id: item-details
+        label_as_html: false
+        element: section
+        show_label: true
+        label_element: h2
+        label_element_classes: 'h3 mb-3'
+        attributes: ''
+        effect: none
+        speed: fast
 _core:
   default_config_hash: 7nAsgKpklfcldz5UjF5QnwGQqa2f2zypALWMvnJ8PeI
 id: node.islandora_object.default
@@ -90,7 +155,7 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 21
+    weight: 5
     region: content
   field_alt_title:
     type: string
@@ -106,14 +171,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 38
+    weight: 37
     region: content
   field_coordinates:
     type: geolocation_latlng
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 34
+    weight: 33
     region: content
   field_coordinates_text:
     type: string
@@ -121,7 +186,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 35
+    weight: 34
     region: content
   field_copyright_date:
     type: edtf_default
@@ -133,7 +198,7 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 10
+    weight: 15
     region: content
   field_date_captured:
     type: edtf_default
@@ -145,7 +210,7 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 12
+    weight: 17
     region: content
   field_date_modified:
     type: edtf_default
@@ -157,7 +222,7 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 13
+    weight: 18
     region: content
   field_date_valid:
     type: edtf_default
@@ -169,14 +234,14 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 11
+    weight: 16
     region: content
   field_description:
     type: basic_string
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 20
+    weight: 4
     region: content
   field_dewey_classification:
     type: string
@@ -184,7 +249,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 36
+    weight: 35
     region: content
   field_edition:
     type: string
@@ -192,7 +257,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 14
+    weight: 19
     region: content
   field_edtf_date:
     type: edtf_default
@@ -204,7 +269,7 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 8
+    weight: 14
     region: content
   field_edtf_date_created:
     type: edtf_default
@@ -216,7 +281,7 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 7
+    weight: 13
     region: content
   field_edtf_date_issued:
     type: edtf_default
@@ -228,7 +293,7 @@ content:
       day_format: dd
       year_format: 'y'
     third_party_settings: {  }
-    weight: 6
+    weight: 12
     region: content
   field_extent:
     type: string
@@ -236,7 +301,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 28
+    weight: 27
     region: content
   field_frequency:
     type: entity_reference_label
@@ -244,7 +309,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 16
+    weight: 21
     region: content
   field_full_title:
     type: basic_string
@@ -253,18 +318,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_gemini_uri:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 43
-    region: content
   field_genre:
     type: entity_reference_label
     label: inline
     settings:
       link: true
     third_party_settings: {  }
-    weight: 26
+    weight: 25
     region: content
   field_geographic_subject:
     type: entity_reference_label
@@ -272,7 +332,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 31
+    weight: 30
     region: content
   field_identifier:
     type: string
@@ -280,7 +340,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 39
+    weight: 38
     region: content
   field_isbn:
     type: string
@@ -288,7 +348,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 40
+    weight: 39
     region: content
   field_issue:
     type: string
@@ -296,7 +356,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 19
+    weight: 24
     region: content
   field_language:
     type: entity_reference_label
@@ -304,7 +364,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 24
+    weight: 8
     region: content
   field_lcc_classification:
     type: string
@@ -312,7 +372,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 37
+    weight: 36
     region: content
   field_linked_agent:
     type: typed_relation_default
@@ -328,7 +388,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 42
+    weight: 41
     region: content
   field_member_of:
     type: entity_reference_label
@@ -344,14 +404,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 15
+    weight: 20
     region: content
   field_note:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 7
     region: content
   field_oclc_number:
     type: string
@@ -359,7 +419,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 41
+    weight: 40
     region: content
   field_parent_publication_title:
     type: string
@@ -367,7 +427,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 17
+    weight: 22
     region: content
   field_physical_form:
     type: entity_reference_label
@@ -375,7 +435,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 27
+    weight: 26
     region: content
   field_place_published:
     type: string
@@ -383,7 +443,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 11
     region: content
   field_publisher:
     type: string
@@ -391,7 +451,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 10
     region: content
   field_resource_type:
     type: entity_reference_label
@@ -399,14 +459,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 25
+    weight: 9
     region: content
   field_rights:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 44
+    weight: 42
     region: content
   field_subject:
     type: entity_reference_label
@@ -414,7 +474,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 30
+    weight: 29
     region: content
   field_subject_general:
     type: entity_reference_label
@@ -422,7 +482,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 29
+    weight: 28
     region: content
   field_subjects_name:
     type: entity_reference_label
@@ -430,14 +490,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 32
+    weight: 31
     region: content
   field_table_of_contents:
     type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 22
+    weight: 6
     region: content
   field_temporal_subject:
     type: entity_reference_label
@@ -445,7 +505,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 33
+    weight: 32
     region: content
   field_volume:
     type: string
@@ -453,7 +513,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 18
+    weight: 23
     region: content
   links:
     settings: {  }
@@ -464,6 +524,7 @@ hidden:
   did_image: true
   display_media_entity_view_3: true
   display_media_thumbnail: true
+  field_gemini_uri: true
   field_model: true
   field_pid: true
   field_place_published_country: true

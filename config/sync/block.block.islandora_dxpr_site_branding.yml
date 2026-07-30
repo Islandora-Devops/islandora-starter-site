@@ -1,0 +1,25 @@
+uuid: 32a96e29-24fb-401e-b83f-1887bcb91026
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: islandora_dxpr_site_branding
+theme: islandora_dxpr
+region: navigation
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

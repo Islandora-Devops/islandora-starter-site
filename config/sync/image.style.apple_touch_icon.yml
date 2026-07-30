@@ -1,0 +1,17 @@
+uuid: 6ebfe8ae-242b-43df-ab73-40552d6b92e0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: mMW1Fr_4bHhAZMqGOiutZxriN0cXS1AV7wnl_FHlpY8
+name: apple_touch_icon
+label: 'Apple Touch Icon (180x180)'
+effects:
+  resize:
+    uuid: resize
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 180
+      height: 180
+      anchor: center-center

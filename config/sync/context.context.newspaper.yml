@@ -36,7 +36,7 @@ reactions:
         region: content
         weight: '0'
         custom_id: views_block_newspaper_issues_accordion_view_block_1
-        theme: olivero
+        theme: islandora_dxpr
         css_class: ''
         unique: 0
         context_id: newspaper

@@ -1,0 +1,274 @@
+_core:
+  default_config_hash: GU1XnadaK2yPobk6ysvsdTUaOqnMxqtRh8L5vXkvZF4
+favicon:
+  mimetype: image/png
+  path: themes/contrib/islandora_dxpr/favicon.png
+  url: ''
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: ''
+  url: ''
+  use_default: true
+search_results_per_page_control: dropdown
+header_mobile_breakpoint: '1200'
+full_width_containers:
+  cnt_secondary_header: cnt_secondary_header
+  cnt_footer: cnt_footer
+  cnt_header_nav: 0
+  cnt_page_title: 0
+  cnt_content_top: 0
+  cnt_content: 0
+  cnt_content_bottom: 0
+full_width_content_types:
+  article: 0
+  islandora_object: 0
+  page: 0
+block_design_regions:
+  sidebar_first: sidebar_first
+  sidebar_second: sidebar_second
+  content_top: content_top
+  content_bottom: content_bottom
+  secondary_header: 0
+  navigation: 0
+  slider: 0
+  header: 0
+  highlighted: 0
+  help: 0
+  content: 0
+  footer: 0
+boxed_layout: 1
+sticky_footer: 1
+boxed_layout_boxbg: '#ffffff'
+box_max_width: '1580'
+layout_max_width: '1320'
+gutter_horizontal: '30'
+gutter_vertical: '30'
+gutter_container: '60'
+gutter_horizontal_mobile: '30'
+gutter_vertical_mobile: '30'
+gutter_container_mobile: '30'
+body_line_height: '1.7'
+body_font_size: '17'
+nav_font_size: '18'
+headings_line_height: '1.1'
+scale_factor: '1'
+h1_font_size: '52'
+h2_font_size: '40'
+h3_font_size: '30'
+h4_font_size: '24'
+blockquote_font_size: '21'
+blockquote_line_height: '1.5'
+headings_letter_spacing: '-0.02'
+headings_uppercase: 0
+headings_bold: 0
+body_mobile_font_size: '16'
+nav_mobile_font_size: '18'
+h1_mobile_font_size: '36'
+h2_mobile_font_size: '30'
+h3_mobile_font_size: '24'
+h4_mobile_font_size: '20'
+body_font_face: '0Ancizar+Serif:300'
+body_font_face_selector: body
+headings_font_face: '0Ancizar+Serif:500'
+headings_font_face_selector: 'h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6,.display-1,.display-2,.display-3,.display-4,.display-5,.display-6,label,.field--label,.page-title'
+nav_font_face: '0Ancizar+Serif:500'
+nav_font_face_selector: '.dxpr-theme-header .nav'
+sitename_font_face: '0Ancizar+Serif:500'
+sitename_font_face_selector: '.site-name, .navbar-brand'
+blockquote_font_face: '0Ancizar+Serif:300italic'
+blockquote_font_face_selector: 'blockquote, blockquote p'
+portfolio_details: top
+portfolio_sidebar: '4'
+portfolio_images: sidecaption
+region_cards:
+  secondary_header: ''
+  navigation: ''
+  navigation_collapsible: ''
+  highlighted: ''
+  page_title: ''
+  help: ''
+  content_top: ''
+  content: ''
+  content_bottom: ''
+  sidebar_first: ''
+  sidebar_second: ''
+  footer: ''
+table_responsive: '-1'
+table: ''
+blockquote_mobile_font_size: '18'
+divider_thickness: '4'
+divider_length: '0'
+divider_position: '1'
+divider_color: ''
+divider_color_custom: '#eeeeee'
+page_title_breadcrumbs: 0
+page_title_home_hide: 0
+page_title_align: left
+page_title_height: '120'
+page_title_animate: '0'
+page_title_image_opacity: '1'
+page_title_image_style: cover
+page_title_image_mode: normal
+page_title_image_position: center_center
+background_image_style: cover
+background_image_position: center_center
+background_image_attachment: fixed
+header_top_layout: '0'
+header_style: normal
+header_top_bg_opacity: '1'
+header_top_height: '100'
+header_top_fixed: 1
+header_top_sticky: 1
+header_top_sticky_show: always
+header_top_height_sticky_offset: '60'
+header_top_height_scroll: '50'
+header_top_bg_opacity_scroll: '1'
+navbar_background: ''
+navbar_background_custom: ''
+header_block_background: ''
+header_block_background_custom: ''
+header_block_text_color: ''
+header_block_text_color_custom: ''
+menu_background: ''
+menu_background_custom: ''
+menu_text_color: ''
+menu_text_color_custom: ''
+menu_hover_background: ''
+menu_hover_background_custom: ''
+menu_hover_text_color: ''
+menu_hover_text_color_custom: ''
+dropdown_background: ''
+dropdown_background_custom: ''
+dropdown_text_color: ''
+dropdown_text_color_custom: ''
+dropdown_hover_background: ''
+dropdown_hover_background_custom: ''
+dropdown_hover_text_color: ''
+dropdown_hover_text_color_custom: ''
+hamburger_menu: three-dash
+hamburger_animation: cross
+menu_type: ''
+menu_link_spacing: '10'
+menu_hover: opacity
+menu_border_position: bottom
+menu_border_animate: drop
+menu_border_position_offset: '0'
+menu_border_position_offset_sticky: '0'
+menu_border_size: '2'
+menu_border_color: ''
+menu_border_color_custom: ''
+header_mobile_height: '60'
+secondary_header_hide: hidden_none
+custom_css_site: |-
+  html:root {
+    --dxt-setting-body-font-face: "Ancizar Serif", Georgia, "Times New Roman", serif;
+    --dxt-setting-headings-font-face: "Ancizar Serif", Georgia, "Times New Roman", serif;
+    --dxt-setting-nav-font-face: "Ancizar Serif", Georgia, "Times New Roman", serif;
+    --dxt-setting-sitename-font-face: "Ancizar Serif", Georgia, "Times New Roman", serif;
+    --dxt-setting-blockquote-font-face: "Ancizar Serif", Georgia, "Times New Roman", serif;
+  }
+custom_javascript_site: ''
+block_preset: custom
+block_card: ''
+block_background: ''
+block_background_custom: '#eeeeee'
+block_padding: '0'
+block_border_radius: '0'
+block_border: '0'
+block_border_color: ''
+block_border_color_custom: '#eeeeee'
+title_font_size: h3
+title_align: left
+title_card: ''
+title_background: ''
+title_background_custom: '#eeeeee'
+title_padding: '0'
+title_border: '0'
+title_border_radius: '0'
+title_border_color: ''
+title_border_color_custom: '#eeeeee'
+title_sticker: 0
+block_divider: 0
+block_divider_custom: 0
+block_divider_color: ''
+block_divider_color_custom: '#eeeeee'
+block_divider_thickness: '4'
+block_divider_length: '10'
+block_divider_spacing: '20'
+page_title_image: null
+background_image: null
+hidden_regions:
+  navigation: 0
+  navigation_collapsible: 0
+  secondary_header: 0
+  page_title: 0
+  highlighted: 0
+  header: 0
+  content_top: 0
+  content: 0
+  content_bottom: 0
+  sidebar_first: 0
+  sidebar_second: 0
+  footer: 0
+popover_placement: top
+tooltip_placement: 'auto top'
+modal_enabled: 0
+cdn_provider: ''
+b5_theme_mode: light
+color_scheme: custom
+color_palette_base: '#6844ca'
+color_palette_basetext: '#ffffff'
+color_palette_link: '#6844ca'
+color_palette_accent1: '#2c8343'
+color_palette_accent1text: '#ffffff'
+color_palette_accent2: '#f4f4f4'
+color_palette_accent2text: '#1a1a1a'
+color_palette_text: '#343a40'
+color_palette_headings: '#1a1a1a'
+color_palette_card: '#f5f5f5'
+color_palette_cardtext: '#1a1a1a'
+color_palette_footer: '#fafafa'
+color_palette_footertext: '#343a40'
+color_palette_secheader: '#1a1a1a'
+color_palette_secheadertext: '#ffffff'
+color_palette_header: '#fafafa'
+color_palette_headertext: '#1a1a1a'
+color_palette_headerside: '#1a1a1a'
+color_palette_headersidetext: '#ffffff'
+color_palette_pagetitle: '#f5f5f5'
+color_palette_pagetitletext: '#1a1a1a'
+color_palette_graylight: '#59625a'
+color_palette_graylighter: '#d9d8d8'
+color_palette_silver: '#f4f4f4'
+color_palette_body: '#ffffff'
+page_title_breadcrumbs_align: right
+page_title_breadcrumbs_separator: /
+title_type:
+  uppercase: 0
+  bold: 0
+  italic: 0
+page_title_image_path: ''
+background_image_path: ''
+logo_height: '50'
+second_header_sticky: 0
+navbar_text_color: ''
+navbar_text_color_custom: ''
+mobile_menu_background: ''
+mobile_menu_background_custom: ''
+mobile_menu_text_color: ''
+mobile_menu_text_color_custom: ''
+mobile_menu_hover_background: ''
+mobile_menu_hover_background_custom: ''
+mobile_menu_hover_text_color: ''
+mobile_menu_hover_text_color_custom: ''
+header_side_align: left
+dropdown_width_auto: '1'
+dropdown_width: '200'
+header_mobile_fixed: 0
+web_icons_upload: null
+color_palette: 'a:25:{s:4:"base";s:7:"#6844ca";s:8:"basetext";s:7:"#ffffff";s:4:"link";s:7:"#6844ca";s:7:"accent1";s:7:"#2c8343";s:11:"accent1text";s:7:"#ffffff";s:7:"accent2";s:7:"#f4f4f4";s:11:"accent2text";s:7:"#1a1a1a";s:4:"text";s:7:"#343a40";s:8:"headings";s:7:"#1a1a1a";s:4:"card";s:7:"#f5f5f5";s:8:"cardtext";s:7:"#1a1a1a";s:6:"footer";s:7:"#fafafa";s:10:"footertext";s:7:"#343a40";s:9:"secheader";s:7:"#1a1a1a";s:13:"secheadertext";s:7:"#ffffff";s:6:"header";s:7:"#fafafa";s:10:"headertext";s:7:"#1a1a1a";s:10:"headerside";s:7:"#1a1a1a";s:14:"headersidetext";s:7:"#ffffff";s:9:"pagetitle";s:7:"#f5f5f5";s:13:"pagetitletext";s:7:"#1a1a1a";s:9:"graylight";s:7:"#59625a";s:11:"graylighter";s:7:"#d9d8d8";s:6:"silver";s:7:"#f4f4f4";s:4:"body";s:7:"#ffffff";}'

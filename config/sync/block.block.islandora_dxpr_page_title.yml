@@ -1,0 +1,20 @@
+uuid: c164387a-f912-4eef-8404-cb85080755d4
+langcode: en
+status: true
+dependencies:
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: islandora_dxpr_page_title
+theme: islandora_dxpr
+region: page_title
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

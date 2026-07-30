@@ -1,0 +1,1178 @@
+diff --git a/config/install/islandora.settings.yml b/config/install/islandora.settings.yml
+index 09c7fdb6..9b3c6209 100644
+--- a/config/install/islandora.settings.yml
++++ b/config/install/islandora.settings.yml
+@@ -4,3 +4,4 @@ delete_media_and_files: TRUE
+ gemini_pseudo_bundles: []
+ allow_header_links: TRUE
+ fast_term_queries: TRUE
++fedora_root: ''
+diff --git a/config/schema/islandora.schema.yml b/config/schema/islandora.schema.yml
+index 20db2969..5b9d5fad 100644
+--- a/config/schema/islandora.schema.yml
++++ b/config/schema/islandora.schema.yml
+@@ -23,6 +23,9 @@ islandora.settings:
+     fast_term_queries:
+       type: boolean
+       label: 'Use multiple queries for term URI lookups'
++    fedora_root:
++      type: string
++      label: 'Fedora Root Path'
+     redirect_after_media_save:
+       type: boolean
+       label: 'Redirect to node after media save.'
+diff --git a/islandora.module b/islandora.module
+index 5bf9743a..771430bb 100644
+--- a/islandora.module
++++ b/islandora.module
+@@ -301,14 +301,23 @@ function islandora_entity_view_mode_alter(&$view_mode, EntityInterface $entity)
+  * Implements hook_preprocess_node().
+  */
+ function islandora_preprocess_node(&$variables) {
+-  // Using alternate view modes causes on a node's canoncial page
+-  // causes the title to get printed out twice.  Once from the
+-  // fields themselves and again as a block above the main content.
+-  // Setting 'page' to TRUE gets rid of the title in the fields and
+-  // leaves the block.  This makes it look uniform with the 'default'
+-  // view mode.
+-  if (node_is_page($variables['elements']['#node'])) {
+-    $variables['page'] = TRUE;
++  // Context reactions can select an alternate view mode on a node's canonical
++  // page. Avoid rendering the node's linked title as well as the page title.
++  // Drupal 11.3 deprecated the route-based "page" template variable in favor
++  // of checking the view mode, so suppress the redundant label directly.
++  $node = $variables['elements']['#node'];
++  $route_match = \Drupal::routeMatch();
++  $page_node = NULL;
++  if ($route_match->getRouteName() === 'entity.node.canonical') {
++    $page_node = $route_match->getParameter('node');
++  }
++  if (
++    ($variables['view_mode'] ?? NULL) !== 'full' &&
++    $node instanceof NodeInterface &&
++    $page_node instanceof NodeInterface &&
++    $page_node->id() === $node->id()
++  ) {
++    unset($variables['label']);
+   }
+ }
+ 
+@@ -428,7 +437,7 @@ function islandora_object_delete_form_submit($form, FormStateInterface $form_sta
+       ],
+     ];
+ 
+-    $message = \Drupal::service('renderer')->renderPlain($build);
++    $message = \Drupal::service('renderer')->renderInIsolation($build);
+     $messenger->deleteByType('status');
+     $messenger->addStatus($message);
+   }
+diff --git a/modules/islandora_advanced_search/src/Controller/AjaxBlocksController.php b/modules/islandora_advanced_search/src/Controller/AjaxBlocksController.php
+index 66da450e..1964e476 100644
+--- a/modules/islandora_advanced_search/src/Controller/AjaxBlocksController.php
++++ b/modules/islandora_advanced_search/src/Controller/AjaxBlocksController.php
+@@ -20,13 +20,6 @@ use Symfony\Component\Routing\RouterInterface;
+  */
+ class AjaxBlocksController extends ControllerBase {
+ 
+-  /**
+-   * The entity storage for block.
+-   *
+-   * @var \Drupal\Core\Entity\EntityStorageInterface
+-   */
+-  protected $storage;
+-
+   /**
+    * The renderer.
+    *
+@@ -86,7 +79,6 @@ class AjaxBlocksController extends ControllerBase {
+    *   The drupal container.
+    */
+   public function __construct(RendererInterface $renderer, CurrentPathStack $currentPath, RouterInterface $router, PathProcessorManager $pathProcessor, CurrentRouteMatch $currentRouteMatch, ContainerInterface $container) {
+-    $this->storage = $this->entityTypeManager()->getStorage('block');
+     $this->renderer = $renderer;
+     $this->currentPath = $currentPath;
+     $this->router = $router;
+@@ -147,7 +139,9 @@ class AjaxBlocksController extends ControllerBase {
+ 
+     // Build the facets blocks found for the current request and update.
+     foreach ($blocks as $block_id => $block_selector) {
+-      $block_entity = $this->storage->load($block_id);
++      $block_entity = $this->entityTypeManager()
++        ->getStorage('block')
++        ->load($block_id);
+ 
+       if ($block_entity) {
+         // Render a block, then add it to the response as a replace command.
+@@ -155,7 +149,7 @@ class AjaxBlocksController extends ControllerBase {
+           ->getViewBuilder('block')
+           ->view($block_entity);
+ 
+-        $block_view = (string) $this->renderer->renderPlain($block_view);
++        $block_view = (string) $this->renderer->renderInIsolation($block_view);
+         $response->addCommand(new ReplaceCommand($block_selector, $block_view));
+       }
+     }
+diff --git a/modules/islandora_advanced_search/src/Form/AdvancedSearchForm.php b/modules/islandora_advanced_search/src/Form/AdvancedSearchForm.php
+index fd4f7bac..1fbf40be 100644
+--- a/modules/islandora_advanced_search/src/Form/AdvancedSearchForm.php
++++ b/modules/islandora_advanced_search/src/Form/AdvancedSearchForm.php
+@@ -2,6 +2,7 @@
+ 
+ namespace Drupal\islandora_advanced_search\Form;
+ 
++use Drupal\Component\Plugin\PluginManagerInterface;
+ use Drupal\Component\Utility\Html;
+ use Drupal\Core\Form\FormBase;
+ use Drupal\Core\Form\FormStateInterface;
+@@ -13,7 +14,6 @@ use Drupal\islandora_advanced_search\GetConfigTrait;
+ use Drupal\views\DisplayPluginCollection;
+ use Drupal\views\Entity\View;
+ use Drupal\views\Plugin\views\display\PathPluginBase;
+-use Drupal\views\Views;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ use Symfony\Component\HttpFoundation\Request;
+ 
+@@ -58,12 +58,31 @@ class AdvancedSearchForm extends FormBase {
+    */
+   protected $currentRouteMatch;
+ 
++  /**
++   * The Views display plugin manager.
++   *
++   * @var \Drupal\Component\Plugin\PluginManagerInterface
++   */
++  protected $displayPluginManager;
++
+   /**
+    * Class constructor.
++   *
++   * @param \Symfony\Component\HttpFoundation\Request $request
++   *   The current request.
++   * @param \Drupal\Core\Routing\RouteMatchInterface $current_route_match
++   *   The current route match.
++   * @param \Drupal\Component\Plugin\PluginManagerInterface $display_plugin_manager
++   *   The Views display plugin manager.
+    */
+-  public function __construct(Request $request, RouteMatchInterface $current_route_match) {
++  public function __construct(
++    Request $request,
++    RouteMatchInterface $current_route_match,
++    PluginManagerInterface $display_plugin_manager,
++  ) {
+     $this->request = $request;
+     $this->currentRouteMatch = $current_route_match;
++    $this->displayPluginManager = $display_plugin_manager;
+   }
+ 
+   /**
+@@ -72,7 +91,8 @@ class AdvancedSearchForm extends FormBase {
+   public static function create(ContainerInterface $container) {
+     return new static(
+       $container->get('request_stack')->getMainRequest(),
+-      $container->get('current_route_match')
++      $container->get('current_route_match'),
++      $container->get('plugin.manager.views.display')
+     );
+   }
+ 
+@@ -210,7 +230,7 @@ class AdvancedSearchForm extends FormBase {
+   protected function getRouteName(FormStateInterface $form_state) {
+     $view = $form_state->get('view');
+     $display = $form_state->get('display');
+-    $display_handlers = new DisplayPluginCollection($view->getExecutable(), Views::pluginManager('display'));
++    $display_handlers = new DisplayPluginCollection($view->getExecutable(), $this->displayPluginManager);
+     $display_handler = $display_handlers->get($display['id']);
+     if ($display_handler instanceof PathPluginBase) {
+       return $display_handler->getRouteName();
+diff --git a/modules/islandora_breadcrumbs/src/IslandoraBreadcrumbBuilder.php b/modules/islandora_breadcrumbs/src/IslandoraBreadcrumbBuilder.php
+index 5ed7f6d0..6624bd16 100644
+--- a/modules/islandora_breadcrumbs/src/IslandoraBreadcrumbBuilder.php
++++ b/modules/islandora_breadcrumbs/src/IslandoraBreadcrumbBuilder.php
+@@ -25,11 +25,11 @@ class IslandoraBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+   protected $config;
+ 
+   /**
+-   * Storage to load nodes.
++   * The entity type manager.
+    *
+-   * @var \Drupal\Core\Entity\EntityStorageInterface
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+    */
+-  protected $nodeStorage;
++  protected $entityTypeManager;
+ 
+   /**
+    * Islandora utils.
+@@ -41,15 +41,15 @@ class IslandoraBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+   /**
+    * Constructs a breadcrumb builder.
+    *
+-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
+-   *   Storage to load nodes.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity type manager.
+    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+    *   The configuration factory.
+    * @param \Drupal\islandora\IslandoraUtils $utils
+    *   Islandora utils service.
+    */
+-  public function __construct(EntityTypeManagerInterface $entity_manager, ConfigFactoryInterface $config_factory, IslandoraUtils $utils) {
+-    $this->nodeStorage = $entity_manager->getStorage('node');
++  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, IslandoraUtils $utils) {
++    $this->entityTypeManager = $entity_type_manager;
+     $this->config = $config_factory->get('islandora_breadcrumbs.breadcrumbs');
+     $this->utils = $utils;
+   }
+@@ -63,7 +63,7 @@ class IslandoraBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+     // a node ID string and sometimes returns a node object.
+     $nid = $attributes->getRawParameters()->get('node');
+     if (!empty($nid)) {
+-      $node = $this->nodeStorage->load($nid);
++      $node = $this->entityTypeManager->getStorage('node')->load($nid);
+       if (empty($node)) {
+         return FALSE;
+       }
+@@ -73,6 +73,7 @@ class IslandoraBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+         }
+       }
+     }
++    return FALSE;
+   }
+ 
+   /**
+@@ -81,7 +82,8 @@ class IslandoraBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+   public function build(RouteMatchInterface $route_match) {
+ 
+     $nid = $route_match->getRawParameters()->get('node');
+-    $node = $this->nodeStorage->load($nid);
++    $node_storage = $this->entityTypeManager->getStorage('node');
++    $node = $node_storage->load($nid);
+     $breadcrumb = new Breadcrumb();
+     $breadcrumb->addCacheableDependency($this->config);
+     $breadcrumb->addLink(Link::createFromRoute($this->t('Home'), '<front>'));
+@@ -100,7 +102,7 @@ class IslandoraBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+ 
+     // Add membership chain to the breadcrumb.
+     foreach ($chain as $chainlink) {
+-      $node = $this->nodeStorage->load($chainlink);
++      $node = $node_storage->load($chainlink);
+       $breadcrumb->addCacheableDependency($node);
+       $breadcrumb->addLink($node->toLink());
+     }
+diff --git a/modules/islandora_iiif/src/Plugin/views/style/IIIFManifest.php b/modules/islandora_iiif/src/Plugin/views/style/IIIFManifest.php
+index e7f88d68..c7a05bed 100644
+--- a/modules/islandora_iiif/src/Plugin/views/style/IIIFManifest.php
++++ b/modules/islandora_iiif/src/Plugin/views/style/IIIFManifest.php
+@@ -447,11 +447,12 @@ class IIIFManifest extends StylePluginBase {
+       ];
+     }
+ 
+-    if ($properties = $image->getProperties()
+-      && isset($properties['width']) && is_numeric($properties['width'])
+-      && isset($properties['height']) && is_numeric($properties['width'])) {
+-      return [intval($properties['width']),
+-        intval($properties['height']),
++    $values = $image->getValue();
++    if (is_array($values)
++      && isset($values['width']) && is_numeric($values['width'])
++      && isset($values['height']) && is_numeric($values['height'])) {
++      return [intval($values['width']),
++        intval($values['height']),
+       ];
+     }
+ 
+diff --git a/modules/islandora_iiif/tests/src/Unit/IIIFManifestTest.php b/modules/islandora_iiif/tests/src/Unit/IIIFManifestTest.php
+index 5f08b3a3..0f277498 100644
+--- a/modules/islandora_iiif/tests/src/Unit/IIIFManifestTest.php
++++ b/modules/islandora_iiif/tests/src/Unit/IIIFManifestTest.php
+@@ -2,7 +2,9 @@
+ 
+ namespace Drupal\Tests\islandora_iiif\Unit;
+ 
++use Drupal\Core\Field\FieldItemInterface;
+ use Drupal\islandora_iiif\Plugin\views\style\IIIFManifest;
++use Drupal\media\MediaInterface;
+ use PHPUnit\Framework\TestCase;
+ 
+ /**
+@@ -87,6 +89,30 @@ class IIIFManifestTest extends TestCase {
+     );
+   }
+ 
++  /**
++   * Tests image dimensions are read from raw field item values.
++   */
++  public function testCanvasDimensionsFromFieldItemValues(): void {
++    $plugin = $this->createManifestPlugin();
++    $media = $this->createMock(MediaInterface::class);
++    $image = $this->createMock(FieldItemInterface::class);
++    $image->method('__isset')->willReturn(FALSE);
++    $image->method('getValue')->willReturn([
++      'width' => '640',
++      'height' => '480',
++    ]);
++
++    $this->assertSame(
++      [640, 480],
++      $plugin->publicGetCanvasDimensions(
++        'https://example.test/iiif/3/example-id',
++        $media,
++        $image,
++        'image/jpeg'
++      )
++    );
++  }
++
+ }
+ 
+ /**
+@@ -115,4 +141,11 @@ class TestableIIIFManifest extends IIIFManifest {
+     return $this->buildThumbnailUrl($iiif_url);
+   }
+ 
++  /**
++   * Exposes the protected canvas dimensions helper for unit testing.
++   */
++  public function publicGetCanvasDimensions(string $iiif_url, MediaInterface $media, FieldItemInterface $image, string $mime_type): array {
++    return $this->getCanvasDimensions($iiif_url, $media, $image, $mime_type);
++  }
++
+ }
+diff --git a/modules/islandora_text_extraction/src/Controller/MediaSourceController.php b/modules/islandora_text_extraction/src/Controller/MediaSourceController.php
+index c0f802ec..72b9ceaf 100644
+--- a/modules/islandora_text_extraction/src/Controller/MediaSourceController.php
++++ b/modules/islandora_text_extraction/src/Controller/MediaSourceController.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\islandora_text_extraction\Controller;
+ 
+ use Drupal\Core\Controller\ControllerBase;
++use Drupal\Core\File\FileExists;
+ use Drupal\Core\File\FileSystem;
+ use Drupal\Core\File\FileSystemInterface;
+ use Drupal\file\FileRepository;
+@@ -111,7 +112,7 @@ class MediaSourceController extends ControllerBase {
+       if (!$this->fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS)) {
+         throw new HttpException(500, "The destination directory does not exist, could not be created, or is not writable");
+       }
+-      $file = $this->fileRepository->writeData($contents, $content_location, FileSystemInterface::EXISTS_REPLACE);
++      $file = $this->fileRepository->writeData($contents, $content_location, FileExists::Replace);
+       if ($media->hasField($destination_field)) {
+         $media->{$destination_field}->setValue([
+           'target_id' => $file->id(),
+diff --git a/src/EventGenerator/EventGenerator.php b/src/EventGenerator/EventGenerator.php
+index dfee38fa..0521fbb8 100644
+--- a/src/EventGenerator/EventGenerator.php
++++ b/src/EventGenerator/EventGenerator.php
+@@ -209,6 +209,7 @@ class EventGenerator implements EventGeneratorInterface {
+       $entity_storage = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId());
+       return count($this->getRevisionIds($entity, $entity_storage)) > 1;
+     }
++    return FALSE;
+   }
+ 
+   /**
+diff --git a/src/EventSubscriber/JwtEventSubscriber.php b/src/EventSubscriber/JwtEventSubscriber.php
+index b5d95e6f..99fc43c3 100644
+--- a/src/EventSubscriber/JwtEventSubscriber.php
++++ b/src/EventSubscriber/JwtEventSubscriber.php
+@@ -7,7 +7,6 @@ use Drupal\jwt\Authentication\Event\JwtAuthValidateEvent;
+ use Drupal\jwt\Authentication\Event\JwtAuthValidEvent;
+ use Drupal\jwt\Authentication\Event\JwtAuthGenerateEvent;
+ use Drupal\jwt\Authentication\Event\JwtAuthEvents;
+-use Drupal\Core\Entity\EntityStorageInterface;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Session\AccountInterface;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+@@ -22,11 +21,11 @@ class JwtEventSubscriber implements EventSubscriberInterface {
+   const AUDIENCE = 'islandora';
+ 
+   /**
+-   * User storage to load users.
++   * The entity type manager.
+    *
+-   * @var \Drupal\Core\Entity\EntityStorageInterface
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+    */
+-  protected $userStorage;
++  protected $entityTypeManager;
+ 
+   /**
+    * The current user.
+@@ -38,33 +37,33 @@ class JwtEventSubscriber implements EventSubscriberInterface {
+   /**
+    * Constructor.
+    *
+-   * @param \Drupal\Core\Entity\EntityStorageInterface $userStorage
+-   *   User storage to load users.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity type manager.
+    * @param \Drupal\Core\Session\AccountInterface $user
+    *   The current user.
+    */
+   public function __construct(
+-    EntityStorageInterface $userStorage,
++    EntityTypeManagerInterface $entity_type_manager,
+     AccountInterface $user,
+   ) {
+-    $this->userStorage = $userStorage;
++    $this->entityTypeManager = $entity_type_manager;
+     $this->currentUser = $user;
+   }
+ 
+   /**
+    * Factory.
+    *
+-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityManager
+-   *   Entity manager to get user storage.
++   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
++   *   The entity type manager.
+    * @param \Drupal\Core\Session\AccountInterface $user
+    *   The current user.
+    */
+   public static function create(
+-    EntityTypeManagerInterface $entityManager,
++    EntityTypeManagerInterface $entity_type_manager,
+     AccountInterface $user,
+   ) {
+     return new static(
+-      $entityManager->getStorage('user'),
++      $entity_type_manager,
+       $user
+     );
+   }
+@@ -135,7 +134,7 @@ class JwtEventSubscriber implements EventSubscriberInterface {
+       return;
+     }
+ 
+-    $user = $this->userStorage->load($uid);
++    $user = $this->entityTypeManager->getStorage('user')->load($uid);
+     if ($user === NULL) {
+       $event->invalidate("Specified UID does not exist.");
+     }
+@@ -153,7 +152,7 @@ class JwtEventSubscriber implements EventSubscriberInterface {
+   public function loadUser(JwtAuthValidEvent $event) {
+     $token = $event->getToken();
+     $uid = $token->getClaim('webid');
+-    $user = $this->userStorage->load($uid);
++    $user = $this->entityTypeManager->getStorage('user')->load($uid);
+     $event->setAccount($user);
+   }
+ 
+diff --git a/src/Flysystem/Adapter/FedoraAdapter.php b/src/Flysystem/Adapter/FedoraAdapter.php
+index 64de9a99..4e21a68b 100644
+--- a/src/Flysystem/Adapter/FedoraAdapter.php
++++ b/src/Flysystem/Adapter/FedoraAdapter.php
+@@ -50,6 +50,13 @@ class FedoraAdapter implements AdapterInterface {
+    */
+   protected $request;
+ 
++  /**
++   * The path to fedora OCFL root.
++   *
++   * @var string
++   */
++  protected $fedoraRoot;
++
+   /**
+    * Constructs a Fedora adapter for Flysystem.
+    *
+@@ -61,23 +68,176 @@ class FedoraAdapter implements AdapterInterface {
+    *   The fedora adapter logger channel.
+    * @param \Symfony\Component\HttpFoundation\Request $request
+    *   The current request.
++   * @param string $fedora_root
++   *   The path to fedora's OCFL root directory.
+    */
+   public function __construct(
+     IFedoraApi $fedora,
+     MimeTypeGuesserInterface $mime_type_guesser,
+     LoggerChannelInterface $logger,
+     Request $request,
++    string $fedora_root = '',
+   ) {
+     $this->fedora = $fedora;
+     $this->mimeTypeGuesser = $mime_type_guesser;
+     $this->logger = $logger;
+     $this->request = $request;
++    $this->fedoraRoot = $fedora_root;
++  }
++
++  /**
++   * Check if we should read from disk.
++   *
++   * @return bool
++   *   TRUE if fedoraRoot is configured and not empty.
++   */
++  protected function useDiskReading($path) {
++    // Prevent directory traversal.
++    if (strpos($path, '..') !== FALSE || strpos($path, './') !== FALSE) {
++      return FALSE;
++    }
++
++    // If we're setting up a directory in fedora
++    // do not attempt to read from disk.
++    $info = pathinfo($path);
++    return !empty($info['extension']) && !empty($this->fedoraRoot);
++  }
++
++  /**
++   * Convert Fedora path to disk path.
++   *
++   * @param string $path
++   *   Fedora resource path.
++   *
++   * @return string
++   *   Full disk path to the file.
++   */
++  protected function getDiskPath(string $path) : string {
++    // Remove leading slash if present.
++    $path = ltrim($path, '/');
++    $fedora_id = 'info:fedora/' . $path;
++    $ocfl_dir = $this->getOcflDir($fedora_id);
++    $inventory = $ocfl_dir . '/extensions/0005-mutable-head/head/inventory.json';
++    // If no mutable head inventory fall back to root inventory.
++    if (!file_exists($inventory)) {
++      $inventory = $ocfl_dir . '/inventory.json';
++    }
++    if (!file_exists($inventory)) {
++      $this->logger->warning('OCFL inventory not found: @path', ['@path' => $inventory]);
++      return "";
++    }
++
++    $inventory_json = file_get_contents($inventory);
++    if ($inventory_json === FALSE) {
++      $this->logger->error('Failed to read OCFL inventory: @path', ['@path' => $inventory]);
++      return "";
++    }
++
++    $inventory = json_decode($inventory_json, TRUE);
++    if (json_last_error() !== JSON_ERROR_NONE) {
++      $this->logger->error('Invalid JSON in OCFL inventory: @error', ['@error' => json_last_error_msg()]);
++      return "";
++    }
++
++    if (!isset($inventory['head'], $inventory['versions'], $inventory['manifest'])) {
++      $this->logger->error('Malformed OCFL inventory structure missing required fields: @path', ['@path' => $inventory]);
++      return "";
++    }
++
++    $head = $inventory['head'];
++    if (!isset($inventory['versions'][$head]['state'])) {
++      $this->logger->error('Missing version state in OCFL inventory for version @version: @path', [
++        '@version' => $head,
++        '@path' => $inventory,
++      ]);
++      return "";
++    }
++
++    $state = $inventory['versions'][$head]['state'];
++    $manifest = $inventory['manifest'];
++
++    $components = explode('/', $path);
++    $filename = array_pop($components);
++    foreach ($state as $digest => $files) {
++      if (!in_array($filename, $files)) {
++        continue;
++      }
++      if (empty($manifest[$digest][0])) {
++        continue;
++      }
++
++      return $ocfl_dir . '/' . $manifest[$digest][0];
++    }
++
++    return "";
++  }
++
++  /**
++   * Get file metadata from disk with optional disk path return.
++   *
++   * @param string $path
++   *   Fedora resource path.
++   * @param bool $return_disk_path
++   *   Whether to return the disk path in the metadata.
++   *
++   * @return array|false
++   *   Metadata array with optional disk_path, or FALSE on failure.
++   */
++  protected function getDiskMetadata($path, $return_disk_path = FALSE) {
++    $diskPath = $this->getDiskPath($path);
++
++    if (!$diskPath || !file_exists($diskPath)) {
++      return FALSE;
++    }
++
++    $stat = stat($diskPath);
++    if ($stat === FALSE) {
++      return FALSE;
++    }
++
++    $meta = [
++      'type' => 'file',
++      'path' => $path,
++      'timestamp' => $stat['mtime'],
++      'size' => $stat['size'],
++      'mimetype' => $this->mimeTypeGuesser->guessMimeType($diskPath),
++    ];
++
++    if ($return_disk_path) {
++      $meta['disk_path'] = $diskPath;
++    }
++
++    return $meta;
++  }
++
++  /**
++   * Helper function to get the OCFL directory of a fcrepo object ID.
++   */
++  protected function getOcflDir(string $objectId) : string {
++    $digest = hash('sha256', $objectId);
++    $tupleSize = 3;
++    $numberOfTuples = 3;
++    $path = rtrim($this->fedoraRoot, '/') . '/';
++    for ($i = 0; $i < $numberOfTuples * $tupleSize; $i += $tupleSize) {
++      $tuple = substr($digest, $i, $tupleSize);
++      $path .= $tuple . "/";
++    }
++
++    $path .= $digest;
++
++    return $path;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function has($path) {
++    if ($this->useDiskReading($path)) {
++      $diskPath = $this->getDiskPath($path);
++
++      return $diskPath != "" && file_exists($diskPath);
++    }
++
+     $response = $this->fedora->getResourceHeaders($path, ['Connection' => 'close']);
+     return $response->getStatusCode() == 200;
+   }
+@@ -92,7 +252,7 @@ class FedoraAdapter implements AdapterInterface {
+       return FALSE;
+     }
+ 
+-    if (isset($meta['stream'])) {
++    if (!$this->useDiskReading($path) && isset($meta['stream'])) {
+       $meta['contents'] = stream_get_contents($meta['stream']);
+       fclose($meta['stream']);
+       unset($meta['stream']);
+@@ -105,6 +265,25 @@ class FedoraAdapter implements AdapterInterface {
+    * {@inheritdoc}
+    */
+   public function readStream($path) {
++    if ($this->useDiskReading($path)) {
++      $meta = $this->getDiskMetadata($path, TRUE);
++
++      if ($meta === FALSE) {
++        return FALSE;
++      }
++
++      $stream = fopen($meta['disk_path'], 'r');
++      if ($stream === FALSE) {
++        return FALSE;
++      }
++
++      // Remove the disk_path from metadata before returning.
++      unset($meta['disk_path']);
++      $meta['stream'] = $stream;
++
++      return $meta;
++    }
++
+     $headers = ['Connection' => 'close'];
+ 
+     // If the request is for a range
+@@ -139,6 +318,10 @@ class FedoraAdapter implements AdapterInterface {
+    * {@inheritdoc}
+    */
+   public function getMetadata($path) {
++    if ($this->useDiskReading($path)) {
++      return $this->getDiskMetadata($path);
++    }
++
+     $response = $this->fedora->getResourceHeaders($path, ['Connection' => 'close']);
+ 
+     if ($response->getStatusCode() != 200) {
+diff --git a/src/Flysystem/Fedora.php b/src/Flysystem/Fedora.php
+index f9d3cc68..5df948b1 100644
+--- a/src/Flysystem/Fedora.php
++++ b/src/Flysystem/Fedora.php
+@@ -2,6 +2,7 @@
+ 
+ namespace Drupal\islandora\Flysystem;
+ 
++use Drupal\Core\Config\ConfigFactoryInterface;
+ use Drupal\Core\Language\LanguageManagerInterface;
+ use Drupal\Core\Logger\LoggerChannelInterface;
+ use Drupal\Core\Logger\RfcLogLevel;
+@@ -64,6 +65,13 @@ class Fedora implements FlysystemPluginInterface, ContainerFactoryPluginInterfac
+    */
+   protected $request;
+ 
++  /**
++   * The path to fedora OCFL root.
++   *
++   * @var string
++   */
++  protected $fedoraRoot;
++
+   /**
+    * Constructs a Fedora plugin for Flysystem.
+    *
+@@ -77,6 +85,8 @@ class Fedora implements FlysystemPluginInterface, ContainerFactoryPluginInterfac
+    *   The fedora adapter logger channel.
+    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
+    *   The request stack.
++   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
++   *   The config factory.
+    */
+   public function __construct(
+     IFedoraApi $fedora,
+@@ -84,12 +94,16 @@ class Fedora implements FlysystemPluginInterface, ContainerFactoryPluginInterfac
+     LanguageManagerInterface $language_manager,
+     LoggerChannelInterface $logger,
+     RequestStack $request_stack,
++    ConfigFactoryInterface $config_factory,
+   ) {
+     $this->fedora = $fedora;
+     $this->mimeTypeGuesser = $mime_type_guesser;
+     $this->languageManager = $language_manager;
+     $this->logger = $logger;
+     $this->request = $request_stack->getCurrentRequest();
++
++    $config = $config_factory->get('islandora.settings');
++    $this->fedoraRoot = $config->get('fedora_root') ?: '';
+   }
+ 
+   /**
+@@ -102,13 +116,13 @@ class Fedora implements FlysystemPluginInterface, ContainerFactoryPluginInterfac
+     $stack->push(static::addJwt($container->get('jwt.authentication.jwt')));
+     $fedora = FedoraApi::createWithHandler($configuration['root'], $stack);
+ 
+-    // Return it.
+     return new static(
+       $fedora,
+       $container->get('file.mime_type.guesser'),
+       $container->get('language_manager'),
+       $container->get('logger.channel.fedora_flysystem'),
+-      $container->get('request_stack')
++      $container->get('request_stack'),
++      $container->get('config.factory')
+     );
+   }
+ 
+@@ -137,7 +151,7 @@ class Fedora implements FlysystemPluginInterface, ContainerFactoryPluginInterfac
+    * {@inheritdoc}
+    */
+   public function getAdapter() {
+-    return new FedoraAdapter($this->fedora, $this->mimeTypeGuesser, $this->logger, $this->request);
++    return new FedoraAdapter($this->fedora, $this->mimeTypeGuesser, $this->logger, $this->request, $this->fedoraRoot);
+   }
+ 
+   /**
+diff --git a/src/Form/IslandoraSettingsForm.php b/src/Form/IslandoraSettingsForm.php
+index e132700d..7a7fd2fa 100644
+--- a/src/Form/IslandoraSettingsForm.php
++++ b/src/Form/IslandoraSettingsForm.php
+@@ -29,6 +29,7 @@ class IslandoraSettingsForm extends ConfigFormBase {
+   const UPLOAD_FORM_LOCATION = 'upload_form_location';
+   const UPLOAD_FORM_ALLOWED_MIMETYPES = 'upload_form_allowed_mimetypes';
+   const GEMINI_PSEUDO = 'gemini_pseudo_bundles';
++  const FEDORA_ROOT = 'fedora_root';
+   const FEDORA_URL = 'fedora_url';
+   const TIME_INTERVALS = [
+     'sec',
+@@ -52,21 +53,21 @@ class IslandoraSettingsForm extends ConfigFormBase {
+    *
+    * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
+    */
+-  private $entityTypeBundleInfo;
++  protected $entityTypeBundleInfo;
+ 
+   /**
+    * The saved password (if set).
+    *
+    * @var string
+    */
+-  private $brokerPassword;
++  protected $brokerPassword;
+ 
+   /**
+    * The entity type manager service.
+    *
+    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+    */
+-  private $entityTypeManager;
++  protected $entityTypeManager;
+ 
+   /**
+    * Constructs a \Drupal\system\ConfigFormBase object.
+@@ -237,6 +238,14 @@ class IslandoraSettingsForm extends ConfigFormBase {
+       '#default_value' => (bool) $config->get(self::FAST_TERM_QUERIES),
+     ];
+ 
++    $form[self::FEDORA_ROOT] = [
++      '#type' => 'textfield',
++      '#title' => $this->t('Fedora Root'),
++      '#description' => $this->t("The absolute path to fedora's root OCFL dir. e.g. /fcrepo/home/data/ocfl-root.
++      Setting this value will read binaries off disk from the OCFL root directory when accessing through flysystem instead of going through fedora's API"),
++      '#default_value' => $config->get(self::FEDORA_ROOT),
++    ];
++
+     $form[self::FEDORA_URL] = [
+       '#type' => 'textfield',
+       '#title' => $this->t('Fedora URL'),
+@@ -395,6 +404,7 @@ class IslandoraSettingsForm extends ConfigFormBase {
+     $config
+       ->set(self::BROKER_URL, $form_state->getValue(self::BROKER_URL))
+       ->set(self::JWT_EXPIRY, $form_state->getValue(self::JWT_EXPIRY))
++      ->set(self::FEDORA_ROOT, $form_state->getValue(self::FEDORA_ROOT))
+       ->set(self::UPLOAD_FORM_LOCATION, $form_state->getValue(self::UPLOAD_FORM_LOCATION))
+       ->set(self::UPLOAD_FORM_ALLOWED_MIMETYPES, $form_state->getValue(self::UPLOAD_FORM_ALLOWED_MIMETYPES))
+       ->set(self::GEMINI_PSEUDO, $new_pseudo_types)
+diff --git a/src/MediaSource/MediaSourceService.php b/src/MediaSource/MediaSourceService.php
+index ced64496..2d0beb61 100644
+--- a/src/MediaSource/MediaSourceService.php
++++ b/src/MediaSource/MediaSourceService.php
+@@ -321,7 +321,15 @@ class MediaSourceService {
+     $file->setMimeType($this->determinePersistedMimeType($file));
+ 
+     // Flush the image cache for the image so thumbnails get regenerated.
+-    image_path_flush($uri);
++    // ImageDerivativeUtilities is only available in Drupal 11.4 and later;
++    // use its equivalent entity API to retain Drupal 10.3 compatibility.
++    /** @var \Drupal\image\ImageStyleInterface[] $image_styles */
++    $image_styles = $this->entityTypeManager
++      ->getStorage('image_style')
++      ->loadMultiple();
++    foreach ($image_styles as $image_style) {
++      $image_style->flush($uri);
++    }
+   }
+ 
+   /**
+@@ -364,7 +372,7 @@ class MediaSourceService {
+     return $this->entityTypeManager->getStorage('file')->create([
+       'uid' => $this->account->id(),
+       'uri' => $content_location,
+-      'filename' => $this->fileSystem->basename($content_location),
++      'filename' => basename($content_location),
+       'filemime' => 'application/octet-stream',
+       'status' => 0,
+     ]);
+@@ -394,7 +402,7 @@ class MediaSourceService {
+     $values = [
+       'uid' => $this->account->id(),
+       'uri' => $content_location,
+-      'filename' => $this->fileSystem->basename($content_location),
++      'filename' => basename($content_location),
+       'filemime' => $filemime,
+       'status' => 0,
+     ];
+diff --git a/src/Plugin/Condition/MediaHasMimetype.php b/src/Plugin/Condition/MediaHasMimetype.php
+index 9cdb0012..6829e9df 100644
+--- a/src/Plugin/Condition/MediaHasMimetype.php
++++ b/src/Plugin/Condition/MediaHasMimetype.php
+@@ -46,7 +46,7 @@ class MediaHasMimetype extends ConditionPluginBase implements ContainerFactoryPl
+    *
+    * @var \Drupal\islandora\MediaSource\MediaSourceService
+    */
+-  private $mediaSource;
++  protected $mediaSource;
+ 
+   /**
+    * Constructor.
+@@ -155,9 +155,7 @@ class MediaHasMimetype extends ConditionPluginBase implements ContainerFactoryPl
+         }
+       }
+     }
+-    else {
+-      return FALSE;
+-    }
++    return FALSE;
+   }
+ 
+   /**
+diff --git a/src/Plugin/Condition/MediaIsIslandoraMedia.php b/src/Plugin/Condition/MediaIsIslandoraMedia.php
+index a784c4b1..c9c38481 100644
+--- a/src/Plugin/Condition/MediaIsIslandoraMedia.php
++++ b/src/Plugin/Condition/MediaIsIslandoraMedia.php
+@@ -42,6 +42,7 @@ class MediaIsIslandoraMedia extends ConditionPluginBase implements ContainerFact
+     if ($media->hasField('field_media_use') && $media->hasField('field_media_of')) {
+       return TRUE;
+     }
++    return FALSE;
+   }
+ 
+   /**
+diff --git a/src/Plugin/Condition/NodeIsIslandoraObject.php b/src/Plugin/Condition/NodeIsIslandoraObject.php
+index 3bf3baa2..5a6fafd1 100644
+--- a/src/Plugin/Condition/NodeIsIslandoraObject.php
++++ b/src/Plugin/Condition/NodeIsIslandoraObject.php
+@@ -4,8 +4,8 @@ namespace Drupal\islandora\Plugin\Condition;
+ 
+ use Drupal\Core\Condition\ConditionPluginBase;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
++use Drupal\islandora\IslandoraUtils;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+-use Drupal\Islandora\IslandoraUtils;
+ 
+ /**
+  * Checks whether node has fields that qualify it as an "Islandora" node.
+@@ -94,6 +94,7 @@ class NodeIsIslandoraObject extends ConditionPluginBase implements ContainerFact
+     if ($this->utils->isIslandoraType('node', $node->bundle())) {
+       return TRUE;
+     }
++    return FALSE;
+   }
+ 
+   /**
+diff --git a/src/Plugin/Condition/NodeReferencedByNode.php b/src/Plugin/Condition/NodeReferencedByNode.php
+index e7474e9f..bdd11bd2 100644
+--- a/src/Plugin/Condition/NodeReferencedByNode.php
++++ b/src/Plugin/Condition/NodeReferencedByNode.php
+@@ -134,6 +134,7 @@ class NodeReferencedByNode extends ConditionPluginBase implements ContainerFacto
+         ->execute();
+       return ($id_count > 0);
+     }
++    return FALSE;
+   }
+ 
+   /**
+diff --git a/src/Plugin/ContextReaction/DerivativeFileReaction.php b/src/Plugin/ContextReaction/DerivativeFileReaction.php
+index 39877adf..0de21110 100644
+--- a/src/Plugin/ContextReaction/DerivativeFileReaction.php
++++ b/src/Plugin/ContextReaction/DerivativeFileReaction.php
+@@ -21,7 +21,8 @@ class DerivativeFileReaction extends PresetReaction {
+    * {@inheritdoc}
+    */
+   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+-    $actions = $this->actionStorage->loadByProperties(['type' => 'media']);
++    $actions = $this->entityTypeManager->getStorage('action')
++      ->loadByProperties(['type' => 'media']);
+ 
+     foreach ($actions as $action) {
+       $plugin = $action->getPlugin();
+@@ -49,8 +50,9 @@ class DerivativeFileReaction extends PresetReaction {
+   public function execute(?EntityInterface $entity = NULL) {
+     $config = $this->getConfiguration();
+     $action_ids = $config['actions'];
++    $action_storage = $this->entityTypeManager->getStorage('action');
+     foreach ($action_ids as $action_id) {
+-      $action = $this->actionStorage->load($action_id);
++      $action = $action_storage->load($action_id);
+       $action->execute([$entity]);
+     }
+   }
+diff --git a/src/Plugin/Field/FieldWidget/MediaTrackWidget.php b/src/Plugin/Field/FieldWidget/MediaTrackWidget.php
+index cb5c9b28..4f1b6bfe 100644
+--- a/src/Plugin/Field/FieldWidget/MediaTrackWidget.php
++++ b/src/Plugin/Field/FieldWidget/MediaTrackWidget.php
+@@ -47,7 +47,7 @@ class MediaTrackWidget extends FileWidget {
+       // If there's only one field, return it as delta 0.
+       if (empty($elements[0]['#default_value']['fids'])) {
+         $file_upload_help['#description'] = $this->getFilteredDescription();
+-        $elements[0]['#description'] = \Drupal::service('renderer')->renderPlain($file_upload_help);
++        $elements[0]['#description'] = \Drupal::service('renderer')->renderInIsolation($file_upload_help);
+       }
+     }
+     else {
+diff --git a/src/PresetReaction/PresetReaction.php b/src/PresetReaction/PresetReaction.php
+index 56c7f54e..92d84c0c 100644
+--- a/src/PresetReaction/PresetReaction.php
++++ b/src/PresetReaction/PresetReaction.php
+@@ -4,7 +4,7 @@ namespace Drupal\islandora\PresetReaction;
+ 
+ use Drupal\context\ContextReactionPluginBase;
+ use Drupal\Core\Entity\EntityInterface;
+-use Drupal\Core\Entity\EntityStorageInterface;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Psr\Log\LoggerInterface;
+@@ -16,11 +16,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+ class PresetReaction extends ContextReactionPluginBase implements ContainerFactoryPluginInterface {
+ 
+   /**
+-   * Action storage.
++   * The entity type manager.
+    *
+-   * @var \Drupal\Core\Entity\EntityStorageInterface
++   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+    */
+-  protected $actionStorage;
++  protected $entityTypeManager;
+ 
+   /**
+    * The logger.
+@@ -32,9 +32,9 @@ class PresetReaction extends ContextReactionPluginBase implements ContainerFacto
+   /**
+    * {@inheritdoc}
+    */
+-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityStorageInterface $action_storage, LoggerInterface $logger) {
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, LoggerInterface $logger) {
+     parent::__construct($configuration, $plugin_id, $plugin_definition);
+-    $this->actionStorage = $action_storage;
++    $this->entityTypeManager = $entity_type_manager;
+     $this->logger = $logger;
+   }
+ 
+@@ -46,7 +46,7 @@ class PresetReaction extends ContextReactionPluginBase implements ContainerFacto
+       $configuration,
+       $plugin_id,
+       $plugin_definition,
+-      $container->get('entity_type.manager')->getStorage('action'),
++      $container->get('entity_type.manager'),
+       $container->get('logger.factory')->get('islandora')
+     );
+   }
+@@ -64,8 +64,9 @@ class PresetReaction extends ContextReactionPluginBase implements ContainerFacto
+   public function execute(?EntityInterface $entity = NULL) {
+     $config = $this->getConfiguration();
+     $action_ids = $config['actions'];
++    $action_storage = $this->entityTypeManager->getStorage('action');
+     foreach ($action_ids as $action_id) {
+-      $action = $this->actionStorage->load($action_id);
++      $action = $action_storage->load($action_id);
+       if (empty($action)) {
+         $this->logger->warning('Action "@action" not found.', ['@action' => $action_id]);
+         continue;
+@@ -87,7 +88,7 @@ class PresetReaction extends ContextReactionPluginBase implements ContainerFacto
+    * {@inheritdoc}
+    */
+   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+-    $actions = $this->actionStorage->loadMultiple();
++    $actions = $this->entityTypeManager->getStorage('action')->loadMultiple();
+     foreach ($actions as $action) {
+       $options[ucfirst($action->getType())][$action->id()] = $action->label();
+     }
+diff --git a/tests/src/Functional/EmitNodeEventTest.php b/tests/src/Functional/EmitNodeEventTest.php
+index 19d6606b..cba2aec5 100644
+--- a/tests/src/Functional/EmitNodeEventTest.php
++++ b/tests/src/Functional/EmitNodeEventTest.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\Tests\islandora\Functional;
+ 
+ use PHPUnit\Framework\Attributes\Group;
++use Stomp\Exception\StompException;
+ 
+ /**
+  * Tests the EmitNodeEvent action.
+diff --git a/tests/src/Functional/GenerateDerivativeTestBase.php b/tests/src/Functional/GenerateDerivativeTestBase.php
+index c5ec9701..2e44b17d 100644
+--- a/tests/src/Functional/GenerateDerivativeTestBase.php
++++ b/tests/src/Functional/GenerateDerivativeTestBase.php
+@@ -2,6 +2,8 @@
+ 
+ namespace Drupal\Tests\islandora\Functional;
+ 
++use Stomp\Exception\StompException;
++
+ /**
+  * Tests the GenerateDerivative action.
+  */
+diff --git a/tests/src/Functional/JsonldSelfReferenceReactionTest.php b/tests/src/Functional/JsonldSelfReferenceReactionTest.php
+index 3efd452f..02a3c43b 100644
+--- a/tests/src/Functional/JsonldSelfReferenceReactionTest.php
++++ b/tests/src/Functional/JsonldSelfReferenceReactionTest.php
+@@ -4,8 +4,6 @@ namespace Drupal\Tests\islandora\Functional;
+ 
+ use PHPUnit\Framework\Attributes\Group;
+ 
+-use function GuzzleHttp\json_decode;
+-
+ /**
+  * Class MappingUriPredicateReactionTest.
+  *
+diff --git a/tests/src/Kernel/FedoraPluginTest.php b/tests/src/Kernel/FedoraPluginTest.php
+index a42e3a08..f04ffea5 100644
+--- a/tests/src/Kernel/FedoraPluginTest.php
++++ b/tests/src/Kernel/FedoraPluginTest.php
+@@ -51,7 +51,9 @@ class FedoraPluginTest extends IslandoraKernelTestBase {
+     $request_stack = $this->container->get('request_stack');
+     $request_stack->push($request);
+ 
+-    return new Fedora($api, $mime_guesser, $language_manager, $logger, $request_stack);
++    $configFactory = $this->container->get('config.factory');
++
++    return new Fedora($api, $mime_guesser, $language_manager, $logger, $request_stack, $configFactory);
+   }
+ 
+   /**
+diff --git a/tests/src/Kernel/JwtEventSubscriberTest.php b/tests/src/Kernel/JwtEventSubscriberTest.php
+index 18f8e3d9..55619c9b 100644
+--- a/tests/src/Kernel/JwtEventSubscriberTest.php
++++ b/tests/src/Kernel/JwtEventSubscriberTest.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\Tests\islandora\Kernel;
+ 
+ use Drupal\Core\Entity\EntityStorageInterface;
++use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\islandora\EventSubscriber\JwtEventSubscriber;
+ use Drupal\jwt\Authentication\Event\JwtAuthGenerateEvent;
+ use Drupal\jwt\Authentication\Event\JwtAuthValidEvent;
+@@ -44,8 +45,8 @@ class JwtEventSubscriberTest extends IslandoraKernelTestBase {
+    * Tests that generated tokens are valid.
+    */
+   public function testGeneratesValidToken(): void {
+-    $entity_storage = $this->container->get('entity_type.manager')->getStorage('user');
+-    $subscriber = new JwtEventSubscriber($entity_storage, $this->user);
++    $entity_type_manager = $this->container->get('entity_type.manager');
++    $subscriber = new JwtEventSubscriber($entity_type_manager, $this->user);
+ 
+     // Generate a new token.
+     $jwt = new JsonWebToken();
+@@ -63,8 +64,8 @@ class JwtEventSubscriberTest extends IslandoraKernelTestBase {
+    * Tests that malformed tokens are invalidated.
+    */
+   public function testInvalidatesMalformedToken(): void {
+-    $entity_storage = $this->container->get('entity_type.manager')->getStorage('user');
+-    $subscriber = new JwtEventSubscriber($entity_storage, $this->user);
++    $entity_type_manager = $this->container->get('entity_type.manager');
++    $subscriber = new JwtEventSubscriber($entity_type_manager, $this->user);
+ 
+     // Create a new event with mock jwt that returns null for all functions.
+     $prophecy = $this->prophesize(JsonWebTokenInterface::class);
+@@ -84,7 +85,11 @@ class JwtEventSubscriberTest extends IslandoraKernelTestBase {
+     $prophecy = $this->prophesize(EntityStorageInterface::class);
+     $entity_storage = $prophecy->reveal();
+ 
+-    $subscriber = new JwtEventSubscriber($entity_storage, $this->user);
++    $prophecy = $this->prophesize(EntityTypeManagerInterface::class);
++    $prophecy->getStorage('user')->willReturn($entity_storage);
++    $entity_type_manager = $prophecy->reveal();
++
++    $subscriber = new JwtEventSubscriber($entity_type_manager, $this->user);
+ 
+     // Generate a new token.
+     $jwt = new JsonWebToken();
+@@ -109,7 +114,11 @@ class JwtEventSubscriberTest extends IslandoraKernelTestBase {
+     $prophecy->load($this->user->id())->willReturn($anotherUser);
+     $entity_storage = $prophecy->reveal();
+ 
+-    $subscriber = new JwtEventSubscriber($entity_storage, $this->user);
++    $prophecy = $this->prophesize(EntityTypeManagerInterface::class);
++    $prophecy->getStorage('user')->willReturn($entity_storage);
++    $entity_type_manager = $prophecy->reveal();
++
++    $subscriber = new JwtEventSubscriber($entity_type_manager, $this->user);
+ 
+     // Generate a new token.
+     $jwt = new JsonWebToken();
+@@ -127,8 +136,8 @@ class JwtEventSubscriberTest extends IslandoraKernelTestBase {
+    * Tests that the correct user is loaded.
+    */
+   public function testLoadsUser(): void {
+-    $entity_storage = $this->container->get('entity_type.manager')->getStorage('user');
+-    $subscriber = new JwtEventSubscriber($entity_storage, $this->user);
++    $entity_type_manager = $this->container->get('entity_type.manager');
++    $subscriber = new JwtEventSubscriber($entity_type_manager, $this->user);
+ 
+     // Generate a new token.
+     $jwt = new JsonWebToken();

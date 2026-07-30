@@ -1,0 +1,22 @@
+uuid: 68e79628-1896-423b-a45a-898aa7a9409a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: islandora_dxpr_secondary_local_tasks
+theme: islandora_dxpr
+region: highlighted
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

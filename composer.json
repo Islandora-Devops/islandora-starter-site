@@ -43,14 +43,17 @@
         "drupal/controlled_access_terms": "^2",
         "drupal/core-composer-scaffold": "^11.1",
         "drupal/core-recommended": "^11.1",
-        "drupal/facets": "^2",
+        "drupal/facets": "3.0.3 as 2.0.10",
+        "drupal/facets_exposed_filters": "^3.0",
         "drupal/field_group": "^4",
+        "drupal/field_group_bootstrap": "^3.0",
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.2",
         "drupal/flysystem": "^2.2@alpha",
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.12.3",
+        "drupal/islandora_dxpr": "^1.0@alpha",
         "drupal/islandora_mirador": "^3",
         "drupal/openseadragon": "^3",
         "drupal/pathauto": "^1.12",
@@ -61,8 +64,10 @@
         "drupal/term_merge": "^2.0@beta",
         "drupal/tour": "*",
         "drupal/twig_tweak": "^3.2",
+        "drupal/views_bootstrap": "^5.5@RC",
         "drupal/views_data_export": "^1.2",
         "drupal/views_field_view": "^1.0@beta",
+        "drupal/views_filters_summary": "^3.4",
         "drush/drush": "^13.7",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/views_nested_details": "^1.0",
@@ -87,6 +92,7 @@
         "sort-packages": true
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
@@ -136,6 +142,21 @@
             "drupal/jwt": {
                 "d11": "assets/patches/drupal/jwt/d11.patch"
             },
+        "drupal/advanced_search": {
+            "Facets 3 exposed filters compatibility": "assets/patches/drupal/advanced_search/facets-3-compatibility.patch",
+            "View-integrated search controls": "assets/patches/drupal/advanced_search/view-integrated-search-areas.patch",
+            "Polish View-integrated search controls": "assets/patches/drupal/advanced_search/view-integrated-search-polish.patch"
+        },
+            "drupal/facets": {
+                "Facets 3 exposed range slider (upstream through 3cf90bec)": "assets/patches/drupal/facets/exposed-range-slider.patch",
+                "Exposed filter blocks reuse their View query during rebuilds": "assets/patches/drupal/facets/exposed-filter-block-query.patch",
+                "Issue #3570225: populate summary values without skipping inactive facet queries (MR !360 adapted)": "assets/patches/drupal/facets/accept-exposed-input-summary.patch",
+                "Support searchable Facets 3 exposed filters through Better Exposed Filters": "assets/patches/drupal/facets/exposed-filter-searchbox.patch",
+                "Give searchable exposed filters one unique options wrapper": "assets/patches/drupal/facets/exposed-filter-searchbox-wrapper.patch"
+            },
+            "drupal/islandora": {
+                "fix": "assets/patches/drupal/islandora/patch"
+            },
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
             }
@@ -149,7 +170,8 @@
     "require-dev": {
         "drupal/config_inspector": "^2.1",
         "drupal/devel": "^5.0",
-        "drupal/restui": "^1.21"
+        "drupal/restui": "^1.21",
+        "drupal/upgrade_status": "^5.0@alpha"
     },
     "autoload": {
         "classmap": [

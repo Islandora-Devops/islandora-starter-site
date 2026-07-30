@@ -1,0 +1,219 @@
+diff --git a/advanced_search.services.yml b/advanced_search.services.yml
+index 2b1d7d9..6420f09 100644
+--- a/advanced_search.services.yml
++++ b/advanced_search.services.yml
+@@ -4,6 +4,7 @@ services:
+     arguments:
+       - '@config.factory'
+       - '@request_stack'
++      - '@path.current'
+       - '@string_translation'
+   Drupal\advanced_search\EventSubscriber\PostConvertedQueryEventSubscriber:
+     tags:
+diff --git a/src/Plugin/views/area/AdvancedSearchFormArea.php b/src/Plugin/views/area/AdvancedSearchFormArea.php
+index f2ff674..c6255a8 100644
+--- a/src/Plugin/views/area/AdvancedSearchFormArea.php
++++ b/src/Plugin/views/area/AdvancedSearchFormArea.php
+@@ -165,15 +165,33 @@ class AdvancedSearchFormArea extends AreaPluginBase {
+       return [];
+     }
+ 
+     $display = $this->view->storage->getDisplay($this->view->current_display);
+     $context_filter = $this->options['context_filter'] ?? '';
+-    return $this->formBuilder->getForm(
+-      AdvancedSearchForm::class,
+-      $this->view->storage,
+-      $display,
+-      $configured_fields,
+-      $context_filter !== '' ? $context_filter : NULL,
+-    );
++    $title = $context_filter === ''
++      ? $this->t('Search')
++      : $this->t('Search within this collection');
++
++    return [
++      '#type' => 'container',
++      '#attributes' => [
++        'class' => ['advanced-search-form', 'islandora-advanced-search'],
++        'data-drupal-selector' => 'advanced-search-form',
++      ],
++      '#cache' => ['max-age' => 0],
++      'title' => [
++        '#type' => 'html_tag',
++        '#tag' => 'h2',
++        '#value' => $title,
++        '#attributes' => ['class' => ['block-title']],
++      ],
++      'form' => $this->formBuilder->getForm(
++        AdvancedSearchForm::class,
++        $this->view->storage,
++        $display,
++        $configured_fields,
++        $context_filter !== '' ? $context_filter : NULL,
++      ),
++    ];
+   }
+ 
+   /**
+diff --git a/src/SearchResultsToolbarBuilder.php b/src/SearchResultsToolbarBuilder.php
+index 8016fdd..a1640d7 100644
+--- a/src/SearchResultsToolbarBuilder.php
++++ b/src/SearchResultsToolbarBuilder.php
+@@ -4,6 +4,7 @@ namespace Drupal\advanced_search;
+ 
+ use Drupal\advanced_search\Form\SettingsForm;
+ use Drupal\Core\Config\ConfigFactoryInterface;
++use Drupal\Core\Path\CurrentPathStack;
+ use Drupal\Core\Render\Markup;
+ use Drupal\Core\StringTranslation\StringTranslationTrait;
+ use Drupal\Core\StringTranslation\TranslationInterface;
+@@ -25,6 +26,7 @@ class SearchResultsToolbarBuilder {
+   public function __construct(
+     protected ConfigFactoryInterface $configFactory,
+     protected RequestStack $requestStack,
++    protected CurrentPathStack $currentPath,
+     TranslationInterface $string_translation,
+   ) {
+     $this->stringTranslation = $string_translation;
+@@ -63,11 +65,12 @@ class SearchResultsToolbarBuilder {
+             $id => [
+               'view_id' => $view_id,
+               'current_display_id' => $display_id,
+-              'ajax_path' => '/views/ajax',
++              'ajax_path' => Url::fromRoute('views.ajax')->toString(),
+             ],
+           ],
+         ],
+       ],
++      '#cache' => ['max-age' => 0],
+       '#attributes' => [
+         'class' => ['advanced_search_result_pager'],
+         'data-drupal-pager-id' => $id,
+@@ -87,15 +89,7 @@ class SearchResultsToolbarBuilder {
+
+     if ($integrated) {
+       $build['#type'] = 'container';
++      unset($build['container']['pager']);
+-      $build['container']['#prefix'] = '<div class="pager__group islandora-search-results-toolbar">';
+-      $build['container']['result_summary'] = $build['result_summary'];
+-      unset($build['result_summary']);
+-      $build['container']['sort_by'] = $this->buildSortByForm($view->sort, $query_parameters);
+-      $build['container']['results_per_page_links'] = $this->buildResultsPerPageLinks($pager, $query_parameters);
+-      $build['container']['display_links'] = $this->buildDisplayLinks($configuration, $query_parameters);
+-      $build['container']['pager'] = array_merge($pager->render($view->getExposedInput()), [
+-        '#wrapper_attributes' => ['class' => ['container']],
+-      ]);
+     }
+ 
+     return $build;
+@@ -152,7 +145,7 @@ class SearchResultsToolbarBuilder {
+       if ($items_per_page === '') {
+         continue;
+       }
+-      $url = Url::fromRoute('<current>', [], [
++      $url = Url::fromUserInput($this->currentPath->getPath(), [
+         'query' => array_merge($query_parameters, [
+           'items_per_page' => $items_per_page,
+           'page' => 0,
+@@ -215,7 +208,12 @@ class SearchResultsToolbarBuilder {
+     $default_display = $has_overrides
+       ? $configuration['override-default-display-mode']
+       : $config->get(SettingsForm::DISPLAY_DEFAULT);
+     $active_display = $query_parameters['display'] ?? $default_display;
++    if (!in_array($active_display, ['list', 'grid'], TRUE)) {
++      $active_display = in_array($default_display, ['list', 'grid'], TRUE)
++        ? $default_display
++        : 'list';
++    }
+     $display_options = [];
+ 
+     if ($list_enabled) {
+@@ -233,7 +231,7 @@ class SearchResultsToolbarBuilder {
+ 
+     $items = [];
+     foreach ($display_options as $display => $options) {
+-      $url = Url::fromRoute('<current>', [], [
++      $url = Url::fromUserInput($this->currentPath->getPath(), [
+         'query' => array_merge($query_parameters, ['display' => $display]),
+         'absolute' => TRUE,
+       ]);
+diff --git a/advanced_search.module b/advanced_search.module
+index 9d6b49e..a52c69e 100644
+--- a/advanced_search.module
++++ b/advanced_search.module
+@@ -146,6 +146,10 @@ function advanced_search_preprocess_views_view(&$variables) {
+     $default_format = $toolbar_area['override-default-display-mode']
+       ?? $config->get(SettingsForm::DISPLAY_DEFAULT);
+     $format = \Drupal::request()->query->get('display') ?? $default_format;
++    if (!in_array($format, ['list', 'grid'], TRUE)) {
++      $format = in_array($default_format, ['list', 'grid'], TRUE)
++        ? $default_format : 'list';
++    }
+     $variables['attributes']['class'][] = "view-{$format}";
+     $view->element['#attached']['library'][] = 'advanced_search/advanced.search.pager';
+     $view->element['#attached']['library'][] = 'advanced_search/advanced.search.facets_views_ajax';
+@@ -159,8 +163,7 @@ function advanced_search_preprocess_views_view(&$variables) {
+   // Keep every part of an integrated search display in the View's AJAX
+-  // replacement. Core normally prints exposed widgets after the whole header
+-  // and its pager after the rows. Move those render arrays into a deterministic
+-  // header sequence and suppress the originals to avoid duplicate controls and
+-  // duplicate pagination heading IDs.
++  // replacement. Core normally prints exposed widgets after the whole header.
++  // Move that render array into a deterministic header sequence and suppress
++  // its original position to avoid duplicate controls.
+   $header = &$variables['header'];
+   $form_key = $form_area['handler_id'] ?? NULL;
+   $toolbar_key = $toolbar_area['handler_id'];
+@@ -191,5 +194,4 @@ function advanced_search_preprocess_views_view(&$variables) {
+   if (isset($header[$toolbar_key])) {
+     $header[$toolbar_key]['#weight'] = 100;
+-    $variables['pager'] = [];
+   }
+   unset($header);
+diff --git a/config/schema/advanced_search.schema.yml b/config/schema/advanced_search.schema.yml
+index 231eb99..26f75c6 100644
+--- a/config/schema/advanced_search.schema.yml
++++ b/config/schema/advanced_search.schema.yml
+@@ -94,3 +94,7 @@ views.area.advanced_search_results_toolbar:
+     override-default-display-mode:
+       type: string
+       label: 'Default view mode'
++      constraints:
++        Choice:
++          - list
++          - grid
+diff --git a/js/facets/facets-views-ajax.js b/js/facets/facets-views-ajax.js
+index f2cf395..41f8144 100644
+--- a/js/facets/facets-views-ajax.js
++++ b/js/facets/facets-views-ajax.js
+@@ -79,16 +79,26 @@
+     if (drupalSettings && drupalSettings.views && drupalSettings.views.ajaxViews) {
+       var view_path = drupalSettings.views.ajax_path;
+       $.each(drupalSettings.views.ajaxViews, function (views_dom_id) {
++        var view_instance = Drupal.views.instances[views_dom_id];
++        var view_settings = view_instance.settings;
++        var view_element = $(
++          ".js-view-dom-id-" + view_settings.view_dom_id
++        );
++        if (view_element.find("[data-drupal-pager-id]").length === 0) {
++          return;
++        }
+         var views_parameters = parseQueryParameters(url);
+-        var views_arguments = Drupal.Views.parseViewArgs(url, "search");
++        var views_arguments = Drupal.Views.parseViewArgs(
++          url,
++          view_settings.view_base_path
++        );
+         var views_settings = $.extend(
+           {},
+-          Drupal.views.instances[views_dom_id].settings,
++          view_settings,
+           views_arguments,
+           views_parameters
+         );
+-        var views_ajax_settings =
+-          Drupal.views.instances[views_dom_id].element_settings;
++        var views_ajax_settings = view_instance.element_settings;
+         views_ajax_settings.submit = views_settings;
+         views_ajax_settings.url =
+           view_path +
