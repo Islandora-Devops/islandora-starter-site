@@ -1,0 +1,93 @@
+diff --git a/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php b/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php
+index 5f36013..bc0a876 100644
+--- a/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php
++++ b/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php
+@@ -19,6 +19,7 @@ use Drupal\facets\Processor\SortProcessorInterface;
+ use Drupal\facets\QueryType\QueryTypePluginManager;
+ use Drupal\facets_exposed_filters\ExposedFacetBuildState;
+ use Drupal\facets_exposed_filters\FacetsExposedFiltersHelper;
++use Drupal\search_api\Plugin\views\query\SearchApiQuery;
+ use Drupal\views\Plugin\views\filter\FilterPluginBase;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ use Symfony\Component\HttpFoundation\RequestStack;
+@@ -203,6 +204,22 @@ class FacetsFilter extends FilterPluginBase implements ContainerFactoryPluginInt
+       $facet = $processed_facet;
+     }
+     else {
++      // A Views exposed-filter block can be rebuilt lazily with a fresh View
++      // executable after another instance of the same display has completed.
++      // The request-local post-execute marker is shared by those instances,
++      // but the fresh handler can lose its query reference. Reuse the query
++      // owned by the View executable when available. This occurs in particular
++      // for empty facets, which have no processed facet cached for reuse.
++      $views_query = $this->query ?? $this->view->getQuery();
++      if (!$views_query instanceof SearchApiQuery) {
++        return $form;
++      }
++
++      $search_api_query = $views_query->getSearchApiQuery();
++      if (!$search_api_query) {
++        return $form;
++      }
++
+       /** @var \Drupal\facets\FacetInterface $facet */
+       $facet = $this->getFacet();
+ 
+@@ -233,7 +250,7 @@ class FacetsFilter extends FilterPluginBase implements ContainerFactoryPluginInt
+       $query_type_plugin = $this->queryTypePluginManager->createInstance(
+         $facet->getQueryType(),
+         [
+-          'query' => $this->query->getSearchApiQuery(),
++          'query' => $search_api_query,
+           'facet' => $facet,
+           'results' => $this->view->filter[$this->options["id"]]->facet_results ?? [],
+         ]
+diff --git a/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php b/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php
+index 695a599..82bc364 100644
+--- a/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php
++++ b/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php
+@@ -4,10 +4,13 @@ declare(strict_types=1);
+ 
+ namespace Drupal\Tests\facets_exposed_filters\Unit;
+ 
++use Drupal\Core\Form\FormStateInterface;
+ use Drupal\facets\FacetInterface;
+ use Drupal\facets\Result\ResultInterface;
++use Drupal\facets_exposed_filters\FacetsExposedFiltersHelper;
+ use Drupal\facets_exposed_filters\Plugin\views\filter\FacetsFilter;
+ use Drupal\Tests\UnitTestCase;
++use Drupal\views\ViewExecutable;
+ 
+ /**
+  * Tests exposed-filter value handling for facet results.
+@@ -16,6 +19,30 @@ use Drupal\Tests\UnitTestCase;
+  */
+ final class FacetsFilterTest extends UnitTestCase {
+ 
++  /**
++   * Tests a lazy exposed block without an initialized query stays empty.
++   */
++  public function testLazyExposedBlockWithoutQueryReturnsEmptyForm(): void {
++    $filter = (new \ReflectionClass(FacetsFilter::class))->newInstanceWithoutConstructor();
++    $view = $this->createMock(ViewExecutable::class);
++    $view->method('id')->willReturn('test_empty_facet_view');
++    $view->current_display = 'page_1';
++
++    $filter->options = ['id' => 'facets_empty'];
++    $filter->view = $view;
++    $view->filter = ['facets_empty' => $filter];
++
++    FacetsExposedFiltersHelper::markViewPostExecuted(
++      'test_empty_facet_view',
++      'page_1',
++    );
++
++    $form = [];
++    $filter->valueForm($form, $this->createMock(FormStateInterface::class));
++
++    self::assertSame(['value' => []], $form);
++  }
++
+   /**
+    * Tests that missing results use the encoded missing-filter syntax.
+    */

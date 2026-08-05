@@ -5,6 +5,7 @@ dependencies:
   module:
     - node
     - user
+    - views_bootstrap
 id: oai_pmh_item_links
 label: 'OAI-PMH Item Links'
 module: views
@@ -162,7 +163,13 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       style:
-        type: default
+        type: views_bootstrap_list_group
+        options:
+          grouping: {  }
+          row_class: islandora-oai-link-group
+          default_row_class: true
+          list_group_class_custom: islandora-oai-links
+          title_field: ''
       row:
         type: fields
       query:

@@ -1,0 +1,387 @@
+diff --git a/composer.json b/composer.json
+index 4245d9c..9d4b2bb 100644
+--- a/composer.json
++++ b/composer.json
+@@ -22,7 +22,7 @@
+         }
+     },
+     "require": {
+-        "drupal/facets": "^2.0",
++        "drupal/facets": "^2.0 || ^3.0",
+         "drupal/search_api_solr": "^4.2"
+     },
+     "require-dev": {
+diff --git a/advanced_search.info.yml b/advanced_search.info.yml
+--- a/advanced_search.info.yml
++++ b/advanced_search.info.yml
+@@ -7,6 +7,5 @@ core_version_requirement: ^8.8 || ^9 || ^10 || ^11
+ dependencies:
+   - facets:facets
+-  - facets:facets_summary
+   - search_api_solr:search_api_solr
+ 
+ # Information added by Drupal.org packaging script on 2026-03-31
+diff --git a/advanced_search.libraries.yml b/advanced_search.libraries.yml
+index faa7d17..e65dc2b 100644
+--- a/advanced_search.libraries.yml
++++ b/advanced_search.libraries.yml
+@@ -25,4 +25,4 @@ advanced.search.facets_views_ajax:
+     - core/drupal.ajax
+     - core/jquery
+     - core/once
+-    - facets/drupal.facets.views-ajax
++    - views/views.ajax
+diff --git a/advanced_search.module b/advanced_search.module
+index c0533b2..be07f5a 100644
+--- a/advanced_search.module
++++ b/advanced_search.module
+@@ -43,9 +43,11 @@ function advanced_search_library_info_alter(&$libraries, $extension) {
+     $libraries['soft-limit']['js'] = [
+       "$path/soft-limit.js" => [],
+     ];
+-    $libraries['drupal.facets.views-ajax']['js'] = [
+-      "$path/facets-views-ajax.js" => [],
+-    ];
++    if (isset($libraries['drupal.facets.views-ajax'])) {
++      $libraries['drupal.facets.views-ajax']['js'] = [
++        "$path/facets-views-ajax.js" => [],
++      ];
++    }
+   }
+ }
+ 
+diff --git a/js/facets/facets-views-ajax.js b/js/facets/facets-views-ajax.js
+index ea93823..f87d401 100644
+--- a/js/facets/facets-views-ajax.js
++++ b/js/facets/facets-views-ajax.js
+@@ -43,27 +43,43 @@
+       }
+   }
+   
+-  function parseQueryString( queryString ) {
+-        var params = {}, queries, temp, i, l;
+-
+-        // Split into key/value pairs
+-        queries = queryString.split("&");
+-
+-        // Convert the array of strings into an object
+-        for ( i = 0, l = queries.length; i < l; i++ ) {
+-            temp = queries[i].split('=');
+-            params[temp[0]] = temp[1];
+-        }
++  /**
++   * Parse query parameters without discarding repeated exposed-filter values.
++   */
++  function parseQueryParameters(url) {
++    var params = {};
++    new URL(url, window.location.origin).searchParams.forEach(function (
++      value,
++      key
++    ) {
++      if (Object.prototype.hasOwnProperty.call(params, key)) {
++        params[key] = Array.isArray(params[key])
++          ? params[key].concat(value)
++          : [params[key], value];
++      } else {
++        params[key] = value;
++      }
++    });
++    return params;
++  }
+ 
+-        return params;
+-    };
++  /**
++   * Update one pager parameter while preserving every active filter value.
++   */
++  function updatePagerLinks(url, selector, parameter, attribute) {
++    $(selector).each(function () {
++      var newUrl = new URL(url, window.location.origin);
++      newUrl.searchParams.set(parameter, $(this).attr(attribute));
++      $(this).attr("href", newUrl.toString());
++    });
++  }
+ 
+   function reload(url) {
+     // Update View.
+     if (drupalSettings && drupalSettings.views && drupalSettings.views.ajaxViews) {
+       var view_path = drupalSettings.views.ajax_path;
+       $.each(drupalSettings.views.ajaxViews, function (views_dom_id) {
+-        var views_parameters = Drupal.Views.parseQueryString(url);
++        var views_parameters = parseQueryParameters(url);
+         var views_arguments = Drupal.Views.parseViewArgs(url, "search");
+         var views_settings = $.extend(
+           {},
+@@ -75,79 +91,21 @@
+           Drupal.views.instances[views_dom_id].element_settings;
+         views_ajax_settings.submit = views_settings;
+-        views_ajax_settings.url =
+-          view_path + "?" + $.param(Drupal.Views.parseQueryString(url));
++        views_ajax_settings.url =
++          view_path +
++          "?" +
++          new URL(url, window.location.origin).searchParams.toString();
+         Drupal.ajax(views_ajax_settings).execute();
+       });
+     }
+ 
+-    // Update items_per_page links in pager 
+-    if (url.indexOf("items_per_page=") == -1) { 
+-      // append items_per_page
+-      $("a.pager__itemsperpage").each(function( index ) {
+-        var newUrl = url + "&items_per_page=" + $(this).attr('itemsperpage');
+-        $(this).attr("href", newUrl);
+-      });
+-    } 
+-    else { 
+-      // replace existed items_per_page
+-      var params = parseQueryString(url.split("?")[1]);
+-      var newParams = [];
+-      var existingDateQuery = false; // true if a date query already exists
+-
+-      var links = {};
+-      // update publication date in url if previously queried
+-      for (var key in params) {
+-        if (!params[key]) { // no search parameters in url
+-          break;
+-        }
+-
+-        // check for items_per_page query
+-        if (!key.startsWith("items_per_page")) { 
+-          newParams.push(key + "=" + params[key]);
+-        }
+-      }
+-      var newParamsUrl = newParams.join('&');
+-      $("a.pager__itemsperpage").each(function( index ) {
+-        $(this).attr("href", url.split("?")[0] + '?' + newParamsUrl + "&items_per_page=" + $(this).attr('itemsperpage'));
+-      });
+-    }
+-
+-
+-
+-    // Update display mode links in pager 
+-    if (url.indexOf("display=") == -1) { 
+-      // append items_per_page
+-      $("a.pager__display").each(function( index ) {
+-        var newUrl = url + "&display=" + $(this).attr('type');
+-        $(this).attr("href", newUrl);
+-      });
+-      
+-    } 
+-    else { 
+-      // replace existed display
+-      var params = parseQueryString(url.split("?")[1]);
+-      var newParams = [];
+-      var existingDateQuery = false; // true if a date query already exists
+-
+-      var links = {};
+-      // update publication date in url if previously queried
+-      for (var key in params) {
+-        if (!params[key]) { // no search parameters in url
+-          break;
+-        }
+-
+-        // check for display query
+-        if (!key.startsWith("display")) { 
+-          newParams.push(key + "=" + params[key]);
+-        }
+-      }
+-      var newParamsUrl = newParams.join('&');
+-      $("a.pager__display").each(function( index ) {
+-
+-        var value = $(this).attr('type');
+-        $(this).attr("href", url.split("?")[0] + '?' + newParamsUrl + "&display=" + value);
+-      });
+-    }
++    // Update pager links without flattening multi-value facet parameters.
++    updatePagerLinks(
++      url,
++      "a.pager__itemsperpage",
++      "items_per_page",
++      "itemsperpage"
++    );
++    updatePagerLinks(url, "a.pager__display", "display", "type");
+ 
+ 
+     
+@@ -214,17 +172,19 @@
+                 }
+                 e.preventDefault();
+                 e.stopPropagation();
+-                var href = window.location.href;
+-                var params = Drupal.Views.parseQueryString(href);
++                var href = new URL(window.location.href);
+                 // Remove the page if set as submitting the form should always take
+                 // the user to the first page (facets do the same).
+-                delete params.page;
+-                // Include values from the form in the URL.
++                href.searchParams.delete("page");
++                // Remove stale values, including unchecked facet options.
++                exposed_form.find(":input[name]").each(function () {
++                  href.searchParams.delete(this.name);
++                });
++                // Include every selected value from the form in the URL.
+                 $.each(exposed_form.serializeArray(), function () {
+-                  params[this.name] = this.value;
++                  href.searchParams.append(this.name, this.value);
+                 });
+-                href = href.split("?")[0] + "?" + $.param(params);
+-                window.history.pushState(null, document.title, href);
++                window.history.pushState(null, document.title, href.toString());
+               });
+             });
+         });
+@@ -232,21 +192,35 @@
+           if (window.location.search.includes("display=") === true) {
+ 
+               $("li.pager__item a.pager__display").each(function () {
+-                  $(this).parent().removeClass("is-active");
+-                  $(this).removeClass("pager__link--is-active");
+-                  if ($(this).attr('type').trim().toLowerCase() === getParam(window.location.search, "display").trim().toLowerCase()) {
+-                      $(this).addClass("pager__link--is-active");
+-                  }
++                  var link = $(this);
++                  var label = link.find(".display-mode").text().trim();
++                  var active = link.attr('type').trim().toLowerCase() === getParam(window.location.search, "display").trim().toLowerCase();
++                  link.parent().toggleClass("is-active", active);
++                  link.toggleClass("pager__link--is-active", active);
++                  link.attr("aria-current", active ? "true" : null);
++                  link.attr(
++                    "aria-label",
++                    active
++                      ? Drupal.t("Current display: @display", {"@display": label})
++                      : Drupal.t("Display as @display", {"@display": label})
++                  );
+               });
+           }
+ 
+           if (window.location.search.includes("items_per_page=") === true) {
+               $("li.pager__item a.pager__itemsperpage").each(function() {
+-                  $(this).parent().removeClass("is-active");
+-                  $(this).removeClass("pager__link--is-active");
+-                  if ($(this).text().trim().toLowerCase() === getParam(window.location.search, "items_per_page").trim().toLowerCase()) {
+-                      $(this).addClass("pager__link--is-active");
+-                  }
++                  var link = $(this);
++                  var label = link.text().trim();
++                  var active = label.toLowerCase() === getParam(window.location.search, "items_per_page").trim().toLowerCase();
++                  link.parent().toggleClass("is-active", active);
++                  link.toggleClass("pager__link--is-active", active);
++                  link.attr("aria-current", active ? "true" : null);
++                  link.attr(
++                    "aria-label",
++                    active
++                      ? Drupal.t("Current page size: @item items per page", {"@item": label})
++                      : Drupal.t("@item items per page", {"@item": label})
++                  );
+               });
+           }
+ 
+@@ -276,15 +250,13 @@
+       // Trigger on sort change.
+       $(once('params-sort', '[data-drupal-pager-id] select[name="order"], .pager__sort select[name="order"]'))
+         .change(function () {
+-          var href = window.location.href;
+-          var params = Drupal.Views.parseQueryString(href);
++          var href = new URL(window.location.href);
+ 
+           var selection = $(this).val();
+           var option = selection.split('_');
+-          params.sort_order = option[option.length - 1].toUpperCase();
+-          params.sort_by = selection.replace("_" + option[option.length - 1], "");
+-          href = href.split("?")[0] + "?" + $.param(params);
+-          window.history.pushState(null, document.title, href);
++          href.searchParams.set("sort_order", option[option.length - 1].toUpperCase());
++          href.searchParams.set("sort_by", selection.replace("_" + option[option.length - 1], ""));
++          window.history.pushState(null, document.title, href.toString());
+         });
+ 
+     },
+diff --git a/src/Plugin/Block/SearchResultsPagerBlock.php b/src/Plugin/Block/SearchResultsPagerBlock.php
+--- a/src/Plugin/Block/SearchResultsPagerBlock.php
++++ b/src/Plugin/Block/SearchResultsPagerBlock.php
+@@ -258,7 +258,9 @@
+         '#url' => $url,
+         '#title' => $items_per_page,
+         '#attributes' => [
+-          'aria-label' => $this->t("@item items per page", ["@item" => $items_per_page]),
++          'aria-label' => $active
++            ? $this->t('Current page size: @item items per page', ['@item' => $items_per_page])
++            : $this->t('@item items per page', ['@item' => $items_per_page]),
+           'class' => $active ?
+             ['pager__link', 'pager__link--is-active', 'pager__itemsperpage'] :
+             ['pager__link', 'pager__itemsperpage'],
+@@ -268,6 +270,9 @@
+           'class' => $active ? ['pager__item', 'is-active'] : ['pager__item'],
+         ],
+       ];
++      if ($active) {
++        $item['#attributes']['aria-current'] = 'true';
++      }
+       if (!empty($config->get(SettingsForm::NO_FOLLOW))) {
+         $item['#attributes']['rel'] = 'nofollow';
+       }
+@@ -346,13 +351,18 @@
+           'class' => $active ?
+             ['pager__link', 'pager__link--is-active', 'pager__display'] :
+             ['pager__link', 'pager__display'],
+-          'aria-label' => $this->t("Display as @link", ["@link" => Markup::create($text)]),
++          'aria-label' => $active
++            ? $this->t('Current display: @display', ['@display' => $options['title']])
++            : $this->t('Display as @display', ['@display' => $options['title']]),
+           'type' => $display,
+         ],
+         '#wrapper_attributes' => [
+           'class' => $active ? ['pager__item', 'is-active'] : ['pager__item'],
+         ],
+       ];
++      if ($active) {
++        $item['#attributes']['aria-current'] = 'true';
++      }
+       if (!empty($config->get(SettingsForm::NO_FOLLOW))) {
+         $item['#attributes']['rel'] = 'nofollow';
+       }
+diff --git a/tests/src/Functional/SearchBlockTest.php b/tests/src/Functional/SearchBlockTest.php
+--- a/tests/src/Functional/SearchBlockTest.php
++++ b/tests/src/Functional/SearchBlockTest.php
+@@ -21,7 +21,6 @@ class SearchBlockTest extends BrowserTestBase {
+     'search_api',
+     'search_api_solr',
+     'facets',
+-    'facets_summary',
+     'node',
+   ];
+ 
+diff --git a/tests/src/Functional/SettingsFormTest.php b/tests/src/Functional/SettingsFormTest.php
+--- a/tests/src/Functional/SettingsFormTest.php
++++ b/tests/src/Functional/SettingsFormTest.php
+@@ -21,7 +21,6 @@ class SettingsFormTest extends BrowserTestBase {
+     'search_api',
+     'search_api_solr',
+     'facets',
+-    'facets_summary',
+   ];
+ 
+   /**
+diff --git a/tests/src/FunctionalJavascript/SearchBlockTest.php b/tests/src/FunctionalJavascript/SearchBlockTest.php
+--- a/tests/src/FunctionalJavascript/SearchBlockTest.php
++++ b/tests/src/FunctionalJavascript/SearchBlockTest.php
+@@ -21,7 +21,6 @@ class SearchBlockTest extends WebDriverTestBase {
+     'search_api',
+     'search_api_solr',
+     'facets',
+-    'facets_summary',
+     'node',
+   ];
+ 
+diff --git a/tests/src/FunctionalJavascript/SearchResultsPagerBlockTest.php b/tests/src/FunctionalJavascript/SearchResultsPagerBlockTest.php
+--- a/tests/src/FunctionalJavascript/SearchResultsPagerBlockTest.php
++++ b/tests/src/FunctionalJavascript/SearchResultsPagerBlockTest.php
+@@ -21,7 +21,6 @@ class SearchResultsPagerBlockTest extends WebDriverTestBase {
+     'search_api',
+     'search_api_solr',
+     'facets',
+-    'facets_summary',
+     'node',
+   ];
+ 

@@ -1,0 +1,20 @@
+uuid: b550df36-da34-4e00-ba26-ae3311c87009
+langcode: en
+status: true
+dependencies:
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: islandora_dxpr_primary_admin_actions
+theme: islandora_dxpr
+region: highlighted
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

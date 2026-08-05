@@ -1,0 +1,40 @@
+uuid: ec9b305f-0b89-473c-8cec-7d005d6fb779
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.solr_search_content
+  module:
+    - context
+    - system
+    - views
+  theme:
+    - islandora_dxpr
+id: islandora_dxpr_search_filters
+theme: islandora_dxpr
+region: sidebar_first
+weight: -10
+provider: null
+plugin: 'views_exposed_filter_block:solr_search_content-page_1'
+settings:
+  id: 'views_exposed_filter_block:solr_search_content-page_1'
+  label: 'Filter results'
+  label_display: visible
+  provider: views
+  views_label: 'Filter results'
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search

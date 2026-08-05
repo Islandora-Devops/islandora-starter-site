@@ -47,6 +47,10 @@ jobs:
         shell: bash
         run: composer exec -- drush site:install --existing-config --db-url=sqlite://sites/test_db
 
+      - name: Verify search summary configuration
+        shell: bash
+        run: composer exec -- drush php:script ci/assert-search-config.php
+
       - name: Inspect configuration
         shell: bash
         # Just warnings, for now...
@@ -75,4 +79,3 @@ jobs:
           path: ./ci
 
       - run: ./ci/ci/test.sh
-

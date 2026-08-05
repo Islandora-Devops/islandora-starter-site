@@ -7,10 +7,17 @@ dependencies:
     - field.storage.node.field_publisher
     - field.storage.node.field_resource_type
     - search_api.index.default_solr_index
+    - system.menu.main
   module:
+    - advanced_search
+    - better_exposed_filters
     - dgi_image_discovery
+    - facets_exposed_filters
+    - facets_searchbox_widget
     - media
     - search_api
+    - views_bootstrap
+    - views_filters_summary
 _core:
   default_config_hash: d-DwLzBXnDh7as84BBK0Pxv16Ypczqg_TF9tjAyNgjU
 id: solr_search_content
@@ -153,7 +160,7 @@ display:
           type: media_thumbnail
           settings:
             image_style: ''
-            image_link: content
+            image_link: ''
             image_loading:
               attribute: lazy
           group_column: target_id
@@ -173,6 +180,10 @@ display:
             use_highlighting: 0
             multi_type: separator
             multi_separator: ', '
+            delta_limit: '0'
+            delta_offset: '0'
+            delta_reversed: 0
+            delta_first_last: 0
         field_resource_type:
           id: field_resource_type
           table: search_api_index_default_solr_index
@@ -595,9 +606,9 @@ display:
             max_length: 400
             word_boundary: true
             ellipsis: true
-            more_link: true
-            more_link_text: more
-            more_link_path: 'node/{{ nid }}'
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: true
             preserve_tags: ''
@@ -664,9 +675,9 @@ display:
             max_length: 400
             word_boundary: true
             ellipsis: true
-            more_link: true
-            more_link_text: more
-            more_link_path: 'node/{{ nid }}'
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: true
             preserve_tags: ''
@@ -760,15 +771,253 @@ display:
             offset: false
             offset_label: Offset
       exposed_form:
-        type: basic
+        type: bef
         options:
-          submit_button: Search
+          submit_button: 'Apply filters'
           reset_button: false
-          reset_button_label: Reset
+          reset_button_label: 'Clear filters'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply filters to see results.'
+          text_input_required_format: basic_html
+          bef:
+            general:
+              autosubmit: true
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
+              autosubmit_exclude_textfield: true
+              autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: true
+              secondary_label: 'More filters'
+              secondary_open: false
+              reset_button_always_show: false
+            sort:
+              plugin_id: default
+              advanced:
+                combine: false
+                combine_rewrite: ''
+                combine_param: sort_bef_combine
+                reset: false
+                reset_label: ''
+                collapsible: false
+                collapsible_label: 'Sort options'
+                is_secondary: false
+            pager:
+              plugin_id: default
+              advanced:
+                is_secondary: false
+            filter:
+              facets_field_resource_type:
+                plugin_id: bef
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: true
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: true
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+              facets_member_of_title:
+                plugin_id: facets_searchbox
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: true
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+                searchbox_placeholder: 'Filter collection options'
+                searchbox_no_results: 'No matching collections.'
+              facets_field_linked_agent_name:
+                plugin_id: facets_searchbox
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: true
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+                searchbox_placeholder: 'Filter creator or contributor options'
+                searchbox_no_results: 'No matching creators or contributors.'
+              facets_subject_general_name:
+                plugin_id: facets_searchbox
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: true
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+                searchbox_placeholder: 'Filter subject options'
+                searchbox_no_results: 'No matching subjects.'
+              facets_edtf_year:
+                plugin_id: facets_exposed_range_slider
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: true
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                min: '0'
+                max: '99999'
+                step: '1'
+                animate: '0'
+                animate_ms: '0'
+                orientation: horizontal
+                enable_tooltips: true
+                tooltips_value_prefix: ''
+                tooltips_value_suffix: ''
+                placement_location: end
+                snap_to_values: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+              facets_field_physical_form:
+                plugin_id: bef
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: true
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+              facets_field_publisher:
+                plugin_id: bef
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: true
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+              facets_subject_names_name:
+                plugin_id: bef
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: true
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
+              facets_subject_temporal_name:
+                plugin_id: bef
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: true
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+                soft_limit_include_children: false
+                scrollable: false
+                scrollable_height: 300
       access:
         type: none
         options: {  }
@@ -786,7 +1035,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: '<strong>No results found </strong>'
+            value: '<h2>No results found</h2><p>Try removing a filter, using fewer or broader terms, checking your spelling, or using Reset to start over.</p>'
             format: basic_html
           tokenize: false
       sorts:
@@ -872,16 +1121,631 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        facets_field_resource_type:
+          id: facets_field_resource_type
+          table: search_api_index_default_solr_index
+          field: facets_field_resource_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Resource type'
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: resource_type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: true
+          label_display: visible
+          facet:
+            expand_hierarchy: false
+            hierarchy: taxonomy
+            query_operator: or
+            hard_limit: 20
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+              hierarchy_processor:
+                processor_id: hierarchy_processor
+                weights:
+                  build: 100
+                settings: {  }
+              translate_entity:
+                processor_id: translate_entity
+                weights:
+                  build: 5
+                settings:
+                  sort: false
+        facets_member_of_title:
+          id: facets_member_of_title
+          table: search_api_index_default_solr_index
+          field: facets_member_of_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Collection
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: member_of
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 100
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: false
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+              hide_1_result_facet:
+                processor_id: hide_1_result_facet
+                weights:
+                  build: 50
+                settings: {  }
+        facets_field_linked_agent_name:
+          id: facets_field_linked_agent_name
+          table: search_api_index_default_solr_index
+          field: facets_field_linked_agent_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Creator or contributor'
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: creator
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 100
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+        facets_subject_general_name:
+          id: facets_subject_general_name
+          table: search_api_index_default_solr_index
+          field: facets_subject_general_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Subject
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: subject
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 100
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+        facets_edtf_year:
+          id: facets_edtf_year
+          table: search_api_index_default_solr_index
+          field: facets_edtf_year
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Year
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: year
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 0
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: false
+            processor_configs:
+              exposed_range_slider:
+                processor_id: exposed_range_slider
+                weights:
+                  pre_query: 60
+                  post_query: 60
+                settings:
+                  step: 1.0
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: DESC
+        facets_field_physical_form:
+          id: facets_field_physical_form
+          table: search_api_index_default_solr_index
+          field: facets_field_physical_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Format
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: format
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 20
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+        facets_field_publisher:
+          id: facets_field_publisher
+          table: search_api_index_default_solr_index
+          field: facets_field_publisher
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Publisher
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: publisher
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 20
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+        facets_subject_names_name:
+          id: facets_subject_names_name
+          table: search_api_index_default_solr_index
+          field: facets_subject_names_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Subject: person or organization'
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: subject_name
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 20
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
+        facets_subject_temporal_name:
+          id: facets_subject_temporal_name
+          table: search_api_index_default_solr_index
+          field: facets_subject_temporal_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: facets_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Time period'
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: time_period
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          hierarchy: false
+          label_display: visible
+          facet:
+            query_operator: or
+            hard_limit: 20
+            min_count: 1
+            missing: false
+            missing_label: others
+            show_numbers: true
+            processor_configs:
+              active_widget_order:
+                processor_id: active_widget_order
+                weights:
+                  sort: 20
+                settings:
+                  sort: ASC
+              count_widget_order:
+                processor_id: count_widget_order
+                weights:
+                  sort: 30
+                settings:
+                  sort: DESC
+              display_value_widget_order:
+                processor_id: display_value_widget_order
+                weights:
+                  sort: 40
+                settings:
+                  sort: ASC
       filter_groups:
         operator: AND
         groups:
           1: AND
       style:
-        type: default
+        type: views_bootstrap_list_group
         options:
           grouping: {  }
-          row_class: clearfix
+          row_class: islandora-search-result
           default_row_class: true
+          list_group_class_custom: islandora-search-results
+          title_field: ''
       row:
         type: fields
         options:
@@ -895,6 +1759,36 @@ display:
       relationships: {  }
       use_ajax: true
       header:
+        views_filters_summary:
+          id: views_filters_summary
+          table: views
+          field: views_filters_summary
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_filters_summary
+          empty: true
+          filters:
+            - facets_field_resource_type
+            - facets_member_of_title
+            - facets_field_linked_agent_name
+            - facets_subject_general_name
+            - facets_edtf_year
+            - facets_field_physical_form
+            - facets_field_publisher
+            - facets_subject_names_name
+            - facets_subject_temporal_name
+          show_labels: true
+          show_remove_link: true
+          show_reset_link: true
+          group_values: true
+          content: '@exposed_filter_summary'
+          filters_reset_link_title: 'Clear all filters'
+          filters_summary_separator: ''
+          filters_summary_prefix: 'Selected filters:'
+          filters_result_label:
+            plural: results
+            singular: result
         result:
           id: result
           table: views
@@ -912,6 +1806,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
@@ -930,6 +1825,20 @@ display:
     position: 2
     display_options:
       title: 'Search within Collection'
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: '<p><strong>No items match the current filters.</strong> Try clearing one or more filters or broadening the search terms.</p>'
+            format: basic_html
+          tokenize: false
       arguments:
         field_member_of:
           id: field_member_of
@@ -991,10 +1900,108 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+      style:
+        type: views_bootstrap_grid
+        options:
+          grouping: {  }
+          row_class: islandora-card-column
+          default_row_class: true
+          grid_class: 'g-4 islandora-collection-members'
+          col_xs: col-12
+          col_sm: none
+          col_md: col-md-6
+          col_lg: col-lg-4
+          col_xl: none
+          col_xxl: none
       defaults:
+        empty: false
         title: false
+        style: false
         arguments: false
+        header: false
       display_description: 'Searches and lists members of a collection.'
+      header:
+        advanced_search_form:
+          id: advanced_search_form
+          table: views
+          field: advanced_search_form
+          relationship: none
+          group_type: group
+          admin_label: 'Search within collection'
+          plugin_id: advanced_search_form
+          empty: true
+          fields:
+            - title_aggregated_fulltext
+            - abstract_description_fulltext
+            - linked_agent_name_fulltext
+            - field_publisher_fulltext
+          context_filter: field_member_of
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h2>Items in this collection</h2>'
+            format: basic_html
+          tokenize: false
+        views_filters_summary:
+          id: views_filters_summary
+          table: views
+          field: views_filters_summary
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_filters_summary
+          empty: true
+          filters:
+            - facets_field_resource_type
+            - facets_member_of_title
+            - facets_field_linked_agent_name
+            - facets_subject_general_name
+            - facets_edtf_year
+            - facets_field_physical_form
+            - facets_field_publisher
+            - facets_subject_names_name
+            - facets_subject_temporal_name
+          show_labels: true
+          show_remove_link: true
+          show_reset_link: true
+          group_values: true
+          content: '@exposed_filter_summary'
+          filters_reset_link_title: 'Clear all filters'
+          filters_summary_separator: ''
+          filters_summary_prefix: 'Selected filters:'
+          filters_result_label:
+            plural: results
+            singular: result
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: '<div id="ajax-page-summary" class="pager__summary" hidden>Displaying @start - @end of @total</div>'
+        advanced_search_results_toolbar:
+          id: advanced_search_results_toolbar
+          table: views
+          field: advanced_search_results_toolbar
+          relationship: none
+          group_type: group
+          admin_label: 'Collection results toolbar'
+          plugin_id: advanced_search_results_toolbar
+          empty: true
+          override_list_on_off: true
+          override_grid_on_off: true
+          override-default-display-mode: list
+      exposed_block: true
       display_extenders: {  }
       block_description: 'Solr Search Content: Collection Members'
     cache_metadata:
@@ -1030,68 +2037,112 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: '<strong>No results found </strong>'
+            value: '<h2>No results found</h2><p>Try removing a filter, using fewer or broader terms, checking your spelling, or using Reset to start over.</p>'
             format: basic_html
           tokenize: false
-      filters:
-        type:
-          id: type
-          table: search_api_index_default_solr_index
-          field: type
+      defaults:
+        empty: false
+        header: false
+      display_description: ''
+      header:
+        advanced_search_form:
+          id: advanced_search_form
+          table: views
+          field: advanced_search_form
+          relationship: none
+          group_type: group
+          admin_label: Search
+          plugin_id: advanced_search_form
+          empty: true
+          fields:
+            - title_aggregated_fulltext
+            - abstract_description_fulltext
+            - linked_agent_name_fulltext
+            - field_publisher_fulltext
+          context_filter: ''
+        area:
+          id: area
+          table: views
+          field: area
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: search_api_options
-          operator: or
-          value:
-            islandora_object: islandora_object
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      defaults:
-        empty: false
-        filters: false
-        filter_groups: false
-      display_description: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: '<h2>Search results</h2>'
+            format: basic_html
+          tokenize: false
+        views_filters_summary:
+          id: views_filters_summary
+          table: views
+          field: views_filters_summary
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: views_filters_summary
+          empty: true
+          filters:
+            - facets_field_resource_type
+            - facets_member_of_title
+            - facets_field_linked_agent_name
+            - facets_subject_general_name
+            - facets_edtf_year
+            - facets_field_physical_form
+            - facets_field_publisher
+            - facets_subject_names_name
+            - facets_subject_temporal_name
+          show_labels: true
+          show_remove_link: true
+          show_reset_link: true
+          group_values: true
+          content: '@exposed_filter_summary'
+          filters_reset_link_title: 'Clear all filters'
+          filters_summary_separator: ''
+          filters_summary_prefix: 'Selected filters:'
+          filters_result_label:
+            plural: results
+            singular: result
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: '<div id="ajax-page-summary" class="pager__summary" hidden>Displaying @start - @end of @total</div>'
+        advanced_search_results_toolbar:
+          id: advanced_search_results_toolbar
+          table: views
+          field: advanced_search_results_toolbar
+          relationship: none
+          group_type: group
+          admin_label: 'Search results toolbar'
+          plugin_id: advanced_search_results_toolbar
+          empty: true
+          override_list_on_off: true
+          override_grid_on_off: true
+          override-default-display-mode: list
       exposed_block: true
       display_extenders: {  }
       path: search
+      menu:
+        type: normal
+        title: Search
+        description: 'Search repository content'
+        weight: -9
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
