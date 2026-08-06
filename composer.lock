@@ -2209,16 +2209,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.4.4",
+            "version": "11.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "37366eee85534e018eb53eadc261d26a46a9b6f4"
+                "reference": "a07143587a57d892a892b8b5a2d0cdc5a98f31c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/37366eee85534e018eb53eadc261d26a46a9b6f4",
-                "reference": "37366eee85534e018eb53eadc261d26a46a9b6f4",
+                "url": "https://api.github.com/repos/drupal/core/zipball/a07143587a57d892a892b8b5a2d0cdc5a98f31c2",
+                "reference": "a07143587a57d892a892b8b5a2d0cdc5a98f31c2",
                 "shasum": ""
             },
             "require": {
@@ -2274,7 +2274,7 @@
                 "symfony/validator": "^7.4",
                 "symfony/yaml": "^7.4.12",
                 "twig/html-extra": "^3.23",
-                "twig/twig": "^3.27.0"
+                "twig/twig": "^3.28.0"
             },
             "conflict": {
                 "dealerdirect/phpcodesniffer-composer-installer": "1.1.0",
@@ -2306,7 +2306,11 @@
                 "drupal/core-transliteration": "self.version",
                 "drupal/core-utility": "self.version",
                 "drupal/core-uuid": "self.version",
-                "drupal/core-version": "self.version"
+                "drupal/core-version": "self.version",
+                "drupal/search": "*",
+                "drupal/settings_tray": "*",
+                "drupal/shortcut": "*",
+                "drupal/toolbar": "*"
             },
             "suggest": {
                 "ext-zip": "Needed to extend the plugin.manager.archiver service capability with the handling of files in the ZIP format."
@@ -2386,7 +2390,7 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.4.4"
+                "source": "https://github.com/drupal/core/tree/11.4.5"
             },
             "funding": [
                 {
@@ -2394,11 +2398,11 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-07-15T18:02:21+00:00"
+            "time": "2026-08-06T09:28:11+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.4.4",
+            "version": "11.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2442,29 +2446,29 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.4.4"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.4.5"
             },
             "time": "2026-07-09T23:23:24+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.4.4",
+            "version": "11.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "17ea388598063ead0f9dc70cdaac8afaf2828048"
+                "reference": "b08738b914bffb9adafc40b7b70d965c3810e750"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/17ea388598063ead0f9dc70cdaac8afaf2828048",
-                "reference": "17ea388598063ead0f9dc70cdaac8afaf2828048",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/b08738b914bffb9adafc40b7b70d965c3810e750",
+                "reference": "b08738b914bffb9adafc40b7b70d965c3810e750",
                 "shasum": ""
             },
             "require": {
                 "asm89/stack-cors": "~v2.4.0",
                 "composer/semver": "~3.4.4",
                 "doctrine/lexer": "~3.0.1",
-                "drupal/core": "11.4.4",
+                "drupal/core": "11.4.5",
                 "egulias/email-validator": "~4.0.4",
                 "justinrainbow/json-schema": "~6.8.2",
                 "marc-mabe/php-enum": "~v4.7.2",
@@ -2520,9 +2524,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.4.4"
+                "source": "https://github.com/drupal/core-recommended/tree/11.4.5"
             },
-            "time": "2026-07-15T18:02:21+00:00"
+            "time": "2026-08-06T09:28:11+00:00"
         },
         {
             "name": "drupal/csv_serialization",
@@ -4790,17 +4794,17 @@
         },
         {
             "name": "drupal/rest_oai_pmh",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rest_oai_pmh.git",
-                "reference": "2.3.2"
+                "reference": "2.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.3.2.zip",
-                "reference": "2.3.2",
-                "shasum": "d0cc6b49ee8ecfa0cdde56f73f70fbc894b96413"
+                "url": "https://ftp.drupal.org/files/projects/rest_oai_pmh-2.3.3.zip",
+                "reference": "2.3.3",
+                "shasum": "236ff29801dd65d528eee572b78ad18f603dd5ce"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -4811,8 +4815,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.3.2",
-                    "datestamp": "1778704100",
+                    "version": "2.3.3",
+                    "datestamp": "1785672924",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
