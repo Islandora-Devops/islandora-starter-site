@@ -43,7 +43,7 @@
         "drupal/controlled_access_terms": "^2",
         "drupal/core-composer-scaffold": "^11.1",
         "drupal/core-recommended": "^11.1",
-        "drupal/facets": "^2",
+        "drupal/facets": "^3",
         "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.2",
