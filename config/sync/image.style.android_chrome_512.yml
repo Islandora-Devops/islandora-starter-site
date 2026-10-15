@@ -1,0 +1,17 @@
+uuid: 80f68762-6ef2-4e00-8f2c-4d0fb6204123
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Cf9YLkQiNlDKQwdkFh665p0_hg-hBdFTsr_7XyZttkc
+name: android_chrome_512
+label: 'Android Chrome (512x512)'
+effects:
+  resize:
+    uuid: resize
+    id: image_scale_and_crop
+    weight: 0
+    data:
+      width: 512
+      height: 512
+      anchor: center-center

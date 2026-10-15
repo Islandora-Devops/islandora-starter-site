@@ -1,0 +1,32 @@
+uuid: c5dafa34-14c2-4c09-8c2c-b66713aa7bee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+  enforced:
+    module:
+      - dxpr_theme_helper
+_core:
+  default_config_hash: phGMMrBGUqfR0yNfSqUbz_QPky4ZrTW5GLXzMiI3HUM
+id: node.field_dth_page_layout
+field_name: field_dth_page_layout
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fullwidth
+      label: 'Full Width'
+    -
+      value: boxed
+      label: 'Boxed Layout'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

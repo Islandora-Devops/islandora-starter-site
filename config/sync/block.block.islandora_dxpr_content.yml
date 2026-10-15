@@ -1,0 +1,22 @@
+uuid: 8b1fb556-1767-453a-94c2-266da7065936
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: islandora_dxpr_content
+theme: islandora_dxpr
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

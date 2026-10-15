@@ -1,0 +1,22 @@
+uuid: a5bf7ab0-5c3e-475a-b0cd-f3f7fb1644cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+_core:
+  default_config_hash: sJOmmmCsYP1YtJVCBjGneGJRr01sw45YrFN2fU4Rf7A
+id: node.field_dth_page_title_backgrou
+field_name: field_dth_page_title_backgrou
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: true
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

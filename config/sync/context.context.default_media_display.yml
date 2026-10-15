@@ -33,10 +33,10 @@ reactions:
         label: ''
         provider: views
         label_display: '0'
-        region: content_above
+        region: content_top
         weight: '0'
         custom_id: views_block_media_display_blocks_source
-        theme: olivero
+        theme: islandora_dxpr
         css_class: ''
         unique: 0
         context_id: default_media_display

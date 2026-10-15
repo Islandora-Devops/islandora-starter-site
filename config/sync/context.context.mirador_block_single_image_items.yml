@@ -33,10 +33,10 @@ reactions:
         label: 'Mirador block'
         provider: islandora_mirador
         label_display: '0'
-        region: content_above
+        region: content_top
         weight: '0'
         custom_id: mirador_block
-        theme: olivero
+        theme: islandora_dxpr
         css_class: ''
         unique: 0
         context_id: mirador_block_single_image_items

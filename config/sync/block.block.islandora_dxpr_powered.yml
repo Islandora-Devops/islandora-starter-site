@@ -1,0 +1,22 @@
+uuid: 37f6ff52-c1f7-433c-bccb-2881219a759b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: islandora_dxpr_powered
+theme: islandora_dxpr
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

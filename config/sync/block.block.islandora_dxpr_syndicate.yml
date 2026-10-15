@@ -1,0 +1,23 @@
+uuid: 60e7ad9c-43f7-48cf-b14a-90b71de53c30
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - islandora_dxpr
+_core:
+  default_config_hash: 0gq3VPg-_UM69FCCWurLFIrrnIjC2HLKhwo9iQNtcUo
+id: islandora_dxpr_syndicate
+theme: islandora_dxpr
+region: footer
+weight: -5
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

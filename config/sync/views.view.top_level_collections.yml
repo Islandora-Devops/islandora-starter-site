@@ -2,12 +2,16 @@ uuid: 39576d48-0ed7-477f-be71-ad084084c19b
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.node.field_description
+    - system.menu.main
   module:
     - dgi_image_discovery
     - media
     - node
     - taxonomy
     - user
+    - views_bootstrap
 id: top_level_collections
 label: 'Top Level Collections'
 module: views
@@ -78,7 +82,7 @@ display:
           type: media_thumbnail
           settings:
             image_style: ''
-            image_link: content
+            image_link: ''
             image_loading:
               attribute: lazy
           group_column: target_id
@@ -156,6 +160,68 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_description:
+          id: field_description
+          table: node__field_description
+          field: field_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 240
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: mini
         options:
@@ -203,7 +269,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'No collections have been created.'
+            value: '<p><strong>No collections are available yet.</strong> Use repository search to explore individual items, or return as new collections are published.</p>'
             format: basic_html
           tokenize: false
       sorts:
@@ -321,16 +387,18 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: grid
+        type: views_bootstrap_grid
         options:
           grouping: {  }
-          columns: 4
-          automatic_width: true
-          alignment: horizontal
-          row_class_custom: ''
-          row_class_default: true
-          col_class_custom: ''
-          col_class_default: true
+          row_class: islandora-card-column
+          default_row_class: true
+          grid_class: 'g-4 islandora-collection-grid'
+          col_xs: col-12
+          col_sm: col-sm-6
+          col_md: col-md-4
+          col_lg: none
+          col_xl: col-xl-3
+          col_xxl: none
       row:
         type: fields
         options:
@@ -367,7 +435,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h2>Top-Level Collections</h2>'
+            value: '<h2>Explore the collections</h2><p>Discover distinctive digital collections, preserved scholarship, and cultural heritage from across the repository.</p>'
             format: basic_html
           tokenize: false
       footer: {  }
@@ -380,7 +448,8 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_description'
   block_1:
     id: block_1
     display_title: Block
@@ -412,18 +481,28 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_description'
   page_1:
     id: page_1
     display_title: Page
     display_plugin: page
     position: 1
     display_options:
-      title: '<blank>'
+      title: 'Digital Collections'
       defaults:
         title: false
       display_extenders: {  }
       path: collections
+      menu:
+        type: normal
+        title: Collections
+        description: 'Browse digital collections'
+        weight: -10
+        expanded: false
+        menu_name: main
+        parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
@@ -432,4 +511,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_description'

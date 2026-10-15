@@ -33,10 +33,10 @@ reactions:
         label: 'Multipage Viewer'
         provider: openseadragon
         label_display: visible
-        region: content_above
+        region: content_top
         weight: '0'
         custom_id: openseadragon_block
-        theme: olivero
+        theme: islandora_dxpr
         css_class: ''
         unique: 0
         context_id: openseadragon_block

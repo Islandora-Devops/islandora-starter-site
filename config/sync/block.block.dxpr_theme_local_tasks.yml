@@ -1,0 +1,22 @@
+uuid: 214706a8-d00a-433c-bc86-73d8ca6c18af
+langcode: en
+status: false
+dependencies:
+  theme:
+    - dxpr_theme
+_core:
+  default_config_hash: bqcUyJfypWnp1brZbJafXVGafynv0TAEfKEDh4893qM
+id: dxpr_theme_local_tasks
+theme: dxpr_theme
+region: secondary_header
+weight: -20
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

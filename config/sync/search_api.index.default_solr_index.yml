@@ -579,7 +579,7 @@ processor_settings:
     prefix: '<strong>'
     suffix: '</strong>'
     excerpt: true
-    excerpt_always: true
+    excerpt_always: false
     excerpt_length: 256
     exclude_fields:
       - abstract_description_fulltext

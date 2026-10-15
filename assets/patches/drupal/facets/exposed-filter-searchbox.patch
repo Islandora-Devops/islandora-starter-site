@@ -1,0 +1,392 @@
+diff --git a/modules/facets_searchbox_widget/config/schema/facets_searchbox_widget.schema.yml b/modules/facets_searchbox_widget/config/schema/facets_searchbox_widget.schema.yml
+index baa70b7..c07f111 100755
+--- a/modules/facets_searchbox_widget/config/schema/facets_searchbox_widget.schema.yml
++++ b/modules/facets_searchbox_widget/config/schema/facets_searchbox_widget.schema.yml
+@@ -2,3 +2,14 @@ facet.widget.config.searchbox_checkbox:
+   type: facet.widget.config.checkbox
+ facet.widget.config.searchbox_links:
+   type: facet.widget.config.links
++
++better_exposed_filters.filter.facets_searchbox:
++  label: 'Searchable facet options'
++  type: better_exposed_filters.filter.bef
++  mapping:
++    searchbox_placeholder:
++      type: label
++      label: 'Searchbox placeholder'
++    searchbox_no_results:
++      type: label
++      label: 'No matching options message'
+diff --git a/modules/facets_searchbox_widget/css/searchbox.css b/modules/facets_searchbox_widget/css/searchbox.css
+index 9cd1ff1..ae175eb 100755
+--- a/modules/facets_searchbox_widget/css/searchbox.css
++++ b/modules/facets_searchbox_widget/css/searchbox.css
+@@ -17,3 +17,28 @@
+ .hide-if-no-result.hide {
+   display: none;
+ }
++
++.facets-exposed-searchbox {
++  margin-block-end: 1rem;
++}
++
++.facets-exposed-searchbox[hidden],
++.facets-exposed-searchbox__no-results[hidden],
++.facets-exposed-searchbox__options .form-check[hidden],
++.facets-exposed-searchbox__options .js-form-type-checkbox[hidden],
++.facets-exposed-searchbox__options .js-form-type-radio[hidden] {
++  display: none !important;
++}
++
++.facets-exposed-searchbox__label {
++  display: block;
++  margin-block-end: 0.25rem;
++}
++
++.facets-exposed-searchbox__input {
++  inline-size: 100%;
++}
++
++.facets-exposed-searchbox__no-results {
++  margin-block: 0.75rem 0;
++}
+diff --git a/modules/facets_searchbox_widget/facets_searchbox_widget.info.yml b/modules/facets_searchbox_widget/facets_searchbox_widget.info.yml
+index 77a953e..54d10c7 100644
+--- a/modules/facets_searchbox_widget/facets_searchbox_widget.info.yml
++++ b/modules/facets_searchbox_widget/facets_searchbox_widget.info.yml
+@@ -5,6 +5,8 @@ core_version_requirement: ^10.1 || ^11
+ package: Search
+ dependencies:
+   - facets:facets
++  - facets:facets_exposed_filters
++  - better_exposed_filters:better_exposed_filters
+ test_dependencies:
+   - search_api:search_api
+   - facets:facets
+diff --git a/modules/facets_searchbox_widget/js/searchbox.js b/modules/facets_searchbox_widget/js/searchbox.js
+index 1b628de..862c727 100644
+--- a/modules/facets_searchbox_widget/js/searchbox.js
++++ b/modules/facets_searchbox_widget/js/searchbox.js
+@@ -3,7 +3,7 @@
+  * Provides the searchbox functionality.
+  */
+ 
+-(function ($) {
++(function ($, Drupal, once) {
+   Drupal.facets = Drupal.facets || {};
+ 
+   Drupal.behaviors.facets_searchbox = {
+@@ -120,4 +120,104 @@
+       });
+     },
+   };
+-})(jQuery);
++
++  /**
++   * Filters Facets exposed-filter options rendered by Better Exposed Filters.
++   */
++  Drupal.behaviors.facetsExposedSearchbox = {
++    attach: (context) => {
++      once(
++        'facets-exposed-searchbox',
++        '[data-facets-searchbox-exposed]',
++        context,
++      ).forEach((control) => {
++        const input = control.querySelector(
++          '.facets-exposed-searchbox__input',
++        );
++        const status = control.querySelector(
++          '.facets-exposed-searchbox__status',
++        );
++        const noResults = control.querySelector(
++          '.facets-exposed-searchbox__no-results',
++        );
++
++        if (!input || !status || !noResults) {
++          return;
++        }
++
++        const targetId = input.getAttribute('aria-controls');
++        const target = targetId ? document.getElementById(targetId) : null;
++
++        if (!target) {
++          return;
++        }
++
++        const items = [
++          ...new Set(
++            Array.from(
++              target.querySelectorAll(
++                'input[type="checkbox"], input[type="radio"]',
++              ),
++            )
++              .map((option) =>
++                option.closest(
++                  '.form-check, .js-form-type-checkbox, .js-form-type-radio',
++                ),
++              )
++              .filter(Boolean),
++          ),
++        ];
++
++        if (items.length === 0) {
++          return;
++        }
++
++        const normalize = (value) =>
++          value
++            .normalize('NFKD')
++            .replace(/[\u0300-\u036f]/g, '')
++            .toLocaleLowerCase()
++            .trim();
++
++        const labels = new Map(
++          items.map((item) => {
++            const label = item.querySelector('label');
++            return [item, normalize(label ? label.textContent : item.textContent)];
++          }),
++        );
++
++        const update = () => {
++          const query = normalize(input.value);
++          let matches = 0;
++
++          items.forEach((item) => {
++            const matchesQuery =
++              query === '' || labels.get(item).includes(query);
++            item.hidden = !matchesQuery;
++            matches += matchesQuery ? 1 : 0;
++          });
++
++          noResults.hidden = query === '' || matches !== 0;
++          status.textContent =
++            query === ''
++              ? Drupal.formatPlural(
++                  items.length,
++                  '1 option available.',
++                  '@count options available.',
++                )
++              : Drupal.formatPlural(
++                  matches,
++                  '1 matching option.',
++                  '@count matching options.',
++                );
++        };
++
++        input.addEventListener('input', update);
++        // Browsers emit search when the native clear affordance is used.
++        input.addEventListener('search', update);
++        control.hidden = false;
++        update();
++      });
++    },
++  };
++})(jQuery, Drupal, once);
+diff --git a/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php b/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php
+new file mode 100644
+index 0000000..073664b
+--- /dev/null
++++ b/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php
+@@ -0,0 +1,202 @@
++<?php
++
++namespace Drupal\facets_searchbox_widget\Plugin\better_exposed_filters\filter;
++
++use Drupal\Component\Utility\Html;
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\Core\StringTranslation\TranslatableMarkup;
++use Drupal\better_exposed_filters\Attribute\FiltersWidget;
++use Drupal\better_exposed_filters\Plugin\better_exposed_filters\filter\RadioButtons;
++use Drupal\facets_exposed_filters\Plugin\views\filter\FacetsFilter;
++
++/**
++ * Provides searchable checkbox or radio options for exposed facets.
++ */
++#[FiltersWidget(
++  id: 'facets_searchbox',
++  title: new TranslatableMarkup('Searchable facet options'),
++)]
++class Searchbox extends RadioButtons {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function defaultConfiguration(): array {
++    return parent::defaultConfiguration() + [
++      'searchbox_placeholder' => '',
++      'searchbox_no_results' => '',
++    ];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function isApplicable(mixed $filter = NULL, array $filter_options = []): bool {
++    return $filter instanceof FacetsFilter;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
++    $form = parent::buildConfigurationForm($form, $form_state);
++
++    $form['searchbox_placeholder'] = [
++      '#type' => 'textfield',
++      '#title' => $this->t('Searchbox placeholder'),
++      '#default_value' => $this->configuration['searchbox_placeholder'],
++      '#description' => $this->t('Leave blank to use the accessible searchbox label.'),
++    ];
++    $form['searchbox_no_results'] = [
++      '#type' => 'textfield',
++      '#title' => $this->t('No matching options message'),
++      '#default_value' => $this->configuration['searchbox_no_results'],
++      '#description' => $this->t('Leave blank to use “No matching options.”'),
++    ];
++
++    return $form;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function exposedFormAlter(array &$form, FormStateInterface $form_state): void {
++    parent::exposedFormAlter($form, $form_state);
++
++    $filter = $this->handler;
++    if (!$filter instanceof FacetsFilter) {
++      return;
++    }
++
++    $field_id = $filter->options['is_grouped']
++      ? $filter->options['group_info']['identifier']
++      : $filter->options['expose']['identifier'];
++    $wrapper_id = $field_id . '_wrapper';
++
++    if (!empty($form[$wrapper_id][$field_id])) {
++      $target_top_level_key = $wrapper_id;
++      $options = &$form[$wrapper_id][$field_id];
++    }
++    elseif (!empty($form[$field_id])) {
++      $target_top_level_key = $field_id;
++      $options = &$form[$field_id];
++    }
++    else {
++      return;
++    }
++
++    $facet_label = trim((string) ($filter->options['expose']['label'] ?? ''));
++    if ($facet_label === '') {
++      $facet_label = (string) $this->t('facet');
++    }
++
++    $id_base = Html::cleanCssIdentifier(implode('-', [
++      $this->view->id(),
++      $this->view->current_display,
++      $field_id,
++    ]));
++    $target_id = Html::getUniqueId('facets-searchbox-options-' . $id_base);
++    $input_id = Html::getUniqueId('facets-searchbox-input-' . $id_base);
++    $status_id = Html::getUniqueId('facets-searchbox-status-' . $id_base);
++    $search_label = $this->t('Search @facet options', [
++      '@facet' => $facet_label,
++    ]);
++    $placeholder = trim((string) $this->configuration['searchbox_placeholder']);
++    $no_results = trim((string) $this->configuration['searchbox_no_results']);
++
++    $options['#attributes']['id'] = $target_id;
++    $option_classes = (array) ($options['#attributes']['class'] ?? []);
++    $option_classes[] = 'facets-exposed-searchbox__options';
++    $options['#attributes']['class'] = array_values(array_unique($option_classes));
++
++    $control_key = $field_id . '_facets_searchbox';
++    $control = [
++      '#type' => 'container',
++      '#attributes' => [
++        'class' => ['facets-exposed-searchbox'],
++        'data-facets-searchbox-exposed' => TRUE,
++        'hidden' => 'hidden',
++      ],
++      '#attached' => [
++        'library' => ['facets_searchbox_widget/searchbox'],
++      ],
++      'label' => [
++        '#type' => 'html_tag',
++        '#tag' => 'label',
++        '#value' => $search_label,
++        '#attributes' => [
++          'for' => $input_id,
++          'class' => ['facets-exposed-searchbox__label'],
++        ],
++      ],
++      'input' => [
++        '#type' => 'html_tag',
++        '#tag' => 'input',
++        '#attributes' => [
++          'id' => $input_id,
++          'type' => 'search',
++          'class' => [
++            'facets-exposed-searchbox__input',
++            'form-search',
++            'form-control',
++          ],
++          'placeholder' => $placeholder !== '' ? $placeholder : $search_label,
++          'aria-controls' => $target_id,
++          'aria-describedby' => $status_id,
++          'autocomplete' => 'off',
++          'data-bef-auto-submit-exclude' => TRUE,
++        ],
++      ],
++      'status' => [
++        '#type' => 'html_tag',
++        '#tag' => 'span',
++        '#value' => '',
++        '#attributes' => [
++          'id' => $status_id,
++          'class' => [
++            'facets-exposed-searchbox__status',
++            'visually-hidden',
++          ],
++          'role' => 'status',
++          'aria-live' => 'polite',
++          'aria-atomic' => 'true',
++        ],
++      ],
++      'no_results' => [
++        '#type' => 'html_tag',
++        '#tag' => 'p',
++        '#value' => $no_results !== ''
++          ? $no_results
++          : $this->t('No matching options.'),
++        '#attributes' => [
++          'class' => ['facets-exposed-searchbox__no-results'],
++          'hidden' => 'hidden',
++        ],
++      ],
++    ];
++
++    if (isset($form[$target_top_level_key]['#weight'])) {
++      $control['#weight'] = $form[$target_top_level_key]['#weight'];
++    }
++
++    $ordered_form = [];
++    foreach ($form as $key => $element) {
++      if ($key === $target_top_level_key) {
++        $ordered_form[$control_key] = $control;
++      }
++      $ordered_form[$key] = $element;
++    }
++    $form = $ordered_form;
++
++    $collapsible_group = $field_id . '_collapsible';
++    if (!empty($form[$collapsible_group])) {
++      $this->addElementToGroup(
++        $form,
++        $form_state,
++        $control_key,
++        $collapsible_group,
++      );
++    }
++  }
++
++}

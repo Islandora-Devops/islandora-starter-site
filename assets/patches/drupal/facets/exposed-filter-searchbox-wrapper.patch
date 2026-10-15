@@ -1,0 +1,20 @@
+diff --git a/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php b/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php
+index 073664b..ec68979 100644
+--- a/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php
++++ b/modules/facets_searchbox_widget/src/Plugin/better_exposed_filters/filter/Searchbox.php
+@@ -104,10 +104,11 @@ class Searchbox extends RadioButtons {
+     $placeholder = trim((string) $this->configuration['searchbox_placeholder']);
+     $no_results = trim((string) $this->configuration['searchbox_no_results']);
+ 
+-    $options['#attributes']['id'] = $target_id;
+-    $option_classes = (array) ($options['#attributes']['class'] ?? []);
+-    $option_classes[] = 'facets-exposed-searchbox__options';
+-    $options['#attributes']['class'] = array_values(array_unique($option_classes));
++    // A checkboxes element copies #attributes to every input. Use a wrapper
++    // so aria-controls has one unique target instead of duplicating IDs.
++    $options['#prefix'] = ($options['#prefix'] ?? '')
++      . '<div id="' . $target_id . '" class="facets-exposed-searchbox__options">';
++    $options['#suffix'] = '</div>' . ($options['#suffix'] ?? '');
+ 
+     $control_key = $field_id . '_facets_searchbox';
+     $control = [

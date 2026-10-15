@@ -1,0 +1,125 @@
+diff --git a/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php b/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php
+index bc0a876..1129bf3 100644
+--- a/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php
++++ b/modules/facets_exposed_filters/src/Plugin/views/filter/FacetsFilter.php
+@@ -404,7 +404,29 @@ class FacetsFilter extends FilterPluginBase implements ContainerFactoryPluginInt
+   public function acceptExposedInput($input) {
+     // Modules like views_dependent_filters alter the exposed option to ignore
+     // the filter when hidden. We need to check for this.
+-    return $this->isExposed();
++    if (!$this->isExposed()) {
++      return FALSE;
++    }
++
++    // Keep the exposed handler active even if this request only changed a
++    // different facet, the sort, or the pager. Views skips query() when an
++    // exposed handler rejects the input, but every facet still contributes its
++    // own query and result buckets.
++    $identifier = $this->options['expose']['identifier'];
++    if (!isset($input[$identifier]) || $input[$identifier] === 'All') {
++      $this->value = [];
++      return TRUE;
++    }
++
++    $value = $input[$identifier];
++    if (is_array($value) && $this->hasExposedRangeKeys($value)) {
++      $this->value = $this->getExposedRangeValues($value);
++    }
++    else {
++      $this->value = is_array($value) ? array_values($value) : [$value];
++    }
++
++    return TRUE;
+   }
+ 
+   /**
+diff --git a/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php b/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php
+index 82bc364..1a5cf67 100644
+--- a/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php
++++ b/modules/facets_exposed_filters/tests/src/Unit/FacetsFilterTest.php
+@@ -298,6 +298,85 @@ final class FacetsFilterTest extends UnitTestCase {
+     self::assertTrue($has_range_keys);
+   }
+ 
++  /**
++   * Tests that accepted checkbox values populate the Views filter value.
++   */
++  public function testAcceptExposedInputSetsCheckboxValues(): void {
++    $filter = (new \ReflectionClass(FacetsFilter::class))->newInstanceWithoutConstructor();
++    $filter->options = [
++      'exposed' => TRUE,
++      'expose' => ['identifier' => 'resource_type'],
++    ];
++
++    self::assertTrue($filter->acceptExposedInput([
++      'resource_type' => [
++        'image' => 'image',
++        'video' => 'video',
++      ],
++    ]));
++    self::assertSame(['image', 'video'], $filter->value);
++  }
++
++  /**
++   * Tests that accepted range values preserve their endpoint keys.
++   */
++  public function testAcceptExposedInputPreservesRangeValues(): void {
++    $filter = (new \ReflectionClass(FacetsFilter::class))->newInstanceWithoutConstructor();
++    $filter->options = [
++      'exposed' => TRUE,
++      'expose' => ['identifier' => 'year'],
++    ];
++
++    self::assertTrue($filter->acceptExposedInput([
++      'year' => [
++        'min' => '1900',
++        'max' => '2026',
++      ],
++    ]));
++    self::assertSame([
++      'min' => '1900',
++      'max' => '2026',
++    ], $filter->value);
++  }
++
++  /**
++   * Tests that absent and neutral input keeps the facet query active.
++   */
++  public function testAcceptExposedInputKeepsInactiveFacetQueryActive(): void {
++    $filter = (new \ReflectionClass(FacetsFilter::class))->newInstanceWithoutConstructor();
++    $filter->options = [
++      'exposed' => TRUE,
++      'expose' => ['identifier' => 'resource_type'],
++    ];
++
++    $filter->value = ['stale'];
++    self::assertTrue($filter->acceptExposedInput([
++      'order' => 'title_asc',
++    ]));
++    self::assertSame([], $filter->value);
++
++    $filter->value = ['stale'];
++    self::assertTrue($filter->acceptExposedInput([
++      'resource_type' => 'All',
++    ]));
++    self::assertSame([], $filter->value);
++  }
++
++  /**
++   * Tests that a facet hidden by another module is not accepted.
++   */
++  public function testAcceptExposedInputRejectsUnexposedFacet(): void {
++    $filter = (new \ReflectionClass(FacetsFilter::class))->newInstanceWithoutConstructor();
++    $filter->options = [
++      'exposed' => FALSE,
++      'expose' => ['identifier' => 'resource_type'],
++    ];
++
++    self::assertFalse($filter->acceptExposedInput([
++      'resource_type' => ['image' => 'image'],
++    ]));
++  }
++
+   /**
+    * Invokes a private method on the subject.
+    *

@@ -34,13 +34,13 @@ reactions:
       c22706b2-3f26-4b40-aacc-856c6a87176e:
         uuid: c22706b2-3f26-4b40-aacc-856c6a87176e
         id: citation_select_block
-        label: 'Citation Select Block'
+        label: 'Cite this item'
         provider: citation_select
-        label_display: '0'
+        label_display: visible
         region: content
         weight: '0'
         custom_id: citation_select_block
-        theme: olivero
+        theme: islandora_dxpr
         css_class: ''
         unique: 0
         context_id: citation_select_block

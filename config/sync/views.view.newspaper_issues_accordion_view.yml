@@ -8,7 +8,7 @@ dependencies:
     - controlled_access_terms
     - node
     - user
-    - views_nested_details
+    - views_bootstrap
 id: newspaper_issues_accordion_view
 label: 'Newspaper Issues'
 module: views
@@ -584,19 +584,20 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       style:
-        type: nested_details
+        type: views_bootstrap_accordion
         options:
           grouping:
             -
               field: field_edtf_date_issued
               rendered: true
               rendered_strip: false
-            -
-              field: field_edtf_date_issued_1
-              rendered: true
-              rendered_strip: false
           row_class: ''
           default_row_class: true
+          panel_output: grouped
+          panel_title_field: field_edtf_date_issued_1
+          flush: false
+          behavior: closed
+          sections: {  }
       row:
         type: fields
         options:

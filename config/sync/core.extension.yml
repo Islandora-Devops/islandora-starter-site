@@ -32,13 +32,16 @@ module:
   dblog: 0
   devel: 0
   dgi_image_discovery: 0
+  dxpr_theme_helper: 0
   dynamic_page_cache: 0
   editor: 0
   eva: 0
   facets: 0
-  facets_summary: 0
+  facets_exposed_filters: 0
+  facets_searchbox_widget: 0
   field: 0
   field_group: 0
+  field_group_bootstrap: 0
   field_permissions: 0
   field_report: 0
   field_ui: 0
@@ -78,6 +81,7 @@ module:
   link: 0
   media: 0
   media_library: 0
+  media_library_form_element: 0
   menu_link_content: 0
   menu_ui: 0
   migrate: 0
@@ -91,7 +95,6 @@ module:
   path: 0
   path_alias: 0
   pdf: 0
-  pgsql: 0
   prepopulate: 0
   rdf: 0
   responsive_image: 0
@@ -101,7 +104,6 @@ module:
   search_api_solr: 0
   serialization: 0
   shortcut: 0
-  sqlite: 0
   syslog: 0
   system: 0
   taxonomy: 0
@@ -115,8 +117,11 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views_bootstrap: 0
   views_data_export: 0
   views_field_view: 0
+  views_filters_summary: 0
+  views_filters_summary_a11y: 0
   views_nested_details: 0
   views_ui: 0
   pathauto: 1
@@ -126,4 +131,8 @@ module:
 theme:
   olivero: 0
   claro: 0
+  stable9: 0
+  bootstrap5: 0
+  dxpr_theme: 0
+  islandora_dxpr: 0
 profile: minimal
