@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f6ce06f6a5ce3b0751f7c7521b3998e",
+    "content-hash": "2c7c6b2a0ec8bf8dc45e66352978d1c8",
     "packages": [
         {
             "name": "adci/full-name-parser",
@@ -2737,17 +2737,17 @@
         },
         {
             "name": "drupal/dxpr_theme",
-            "version": "8.1.4",
+            "version": "8.2.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/dxpr_theme.git",
-                "reference": "8.1.4"
+                "reference": "8.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/dxpr_theme-8.1.4.zip",
-                "reference": "8.1.4",
-                "shasum": "dbe4ccfa5f4d3f6535e80783773df355721d5ee8"
+                "url": "https://ftp.drupal.org/files/projects/dxpr_theme-8.2.2.zip",
+                "reference": "8.2.2",
+                "shasum": "3048e4e14946b52ef7e898ab64b4dad5d272f2b6"
             },
             "require": {
                 "drupal/bootstrap5": "^3 || ^4",
@@ -2758,8 +2758,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.1.4",
-                    "datestamp": "1785305942",
+                    "version": "8.2.2",
+                    "datestamp": "1792048882",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3883,17 +3883,17 @@
         },
         {
             "name": "drupal/islandora_dxpr",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/islandora_dxpr.git",
-                "reference": "1.0.0-alpha4"
+                "reference": "1.0.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/islandora_dxpr-1.0.0-alpha4.zip",
-                "reference": "1.0.0-alpha4",
-                "shasum": "df2902ad76015ed95ee1e2a4e2adc1f8c2a462fb"
+                "url": "https://ftp.drupal.org/files/projects/islandora_dxpr-1.0.0-beta1.zip",
+                "reference": "1.0.0-beta1",
+                "shasum": "ac1b1ab377b7df144bc9272542bb0e28f7c0eed8"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -3903,11 +3903,11 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha4",
-                    "datestamp": "1785444510",
+                    "version": "1.0.0-beta1",
+                    "datestamp": "1792100418",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -14100,7 +14100,7 @@
         "drupal/config_update": 15,
         "drupal/context": 5,
         "drupal/flysystem": 15,
-        "drupal/islandora_dxpr": 15,
+        "drupal/islandora_dxpr": 10,
         "drupal/rest_oai_pmh": 10,
         "drupal/term_merge": 10,
         "drupal/upgrade_status": 15,

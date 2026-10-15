@@ -53,7 +53,7 @@
         "drupal/fpa": "^4.0",
         "drupal/hal": "^1.0||^2.0",
         "drupal/islandora": "^2.12.3",
-        "drupal/islandora_dxpr": "^1.0@alpha",
+        "drupal/islandora_dxpr": "^1.0@beta",
         "drupal/islandora_mirador": "^3",
         "drupal/openseadragon": "^3",
         "drupal/pathauto": "^1.12",
