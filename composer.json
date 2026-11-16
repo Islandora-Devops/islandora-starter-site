@@ -30,7 +30,7 @@
         "php": "^8.3",
         "born-digital/islandora_iiif_hocr": "^2.0",
         "composer/installers": "^2.0",
-        "cweagans/composer-patches": "^1.7",
+        "cweagans/composer-patches": "^2.0",
         "discoverygarden/dgi_image_discovery": "^1",
         "discoverygarden/islandora_hocr": "^1.4",
         "drupal/admin_toolbar": "^3.1",
