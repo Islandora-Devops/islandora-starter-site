@@ -59,10 +59,12 @@
     'dependencies',
   ],
   osvVulnerabilityAlerts: true,
-  "postUpdateOptions": [
-    "composerWithAll"
+  postUpdateOptions: [
+    'composerWithAll',
   ],
-  dependencyDashboardOSVVulnerabilitySummary: 'unresolved',
+  dependencyDashboard: {
+    osvVulnerabilitySummary: 'unresolved',
+  },
   vulnerabilityAlerts: {
     enabled: true,
   },
